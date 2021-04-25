@@ -1,1 +1,7 @@
-es\iespuertolacruz\pokemon\App.class
+es\iespuertolacruz\pokemon\controller\PokemonController.class
+es\iespuertolacruz\pokemon\modelo\PokemonModelo.class
+es\iespuertolacruz\pokemon\api\Caracteristicas.class
+es\iespuertolacruz\pokemon\api\EstadisticasBase.class
+es\iespuertolacruz\pokemon\api\Pokemon.class
+es\iespuertolacruz\pokemon\exception\PokemonException.class
+es\iespuertolacruz\pokemon\vista\App.class
