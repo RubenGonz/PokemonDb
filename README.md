@@ -7,10 +7,10 @@
 *****
  ## Contenido 
 
-* [Acerca de]()
+* [Acerca de](https://github.com/RubenGonz/PokemonDb#acerca-de)
 * [Manuales](https://github.com/RubenGonz/PokemonDb#manuales)
-* [Descargar]()
-* [Licencia]()
+* [Descargar](https://github.com/RubenGonz/PokemonDb#descarga)
+* [Licencia](https://github.com/RubenGonz/PokemonDb#licencia)
 
 *****
 
