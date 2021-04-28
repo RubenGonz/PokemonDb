@@ -8,7 +8,7 @@
  ## Contenido 
 
 * [Acerca de]()
-* [Manuales]()
+* [Manuales](https://github.com/RubenGonz/PokemonDb#manuales)
 * [Descargar]()
 * [Licencia]()
 
