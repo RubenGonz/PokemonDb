@@ -1,0 +1,8 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+PokemonApp,es.iespuertolacruz.pokemon.exception,PokemonException,3,0,0,0,1,0,1,0,1,0
+PokemonApp,es.iespuertolacruz.pokemon.api,EstadisticasBase,5,122,8,8,2,38,8,16,0,16
+PokemonApp,es.iespuertolacruz.pokemon.api,Caracteristicas,5,128,8,8,2,38,8,16,0,16
+PokemonApp,es.iespuertolacruz.pokemon.api,Pokemon,5,127,8,8,2,36,8,16,0,16
+PokemonApp,es.iespuertolacruz.pokemon.modelo,PokemonModelo,3,0,0,0,1,0,1,0,1,0
+PokemonApp,es.iespuertolacruz.pokemon.controller,PokemonController,3,0,0,0,1,0,1,0,1,0
+PokemonApp,es.iespuertolacruz.pokemon.vista,App,7,0,0,0,3,0,2,0,2,0

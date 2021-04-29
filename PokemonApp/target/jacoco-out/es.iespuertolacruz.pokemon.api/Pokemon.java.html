@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Pokemon.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PokemonApp</a> &gt; <a href="index.source.html" class="el_package">es.iespuertolacruz.pokemon.api</a> &gt; <span class="el_source">Pokemon.java</span></div><h1>Pokemon.java</h1><pre class="source lang-java linenums">package es.iespuertolacruz.pokemon.api;
+
+import java.util.Objects;
+
+/**
+ * Clase principal de pokemon
+ */
+public class Pokemon {
+
+    // Variables de clase
+
+    int numeroPokedex;
+    String nombre;
+    String tipoPrincipal;
+    String tipoSecundario;
+    Caracteristicas caracteristicas;
+    EstadisticasBase estadisticasBase;
+
+    //Constructores
+
+    /**
+     * Construcor por defecto
+     */
+<span class="fc" id="L24">    public Pokemon() {</span>
+<span class="fc" id="L25">    }</span>
+
+    /**
+     * Constructor con todos los parametros de pokemon
+     * @param numeroPokedex identificador del pokemon 
+     * @param nombre del pokemon
+     * @param tipoPrincipal tipo obligatorio del pokemon
+     * @param tipoSecundario tipo opcional del pokemon
+     * @param caracteristicas del pokemon
+     * @param estadisticasBase del pokemon
+     */
+<span class="fc" id="L36">    public Pokemon(int numeroPokedex, String nombre, String tipoPrincipal, String tipoSecundario, Caracteristicas caracteristicas, EstadisticasBase estadisticasBase) {</span>
+<span class="fc" id="L37">        this.numeroPokedex = numeroPokedex;</span>
+<span class="fc" id="L38">        this.nombre = nombre;</span>
+<span class="fc" id="L39">        this.tipoPrincipal = tipoPrincipal;</span>
+<span class="fc" id="L40">        this.tipoSecundario = tipoSecundario;</span>
+<span class="fc" id="L41">        this.caracteristicas = caracteristicas;</span>
+<span class="fc" id="L42">        this.estadisticasBase = estadisticasBase;</span>
+<span class="fc" id="L43">    }</span>
+
+    //Getters and Setters
+
+    public int getNumeroPokedex() {
+<span class="fc" id="L48">        return this.numeroPokedex;</span>
+    }
+
+    public void setNumeroPokedex(int numeroPokedex) {
+<span class="fc" id="L52">        this.numeroPokedex = numeroPokedex;</span>
+<span class="fc" id="L53">    }</span>
+
+    public String getNombre() {
+<span class="fc" id="L56">        return this.nombre;</span>
+    }
+
+    public void setNombre(String nombre) {
+<span class="fc" id="L60">        this.nombre = nombre;</span>
+<span class="fc" id="L61">    }</span>
+
+    public String getTipoPrincipal() {
+<span class="fc" id="L64">        return this.tipoPrincipal;</span>
+    }
+
+    public void setTipoPrincipal(String tipoPrincipal) {
+<span class="fc" id="L68">        this.tipoPrincipal = tipoPrincipal;</span>
+<span class="fc" id="L69">    }</span>
+
+    public String getTipoSecundario() {
+<span class="fc" id="L72">        return this.tipoSecundario;</span>
+    }
+
+    public void setTipoSecundario(String tipoSecundario) {
+<span class="fc" id="L76">        this.tipoSecundario = tipoSecundario;</span>
+<span class="fc" id="L77">    }</span>
+
+    public Caracteristicas getCaracteristicas() {
+<span class="fc" id="L80">        return this.caracteristicas;</span>
+    }
+
+    public void setCaracteristicas(Caracteristicas caracteristicas) {
+<span class="fc" id="L84">        this.caracteristicas = caracteristicas;</span>
+<span class="fc" id="L85">    }</span>
+
+    public EstadisticasBase getEstadisticasBase() {
+<span class="fc" id="L88">        return this.estadisticasBase;</span>
+    }
+
+    public void setEstadisticasBase(EstadisticasBase estadisticasBase) {
+<span class="fc" id="L92">        this.estadisticasBase = estadisticasBase;</span>
+<span class="fc" id="L93">    }</span>
+
+    //Funciones y metodos
+
+    @Override
+    public boolean equals(Object o) {
+<span class="pc bpc" id="L99" title="1 of 2 branches missed.">        if (o == this)</span>
+<span class="nc" id="L100">            return true;</span>
+<span class="pc bpc" id="L101" title="1 of 2 branches missed.">        if (!(o instanceof Pokemon)) {</span>
+<span class="nc" id="L102">            return false;</span>
+        }
+<span class="fc" id="L104">        Pokemon pokemon = (Pokemon) o;</span>
+<span class="pc bpc" id="L105" title="6 of 12 branches missed.">        return numeroPokedex == pokemon.numeroPokedex &amp;&amp; Objects.equals(nombre, pokemon.nombre) &amp;&amp; Objects.equals(tipoPrincipal, pokemon.tipoPrincipal) &amp;&amp; Objects.equals(tipoSecundario, pokemon.tipoSecundario) &amp;&amp; Objects.equals(caracteristicas, pokemon.caracteristicas) &amp;&amp; Objects.equals(estadisticasBase, pokemon.estadisticasBase);</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="fc" id="L110">        return &quot;Pokemon numero &quot; + getNumeroPokedex() + &quot; &quot; + getNombre() + &quot;\n&quot; +</span>
+<span class="fc" id="L111">            &quot;TipoPrincipal = &quot; + getTipoPrincipal() + &quot;, tipoSecundario = &quot; + getTipoSecundario() + &quot;\n&quot; +</span>
+            &quot;Caracteristicas&quot; + &quot;\n&quot; + 
+<span class="fc" id="L113">            getCaracteristicas() + &quot;\n&quot; +</span>
+            &quot;Estadisticas base&quot; + &quot;\n&quot; + 
+<span class="fc" id="L115">            getEstadisticasBase() + &quot;\n&quot;;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
