@@ -15,12 +15,12 @@ USE PokemonDb;
  * Tabla donde se ven las caracteristicas de un pokemon
 */
 CREATE TABLE CARACTERISTICAS (
-    id_caracteristica INT,
-    peso FLOAT,
-    altura FLOAT,
+    id_caracteristica INT CHECK (id_caracteristica > 0),
+    peso FLOAT CHECK (peso > 0),
+    altura FLOAT CHECK (altura > 0),
     especie VARCHAR (20),
     habilidad VARCHAR (20),
-    categoria VARCHAR (20),
+    categoria VARCHAR (20) CHECK (categoria IN ("Normal", "Starter", "Semi-legendario", "Legendario")),
     PRIMARY KEY (id_caracteristica)
 );
 
@@ -28,13 +28,13 @@ CREATE TABLE CARACTERISTICAS (
  * Tabla donde se ven las estadisticas base de un pokemon
 */
 CREATE TABLE ESTADISTICAS_BASE (
-    id_estadisticas_base INT,
-    ps_base INT,
-    ataque_base INT,
-    defensa_base INT,
-    ataque_especial_base INT,
-    defensa_especial_base INT,
-    velocidad_base INT,
+    id_estadisticas_base INT CHECK (id_estadisticas_base > 0),
+    ps_base INT CHECK (ps_base > 0),
+    ataque_base INT CHECK (ataque_base > 0),
+    defensa_base INT CHECK (defensa_base > 0),
+    ataque_especial_base INT CHECK (ataque_especial_base > 0),
+    defensa_especial_base INT CHECK (defensa_especial_base > 0),
+    velocidad_base INT CHECK (velocidad_base > 0),
     PRIMARY KEY (id_estadisticas_base)
 );
 
@@ -42,12 +42,12 @@ CREATE TABLE ESTADISTICAS_BASE (
  * Tabla principal donde estan los pokemon
 */
 CREATE TABLE POKEMON (
-    numero_pokedex INT,
+    numero_pokedex INT CHECK (numero_pokedex > 0),
     nombre VARCHAR (15),
-    tipo_principal VARCHAR (10),
-    tipo_secundario VARCHAR (10),
-    id_caracteristica INT,
-    id_estadisticas_base INT,
+    tipo_principal VARCHAR (10) CHECK (tipo_principal IN ("Agua", "Bicho", "Dragon", "Electrico", "Fantasma", "Fuego", "Hielo", "Lucha", "Normal", "Planta", "Psiquico", "Roca", "Tierra", "Veneno", "Pajaro")),
+    tipo_secundario VARCHAR (10) CHECK (tipo_secundario IN ("Agua", "Bicho", "Dragon", "Electrico", "Fantasma", "Fuego", "Hielo", "Lucha", "Normal", "Planta", "Psiquico", "Roca", "Tierra", "Veneno", "Pajaro", NULL)),
+    id_caracteristica INT CHECK (id_caracteristica > 0),
+    id_estadisticas_base INT CHECK (id_estadisticas_base > 0),
     PRIMARY KEY (numero_pokedex),
     FOREIGN KEY (id_caracteristica) REFERENCES CARACTERISTICAS (id_caracteristica),
     FOREIGN KEY (id_estadisticas_base) REFERENCES ESTADISTICAS_BASE (id_estadisticas_base)
@@ -57,9 +57,9 @@ CREATE TABLE POKEMON (
  * Tabla donde se ve las evoluciones de un pokemon
 */
 CREATE TABLE EVOLUCIONA (
-    numero_pokedex_origen INT,
-    numero_pokedex_destino INT,
-    modo_evoluciona VARCHAR (20),
+    numero_pokedex_origen INT CHECK (numero_pokedex_origen > 0),
+    numero_pokedex_destino INT CHECK (numero_pokedex_destino > 0),
+    modo_evoluciona VARCHAR (20) CHECK (modo_evoluciona IN ("Nivel", "Intercambio", "Objeto")),
     PRIMARY KEY (numero_pokedex_origen, numero_pokedex_destino),
     FOREIGN KEY (numero_pokedex_origen) REFERENCES POKEMON (numero_pokedex),
     FOREIGN KEY (numero_pokedex_destino) REFERENCES POKEMON (numero_pokedex)
@@ -69,13 +69,13 @@ CREATE TABLE EVOLUCIONA (
  * Tabla donde se ven las movimientos que pude hacer un pokemon
 */
 CREATE TABLE MOVIMIENTO (
-    id_movimiento INT,
+    id_movimiento INT CHECK (id_movimiento > 0),
     nombre VARCHAR (25),
-    tipo VARCHAR (10),
-    categoria VARCHAR (10),
-    pp INT,
-    potencia INT,
-    certeza INT,
+    tipo VARCHAR (10) CHECK (tipo IN ("Agua", "Bicho", "Dragon", "Electrico", "Fantasma", "Fuego", "Hielo", "Lucha", "Normal", "Planta", "Psiquico", "Roca", "Tierra", "Veneno", "Pajaro")),
+    categoria VARCHAR (10) CHECK (categoria IN ("Fisico", "Especial", "Estado")),
+    pp INT CHECK (pp > 0),
+    potencia INT CHECK (potencia > 0),
+    certeza INT CHECK (certeza > 0),
     PRIMARY KEY (id_movimiento)
 );
 
@@ -83,9 +83,9 @@ CREATE TABLE MOVIMIENTO (
  * Tabla donde se ve como un pokemon puede aprender un movimiento
 */
 CREATE TABLE APRENDE_MOVIMIENTO (
-    numero_pokedex INT,
-    id_movimiento INT,
-    modo_aprendizaje VARCHAR (20),
+    numero_pokedex INT CHECK (numero_pokedex > 0),
+    id_movimiento INT CHECK (id_movimiento > 0),
+    modo_aprendizaje VARCHAR (20) CHECK (modo_aprendizaje IN ("Nivel", "Evolucion", "Tutor")),
     PRIMARY KEY (numero_pokedex, id_movimiento),
     FOREIGN KEY (numero_pokedex) REFERENCES POKEMON (numero_pokedex),
     FOREIGN KEY (id_movimiento) REFERENCES MOVIMIENTO (id_movimiento)
@@ -95,12 +95,12 @@ CREATE TABLE APRENDE_MOVIMIENTO (
  * Tabla donde se ven los posibles estados que puede provocar un movimiento
 */
 CREATE TABLE ESTADO (
-    id_estado INT,
+    id_estado INT CHECK (id_estado > 0),
     nombre VARCHAR (15),
     persistencia BOOLEAN,
     efecto VARCHAR (75),
     descripcion VARCHAR (75),
-    id_movimiento INT,
+    id_movimiento INT CHECK (id_movimiento > 0),
     PRIMARY KEY (id_estado),
     FOREIGN KEY (id_movimiento) REFERENCES MOVIMIENTO (id_movimiento)
 );
@@ -109,10 +109,10 @@ CREATE TABLE ESTADO (
  * Tabla donde se ven los objetos del juego
 */
 CREATE TABLE OBJETO (
-    id_objeto INT,
+    id_objeto INT CHECK (id_objeto > 0),
     nombre VARCHAR (25),
-    modo_obtencion VARCHAR (20),
-    precio_venta INT,
+    modo_obtencion VARCHAR (20) CHECK (modo_obtencion IN ("Compra", "Suelo", "Persona", "Pokemon")),
+    precio_venta INT CHECK (precio_venta > 0),
     PRIMARY KEY (id_objeto)
 );
 
@@ -120,18 +120,17 @@ CREATE TABLE OBJETO (
  * Tabla donde se ven los objetos de tipo pokeball
 */
 CREATE TABLE POKEBALL (
-    id_objeto INT,
-    ratio FLOAT,
+    id_objeto INT CHECK (id_objeto > 0),
+    ratio FLOAT CHECK (ratio > 0),
     PRIMARY KEY (id_objeto),
     FOREIGN KEY (id_objeto) REFERENCES OBJETO (id_objeto)
-
 );
 
 /**
  * Tabla donde se ven los objetos comunes
 */
 CREATE TABLE OBJETO_COMUN (
-    id_objeto INT,
+    id_objeto INT CHECK (id_objeto > 0),
     efecto VARCHAR (75),
     PRIMARY KEY (id_objeto),
     FOREIGN KEY (id_objeto) REFERENCES OBJETO (id_objeto)
@@ -141,8 +140,8 @@ CREATE TABLE OBJETO_COMUN (
  * Tabla donde se ven los objetos de tipo maquina
 */
 CREATE TABLE MAQUINA (
-    id_objeto INT,
-    id_movimiento INT,
+    id_objeto INT CHECK (id_objeto > 0),
+    id_movimiento INT CHECK (id_movimiento > 0),
     PRIMARY KEY (id_objeto),
     FOREIGN KEY (id_objeto) REFERENCES OBJETO (id_objeto),
     FOREIGN KEY (id_movimiento) REFERENCES MOVIMIENTO (id_movimiento)
@@ -152,9 +151,9 @@ CREATE TABLE MAQUINA (
  * Tabla donde se ven los efectos de un objeto en un pokemon
 */
 CREATE TABLE AFECTA_POKEMON (
-    numero_pokedex INT,
-    id_objeto INT,
-    modo_afecta VARCHAR (75),
+    numero_pokedex INT CHECK (numero_pokedex > 0),
+    id_objeto INT CHECK (id_objeto > 0),
+    modo_afecta VARCHAR (75) CHECK (modo_afecta IN ("Cura", "Captura", "Evoluciona", "Potencia")),
     PRIMARY KEY (numero_pokedex, id_objeto),
     FOREIGN KEY (numero_pokedex) REFERENCES POKEMON (numero_pokedex),
     FOREIGN KEY (id_objeto) REFERENCES OBJETO (id_objeto)
@@ -164,11 +163,8 @@ CREATE TABLE AFECTA_POKEMON (
  * Tabla donde se ven los entrenadores del juego
 */
 CREATE TABLE ENTRENADOR (
-    id_entrenador INT,
+    id_entrenador INT CHECK (id_entrenador > 0),
     nombre VARCHAR (25),
-    pokemon1 INT,
-    pokemon2 INT,
-    pokemon3 INT,
     PRIMARY KEY (id_entrenador)
 );
 
@@ -176,7 +172,7 @@ CREATE TABLE ENTRENADOR (
  * Tabla donde se ven los entrenadores de tipo villano
 */
 CREATE TABLE VILLANO (
-    id_entrenador INT,
+    id_entrenador INT CHECK (id_entrenador > 0),
     proposito VARCHAR (25),
     PRIMARY KEY (id_entrenador),
     FOREIGN KEY (id_entrenador) REFERENCES ENTRENADOR (id_entrenador)
@@ -186,8 +182,8 @@ CREATE TABLE VILLANO (
  * Tabla donde se ven los entrenadores de tipo lider de gimnasio
 */
 CREATE TABLE LIDER_GIMNASIO (
-    id_entrenador INT,
-    medalla INT,
+    id_entrenador INT CHECK (id_entrenador > 0),
+    medalla INT CHECK (medalla < 9),
     PRIMARY KEY (id_entrenador),
     FOREIGN KEY (id_entrenador) REFERENCES ENTRENADOR (id_entrenador)
 );
@@ -196,8 +192,8 @@ CREATE TABLE LIDER_GIMNASIO (
  * Tabla donde se ven los entrenadores casuales
 */
 CREATE TABLE ENTRENADOR_CASUAL (
-    id_entrenador INT,
-    cantidad_medalla INT,
+    id_entrenador INT CHECK (id_entrenador > 0),
+    cantidad_medalla INT CHECK (cantidad_medalla < 9),
     PRIMARY KEY (id_entrenador),
     FOREIGN KEY (id_entrenador) REFERENCES ENTRENADOR (id_entrenador)
 );
@@ -206,8 +202,8 @@ CREATE TABLE ENTRENADOR_CASUAL (
  * Tabla donde se ven los entrenadores de tipo campeon de liga
 */
 CREATE TABLE CAMPEON_LIGA (
-    id_entrenador INT,
-    region VARCHAR (10),
+    id_entrenador INT CHECK (id_entrenador > 0),
+    region VARCHAR (10) UNIQUE,
     PRIMARY KEY (id_entrenador),
     FOREIGN KEY (id_entrenador) REFERENCES ENTRENADOR (id_entrenador)
 );
@@ -216,8 +212,8 @@ CREATE TABLE CAMPEON_LIGA (
  * Tabla donde se ven los entrenadores de tipo alto mando
 */
 CREATE TABLE ALTO_MANDO (
-    id_entrenador INT,
-    tipo_principal VARCHAR (10),
+    id_entrenador INT CHECK (id_entrenador > 0),
+    tipo_principal VARCHAR (10) CHECK (tipo_principal IN ("Agua", "Bicho", "Dragon", "Electrico", "Fantasma", "Fuego", "Hielo", "Lucha", "Normal", "Planta", "Psiquico", "Roca", "Tierra", "Veneno", "Pajaro")),
     PRIMARY KEY (id_entrenador),
     FOREIGN KEY (id_entrenador) REFERENCES ENTRENADOR (id_entrenador)
 );
@@ -226,92 +222,21 @@ CREATE TABLE ALTO_MANDO (
  * Tabla donde se ven los efectos de un objeto en un entrenador
 */
 CREATE TABLE AFECTA_ENTRENADOR (
-    id_entrenador INT,
-    id_objeto INT,
-    modo_afecta VARCHAR (75),
+    id_entrenador INT CHECK (id_entrenador > 0),
+    id_objeto INT CHECK (id_objeto > 0),
+    modo_afecta VARCHAR (75) CHECK (modo_afecta IN ("Informa", "Ayuda")),
     PRIMARY KEY (id_entrenador, id_objeto),
     FOREIGN KEY (id_entrenador) REFERENCES ENTRENADOR (id_entrenador),
     FOREIGN KEY (id_objeto) REFERENCES OBJETO (id_objeto)
 );
 
--- Restricciones
-
 /**
- * Un pokemon solo puede ser de una de estas categorias:
+ * Tabla donde se ven los pokemons que tiene un entrenador
 */
-ALTER TABLE CARACTERISTICAS ADD CONSTRAINT ck_caracteristicas_categoria 
-CHECK (categoria IN ("Normal", "Starter", "Semi-legendario", "Legendario"));
-
-/**
- * Un pokemon puede tener 1 o dos tipos
- * Sus tipos solo pueden corresponder a:
-*/
-ALTER TABLE POKEMON ADD CONSTRAINT ck_pokemon_tipo_principal 
-CHECK (tipo_principal IN ("Agua", "Bicho", "Dragon", "Electrico", "Fantasma", "Fuego", "Hielo", "Lucha", "Normal", "Planta", "Psiquico", "Roca", "Tierra", "Veneno", "Pajaro"));
-ALTER TABLE POKEMON ADD CONSTRAINT ck_pokemon_tipo_secundario 
-CHECK (tipo_secundario IN ("Agua", "Bicho", "Dragon", "Electrico", "Fantasma", "Fuego", "Hielo", "Lucha", "Normal", "Planta", "Psiquico", "Roca", "Tierra", "Veneno", "Pajaro", NULL));
-
-/**
- * Un pokemon puede evolucionar de varias maneras 
- * Esta tiene que corresponder con:
-*/
-ALTER TABLE EVOLUCIONA ADD CONSTRAINT ck_evoluciona_modo_evoluciona
-CHECK (modo_evoluciona IN ("Nivel", "Intercambio", "Objeto"));
-
-/**
- * Un movimiento solo puede tener 1 tipo
- * Su tipo solo puede corresponder a:
-*/
-ALTER TABLE MOVIMIENTO ADD CONSTRAINT ck_movimiento_tipo
-CHECK (tipo IN ("Agua", "Bicho", "Dragon", "Electrico", "Fantasma", "Fuego", "Hielo", "Lucha", "Normal", "Planta", "Psiquico", "Roca", "Tierra", "Veneno", "Pajaro"));
-
-/**
- * Un movimiento solo puede ser de una categoria
- * Su categoria solo puede corresponder a:
-*/
-ALTER TABLE MOVIMIENTO ADD CONSTRAINT ck_movimiento_categoria
-CHECK (categoria IN ("Fisico", "Especial", "Estado"));
-
-/**
- * Un pokemon puede aprender un movimiento de estas maneras:
-*/
-ALTER TABLE APRENDE_MOVIMIENTO ADD CONSTRAINT ck_aprende_movimiento_modo_aprendizaje
-CHECK (modo_aprendizaje IN ("Nivel", "Evolucion", "Tutor"));
-
-/**
- * Un objeto puede ser obtenido de estas cuatro formas:
-*/
-ALTER TABLE OBJETO ADD CONSTRAINT ck_objeto_modo_obtencion
-CHECK (modo_obtencion IN ("Compra", "Suelo", "Persona", "Pokemon"));
-
-/**
- * Un objeto puede afectar a un pokemon de una de estas maneras:
-*/
-ALTER TABLE AFECTA_POKEMON ADD CONSTRAINT ck_afecta_pokemon_modo_afecta
-CHECK (modo_afecta IN ("Cura", "Captura", "Evoluciona", "Potencia"));
-
-/**
- * Un lider de gimnasio solo puede tener una de las 8 medallas
-*/
-ALTER TABLE LIDER_GIMNASIO ADD CONSTRAINT ck_lider_gimnasio_medalla
-CHECK (0 < medalla < 9);
-
-/**
- * Un entrenador no puede tener mas de 8 medallas
-*/
-ALTER TABLE ENTRENADOR_CASUAL ADD CONSTRAINT ck_entrenador_casual_cantidad_medalla
-CHECK (-1 < cantidad_medalla < 9);
-
-/**
- * Un entrenador del alto mando solo puede tener 1 tipo principal
- * Su tipo solo puede corresponder a:
-*/
-ALTER TABLE ALTO_MANDO ADD CONSTRAINT ck_alto_mando_tipo_principal
-CHECK (tipo_principal IN ("Agua", "Bicho", "Dragon", "Electrico", "Fantasma", "Fuego", "Hielo", "Lucha", "Normal", "Planta", "Psiquico", "Roca", "Tierra", "Veneno", "Pajaro"));
-
-
-/**
- * Un objeto puede afectar a un entrenador de una de estas maneras:
-*/
-ALTER TABLE AFECTA_ENTRENADOR ADD CONSTRAINT ck_afecta_entrenador_modo_afecta
-CHECK (modo_afecta IN ("Informa", "Ayuda"));
+CREATE TABLE TIENE (
+    id_entrenador INT CHECK (id_entrenador > 0),
+    numero_pokedex INT CHECK (numero_pokedex > 0),
+    PRIMARY KEY (id_entrenador, numero_pokedex),
+    FOREIGN KEY (id_entrenador) REFERENCES ENTRENADOR (id_entrenador),
+    FOREIGN KEY (numero_pokedex) REFERENCES POKEMON (numero_pokedex)
+);
