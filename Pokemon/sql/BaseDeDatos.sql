@@ -111,7 +111,7 @@ CREATE TABLE ESTADO (
 CREATE TABLE OBJETO (
     id_objeto INT CHECK (id_objeto > 0),
     nombre VARCHAR (25),
-    modo_obtencion VARCHAR (20) CHECK (modo_obtencion IN ("Compra", "Suelo", "Persona", "Pokemon")),
+    modo_obtencion VARCHAR (20) CHECK (modo_obtencion IN ("Comprado", "Recogido", "Entregado", "Quitado")),
     precio_venta INT CHECK (precio_venta > 0),
     PRIMARY KEY (id_objeto)
 );
@@ -241,3 +241,5 @@ CREATE TABLE TIENE (
     FOREIGN KEY (id_entrenador) REFERENCES ENTRENADOR (id_entrenador),
     FOREIGN KEY (numero_pokedex) REFERENCES POKEMON (numero_pokedex)
 );
+
+
