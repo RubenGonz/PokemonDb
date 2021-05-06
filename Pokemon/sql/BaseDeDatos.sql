@@ -66,6 +66,17 @@ CREATE TABLE EVOLUCIONA (
 );
 
 /**
+ * Tabla donde se ven los posibles estados que puede provocar un movimiento
+*/
+CREATE TABLE ESTADO (
+    id_estado INT CHECK (id_estado > 0),
+    nombre VARCHAR (15),
+    persistencia BOOLEAN,
+    efecto VARCHAR (75),
+    PRIMARY KEY (id_estado)
+);
+
+/**
  * Tabla donde se ven las movimientos que pude hacer un pokemon
 */
 CREATE TABLE MOVIMIENTO (
@@ -90,17 +101,6 @@ CREATE TABLE CONOCE (
     PRIMARY KEY (numero_pokedex, id_movimiento),
     FOREIGN KEY (numero_pokedex) REFERENCES POKEMON (numero_pokedex),
     FOREIGN KEY (id_movimiento) REFERENCES MOVIMIENTO (id_movimiento)
-);
-
-/**
- * Tabla donde se ven los posibles estados que puede provocar un movimiento
-*/
-CREATE TABLE ESTADO (
-    id_estado INT CHECK (id_estado > 0),
-    nombre VARCHAR (15),
-    persistencia BOOLEAN,
-    efecto VARCHAR (75),
-    PRIMARY KEY (id_estado)
 );
 
 /**
@@ -170,7 +170,7 @@ CREATE TABLE ENTRENADOR (
 */
 CREATE TABLE VILLANO (
     id_entrenador INT CHECK (id_entrenador > 0),
-    proposito VARCHAR (25),
+    proposito VARCHAR (75),
     PRIMARY KEY (id_entrenador),
     FOREIGN KEY (id_entrenador) REFERENCES ENTRENADOR (id_entrenador)
 );
