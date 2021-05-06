@@ -76,16 +76,17 @@ CREATE TABLE MOVIMIENTO (
     pp INT CHECK (pp > 0),
     potencia INT CHECK (potencia > 0),
     certeza INT CHECK (certeza > 0),
-    PRIMARY KEY (id_movimiento)
+    id_estado INT CHECK (id_estado > 0),
+    PRIMARY KEY (id_movimiento),
+    FOREIGN KEY (id_estado) REFERENCES ESTADO (id_estado)
 );
 
 /**
- * Tabla donde se ve como un pokemon puede aprender un movimiento
+ * Tabla donde se ve que movimientos tiene un pokemon
 */
-CREATE TABLE APRENDE_MOVIMIENTO (
+CREATE TABLE CONOCE (
     numero_pokedex INT CHECK (numero_pokedex > 0),
     id_movimiento INT CHECK (id_movimiento > 0),
-    modo_aprendizaje VARCHAR (20) CHECK (modo_aprendizaje IN ("Nivel", "Evolucion", "Tutor")),
     PRIMARY KEY (numero_pokedex, id_movimiento),
     FOREIGN KEY (numero_pokedex) REFERENCES POKEMON (numero_pokedex),
     FOREIGN KEY (id_movimiento) REFERENCES MOVIMIENTO (id_movimiento)
@@ -99,10 +100,7 @@ CREATE TABLE ESTADO (
     nombre VARCHAR (15),
     persistencia BOOLEAN,
     efecto VARCHAR (75),
-    descripcion VARCHAR (75),
-    id_movimiento INT CHECK (id_movimiento > 0),
-    PRIMARY KEY (id_estado),
-    FOREIGN KEY (id_movimiento) REFERENCES MOVIMIENTO (id_movimiento)
+    PRIMARY KEY (id_estado)
 );
 
 /**
@@ -148,12 +146,11 @@ CREATE TABLE MAQUINA (
 );
 
 /**
- * Tabla donde se ven los efectos de un objeto en un pokemon
+ * Tabla donde se ve  objeto que lleva un pokemonn
 */
-CREATE TABLE AFECTA_POKEMON (
+CREATE TABLE POKEMON_EQUIPA (
     numero_pokedex INT CHECK (numero_pokedex > 0),
     id_objeto INT CHECK (id_objeto > 0),
-    modo_afecta VARCHAR (75) CHECK (modo_afecta IN ("Cura", "Captura", "Evoluciona", "Potencia")),
     PRIMARY KEY (numero_pokedex, id_objeto),
     FOREIGN KEY (numero_pokedex) REFERENCES POKEMON (numero_pokedex),
     FOREIGN KEY (id_objeto) REFERENCES OBJETO (id_objeto)
@@ -219,12 +216,12 @@ CREATE TABLE ALTO_MANDO (
 );
 
 /**
- * Tabla donde se ven los efectos de un objeto en un entrenador
+ * Tabla donde se ven los objetos que equipa un entrenador
 */
-CREATE TABLE AFECTA_ENTRENADOR (
+CREATE TABLE ENTRENADOR_EQUIPA (
     id_entrenador INT CHECK (id_entrenador > 0),
     id_objeto INT CHECK (id_objeto > 0),
-    modo_afecta VARCHAR (75) CHECK (modo_afecta IN ("Informa", "Ayuda")),
+    cantidad INT CHECK (cantidad > 0),    
     PRIMARY KEY (id_entrenador, id_objeto),
     FOREIGN KEY (id_entrenador) REFERENCES ENTRENADOR (id_entrenador),
     FOREIGN KEY (id_objeto) REFERENCES OBJETO (id_objeto)
