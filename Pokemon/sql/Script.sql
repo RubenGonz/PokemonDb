@@ -249,7 +249,7 @@ INSERT INTO EVOLUCIONA VALUES(148,149,"Nivel");
 
 INSERT INTO MOVIMIENTO VALUES("Burbuja","Agua","Especial",38,40,100); /* Agua */
 INSERT INTO MOVIMIENTO VALUES("Cascada","Agua","Fisico",15,80,100);
-INSERT INTO MOVIMIENTO VALUES("Hidrobomba","Agua","Espcial",,,);
+INSERT INTO MOVIMIENTO VALUES("Hidrobomba","Agua","Espcial",5,110,80);
 INSERT INTO MOVIMIENTO VALUES("Martillazo","Agua","Fisico",,,);
 INSERT INTO MOVIMIENTO VALUES("Pistola agua","Agua","Especial",,,);
 INSERT INTO MOVIMIENTO VALUES("Rayo burbuja","Agua","Especial",,,);
