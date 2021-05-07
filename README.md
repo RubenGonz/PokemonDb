@@ -19,12 +19,6 @@
 
 
 *****
-## Manuales 
-
-*****
-## Descarga
-
-*****
 ## Licencia 
 
 ###### Lively v1.0 onwards is licensed under GPL-3.
