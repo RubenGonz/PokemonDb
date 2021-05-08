@@ -8,20 +8,15 @@
  ## Contenido 
 
 * [Acerca de](https://github.com/RubenGonz/PokemonDb#acerca-de)
-* [Manuales](https://github.com/RubenGonz/PokemonDb#manuales)
-* [Descargar](https://github.com/RubenGonz/PokemonDb#descarga)
+* [Manual de intalacion ](https://github.com/RubenGonz/PokemonDb/wiki/MANUAL-DE--INSTALACI%C3%93N)
+* [Manual de usuario ](https://github.com/RubenGonz/PokemonDb/wiki/Manual-del-Usuario)
+* [Descargar](https://github.com/RubenGonz/PokemonDb/wiki/MANUAL-DE--INSTALACI%C3%93N)
 * [Licencia](https://github.com/RubenGonz/PokemonDb#licencia)
 
 *****
 
  ## Acerca de
 
-
-*****
-## Manuales 
-
-*****
-## Descarga
 
 *****
 ## Licencia 
