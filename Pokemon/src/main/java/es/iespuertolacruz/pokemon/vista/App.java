@@ -7,26 +7,23 @@ import java.util.Scanner;
  * Hello world!
  *
  */
-public class App 
-{
+public class App {
     public static void main(String[] args) throws InterruptedException {
         Scanner sn = new Scanner(System.in);
         boolean salir = false;
         int opcion; // Guardaremos la opcion del usuario
-       
-      
-       try {
-           final String os = System.getProperty( "os.name");
-            if ( os.contains("Windows")){
+
+        try {
+            final String os = System.getProperty("os.name");
+            if (os.contains("Windows")) {
                 Runtime.getRuntime().exec("cls");
-            }else{
+            } else {
                 Runtime.getRuntime().exec("clear");
             }
 
-       }catch(final Exception e){
+        } catch (final Exception e) {
 
-       }
-     
+        }
 
         while (!salir) {
 
@@ -35,12 +32,12 @@ public class App
             System.out.println("3. Salir");
 
             try {
-               
+
                 System.out.println("Escribe una de las opciones");
                 opcion = sn.nextInt();
-                
+
                 switch (opcion) {
-                  
+
                     case 1:
                         System.out.println("Has seleccionado  Modo Usuario ");
                         while (!salir) {
@@ -49,7 +46,7 @@ public class App
                             System.out.println("2. Salir");
 
                             try {
-                        
+
                                 System.out.println("Escribe una de las opciones");
                                 opcion = sn.nextInt();
 
