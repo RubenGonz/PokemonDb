@@ -3,33 +3,71 @@ package es.iespuertolacruz.pokemon.vista;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-/**
- * Hello world!
- *
- */
+
 public class App {
-    public static void main(String[] args) throws InterruptedException {
+    
+      public static void main(String[] args)  {
+      
+    }
+
+    private void menuUsuario(){
         Scanner sn = new Scanner(System.in);
         boolean salir = false;
         int opcion; // Guardaremos la opcion del usuario
+         while (!salir) {
 
-        try {
-            final String os = System.getProperty("os.name");
-            if (os.contains("Windows")) {
-                Runtime.getRuntime().exec("cls");
-            } else {
-                Runtime.getRuntime().exec("clear");
+                System.out.println("Bienvenido usuario");
+                System.out.println(" Que quieres buscar");
+                System.out.println("1. buscar por pokemon ");
+                System.out.println("2. buscar por entrenadores .");
+                System.out.println("3. buscar por movimientos  .");
+                System.out.println("4. buscar por Objeto  .");
+                System.out.println("5. Salir");
+
+                try {
+
+                    System.out.println("Escribe una de las opciones");
+                    opcion = sn.nextInt();
+
+                    switch (opcion) {
+                        case 1:
+                            System.out.println("Has seleccionado la opcion  buscar por pokemon  ");
+                            break;
+                        case 2:
+                            System.out.println("Has seleccionado la opcion buscar por entrenadores ");
+                            break;
+                        case 3:
+                            System.out.println("Has seleccionado la opcion ebuscar por movimientos ");
+                            break;
+                        case 4:
+                            System.out.println("Has seleccionado la opcion buscar por Objeto ");
+                            break;
+                        case 5:
+                            salir = true;
+                            break;
+                        default:
+                            System.out.println("Solo números entre 1 y 5");
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("Debes insertar un número");
+                    sn.next();
+                }
             }
+                       
+    }
 
-        } catch (final Exception e) {
-
-        }
-
+    private void menuAdmin(){
+        Scanner sn = new Scanner(System.in);
+        boolean salir = false;
+        int opcion; // Guardaremos la opcion del usuario
+    
         while (!salir) {
 
-            System.out.println("1. Modo Usuario 1");
-            System.out.println("2. Modo Admin 2");
-            System.out.println("3. Salir");
+            System.out.println("Bienvenido administrador");
+            System.out.println("1. para crear  datos .");
+            System.out.println("2. para insertar datos .");
+            System.out.println("3. para eliminar informacion .");
+            System.out.println("4. Salir");
 
             try {
 
@@ -37,51 +75,27 @@ public class App {
                 opcion = sn.nextInt();
 
                 switch (opcion) {
-
                     case 1:
-                        System.out.println("Has seleccionado  Modo Usuario ");
-                        while (!salir) {
-
-                            System.out.println("1. Buscar  ");
-                            System.out.println("2. Salir");
-
-                            try {
-
-                                System.out.println("Escribe una de las opciones");
-                                opcion = sn.nextInt();
-
-                                switch (opcion) {
-                                    case 1:
-                                        System.out.println("Has seleccionado la opcion Buscar ");
-                                        System.out.println("Que quiere buscar ");
-                                        break;
-                                    case 2:
-                                        salir = true;
-                                        break;
-                                    default:
-                                        System.out.println("Solo números entre 1 y 2");
-                                }
-                            } catch (InputMismatchException e) {
-                                System.out.println("Debes insertar un número");
-                                sn.next();
-                            }
-                        }
+                        System.out.println("Has seleccionado la opcion Crear ");
                         break;
                     case 2:
-                        System.out.println("Has seleccionado Modo Admin ");
-
+                        System.out.println("Has seleccionado la opcion insertar ");
                         break;
                     case 3:
+                        System.out.println("Has seleccionado la opcion eliminar ");
+                        break;
+                    case 4:
                         salir = true;
                         break;
                     default:
-                        System.out.println("Solo números entre 1 y 3");
+                        System.out.println("Solo números entre 1 y 4");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Debes insertar un número");
                 sn.next();
             }
         }
-
+                    
     }
+   
 }
