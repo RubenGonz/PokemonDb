@@ -7,6 +7,7 @@ public class EstadisticasBase {
 
     //Variables de la clase
 
+    int idEstadisticaBase;
     int psBase;
     int ataqueBase;
     int defensaBase;
@@ -24,14 +25,17 @@ public class EstadisticasBase {
 
     /**
      * Constructor con todos los parametros
-     * @param psBase del pokemon
-     * @param ataqueBase del pokemon
-     * @param defensaBase del pokemon
-     * @param ataqueEspecialBase del pokemon
-     * @param defensaEspecialBase del pokemon
-     * @param velocidadBase del pokemon
+     * 
+     * @param idEstadisticaBase
+     * @param psBase
+     * @param ataqueBase
+     * @param defensaBase
+     * @param ataqueEspecialBase
+     * @param defensaEspecialBase
+     * @param velocidadBase
      */
-    public EstadisticasBase(int psBase, int ataqueBase, int defensaBase, int ataqueEspecialBase, int defensaEspecialBase, int velocidadBase) {
+    public EstadisticasBase(int idEstadisticaBase, int psBase, int ataqueBase, int defensaBase, int ataqueEspecialBase, int defensaEspecialBase, int velocidadBase) {
+        this.idEstadisticaBase = idEstadisticaBase;
         this.psBase = psBase;
         this.ataqueBase = ataqueBase;
         this.defensaBase = defensaBase;
@@ -40,7 +44,15 @@ public class EstadisticasBase {
         this.velocidadBase = velocidadBase;
     }
 
-    //Getters and Setters
+    //Getter and Setter
+
+    public int getIdEstadisticaBase() {
+        return this.idEstadisticaBase;
+    }
+
+    public void setIdEstadisticaBase(int idEstadisticaBase) {
+        this.idEstadisticaBase = idEstadisticaBase;
+    }
 
     public int getPsBase() {
         return this.psBase;
@@ -90,7 +102,7 @@ public class EstadisticasBase {
         this.velocidadBase = velocidadBase;
     }
 
-    //Funciones y metodos
+    //Metodos y funciones
 
     @Override
     public boolean equals(Object o) {
@@ -100,17 +112,19 @@ public class EstadisticasBase {
             return false;
         }
         EstadisticasBase estadisticasBase = (EstadisticasBase) o;
-        return psBase == estadisticasBase.psBase && ataqueBase == estadisticasBase.ataqueBase && defensaBase == estadisticasBase.defensaBase && ataqueEspecialBase == estadisticasBase.ataqueEspecialBase && defensaEspecialBase == estadisticasBase.defensaEspecialBase && velocidadBase == estadisticasBase.velocidadBase;
+        return idEstadisticaBase == estadisticasBase.idEstadisticaBase && psBase == estadisticasBase.psBase && ataqueBase == estadisticasBase.ataqueBase && defensaBase == estadisticasBase.defensaBase && ataqueEspecialBase == estadisticasBase.ataqueEspecialBase && defensaEspecialBase == estadisticasBase.defensaEspecialBase && velocidadBase == estadisticasBase.velocidadBase;
     }
 
     @Override
     public String toString() {
-        return "PsBase = " + getPsBase() +
-            ", ataqueBase = " + getAtaqueBase() +
-            ", defensaBase = " + getDefensaBase() +
-            ", ataqueEspecialBase = " + getAtaqueEspecialBase() +
-            ", defensaEspecialBase = " + getDefensaEspecialBase() +
-            ", velocidadBase = " + getVelocidadBase() + ".";
+        return "idEstadisticaBase='" + getIdEstadisticaBase() + "'" +
+            ", psBase='" + getPsBase() + "'" +
+            ", ataqueBase='" + getAtaqueBase() + "'" +
+            ", defensaBase='" + getDefensaBase() + "'" +
+            ", ataqueEspecialBase='" + getAtaqueEspecialBase() + "'" +
+            ", defensaEspecialBase='" + getDefensaEspecialBase() + "'" +
+            ", velocidadBase='" + getVelocidadBase();
     }
+
 
 }

@@ -1,0 +1,11 @@
+INSERT INTO OBJETO_COMUN VALUES (1,"Muestra informacion sobre los pokemon");
+INSERT INTO OBJETO_COMUN VALUES (2,"Muestra una imagen de la región en la que estas");
+INSERT INTO OBJETO_COMUN VALUES (3,"Te permite desplazarte mas rapido");
+INSERT INTO OBJETO_COMUN VALUES (4,"Te permite conseguir una bicicleta");
+INSERT INTO OBJETO_COMUN VALUES (5,"Te permite pescar con dificultad");
+INSERT INTO OBJETO_COMUN VALUES (6,"Te permite pescar con mas facilidad");
+INSERT INTO OBJETO_COMUN VALUES (7,"Te permite pescar facilmente");
+INSERT INTO OBJETO_COMUN VALUES (8,"Te permite conseguir a Kabuto");
+INSERT INTO OBJETO_COMUN VALUES (9,"Te permite conseguir a Omanyte");
+INSERT INTO OBJETO_COMUN VALUES (10,"Te permite guardar el dinero");
+INSERT INTO OBJETO_COMUN VALUES (11,"Te permite despertar a Snorlax");
