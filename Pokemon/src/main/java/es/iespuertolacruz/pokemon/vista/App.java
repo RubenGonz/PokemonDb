@@ -279,7 +279,7 @@ public class App {
         int opcion; // Guardaremos la opcion del usuario
         while (!salir) {
 
-            System.out.println("Bienvenido al menu buscra por pokemon");
+            System.out.println("Bienvenido al menu buscar por pokemon");
             System.out.println("¿Que quieres buscar?");
             System.out.println("1. Buscar Un pokemon por su numero en la pokedex");
             System.out.println("2. Buscar Un pokemon por su nombre");
@@ -332,7 +332,7 @@ public class App {
         int opcion; // Guardaremos la opcion del usuario
         while (!salir) {
 
-            System.out.println("Bienvenido al menu buscra por pokemon");
+            System.out.println("Bienvenido al menu buscar por pokemon");
             System.out.println("¿Que quieres buscar?");
             System.out.println("1. Buscar Un entrenador por nombre");
             System.out.println("2. Buscar Un entrenador por sus pokemons");
@@ -377,7 +377,7 @@ public class App {
         int opcion; // Guardaremos la opcion del usuario
         while (!salir) {
 
-            System.out.println("Bienvenido al menu buscra por pokemon");
+            System.out.println("Bienvenido al menu buscar por pokemon");
             System.out.println("¿Que quieres buscar?");
             System.out.println("1. Buscar Movimiento por su nombre");
             System.out.println("2. Buscar Los movimientos que tiene un pokemon");
@@ -423,7 +423,7 @@ public class App {
         int opcion; // Guardaremos la opcion del usuario
         while (!salir) {
 
-            System.out.println("Bienvenido al menu buscra por pokemon");
+            System.out.println("Bienvenido al menu buscar por pokemon");
             System.out.println("¿Que quieres buscar?");
             System.out.println("1. Buscar Un objeto por su nombre");
             System.out.println("2. Buscar Objetos por el modo de obtencion");
