@@ -507,6 +507,7 @@ public class App {
             }
         }
     }
+
     private static void AdminContasenia() {
         Scanner sn = new Scanner(System.in);
         boolean salir = false;
@@ -525,9 +526,10 @@ public class App {
             System.out.println("Ingrese la Contraseña nuevamente");
             password = sn.next();
 
-            if (password == "SoyMew") {
+             if (password.equals("SoyMew")) {
                 password = sn.nextLine();
-
+                 menuAdmin();
+                    
             }
             menuPrincipal();
         }
