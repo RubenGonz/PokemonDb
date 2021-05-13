@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Estado.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PokemonApp</a> &gt; <a href="index.source.html" class="el_package">es.iespuertolacruz.pokemon.api</a> &gt; <span class="el_source">Estado.java</span></div><h1>Estado.java</h1><pre class="source lang-java linenums">package es.iespuertolacruz.pokemon.api;
+
+/**
+ * Clase donde se ven los posibles estados que puede provocar un movimiento
+ */
+public class Estado {
+    
+    //Variables de clase
+
+    private static final String DELIMITADOR = &quot;'&quot;;
+    int id;
+    String nombre;
+    int persistencia;
+    String efecto;
+
+    //Constructores
+
+    /**
+     * Constructor por defecto
+     */
+<span class="fc" id="L21">    public Estado() {</span>
+<span class="fc" id="L22">    }</span>
+
+    /**
+     * Constructor con todos los parametros
+     * 
+     * @param id identificador del estado
+     * @param nombre del estado
+     * @param persistencia 1 si el estado es duradero o 2 si no lo es
+     * @param efecto descripcion del estado
+     */
+<span class="fc" id="L32">    public Estado(int id, String nombre, int persistencia, String efecto) {</span>
+<span class="fc" id="L33">        this.id = id;</span>
+<span class="fc" id="L34">        this.nombre = nombre;</span>
+<span class="fc" id="L35">        this.persistencia = persistencia;</span>
+<span class="fc" id="L36">        this.efecto = efecto;</span>
+<span class="fc" id="L37">    }</span>
+
+    // Getters and Setters
+
+    public int getId() {
+<span class="fc" id="L42">        return this.id;</span>
+    }
+
+    public void setId(int id) {
+<span class="fc" id="L46">        this.id = id;</span>
+<span class="fc" id="L47">    }</span>
+
+    public String getNombre() {
+<span class="fc" id="L50">        return this.nombre;</span>
+    }
+
+    public void setNombre(String nombre) {
+<span class="fc" id="L54">        this.nombre = nombre;</span>
+<span class="fc" id="L55">    }</span>
+
+    public int getPersistencia() {
+<span class="fc" id="L58">        return this.persistencia;</span>
+    }
+
+    public void setPersistencia(int persistencia) {
+<span class="fc" id="L62">        this.persistencia = persistencia;</span>
+<span class="fc" id="L63">    }</span>
+
+    public String getEfecto() {
+<span class="fc" id="L66">        return this.efecto;</span>
+    }
+
+    public void setEfecto(String efecto) {
+<span class="fc" id="L70">        this.efecto = efecto;</span>
+<span class="fc" id="L71">    }</span>
+
+    //Metodos y funciones
+
+    @Override
+    public String toString() {
+<span class="fc" id="L77">        return getId() + DELIMITADOR +</span>
+<span class="fc" id="L78">            getNombre() + DELIMITADOR +</span>
+<span class="fc" id="L79">            getPersistencia() + DELIMITADOR +</span>
+<span class="fc" id="L80">            getEfecto();</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

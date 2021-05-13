@@ -1,7 +1,5 @@
 package es.iespuertolacruz.pokemon.api;
 
-import java.util.Objects;
-
 /**
  * Clase de las caracteristicas de un pokemon
  */
@@ -9,6 +7,8 @@ public class Caracteristicas {
 
     //Variables de clase
 
+    private static final String DELIMITADOR = "'";
+    int id;
     float peso;
     float altura;
     String especie;
@@ -25,7 +25,9 @@ public class Caracteristicas {
     }
 
     /**
-     * Constructor con todos los parametros 
+     * Constructor con todos los parametros
+     * 
+     * @param id del pokemon al que se refiere y el identificador del objeto
      * @param peso del pokemon
      * @param altura del pokemon
      * @param especie del pokemon
@@ -33,7 +35,8 @@ public class Caracteristicas {
      * @param color del pokemon
      * @param categoria del pokemon
      */
-    public Caracteristicas(float peso, float altura, String especie, String habilidad, String color, String categoria) {
+    public Caracteristicas(int id, float peso, float altura, String especie, String habilidad, String color, String categoria) {
+        this.id = id;
         this.peso = peso;
         this.altura = altura;
         this.especie = especie;
@@ -42,7 +45,15 @@ public class Caracteristicas {
         this.categoria = categoria;
     }
 
-    //Getters and Setters
+    // Getters and Setters
+
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public float getPeso() {
         return this.peso;
@@ -92,28 +103,18 @@ public class Caracteristicas {
         this.categoria = categoria;
     }
 
-    //Funciones y metodos
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == this)
-            return true;
-        if (!(o instanceof Caracteristicas)) {
-            return false;
-        }
-        Caracteristicas caracteristicas = (Caracteristicas) o;
-        return peso == caracteristicas.peso && altura == caracteristicas.altura && Objects.equals(especie, caracteristicas.especie) && Objects.equals(habilidad, caracteristicas.habilidad) && Objects.equals(color, caracteristicas.color) && Objects.equals(categoria, caracteristicas.categoria);
-    }
+    //Metodos y funciones
 
     @Override
     public String toString() {
-        return "peso = " + getPeso() +
-            ", altura = " + getAltura() +
-            ", especie = " + getEspecie() +
-            ", habilidad = " + getHabilidad() +
-            ", color = " + getColor() +
-            ", categoria = " + getCategoria() + ".";
+        return getId() + DELIMITADOR +
+            getPeso() + DELIMITADOR +
+            getAltura() + DELIMITADOR +
+            getEspecie() + DELIMITADOR +
+            getHabilidad() + DELIMITADOR +
+            getColor() + DELIMITADOR +
+            getCategoria();
     }
 
 }
+   

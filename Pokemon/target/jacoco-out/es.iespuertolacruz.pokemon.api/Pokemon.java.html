@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Pokemon.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PokemonApp</a> &gt; <a href="index.source.html" class="el_package">es.iespuertolacruz.pokemon.api</a> &gt; <span class="el_source">Pokemon.java</span></div><h1>Pokemon.java</h1><pre class="source lang-java linenums">package es.iespuertolacruz.pokemon.api;
 
-import java.util.Objects;
-
 /**
  * Clase principal de pokemon
  */
@@ -9,31 +7,33 @@ public class Pokemon {
 
     // Variables de clase
 
+    private static final String DELIMITADOR = &quot;'&quot;;
     int numeroPokedex;
     String nombre;
     String tipoPrincipal;
     String tipoSecundario;
-    Caracteristicas caracteristicas;
-    EstadisticasBase estadisticasBase;
+    int caracteristicas;
+    int estadisticasBase;
 
     //Constructores
 
     /**
      * Construcor por defecto
      */
-<span class="fc" id="L24">    public Pokemon() {</span>
-<span class="fc" id="L25">    }</span>
+<span class="fc" id="L23">    public Pokemon() {</span>
+<span class="fc" id="L24">    }</span>
 
     /**
-     * Constructor con todos los parametros de pokemon
-     * @param numeroPokedex identificador del pokemon 
+     * Constructor con todos los parametros
+     * 
+     * @param numeroPokedex identificador del pokemon
      * @param nombre del pokemon
-     * @param tipoPrincipal tipo obligatorio del pokemon
-     * @param tipoSecundario tipo opcional del pokemon
-     * @param caracteristicas del pokemon
-     * @param estadisticasBase del pokemon
+     * @param tipoPrincipal primer tipo del pokemon
+     * @param tipoSecundario segundo tipo del pokemon
+     * @param caracteristicas numero que relaciona al pokemon con sus caracteristicas
+     * @param estadisticasBase numero que relaciona al pokemon con sus estadisticas
      */
-<span class="fc" id="L36">    public Pokemon(int numeroPokedex, String nombre, String tipoPrincipal, String tipoSecundario, Caracteristicas caracteristicas, EstadisticasBase estadisticasBase) {</span>
+<span class="fc" id="L36">    public Pokemon(int numeroPokedex, String nombre, String tipoPrincipal, String tipoSecundario, int caracteristicas, int estadisticasBase) {</span>
 <span class="fc" id="L37">        this.numeroPokedex = numeroPokedex;</span>
 <span class="fc" id="L38">        this.nombre = nombre;</span>
 <span class="fc" id="L39">        this.tipoPrincipal = tipoPrincipal;</span>
@@ -76,43 +76,32 @@ public class Pokemon {
 <span class="fc" id="L76">        this.tipoSecundario = tipoSecundario;</span>
 <span class="fc" id="L77">    }</span>
 
-    public Caracteristicas getCaracteristicas() {
+    public int getCaracteristicas() {
 <span class="fc" id="L80">        return this.caracteristicas;</span>
     }
 
-    public void setCaracteristicas(Caracteristicas caracteristicas) {
+    public void setCaracteristicas(int caracteristicas) {
 <span class="fc" id="L84">        this.caracteristicas = caracteristicas;</span>
 <span class="fc" id="L85">    }</span>
 
-    public EstadisticasBase getEstadisticasBase() {
+    public int getEstadisticasBase() {
 <span class="fc" id="L88">        return this.estadisticasBase;</span>
     }
 
-    public void setEstadisticasBase(EstadisticasBase estadisticasBase) {
+    public void setEstadisticasBase(int estadisticasBase) {
 <span class="fc" id="L92">        this.estadisticasBase = estadisticasBase;</span>
 <span class="fc" id="L93">    }</span>
 
-    //Funciones y metodos
-
-    @Override
-    public boolean equals(Object o) {
-<span class="pc bpc" id="L99" title="1 of 2 branches missed.">        if (o == this)</span>
-<span class="nc" id="L100">            return true;</span>
-<span class="pc bpc" id="L101" title="1 of 2 branches missed.">        if (!(o instanceof Pokemon)) {</span>
-<span class="nc" id="L102">            return false;</span>
-        }
-<span class="fc" id="L104">        Pokemon pokemon = (Pokemon) o;</span>
-<span class="pc bpc" id="L105" title="6 of 12 branches missed.">        return numeroPokedex == pokemon.numeroPokedex &amp;&amp; Objects.equals(nombre, pokemon.nombre) &amp;&amp; Objects.equals(tipoPrincipal, pokemon.tipoPrincipal) &amp;&amp; Objects.equals(tipoSecundario, pokemon.tipoSecundario) &amp;&amp; Objects.equals(caracteristicas, pokemon.caracteristicas) &amp;&amp; Objects.equals(estadisticasBase, pokemon.estadisticasBase);</span>
-    }
+    //Metosos y funciones
 
     @Override
     public String toString() {
-<span class="fc" id="L110">        return &quot;Pokemon numero &quot; + getNumeroPokedex() + &quot; &quot; + getNombre() + &quot;\n&quot; +</span>
-<span class="fc" id="L111">            &quot;TipoPrincipal = &quot; + getTipoPrincipal() + &quot;, tipoSecundario = &quot; + getTipoSecundario() + &quot;\n&quot; +</span>
-            &quot;Caracteristicas&quot; + &quot;\n&quot; + 
-<span class="fc" id="L113">            getCaracteristicas() + &quot;\n&quot; +</span>
-            &quot;Estadisticas base&quot; + &quot;\n&quot; + 
-<span class="fc" id="L115">            getEstadisticasBase() + &quot;\n&quot;;</span>
+<span class="fc" id="L99">        return getNumeroPokedex() + DELIMITADOR +</span>
+<span class="fc" id="L100">            getNombre() + DELIMITADOR +</span>
+<span class="fc" id="L101">            getTipoPrincipal() + DELIMITADOR +</span>
+<span class="fc" id="L102">            getTipoSecundario() + DELIMITADOR +</span>
+<span class="fc" id="L103">            getCaracteristicas() + DELIMITADOR +</span>
+<span class="fc" id="L104">            getEstadisticasBase();</span>
     }
 
 }

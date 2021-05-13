@@ -1,6 +1,6 @@
 package es.iespuertolacruz.pokemon;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,19 +19,14 @@ public class EstadisticasBaseTest {
     @BeforeEach
     public void SetUp() {
         estadisticasBase1 = crearEstadisticasBase();
-        estadisticasBase2 = new EstadisticasBase(45, 49, 49, 65, 65, 45);
+        estadisticasBase2 = new EstadisticasBase(1,45, 49, 49, 65, 65, 45);
     }
 
     //Test
 
     @Test
-    public void equalsTest() {
-        assertTrue(estadisticasBase1.equals(estadisticasBase2), "Las estadisticas son iguales pero el equals dice lo contrario");
-    }
-
-    @Test
     public void toStringTest() {
-        assertTrue(estadisticasBase1.toString().contains("65"), "El texto recibido no era el esperado");
+        assertEquals("1'45'49'49'65'65'45",estadisticasBase1.toString(), "El texto recibido no era el esperado");
     }
 
     //Funciones y metodos
@@ -39,6 +34,7 @@ public class EstadisticasBaseTest {
     private EstadisticasBase crearEstadisticasBase() {
         EstadisticasBase estadisticasBase;
         estadisticasBase = new EstadisticasBase();
+        estadisticasBase.setId(1);
         estadisticasBase.setPsBase(45);
         estadisticasBase.setAtaqueBase(49);
         estadisticasBase.setDefensaBase(49);

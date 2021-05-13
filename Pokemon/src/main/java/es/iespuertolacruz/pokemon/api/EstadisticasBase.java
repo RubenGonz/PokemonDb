@@ -7,7 +7,8 @@ public class EstadisticasBase {
 
     //Variables de la clase
 
-    int idEstadisticaBase;
+    private static final String DELIMITADOR = "'";
+    int id;
     int psBase;
     int ataqueBase;
     int defensaBase;
@@ -26,16 +27,16 @@ public class EstadisticasBase {
     /**
      * Constructor con todos los parametros
      * 
-     * @param idEstadisticaBase
-     * @param psBase
-     * @param ataqueBase
-     * @param defensaBase
-     * @param ataqueEspecialBase
-     * @param defensaEspecialBase
-     * @param velocidadBase
+     * @param id del pokemon al que se refiere y el identificador del objeto
+     * @param psBase vida del pokemon
+     * @param ataqueBase ataque fisico del pokemon
+     * @param defensaBase defensa fisica del pokemon
+     * @param ataqueEspecialBase ataque especial del pokemon
+     * @param defensaEspecialBase defensa especial del pokemon
+     * @param velocidadBase velocidad del pokemomn
      */
-    public EstadisticasBase(int idEstadisticaBase, int psBase, int ataqueBase, int defensaBase, int ataqueEspecialBase, int defensaEspecialBase, int velocidadBase) {
-        this.idEstadisticaBase = idEstadisticaBase;
+    public EstadisticasBase(int id, int psBase, int ataqueBase, int defensaBase, int ataqueEspecialBase, int defensaEspecialBase, int velocidadBase) {
+        this.id = id;
         this.psBase = psBase;
         this.ataqueBase = ataqueBase;
         this.defensaBase = defensaBase;
@@ -44,14 +45,14 @@ public class EstadisticasBase {
         this.velocidadBase = velocidadBase;
     }
 
-    //Getter and Setter
+    //Getters and Setters
 
-    public int getIdEstadisticaBase() {
-        return this.idEstadisticaBase;
+    public int getId() {
+        return this.id;
     }
 
-    public void setIdEstadisticaBase(int idEstadisticaBase) {
-        this.idEstadisticaBase = idEstadisticaBase;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getPsBase() {
@@ -102,28 +103,17 @@ public class EstadisticasBase {
         this.velocidadBase = velocidadBase;
     }
 
-    //Metodos y funciones
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == this)
-            return true;
-        if (!(o instanceof EstadisticasBase)) {
-            return false;
-        }
-        EstadisticasBase estadisticasBase = (EstadisticasBase) o;
-        return idEstadisticaBase == estadisticasBase.idEstadisticaBase && psBase == estadisticasBase.psBase && ataqueBase == estadisticasBase.ataqueBase && defensaBase == estadisticasBase.defensaBase && ataqueEspecialBase == estadisticasBase.ataqueEspecialBase && defensaEspecialBase == estadisticasBase.defensaEspecialBase && velocidadBase == estadisticasBase.velocidadBase;
-    }
+    // Metodos y funciones
 
     @Override
     public String toString() {
-        return "idEstadisticaBase='" + getIdEstadisticaBase() + "'" +
-            ", psBase='" + getPsBase() + "'" +
-            ", ataqueBase='" + getAtaqueBase() + "'" +
-            ", defensaBase='" + getDefensaBase() + "'" +
-            ", ataqueEspecialBase='" + getAtaqueEspecialBase() + "'" +
-            ", defensaEspecialBase='" + getDefensaEspecialBase() + "'" +
-            ", velocidadBase='" + getVelocidadBase();
+        return getId() + DELIMITADOR +
+            getPsBase() + DELIMITADOR +
+            getAtaqueBase() + DELIMITADOR +
+            getDefensaBase() + DELIMITADOR +
+            getAtaqueEspecialBase() + DELIMITADOR +
+            getDefensaEspecialBase() + DELIMITADOR +
+            getVelocidadBase();
     }
 
 

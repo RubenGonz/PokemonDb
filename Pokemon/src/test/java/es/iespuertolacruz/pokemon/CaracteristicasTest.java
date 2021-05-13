@@ -1,6 +1,6 @@
 package es.iespuertolacruz.pokemon;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,19 +19,14 @@ public class CaracteristicasTest {
     @BeforeEach
     public void SetUp() {
         caracteristicas1 = crearCaracteristicas();
-        caracteristicas2 = new Caracteristicas(6.9f, 0.7f, "Semilla", "Espesura", "Verde", "Starter");
+        caracteristicas2 = new Caracteristicas(1,6.9f, 0.7f, "Semilla", "Espesura", "Verde", "Starter");
     }
 
     //Test
 
     @Test
-    public void equalsTest() {
-        assertTrue(caracteristicas1.equals(caracteristicas2), "Las caracteristicas son iguales pero el equals dice lo contrario");
-    }
-
-    @Test
     public void toStringTest() {
-        assertTrue(caracteristicas1.toString().contains("Starter"), "El texto recibido no era el esperado");
+        assertEquals("1'6.9'0.7'Semilla'Espesura'Verde'Starter",caracteristicas1.toString(), "El texto recibido no era el esperado");
     }
 
     //Funciones y metodos
@@ -39,6 +34,7 @@ public class CaracteristicasTest {
     private Caracteristicas crearCaracteristicas() {
         Caracteristicas caracteristicas;
         caracteristicas = new Caracteristicas();
+        caracteristicas.setId(1);
         caracteristicas.setPeso(6.9f);
         caracteristicas.setAltura(0.7f);
         caracteristicas.setEspecie("Semilla");

@@ -1,7 +1,5 @@
 package es.iespuertolacruz.pokemon.api;
 
-import java.util.Objects;
-
 /**
  * Clase principal de pokemon
  */
@@ -9,12 +7,13 @@ public class Pokemon {
 
     // Variables de clase
 
+    private static final String DELIMITADOR = "'";
     int numeroPokedex;
     String nombre;
     String tipoPrincipal;
     String tipoSecundario;
-    Caracteristicas caracteristicas;
-    EstadisticasBase estadisticasBase;
+    int caracteristicas;
+    int estadisticasBase;
 
     //Constructores
 
@@ -25,15 +24,16 @@ public class Pokemon {
     }
 
     /**
-     * Constructor con todos los parametros de pokemon
-     * @param numeroPokedex identificador del pokemon 
+     * Constructor con todos los parametros
+     * 
+     * @param numeroPokedex identificador del pokemon
      * @param nombre del pokemon
-     * @param tipoPrincipal tipo obligatorio del pokemon
-     * @param tipoSecundario tipo opcional del pokemon
-     * @param caracteristicas del pokemon
-     * @param estadisticasBase del pokemon
+     * @param tipoPrincipal primer tipo del pokemon
+     * @param tipoSecundario segundo tipo del pokemon
+     * @param caracteristicas numero que relaciona al pokemon con sus caracteristicas
+     * @param estadisticasBase numero que relaciona al pokemon con sus estadisticas
      */
-    public Pokemon(int numeroPokedex, String nombre, String tipoPrincipal, String tipoSecundario, Caracteristicas caracteristicas, EstadisticasBase estadisticasBase) {
+    public Pokemon(int numeroPokedex, String nombre, String tipoPrincipal, String tipoSecundario, int caracteristicas, int estadisticasBase) {
         this.numeroPokedex = numeroPokedex;
         this.nombre = nombre;
         this.tipoPrincipal = tipoPrincipal;
@@ -76,43 +76,32 @@ public class Pokemon {
         this.tipoSecundario = tipoSecundario;
     }
 
-    public Caracteristicas getCaracteristicas() {
+    public int getCaracteristicas() {
         return this.caracteristicas;
     }
 
-    public void setCaracteristicas(Caracteristicas caracteristicas) {
+    public void setCaracteristicas(int caracteristicas) {
         this.caracteristicas = caracteristicas;
     }
 
-    public EstadisticasBase getEstadisticasBase() {
+    public int getEstadisticasBase() {
         return this.estadisticasBase;
     }
 
-    public void setEstadisticasBase(EstadisticasBase estadisticasBase) {
+    public void setEstadisticasBase(int estadisticasBase) {
         this.estadisticasBase = estadisticasBase;
     }
 
-    //Funciones y metodos
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == this)
-            return true;
-        if (!(o instanceof Pokemon)) {
-            return false;
-        }
-        Pokemon pokemon = (Pokemon) o;
-        return numeroPokedex == pokemon.numeroPokedex && Objects.equals(nombre, pokemon.nombre) && Objects.equals(tipoPrincipal, pokemon.tipoPrincipal) && Objects.equals(tipoSecundario, pokemon.tipoSecundario) && Objects.equals(caracteristicas, pokemon.caracteristicas) && Objects.equals(estadisticasBase, pokemon.estadisticasBase);
-    }
+    //Metosos y funciones
 
     @Override
     public String toString() {
-        return "Pokemon numero " + getNumeroPokedex() + " " + getNombre() + "\n" +
-            "TipoPrincipal = " + getTipoPrincipal() + ", tipoSecundario = " + getTipoSecundario() + "\n" +
-            "Caracteristicas" + "\n" + 
-            getCaracteristicas() + "\n" +
-            "Estadisticas base" + "\n" + 
-            getEstadisticasBase() + "\n";
+        return getNumeroPokedex() + DELIMITADOR +
+            getNombre() + DELIMITADOR +
+            getTipoPrincipal() + DELIMITADOR +
+            getTipoSecundario() + DELIMITADOR +
+            getCaracteristicas() + DELIMITADOR +
+            getEstadisticasBase();
     }
 
 }
