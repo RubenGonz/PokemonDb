@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EntrenadorEquipa.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PokemonApp</a> &gt; <a href="index.source.html" class="el_package">es.iespuertolacruz.pokemon.api</a> &gt; <span class="el_source">EntrenadorEquipa.java</span></div><h1>EntrenadorEquipa.java</h1><pre class="source lang-java linenums">package es.iespuertolacruz.pokemon.api;
+
+public class EntrenadorEquipa {
+    
+    //Variables de clase
+
+    private static final String DELIMITADOR = &quot;'&quot;;
+    int idEntrenador;
+    int idObjeto;
+    int cantidad;
+
+    // Constructores
+
+    /**
+     * Constructor por defecto
+     */
+<span class="fc" id="L17">    public EntrenadorEquipa() {</span>
+<span class="fc" id="L18">    }</span>
+
+    /**
+     * Constructor con todos los parametros
+     * 
+     * @param idEntrenador identificador del entrenador
+     * @param idObjeto identificador del objeto
+     * @param cantidad cantidad de objetos que tiene repetidos
+     */
+<span class="fc" id="L27">    public EntrenadorEquipa(int idEntrenador, int idObjeto, int cantidad) {</span>
+<span class="fc" id="L28">        this.idEntrenador = idEntrenador;</span>
+<span class="fc" id="L29">        this.idObjeto = idObjeto;</span>
+<span class="fc" id="L30">        this.cantidad = cantidad;</span>
+<span class="fc" id="L31">    }</span>
+
+    //Getters and Setters
+    
+    public int getIdEntrenador() {
+<span class="fc" id="L36">        return this.idEntrenador;</span>
+    }
+
+    public void setIdEntrenador(int idEntrenador) {
+<span class="fc" id="L40">        this.idEntrenador = idEntrenador;</span>
+<span class="fc" id="L41">    }</span>
+
+    public int getIdObjeto() {
+<span class="fc" id="L44">        return this.idObjeto;</span>
+    }
+
+    public void setIdObjeto(int idObjeto) {
+<span class="fc" id="L48">        this.idObjeto = idObjeto;</span>
+<span class="fc" id="L49">    }</span>
+
+    public int getCantidad() {
+<span class="fc" id="L52">        return this.cantidad;</span>
+    }
+
+    public void setCantidad(int cantidad) {
+<span class="fc" id="L56">        this.cantidad = cantidad;</span>
+<span class="fc" id="L57">    }</span>
+
+    //Funciones y Metodos
+
+    @Override
+    public String toString() {
+<span class="fc" id="L63">        return getIdEntrenador() + DELIMITADOR +</span>
+<span class="fc" id="L64">            getIdObjeto() + DELIMITADOR +</span>
+<span class="fc" id="L65">            getCantidad();</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

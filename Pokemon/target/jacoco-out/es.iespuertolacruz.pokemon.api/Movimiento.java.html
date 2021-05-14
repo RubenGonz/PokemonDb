@@ -22,8 +22,8 @@ public class Movimiento {
     /**
      * Constructor por defecto
      */
-<span class="nc" id="L25">    public Movimiento() {</span>
-<span class="nc" id="L26">    }</span>
+<span class="fc" id="L25">    public Movimiento() {</span>
+<span class="fc" id="L26">    }</span>
 
     /**
      * Constructor con todos los parametros
@@ -36,95 +36,95 @@ public class Movimiento {
      * @param certeza porcentaje de acierto sobre 100
      * @param idEstado numero que lo relaciona con el estado si lo provocase
      */
-<span class="nc" id="L39">    public Movimiento(int id, String nombre, String tipo, String categoria, int pp, int potencia, int certeza, int idEstado) {</span>
-<span class="nc" id="L40">        this.id = id;</span>
-<span class="nc" id="L41">        this.nombre = nombre;</span>
-<span class="nc" id="L42">        this.tipo = tipo;</span>
-<span class="nc" id="L43">        this.categoria = categoria;</span>
-<span class="nc" id="L44">        this.pp = pp;</span>
-<span class="nc" id="L45">        this.potencia = potencia;</span>
-<span class="nc" id="L46">        this.certeza = certeza;</span>
-<span class="nc" id="L47">        this.idEstado = idEstado;</span>
-<span class="nc" id="L48">    }</span>
+<span class="fc" id="L39">    public Movimiento(int id, String nombre, String tipo, String categoria, int pp, int potencia, int certeza, int idEstado) {</span>
+<span class="fc" id="L40">        this.id = id;</span>
+<span class="fc" id="L41">        this.nombre = nombre;</span>
+<span class="fc" id="L42">        this.tipo = tipo;</span>
+<span class="fc" id="L43">        this.categoria = categoria;</span>
+<span class="fc" id="L44">        this.pp = pp;</span>
+<span class="fc" id="L45">        this.potencia = potencia;</span>
+<span class="fc" id="L46">        this.certeza = certeza;</span>
+<span class="fc" id="L47">        this.idEstado = idEstado;</span>
+<span class="fc" id="L48">    }</span>
 
     //Getters and Setters
 
     public int getId() {
-<span class="nc" id="L53">        return this.id;</span>
+<span class="fc" id="L53">        return this.id;</span>
     }
 
     public void setId(int id) {
-<span class="nc" id="L57">        this.id = id;</span>
-<span class="nc" id="L58">    }</span>
+<span class="fc" id="L57">        this.id = id;</span>
+<span class="fc" id="L58">    }</span>
 
     public String getNombre() {
-<span class="nc" id="L61">        return this.nombre;</span>
+<span class="fc" id="L61">        return this.nombre;</span>
     }
 
     public void setNombre(String nombre) {
-<span class="nc" id="L65">        this.nombre = nombre;</span>
-<span class="nc" id="L66">    }</span>
+<span class="fc" id="L65">        this.nombre = nombre;</span>
+<span class="fc" id="L66">    }</span>
 
     public String getTipo() {
-<span class="nc" id="L69">        return this.tipo;</span>
+<span class="fc" id="L69">        return this.tipo;</span>
     }
 
     public void setTipo(String tipo) {
-<span class="nc" id="L73">        this.tipo = tipo;</span>
-<span class="nc" id="L74">    }</span>
+<span class="fc" id="L73">        this.tipo = tipo;</span>
+<span class="fc" id="L74">    }</span>
 
     public String getCategoria() {
-<span class="nc" id="L77">        return this.categoria;</span>
+<span class="fc" id="L77">        return this.categoria;</span>
     }
 
     public void setCategoria(String categoria) {
-<span class="nc" id="L81">        this.categoria = categoria;</span>
-<span class="nc" id="L82">    }</span>
+<span class="fc" id="L81">        this.categoria = categoria;</span>
+<span class="fc" id="L82">    }</span>
 
     public int getPp() {
-<span class="nc" id="L85">        return this.pp;</span>
+<span class="fc" id="L85">        return this.pp;</span>
     }
 
     public void setPp(int pp) {
-<span class="nc" id="L89">        this.pp = pp;</span>
-<span class="nc" id="L90">    }</span>
+<span class="fc" id="L89">        this.pp = pp;</span>
+<span class="fc" id="L90">    }</span>
 
     public int getPotencia() {
-<span class="nc" id="L93">        return this.potencia;</span>
+<span class="fc" id="L93">        return this.potencia;</span>
     }
 
     public void setPotencia(int potencia) {
-<span class="nc" id="L97">        this.potencia = potencia;</span>
-<span class="nc" id="L98">    }</span>
+<span class="fc" id="L97">        this.potencia = potencia;</span>
+<span class="fc" id="L98">    }</span>
 
     public int getCerteza() {
-<span class="nc" id="L101">        return this.certeza;</span>
+<span class="fc" id="L101">        return this.certeza;</span>
     }
 
     public void setCerteza(int certeza) {
-<span class="nc" id="L105">        this.certeza = certeza;</span>
-<span class="nc" id="L106">    }</span>
+<span class="fc" id="L105">        this.certeza = certeza;</span>
+<span class="fc" id="L106">    }</span>
 
     public int getIdEstado() {
-<span class="nc" id="L109">        return this.idEstado;</span>
+<span class="fc" id="L109">        return this.idEstado;</span>
     }
 
     public void setIdEstado(int idEstado) {
-<span class="nc" id="L113">        this.idEstado = idEstado;</span>
-<span class="nc" id="L114">    }</span>
+<span class="fc" id="L113">        this.idEstado = idEstado;</span>
+<span class="fc" id="L114">    }</span>
 
     //Funciones y metodos
 
     @Override
     public String toString() {
-<span class="nc" id="L120">        return getId() + DELIMITADOR +</span>
-<span class="nc" id="L121">            getNombre() + DELIMITADOR +</span>
-<span class="nc" id="L122">            getTipo() + DELIMITADOR +</span>
-<span class="nc" id="L123">            getCategoria() + DELIMITADOR +</span>
-<span class="nc" id="L124">            getPp() + DELIMITADOR +</span>
-<span class="nc" id="L125">            getPotencia() + DELIMITADOR +</span>
-<span class="nc" id="L126">            getCerteza() + DELIMITADOR +</span>
-<span class="nc" id="L127">            getIdEstado();</span>
+<span class="fc" id="L120">        return getId() + DELIMITADOR +</span>
+<span class="fc" id="L121">            getNombre() + DELIMITADOR +</span>
+<span class="fc" id="L122">            getTipo() + DELIMITADOR +</span>
+<span class="fc" id="L123">            getCategoria() + DELIMITADOR +</span>
+<span class="fc" id="L124">            getPp() + DELIMITADOR +</span>
+<span class="fc" id="L125">            getPotencia() + DELIMITADOR +</span>
+<span class="fc" id="L126">            getCerteza() + DELIMITADOR +</span>
+<span class="fc" id="L127">            getIdEstado();</span>
     }
 
 
