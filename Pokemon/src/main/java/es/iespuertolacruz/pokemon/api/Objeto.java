@@ -11,7 +11,7 @@ public class Objeto {
     int id;
     String nombre;
     String modoObtencion;
-    int precioVenta;
+    int precioVenta = null;
 
     //Constructores
 

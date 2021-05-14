@@ -11,7 +11,7 @@ public class Pokemon {
     int numeroPokedex;
     String nombre;
     String tipoPrincipal;
-    String tipoSecundario;
+    String tipoSecundario = nullds;
     int caracteristicas;
     int estadisticasBase;
 

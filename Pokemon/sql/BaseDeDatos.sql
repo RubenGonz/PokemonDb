@@ -44,8 +44,6 @@ CREATE TABLE ESTADISTICAS_BASE (
 CREATE TABLE POKEMON (
     numero_pokedex INT CHECK (numero_pokedex > 0),
     nombre VARCHAR (15),
-    tipo_principal VARCHAR (10) CHECK (tipo_principal IN ("Agua", "Bicho", "Dragon", "Electrico", "Fantasma", "Fuego", "Hielo", "Lucha", "Normal", "Planta", "Psiquico", "Roca", "Tierra", "Veneno", "Pajaro")),
-    tipo_secundario VARCHAR (10) CHECK (tipo_secundario IN ("Agua", "Bicho", "Dragon", "Electrico", "Fantasma", "Fuego", "Hielo", "Lucha", "Normal", "Planta", "Psiquico", "Roca", "Tierra", "Veneno", "Pajaro", NULL)),
     id_caracteristica INT CHECK (id_caracteristica > 0),
     id_estadisticas_base INT CHECK (id_estadisticas_base > 0),
     PRIMARY KEY (numero_pokedex),
@@ -66,6 +64,26 @@ CREATE TABLE EVOLUCIONA (
 );
 
 /**
+ * Tabla donde se ven los tipos
+*/
+CREATE TABLE TIPO (
+    nombre VARCHAR (15) CHECK (tipo IN ("Agua", "Bicho", "Dragon", "Electrico", "Fantasma", "Fuego", "Hielo", "Lucha", "Normal", "Planta", "Psiquico", "Roca", "Tierra", "Veneno", "Pajaro")),
+    color VARCHAR (10),
+    PRIMARY KEY (nombre)
+);
+
+/**
+ * Tabla donde se ven los tipos de los pokemon
+*/
+CREATE TABLE PERTENECE (
+    numero_pokedex INT,
+    tipo VARCHAR (15),
+    PRIMARY KEY (numero_pokedex,nombre),
+    FOREIGN KEY (tipo) REFERENCES TIPO (nombre),
+    FOREIGN KEY (numero_pokedex) REFERENCES TIPO (numero_pokedex)
+);
+
+/**
  * Tabla donde se ven los posibles estados que puede provocar un movimiento
 */
 CREATE TABLE ESTADO (
@@ -82,14 +100,13 @@ CREATE TABLE ESTADO (
 CREATE TABLE MOVIMIENTO (
     id_movimiento INT CHECK (id_movimiento > 0),
     nombre VARCHAR (25),
-    tipo VARCHAR (10) CHECK (tipo IN ("Agua", "Bicho", "Dragon", "Electrico", "Fantasma", "Fuego", "Hielo", "Lucha", "Normal", "Planta", "Psiquico", "Roca", "Tierra", "Veneno", "Pajaro")),
     categoria VARCHAR (10) CHECK (categoria IN ("Fisico", "Especial", "Estado")),
     pp INT CHECK (pp > 0),
     potencia INT CHECK (potencia >= 0),
     certeza INT CHECK (certeza > 0),
-    id_estado INT CHECK (id_estado > 0),
+    tipo VARCHAR(10),
     PRIMARY KEY (id_movimiento),
-    FOREIGN KEY (id_estado) REFERENCES ESTADO (id_estado)
+    FOREIGN KEY (tipo) REFERENCES TIPO (nombre)
 );
 
 /**
@@ -110,7 +127,6 @@ CREATE TABLE OBJETO (
     id_objeto INT CHECK (id_objeto > 0),
     nombre VARCHAR (25),
     modo_obtencion VARCHAR (20) CHECK (modo_obtencion IN ("Comprado", "Recogido", "Entregado")),
-    precio_venta INT CHECK (precio_venta > 0),
     PRIMARY KEY (id_objeto)
 );
 
@@ -210,9 +226,10 @@ CREATE TABLE CAMPEON_LIGA (
 */
 CREATE TABLE ALTO_MANDO (
     id_entrenador INT CHECK (id_entrenador > 0),
-    tipo_principal VARCHAR (10) CHECK (tipo_principal IN ("Agua", "Bicho", "Dragon", "Electrico", "Fantasma", "Fuego", "Hielo", "Lucha", "Normal", "Planta", "Psiquico", "Roca", "Tierra", "Veneno", "Pajaro")),
+    tipo_principal VARCHAR (10), 
     PRIMARY KEY (id_entrenador),
-    FOREIGN KEY (id_entrenador) REFERENCES ENTRENADOR (id_entrenador)
+    FOREIGN KEY (id_entrenador) REFERENCES ENTRENADOR (id_entrenador),
+    FOREIGN KEY (tipo) REFERENCES TIPO (nombre)
 );
 
 /**

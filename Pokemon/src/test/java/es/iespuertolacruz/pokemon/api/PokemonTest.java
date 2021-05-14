@@ -26,7 +26,19 @@ public class PokemonTest {
     public void toStringTest() {
         assertEquals("1'Bulbasaur'Planta'Veneno'1'1",pokemon1.toString(), "El texto recibido no era el esperado");
     }
- 
+
+    @Test
+    public void toStringConNullTest() {
+        Pokemon pokemon;
+        pokemon = new Pokemon();
+        pokemon.setNumeroPokedex(001);
+        pokemon.setNombre("Magikar");
+        pokemon.setTipoPrincipal("Agua");
+        pokemon.setCaracteristicas(1);
+        pokemon.setEstadisticasBase(1);
+        assertEquals("1'Magikar'Agua'null'1'1",pokemon.toString(), "El texto recibido no era el esperado");
+    }
+
     //Funciones y metodos
 
     private Pokemon crearPokemon() {
