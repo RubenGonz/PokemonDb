@@ -7,7 +7,9 @@ public class App {
     public static void main(String[] args) {
         menuPrincipal();
     }
-
+    /**
+     * 
+     */
     public static void menuPrincipal() {
         Scanner sn = new Scanner(System.in);
         boolean salir = false;
