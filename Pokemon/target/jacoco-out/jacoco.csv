@@ -1,5 +1,4 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-PokemonApp,es.iespuertolacruz.pokemon.exception,PokemonException,3,0,0,0,1,0,1,0,1,0
 PokemonApp,es.iespuertolacruz.pokemon.api,Villano,0,32,0,0,0,14,0,7,0,7
 PokemonApp,es.iespuertolacruz.pokemon.api,CampeonLiga,0,32,0,0,0,14,0,7,0,7
 PokemonApp,es.iespuertolacruz.pokemon.api,Entrenador,0,32,0,0,0,14,0,7,0,7
@@ -22,4 +21,4 @@ PokemonApp,es.iespuertolacruz.pokemon.api,PokemonEquipa,0,32,0,0,0,14,0,7,0,7
 PokemonApp,es.iespuertolacruz.pokemon.api,Pokemon,0,80,0,0,0,34,0,15,0,15
 PokemonApp,es.iespuertolacruz.pokemon.modelo,PokemonModelo,3,0,0,0,1,0,1,0,1,0
 PokemonApp,es.iespuertolacruz.pokemon.controller,PokemonController,3,0,0,0,1,0,1,0,1,0
-PokemonApp,es.iespuertolacruz.pokemon.vista,App,845,0,105,0,363,0,100,0,9,0
+PokemonApp,es.iespuertolacruz.pokemon.vista,App,742,0,83,0,314,0,74,0,13,0

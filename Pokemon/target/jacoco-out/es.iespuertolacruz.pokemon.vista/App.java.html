@@ -12,528 +12,476 @@ import java.util.Scanner;
 <span class="nc" id="L12">        Scanner sn = new Scanner(System.in);</span>
 <span class="nc" id="L13">        boolean salir = false;</span>
         int opcion; // Guardaremos la opcion del usuario
+<span class="nc bnc" id="L15" title="All 2 branches missed.">        while (!salir) {</span>
 
-<span class="nc bnc" id="L16" title="All 2 branches missed.">        while (!salir) {</span>
-
-<span class="nc" id="L18">            System.out.println(&quot;Bienvenido PokemonDb&quot;);</span>
-<span class="nc" id="L19">            System.out.println(&quot;¿Usted que rol tienes?&quot;);</span>
-<span class="nc" id="L20">            System.out.println(&quot;1. Usuario&quot;);</span>
-<span class="nc" id="L21">            System.out.println(&quot;2. Admin&quot;);</span>
-<span class="nc" id="L22">            System.out.println(&quot;3. Salir&quot;);</span>
+<span class="nc" id="L17">            System.out.println(&quot;Bienvenido PokemonDb&quot;);</span>
+<span class="nc" id="L18">            System.out.println(&quot;¿Usted que rol tienes?&quot;);</span>
+<span class="nc" id="L19">            System.out.println(&quot;1. Usuario&quot;);</span>
+<span class="nc" id="L20">            System.out.println(&quot;2. Admin&quot;);</span>
+<span class="nc" id="L21">            System.out.println(&quot;0. Salir&quot;);</span>
             try {
-<span class="nc" id="L24">                System.out.println(&quot;Escribe una de las 3 opciones que hay:&quot;);</span>
-<span class="nc" id="L25">                opcion = sn.nextInt();</span>
-<span class="nc bnc" id="L26" title="All 4 branches missed.">                switch (opcion) {</span>
+<span class="nc" id="L23">                System.out.println(&quot;Escribe una de las 3 opciones que hay:&quot;);</span>
+<span class="nc" id="L24">                opcion = sn.nextInt();</span>
+<span class="nc bnc" id="L25" title="All 4 branches missed.">                switch (opcion) {</span>
                     case 1:
-<span class="nc" id="L28">                        menuUsuario();</span>
-<span class="nc" id="L29">                        break;</span>
+<span class="nc" id="L27">                        menuUsuario();</span>
+<span class="nc" id="L28">                        break;</span>
                     case 2:
-<span class="nc" id="L31">                        AdminContasenia();</span>
-<span class="nc" id="L32">                        break;</span>
-                    case 3:
-<span class="nc" id="L34">                        salir = true;</span>
-<span class="nc" id="L35">                        break;</span>
+<span class="nc" id="L30">                        AdminContasenia();</span>
+<span class="nc" id="L31">                        break;</span>
+                    case 0:
+<span class="nc" id="L33">                        salir = true;</span>
+<span class="nc" id="L34">                        break;</span>
                     default:
-<span class="nc" id="L37">                        System.out.println(&quot;Solo números entre 1 y 3&quot;);</span>
+<span class="nc" id="L36">                        System.out.println(&quot;Solo números entre 0 y 2&quot;);</span>
                 }
-<span class="nc" id="L39">            } catch (InputMismatchException e) {</span>
-<span class="nc" id="L40">                System.out.println(&quot;Debes insertar un número &quot;);</span>
-<span class="nc" id="L41">                sn.next();</span>
-<span class="nc" id="L42">            }</span>
+<span class="nc" id="L38">            } catch (InputMismatchException e) {</span>
+<span class="nc" id="L39">                System.out.println(&quot;Debes insertar un número &quot;);</span>
+<span class="nc" id="L40">                sn.next();</span>
+<span class="nc" id="L41">            }</span>
         }
-<span class="nc" id="L44">    }</span>
+<span class="nc" id="L43">    }</span>
 
     public static void menuUsuario() {
-<span class="nc" id="L47">        Scanner sn = new Scanner(System.in);</span>
-<span class="nc" id="L48">        boolean salir = false;</span>
+<span class="nc" id="L46">        Scanner sn = new Scanner(System.in);</span>
+<span class="nc" id="L47">        boolean salir = false;</span>
         int opcion; // Guardaremos la opcion del usuario
-<span class="nc bnc" id="L50" title="All 2 branches missed.">        while (!salir) {</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">        while (!salir) {</span>
 
-<span class="nc" id="L52">            System.out.println(&quot;Bienvenido al menu usuario&quot;);</span>
-<span class="nc" id="L53">            System.out.println(&quot;¿Que quieres buscar?&quot;);</span>
-<span class="nc" id="L54">            System.out.println(&quot;1. Buscar un pokemon por su numero en la pokedex&quot;);</span>
-<span class="nc" id="L55">            System.out.println(&quot;2. Buscar un pokemon por su nombre&quot;);</span>
-<span class="nc" id="L56">            System.out.println(&quot;3. Buscar pokemons por su tipo&quot;);</span>
-<span class="nc" id="L57">            System.out.println(&quot;4. Buscar la evolucion de un pokemon&quot;);</span>
-<span class="nc" id="L58">            System.out.println(&quot;5. Buscar los pokemon de un entrenador&quot;);</span>
-<span class="nc" id="L59">            System.out.println(&quot;6. Buscar pokemons que tienen un movimiento&quot;);</span>
-<span class="nc" id="L60">            System.out.println(&quot;7. Buscar los pokemon que tiene un entrenador&quot;);</span>
-<span class="nc" id="L61">            System.out.println(&quot;8. Buscar un entrenador por nombre&quot;);</span>
-<span class="nc" id="L62">            System.out.println(&quot;9. Buscar un entrenador por sus pokemons&quot;);</span>
-<span class="nc" id="L63">            System.out.println(&quot;10. Buscar un entrenador por la cantidad de medallas que tiene&quot;);</span>
-<span class="nc" id="L64">            System.out.println(&quot;11. Buscar los objectos que tiene un entrenador&quot;);</span>
-<span class="nc" id="L65">            System.out.println(&quot;12. Buscar movimiento por su nombre&quot;);</span>
-<span class="nc" id="L66">            System.out.println(&quot;13. Buscar los movimientos que tiene un pokemon&quot;);</span>
-<span class="nc" id="L67">            System.out.println(&quot;14. Buscar los movimientos por el estado que procova&quot;);</span>
-<span class="nc" id="L68">            System.out.println(&quot;15. Buscar los moviminetos por su categoria&quot;);</span>
-<span class="nc" id="L69">            System.out.println(&quot;16. Buscar un objeto por su nombre&quot;);</span>
-<span class="nc" id="L70">            System.out.println(&quot;17. Buscar objetos por el modo de obtencion&quot;);</span>
-<span class="nc" id="L71">            System.out.println(&quot;18. Buscar una maquina por el movimiento que tiene&quot;);</span>
-<span class="nc" id="L72">            System.out.println(&quot;19. Salir&quot;);</span>
+<span class="nc" id="L51">            System.out.println(&quot;Bienvenido al menu usuario&quot;);</span>
+<span class="nc" id="L52">            System.out.println(&quot;¿Que quieres buscar?&quot;);</span>
+<span class="nc" id="L53">            System.out.println(&quot;1. Buscar por pokemon&quot;);</span>
+<span class="nc" id="L54">            System.out.println(&quot;2. Buscar por entrenador&quot;);</span>
+<span class="nc" id="L55">            System.out.println(&quot;3. Buscar por objecto&quot;);</span>
+<span class="nc" id="L56">            System.out.println(&quot;4. Buscar  por movimiento&quot;);</span>
+<span class="nc" id="L57">            System.out.println(&quot;0. Salir&quot;);</span>
 
             try {
+<span class="nc" id="L60">                System.out.println(&quot;Escribe una de las opciones&quot;);</span>
+<span class="nc" id="L61">                opcion = sn.nextInt();</span>
 
-<span class="nc" id="L76">                System.out.println(&quot;Escribe una de las opciones&quot;);</span>
-<span class="nc" id="L77">                opcion = sn.nextInt();</span>
-
-<span class="nc bnc" id="L79" title="All 20 branches missed.">                switch (opcion) {</span>
+<span class="nc bnc" id="L63" title="All 6 branches missed.">                switch (opcion) {</span>
                     case 1:
-<span class="nc" id="L81">                        System.out.println(&quot;1. Buscar un pokemon por su numero en la pokedex&quot;);</span>
-<span class="nc" id="L82">                        break;</span>
+<span class="nc" id="L65">                        System.out.println(&quot;1.Has seleccionado la opcion buscar por pokemon&quot;);</span>
+<span class="nc" id="L66">                        menuBuscarPokemon();</span>
+<span class="nc" id="L67">                        break;</span>
                     case 2:
-<span class="nc" id="L84">                        System.out.println(&quot;2. Buscar un pokemon por su nombre&quot;);</span>
-<span class="nc" id="L85">                        break;</span>
+<span class="nc" id="L69">                        System.out.println(&quot;2.Has seleccionado la opcion buscar por entrenador&quot;);</span>
+<span class="nc" id="L70">                        menuBuscarEntrenador();</span>
+<span class="nc" id="L71">                        break;</span>
                     case 3:
-<span class="nc" id="L87">                        System.out.println(&quot;Has seleccionado la opcion buscar pokemons por su tipo &quot;);</span>
-<span class="nc" id="L88">                        break;</span>
+<span class="nc" id="L73">                        System.out.println(&quot;Has seleccionado la opcion buscar por objecto &quot;);</span>
+<span class="nc" id="L74">                        menuBuscarobjeto();</span>
+<span class="nc" id="L75">                        break;</span>
                     case 4:
-<span class="nc" id="L90">                        System.out.println(&quot;4. Buscar la evolucion de un pokemon&quot;);</span>
-<span class="nc" id="L91">                        break;</span>
-                    case 5:
-<span class="nc" id="L93">                        System.out.println(&quot;5. Buscar los pokemon de un entrenador&quot;);</span>
-<span class="nc" id="L94">                        break;</span>
-                    case 6:
-<span class="nc" id="L96">                        System.out.println(&quot;6. Buscar pokemons que tienen un movimiento&quot;);</span>
-<span class="nc" id="L97">                        break;</span>
-                    case 7:
-<span class="nc" id="L99">                        System.out.println(&quot;7. Buscar los pokemon que tiene un entrenador&quot;);</span>
-<span class="nc" id="L100">                        break;</span>
-                    case 8:
-<span class="nc" id="L102">                        System.out.println(&quot;8. Buscar un entrenador por nombre&quot;);</span>
-<span class="nc" id="L103">                        break;</span>
-                    case 9:
-<span class="nc" id="L105">                        System.out.println(&quot;9. Buscar un entrenador por sus pokemons&quot;);</span>
-<span class="nc" id="L106">                        break;</span>
-                    case 10:
-<span class="nc" id="L108">                        System.out.println(&quot;10. Buscar un entrenador por la cantidad de medallas que tiene&quot;);</span>
-<span class="nc" id="L109">                        break;</span>
-                    case 11:
-<span class="nc" id="L111">                        System.out.println(&quot;11. Buscar los objectos que tiene un entrenador&quot;);</span>
-<span class="nc" id="L112">                        break;</span>
-                    case 12:
-<span class="nc" id="L114">                        System.out.println(&quot;12. Buscar movimiento por su nombre&quot;);</span>
-<span class="nc" id="L115">                        break;</span>
-                    case 13:
-<span class="nc" id="L117">                        System.out.println(&quot;13. Buscar los movimientos que tiene un pokemon&quot;);</span>
-<span class="nc" id="L118">                        break;</span>
-                    case 14:
-<span class="nc" id="L120">                        System.out.println(&quot;14. Buscar los movimientos por el estado que procova&quot;);</span>
-<span class="nc" id="L121">                        break;</span>
-                    case 15:
-<span class="nc" id="L123">                        System.out.println(&quot;15. Buscar los moviminetos por su categoria&quot;);</span>
-<span class="nc" id="L124">                        break;</span>
-                    case 16:
-<span class="nc" id="L126">                        System.out.println(&quot;16. Buscar un objeto por su nombre&quot;);</span>
-<span class="nc" id="L127">                        break;</span>
-                    case 17:
-<span class="nc" id="L129">                        System.out.println(&quot;17. Buscar objetos por el modo de obtencion&quot;);</span>
-<span class="nc" id="L130">                        break;</span>
-                    case 18:
-<span class="nc" id="L132">                        System.out.println(&quot;18. Buscar una maquina por el movimiento que tiene&quot;);</span>
-<span class="nc" id="L133">                        break;</span>
-                    case 19:
-<span class="nc" id="L135">                        salir = true;</span>
-<span class="nc" id="L136">                        break;</span>
+<span class="nc" id="L77">                        System.out.println(&quot;4.Has seleccionado la opcion buscar por movimiento&quot;);</span>
+<span class="nc" id="L78">                        menuBuscarMovivientos();</span>
+<span class="nc" id="L79">                        break;</span>
+                    case 0:
+<span class="nc" id="L81">                        salir = true;</span>
+<span class="nc" id="L82">                        break;</span>
                     default:
-<span class="nc" id="L138">                        System.out.println(&quot;Solo números entre 1 y 5&quot;);</span>
+<span class="nc" id="L84">                        System.out.println(&quot;Solo números entre 0 y 4&quot;);</span>
                 }
-<span class="nc" id="L140">            } catch (InputMismatchException e) {</span>
-<span class="nc" id="L141">                System.out.println(&quot;Debes insertar un número&quot;);</span>
-<span class="nc" id="L142">                sn.next();</span>
-<span class="nc" id="L143">            }</span>
+<span class="nc" id="L86">            } catch (InputMismatchException e) {</span>
+<span class="nc" id="L87">                System.out.println(&quot;Debes insertar un número&quot;);</span>
+<span class="nc" id="L88">                sn.next();</span>
+<span class="nc" id="L89">            }</span>
         }
 
-<span class="nc" id="L146">    }</span>
+<span class="nc" id="L92">    }</span>
 
     private static void menuAdmin() {
-<span class="nc" id="L149">        Scanner sn = new Scanner(System.in);</span>
-<span class="nc" id="L150">        boolean salir = false;</span>
-<span class="nc" id="L151">        String contrasenia = &quot;SoyMew&quot;;</span>
+<span class="nc" id="L95">        Scanner sn = new Scanner(System.in);</span>
+<span class="nc" id="L96">        boolean salir = false;</span>
+<span class="nc" id="L97">        String contrasenia = &quot;SoyMew&quot;;</span>
         int opcion; // Guardaremos la opcion del usuario
 
-<span class="nc bnc" id="L154" title="All 2 branches missed.">        while (!salir) {</span>
+<span class="nc bnc" id="L100" title="All 2 branches missed.">        while (!salir) {</span>
 
-<span class="nc" id="L156">            System.out.println(&quot;Bienvenido al menu administrador&quot;);</span>
-<span class="nc" id="L157">            System.out.println(&quot;¿Que quieres hacer?&quot;);</span>
-<span class="nc" id="L158">            System.out.println(&quot;1.Insertar&quot;);</span>
-<span class="nc" id="L159">            System.out.println(&quot;2.Eliminar&quot;);</span>
-<span class="nc" id="L160">            System.out.println(&quot;3.Modificar&quot;);</span>
-<span class="nc" id="L161">            System.out.println(&quot;4. Salir&quot;);</span>
+<span class="nc" id="L102">            System.out.println(&quot;Bienvenido al menu administrador&quot;);</span>
+<span class="nc" id="L103">            System.out.println(&quot;¿Que quieres hacer?&quot;);</span>
+<span class="nc" id="L104">            System.out.println(&quot;1.Insertar&quot;);</span>
+<span class="nc" id="L105">            System.out.println(&quot;2.Eliminar&quot;);</span>
+<span class="nc" id="L106">            System.out.println(&quot;3.Modificar&quot;);</span>
+<span class="nc" id="L107">            System.out.println(&quot;0. Salir&quot;);</span>
 
             try {
-<span class="nc" id="L164">                System.out.println(&quot;Escribe una de las opciones&quot;);</span>
-<span class="nc" id="L165">                opcion = sn.nextInt();</span>
+<span class="nc" id="L110">                System.out.println(&quot;Escribe una de las opciones&quot;);</span>
+<span class="nc" id="L111">                opcion = sn.nextInt();</span>
 
-<span class="nc bnc" id="L167" title="All 5 branches missed.">                switch (opcion) {</span>
+<span class="nc bnc" id="L113" title="All 5 branches missed.">                switch (opcion) {</span>
                     case 1:
-<span class="nc" id="L169">                        System.out.println(&quot;Has seleccionado la opcion insertar &quot;);</span>
-<span class="nc" id="L170">                        menuInsertar();</span>
-<span class="nc" id="L171">                        break;</span>
+<span class="nc" id="L115">                        System.out.println(&quot;Has seleccionado la opcion insertar &quot;);</span>
+<span class="nc" id="L116">                        menuInsertar();</span>
+<span class="nc" id="L117">                        break;</span>
                     case 2:
-<span class="nc" id="L173">                        System.out.println(&quot;Has seleccionado la opcion eliminar &quot;);</span>
-<span class="nc" id="L174">                        menuEliminar();</span>
-<span class="nc" id="L175">                        break;</span>
+<span class="nc" id="L119">                        System.out.println(&quot;Has seleccionado la opcion eliminar &quot;);</span>
+<span class="nc" id="L120">                        menuEliminar();</span>
+<span class="nc" id="L121">                        break;</span>
                     case 3:
-<span class="nc" id="L177">                        System.out.println(&quot;Has seleccionado la opcion modificar&quot;);</span>
-<span class="nc" id="L178">                        menuModificar();</span>
-<span class="nc" id="L179">                        break;</span>
+<span class="nc" id="L123">                        System.out.println(&quot;Has seleccionado la opcion modificar&quot;);</span>
+<span class="nc" id="L124">                        menuModificar();</span>
+<span class="nc" id="L125">                        break;</span>
                     case 55:
-<span class="nc" id="L181">                        salir = true;</span>
-<span class="nc" id="L182">                        break;</span>
+<span class="nc" id="L127">                        salir = true;</span>
+<span class="nc" id="L128">                        break;</span>
                     default:
-<span class="nc" id="L184">                        System.out.println(&quot;Solo números entre 1 y 4&quot;);</span>
+<span class="nc" id="L130">                        System.out.println(&quot;Solo números entre 0 y 3&quot;);</span>
                 }
-<span class="nc" id="L186">            } catch (InputMismatchException e) {</span>
-<span class="nc" id="L187">                System.out.println(&quot;Debes insertar un número&quot;);</span>
-<span class="nc" id="L188">                sn.next();</span>
-<span class="nc" id="L189">            }</span>
+<span class="nc" id="L132">            } catch (InputMismatchException e) {</span>
+<span class="nc" id="L133">                System.out.println(&quot;Debes insertar un número&quot;);</span>
+<span class="nc" id="L134">                sn.next();</span>
+<span class="nc" id="L135">            }</span>
         }
 
-<span class="nc" id="L192">    }</span>
+<span class="nc" id="L138">    }</span>
 
     private static void menuInsertar() {
-<span class="nc" id="L195">        Scanner sn = new Scanner(System.in);</span>
-<span class="nc" id="L196">        boolean salir = false;</span>
-<span class="nc" id="L197">        String contrasenia = &quot;SoyMew&quot;;</span>
+<span class="nc" id="L141">        Scanner sn = new Scanner(System.in);</span>
+<span class="nc" id="L142">        boolean salir = false;</span>
         int opcion; // Guardaremos la opcion del usuario
 
-<span class="nc bnc" id="L200" title="All 2 branches missed.">        while (!salir) {</span>
+<span class="nc bnc" id="L145" title="All 2 branches missed.">        while (!salir) {</span>
 
-<span class="nc" id="L202">            System.out.println(&quot;Bienvenido al  opcion insertar&quot;);</span>
-<span class="nc" id="L203">            System.out.println(&quot;¿Que quieres hacer?&quot;);</span>
-            // insertar
-<span class="nc" id="L205">            System.out.println(&quot;1. Insertar un pokemon por su numero en la pokedex&quot;);</span>
-<span class="nc" id="L206">            System.out.println(&quot;2. Insertar  un pokemon por su nombre&quot;);</span>
-<span class="nc" id="L207">            System.out.println(&quot;3. Insertar pokemons por su tipo&quot;);</span>
-<span class="nc" id="L208">            System.out.println(&quot;4. Insertar la evolucion de un pokemon&quot;);</span>
-<span class="nc" id="L209">            System.out.println(&quot;5. Insertar los pokemon de un entrenador&quot;);</span>
-<span class="nc" id="L210">            System.out.println(&quot;6. Insertar pokemon por un movimiento&quot;);</span>
-<span class="nc" id="L211">            System.out.println(&quot;7. Insertar los pokemon que tiene un entrenador&quot;);</span>
-<span class="nc" id="L212">            System.out.println(&quot;8. Insertar un entrenador por nombre&quot;);</span>
-<span class="nc" id="L213">            System.out.println(&quot;9. Insertar un entrenador por sus pokemons&quot;);</span>
-<span class="nc" id="L214">            System.out.println(&quot;10. Insertar un entrenador por la cantidad de medallas que tiene&quot;);</span>
-<span class="nc" id="L215">            System.out.println(&quot;11. Insertar los objectos que tiene un entrenador&quot;);</span>
-<span class="nc" id="L216">            System.out.println(&quot;12. Insertar movimiento por su nombre&quot;);</span>
-<span class="nc" id="L217">            System.out.println(&quot;13. Insertar los movimientos que tiene un pokemon&quot;);</span>
-<span class="nc" id="L218">            System.out.println(&quot;14. Insertar los movimientos por el estado que procova&quot;);</span>
-<span class="nc" id="L219">            System.out.println(&quot;15. Insertar los moviminetos por su categoria&quot;);</span>
-<span class="nc" id="L220">            System.out.println(&quot;16. Insertar un objeto por su nombre&quot;);</span>
-<span class="nc" id="L221">            System.out.println(&quot;17. Insertar objetos por el modo de obtencion&quot;);</span>
-<span class="nc" id="L222">            System.out.println(&quot;18. Insertar una maquina por el movimiento que tiene&quot;);</span>
-<span class="nc" id="L223">            System.out.println(&quot;19. Salir&quot;);</span>
+<span class="nc" id="L147">            System.out.println(&quot;Bienvenido al  opcion insertar&quot;);</span>
+<span class="nc" id="L148">            System.out.println(&quot;¿Que quieres hacer?&quot;);</span>
+<span class="nc" id="L149">            System.out.println(&quot;1. Insertar por pokemon&quot;);</span>
+<span class="nc" id="L150">            System.out.println(&quot;2. Insertar por entrenador&quot;);</span>
+<span class="nc" id="L151">            System.out.println(&quot;3. Insertar por objecto&quot;);</span>
+<span class="nc" id="L152">            System.out.println(&quot;4. Insertar  por movimiento&quot;);</span>
+<span class="nc" id="L153">            System.out.println(&quot;0. Salir&quot;);</span>
 
             try {
-<span class="nc" id="L226">                System.out.println(&quot;Escribe una de las opciones&quot;);</span>
-<span class="nc" id="L227">                opcion = sn.nextInt();</span>
+<span class="nc" id="L156">                System.out.println(&quot;Escribe una de las opciones&quot;);</span>
+<span class="nc" id="L157">                opcion = sn.nextInt();</span>
 
-<span class="nc bnc" id="L229" title="All 20 branches missed.">                switch (opcion) {</span>
+<span class="nc bnc" id="L159" title="All 6 branches missed.">                switch (opcion) {</span>
                     case 1:
-<span class="nc" id="L231">                        System.out.println(&quot;Has seleccionado la opcion insertar un pokemon por su numero en la pokedex &quot;);</span>
-<span class="nc" id="L232">                        break;</span>
+<span class="nc" id="L161">                        System.out.println(&quot;Has seleccionado la opcion insertar por pokemon&quot;);</span>
+<span class="nc" id="L162">                        break;</span>
                     case 2:
-<span class="nc" id="L234">                        System.out.println(&quot;Has seleccionado la opcion insertar  un pokemon por su nombre &quot;);</span>
-<span class="nc" id="L235">                        break;</span>
+<span class="nc" id="L164">                        System.out.println(&quot;Has seleccionado la opcion insertar  por entrenador&quot;);</span>
+<span class="nc" id="L165">                        break;</span>
                     case 3:
-<span class="nc" id="L237">                        System.out.println(&quot;Has seleccionado la opcion insertar pokemons por su tipo &quot;);</span>
-<span class="nc" id="L238">                        break;</span>
+<span class="nc" id="L167">                        System.out.println(&quot;Has seleccionado la opcion insertar  por objecto&quot;);</span>
+<span class="nc" id="L168">                        break;</span>
                     case 4:
-<span class="nc" id="L240">                        System.out.println(&quot;Has seleccionado la opcion insertar la evolucion de un pokemon &quot;);</span>
-<span class="nc" id="L241">                        break;</span>
-                    case 5:
-<span class="nc" id="L243">                        System.out.println(&quot;Has seleccionado la opcion insertar los pokemon de un entrenador&quot;);</span>
-<span class="nc" id="L244">                        break;</span>
-                    case 6:
-<span class="nc" id="L246">                        System.out.println(&quot;Has seleccionado la opcion insertar pokemon por un movimiento &quot;);</span>
-<span class="nc" id="L247">                        break;</span>
-                    case 7:
-<span class="nc" id="L249">                        System.out.println(&quot;Has seleccionado la opcion insertar los pokemon que tiene un entrenador &quot;);</span>
-<span class="nc" id="L250">                        break;</span>
-                    case 8:
-<span class="nc" id="L252">                        System.out.println(&quot;Has seleccionado la opcion insertar un entrenador por nombre &quot;);</span>
-<span class="nc" id="L253">                        break;</span>
-                    case 9:
-<span class="nc" id="L255">                        System.out.println(&quot;Has seleccionado la opcion insertar un entrenador por sus pokemons &quot;);</span>
-<span class="nc" id="L256">                        break;</span>
-                    case 10:
-<span class="nc" id="L258">                        System.out.println(&quot;Has seleccionado la opcion insertar un entrenador por la cantidad de medallas que tiene &quot;);</span>
-<span class="nc" id="L259">                        break;</span>
-                    case 11:
-<span class="nc" id="L261">                        System.out.println(&quot;Has seleccionado la opcion insertar los objectos que tiene un entrenador &quot;);</span>
-<span class="nc" id="L262">                        break;</span>
-                    case 12:
-<span class="nc" id="L264">                        System.out.println(&quot;Has seleccionado la opcion insertar movimiento por su nombre &quot;);</span>
-<span class="nc" id="L265">                        break;</span>
-                    case 13:
-<span class="nc" id="L267">                        System.out.println(&quot;Has seleccionado la opcion insertar los movimientos que tiene un pokemon &quot;);</span>
-<span class="nc" id="L268">                        break;</span>
-                    case 14:
-<span class="nc" id="L270">                        System.out.println(&quot;Has seleccionado la opcion insertar los movimientos por el estado que procova &quot;);</span>
-<span class="nc" id="L271">                        break;</span>
-                    case 15:
-<span class="nc" id="L273">                        System.out.println(&quot;Has seleccionado la opcion insertar los moviminetos por su categoria &quot;);</span>
-<span class="nc" id="L274">                        break;</span>
-                    case 16:
-<span class="nc" id="L276">                        System.out.println(&quot;Has seleccionado la opcion insertar un objeto por su nombre &quot;);</span>
-<span class="nc" id="L277">                        break;</span>
-                    case 17:
-<span class="nc" id="L279">                        System.out.println(&quot;Has seleccionado la opcion insertar objetos por el modo de obtencion &quot;);</span>
-<span class="nc" id="L280">                        break;</span>
-                    case 18:
-<span class="nc" id="L282">                        System.out.println(&quot;Has seleccionado la opcion insertar una maquina por el movimiento que tiene&quot;);</span>
-<span class="nc" id="L283">                        break;</span>
-                    case 19:
-<span class="nc" id="L285">                        salir = true;</span>
-<span class="nc" id="L286">                        break;</span>
+<span class="nc" id="L170">                        System.out.println(&quot;Has seleccionado la opcion insertar un movimiento &quot;);</span>
+<span class="nc" id="L171">                        break;</span>
+                    case 0:
+<span class="nc" id="L173">                        salir = true;</span>
+<span class="nc" id="L174">                        break;</span>
                     default:
-<span class="nc" id="L288">                        System.out.println(&quot;Solo números entre 1 y 19&quot;);</span>
+<span class="nc" id="L176">                        System.out.println(&quot;Solo números entre 0 y 4&quot;);</span>
                 }
-<span class="nc" id="L290">            } catch (InputMismatchException e) {</span>
-<span class="nc" id="L291">                System.out.println(&quot;Debes insertar un número&quot;);</span>
-<span class="nc" id="L292">                sn.next();</span>
-<span class="nc" id="L293">            }</span>
+<span class="nc" id="L178">            } catch (InputMismatchException e) {</span>
+<span class="nc" id="L179">                System.out.println(&quot;Debes insertar un número&quot;);</span>
+<span class="nc" id="L180">                sn.next();</span>
+<span class="nc" id="L181">            }</span>
         }
-<span class="nc" id="L295">    }</span>
+<span class="nc" id="L183">    }</span>
 
     private static void menuEliminar() {
-<span class="nc" id="L298">        Scanner sn = new Scanner(System.in);</span>
-<span class="nc" id="L299">        boolean salir = false;</span>
-<span class="nc" id="L300">        String contrasenia = &quot;SoyMew&quot;;</span>
+<span class="nc" id="L186">        Scanner sn = new Scanner(System.in);</span>
+<span class="nc" id="L187">        boolean salir = false;</span>
+<span class="nc" id="L188">        String contrasenia = &quot;SoyMew&quot;;</span>
         int opcion; // Guardaremos la opcion del usuario
 
-<span class="nc bnc" id="L303" title="All 2 branches missed.">        while (!salir) {</span>
-
-<span class="nc" id="L305">            System.out.println(&quot;Bienvenido al  opcion Eliminar&quot;);</span>
-<span class="nc" id="L306">            System.out.println(&quot;¿Que quieres hacer?&quot;);</span>
-            // insertar
-<span class="nc" id="L308">            System.out.println(&quot;1. Eliminar un pokemon por su numero en la pokedex&quot;);</span>
-<span class="nc" id="L309">            System.out.println(&quot;2. Eliminar  un pokemon por su nombre&quot;);</span>
-<span class="nc" id="L310">            System.out.println(&quot;3. Eliminar pokemons por su tipo&quot;);</span>
-<span class="nc" id="L311">            System.out.println(&quot;4. Eliminar la evolucion de un pokemon&quot;);</span>
-<span class="nc" id="L312">            System.out.println(&quot;5. Eliminar los pokemon de un entrenador&quot;);</span>
-<span class="nc" id="L313">            System.out.println(&quot;6. Eliminar pokemon por un movimiento&quot;);</span>
-<span class="nc" id="L314">            System.out.println(&quot;7. Eliminar los pokemon que tiene un entrenador&quot;);</span>
-<span class="nc" id="L315">            System.out.println(&quot;8. Eliminar un entrenador por nombre&quot;);</span>
-<span class="nc" id="L316">            System.out.println(&quot;9. Eliminar un entrenador por sus pokemons&quot;);</span>
-<span class="nc" id="L317">            System.out.println(&quot;10. Eliminar un entrenador por la cantidad de medallas que tiene&quot;);</span>
-<span class="nc" id="L318">            System.out.println(&quot;11. Eliminar los objectos que tiene un entrenador&quot;);</span>
-<span class="nc" id="L319">            System.out.println(&quot;12. Eliminar movimiento por su nombre&quot;);</span>
-<span class="nc" id="L320">            System.out.println(&quot;13. Eliminar los movimientos que tiene un pokemon&quot;);</span>
-<span class="nc" id="L321">            System.out.println(&quot;14. Eliminar los movimientos por el estado que procova&quot;);</span>
-<span class="nc" id="L322">            System.out.println(&quot;15. Eliminar los moviminetos por su categoria&quot;);</span>
-<span class="nc" id="L323">            System.out.println(&quot;16. Eliminar un objeto por su nombre&quot;);</span>
-<span class="nc" id="L324">            System.out.println(&quot;17. Eliminar objetos por el modo de obtencion&quot;);</span>
-<span class="nc" id="L325">            System.out.println(&quot;18. Eliminar una maquina por el movimiento que tiene&quot;);</span>
-<span class="nc" id="L326">            System.out.println(&quot;19. Salir&quot;);</span>
+<span class="nc bnc" id="L191" title="All 2 branches missed.">        while (!salir) {</span>
+<span class="nc" id="L192">            System.out.println(&quot;Bienvenido al  opcion Eliminar&quot;);</span>
+<span class="nc" id="L193">            System.out.println(&quot;¿Que quieres hacer?&quot;);</span>
+<span class="nc" id="L194">            System.out.println(&quot;1. Eliminar por pokemon&quot;);</span>
+<span class="nc" id="L195">            System.out.println(&quot;2. Eliminar por entrenador&quot;);</span>
+<span class="nc" id="L196">            System.out.println(&quot;3. Eliminar por objecto&quot;);</span>
+<span class="nc" id="L197">            System.out.println(&quot;4. Eliminar  por movimiento&quot;);</span>
+<span class="nc" id="L198">            System.out.println(&quot;0. Salir&quot;);</span>
 
             try {
-<span class="nc" id="L329">                System.out.println(&quot;Escribe una de las opciones&quot;);</span>
-<span class="nc" id="L330">                opcion = sn.nextInt();</span>
+<span class="nc" id="L201">                System.out.println(&quot;Escribe una de las opciones&quot;);</span>
+<span class="nc" id="L202">                opcion = sn.nextInt();</span>
 
-<span class="nc bnc" id="L332" title="All 20 branches missed.">                switch (opcion) {</span>
+<span class="nc bnc" id="L204" title="All 6 branches missed.">                switch (opcion) {</span>
                     case 1:
-<span class="nc" id="L334">                        System.out</span>
-<span class="nc" id="L335">                                .println(&quot;Has seleccionado la opcion eliminar un pokemon por su numero en la pokedex &quot;);</span>
-<span class="nc" id="L336">                        break;</span>
+<span class="nc" id="L206">                        System.out.println(&quot;Has seleccionado la opcion eliminar un pokemon&quot;);</span>
+<span class="nc" id="L207">                        break;</span>
                     case 2:
-<span class="nc" id="L338">                        System.out.println(&quot;Has seleccionado la opcion eliminar  un pokemon por su nombre &quot;);</span>
-<span class="nc" id="L339">                        break;</span>
+<span class="nc" id="L209">                        System.out.println(&quot;Has seleccionado la opcion eliminar  por entrenador&quot;);</span>
+<span class="nc" id="L210">                        break;</span>
                     case 3:
-<span class="nc" id="L341">                        System.out.println(&quot;Has seleccionado la opcion eliminar pokemons por su tipo &quot;);</span>
-<span class="nc" id="L342">                        break;</span>
+<span class="nc" id="L212">                        System.out.println(&quot;Has seleccionado la opcion eliminar por objecto&quot;);</span>
+<span class="nc" id="L213">                        break;</span>
                     case 4:
-<span class="nc" id="L344">                        System.out.println(&quot;Has seleccionado la opcion eliminar la evolucion de un pokemon &quot;);</span>
-<span class="nc" id="L345">                        break;</span>
-                    case 5:
-<span class="nc" id="L347">                        System.out.println(&quot;Has seleccionado la opcion eliminar los pokemon de un entrenador&quot;);</span>
-<span class="nc" id="L348">                        break;</span>
-                    case 6:
-<span class="nc" id="L350">                        System.out.println(&quot;Has seleccionado la opcion eliminar pokemon por un movimiento &quot;);</span>
-<span class="nc" id="L351">                        break;</span>
-                    case 7:
-<span class="nc" id="L353">                        System.out.println(&quot;Has seleccionado la opcion eliminar los pokemon que tiene un entrenador &quot;);</span>
-<span class="nc" id="L354">                        break;</span>
-                    case 8:
-<span class="nc" id="L356">                        System.out.println(&quot;Has seleccionado la opcion eliminar un entrenador por nombre &quot;);</span>
-<span class="nc" id="L357">                        break;</span>
-                    case 9:
-<span class="nc" id="L359">                        System.out.println(&quot;Has seleccionado la opcion eliminar un entrenador por sus pokemons &quot;);</span>
-<span class="nc" id="L360">                        break;</span>
-                    case 10:
-<span class="nc" id="L362">                        System.out.println(</span>
-                                &quot;Has seleccionado la opcion eliminar un entrenador por la cantidad de medallas que tiene &quot;);
-<span class="nc" id="L364">                        break;</span>
-                    case 11:
-<span class="nc" id="L366">                        System.out.println(&quot;Has seleccionado la opcion eliminar los objectos que tiene un entrenador &quot;);</span>
-<span class="nc" id="L367">                        break;</span>
-                    case 12:
-<span class="nc" id="L369">                        System.out.println(&quot;Has seleccionado la opcion eliminar movimiento por su nombre &quot;);</span>
-<span class="nc" id="L370">                        break;</span>
-                    case 13:
-<span class="nc" id="L372">                        System.out.println(&quot;Has seleccionado la opcion eliminar los movimientos que tiene un pokemon &quot;);</span>
-<span class="nc" id="L373">                        break;</span>
-                    case 14:
-<span class="nc" id="L375">                        System.out.println(</span>
-                                &quot;Has seleccionado la opcion eliminar los movimientos por el estado que procova &quot;);
-<span class="nc" id="L377">                        break;</span>
-                    case 15:
-<span class="nc" id="L379">                        System.out.println(&quot;Has seleccionado la opcion eliminar los moviminetos por su categoria &quot;);</span>
-<span class="nc" id="L380">                        break;</span>
-                    case 16:
-<span class="nc" id="L382">                        System.out.println(&quot;Has seleccionado la opcion eliminar un objeto por su nombre &quot;);</span>
-<span class="nc" id="L383">                        break;</span>
-                    case 17:
-<span class="nc" id="L385">                        System.out.println(&quot;Has seleccionado la opcion eliminar objetos por el modo de obtencion &quot;);</span>
-<span class="nc" id="L386">                        break;</span>
-                    case 18:
-<span class="nc" id="L388">                        System.out</span>
-<span class="nc" id="L389">                                .println(&quot;Has seleccionado la opcion eliminar una maquina por el movimiento que tiene&quot;);</span>
-<span class="nc" id="L390">                        break;</span>
-                    case 19:
-<span class="nc" id="L392">                        salir = true;</span>
-<span class="nc" id="L393">                        break;</span>
+<span class="nc" id="L215">                        System.out.println(&quot;Has seleccionado la opcion eliminar por movimiento&quot;);</span>
+<span class="nc" id="L216">                        break;</span>
+                    case 0:
+<span class="nc" id="L218">                        salir = true;</span>
+<span class="nc" id="L219">                        break;</span>
                     default:
-<span class="nc" id="L395">                        System.out.println(&quot;Solo números entre 1 y 19&quot;);</span>
+<span class="nc" id="L221">                        System.out.println(&quot;Solo números entre 0 y 4&quot;);</span>
                 }
-<span class="nc" id="L397">            } catch (InputMismatchException e) {</span>
-<span class="nc" id="L398">                System.out.println(&quot;Debes insertar un número&quot;);</span>
-<span class="nc" id="L399">                sn.next();</span>
-<span class="nc" id="L400">            }</span>
+<span class="nc" id="L223">            } catch (InputMismatchException e) {</span>
+<span class="nc" id="L224">                System.out.println(&quot;Debes insertar un número&quot;);</span>
+<span class="nc" id="L225">                sn.next();</span>
+<span class="nc" id="L226">            }</span>
         }
-<span class="nc" id="L402">    }</span>
-    
+<span class="nc" id="L228">    }</span>
+
     private static void menuModificar() {
-<span class="nc" id="L405">        Scanner sn = new Scanner(System.in);</span>
-<span class="nc" id="L406">        boolean salir = false;</span>
-<span class="nc" id="L407">        String contrasenia = &quot;SoyMew&quot;;</span>
+<span class="nc" id="L231">        Scanner sn = new Scanner(System.in);</span>
+<span class="nc" id="L232">        boolean salir = false;</span>
+<span class="nc" id="L233">        String contrasenia = &quot;SoyMew&quot;;</span>
         int opcion; // Guardaremos la opcion del usuario
 
-<span class="nc bnc" id="L410" title="All 2 branches missed.">        while (!salir) {</span>
+<span class="nc bnc" id="L236" title="All 2 branches missed.">        while (!salir) {</span>
 
-<span class="nc" id="L412">            System.out.println(&quot;Bienvenido al  opcion modificar&quot;);</span>
-<span class="nc" id="L413">            System.out.println(&quot;¿Que quieres hacer?&quot;);</span>
-            // insertar
-<span class="nc" id="L415">            System.out.println(&quot;1. Modificar un pokemon por su numero en la pokedex&quot;);</span>
-<span class="nc" id="L416">            System.out.println(&quot;2. Modificar  un pokemon por su nombre&quot;);</span>
-<span class="nc" id="L417">            System.out.println(&quot;3. Modificar pokemons por su tipo&quot;);</span>
-<span class="nc" id="L418">            System.out.println(&quot;4. Modificar la evolucion de un pokemon&quot;);</span>
-<span class="nc" id="L419">            System.out.println(&quot;5. Modificar los pokemon de un entrenador&quot;);</span>
-<span class="nc" id="L420">            System.out.println(&quot;6. Modificar pokemon por un movimiento&quot;);</span>
-<span class="nc" id="L421">            System.out.println(&quot;7. Modificar los pokemon que tiene un entrenador&quot;);</span>
-<span class="nc" id="L422">            System.out.println(&quot;8. Modificar un entrenador por nombre&quot;);</span>
-<span class="nc" id="L423">            System.out.println(&quot;9. Modificar un entrenador por sus pokemons&quot;);</span>
-<span class="nc" id="L424">            System.out.println(&quot;10. Modificar un entrenador por la cantidad de medallas que tiene&quot;);</span>
-<span class="nc" id="L425">            System.out.println(&quot;11. Modificar los objectos que tiene un entrenador&quot;);</span>
-<span class="nc" id="L426">            System.out.println(&quot;12. Modificar movimiento por su nombre&quot;);</span>
-<span class="nc" id="L427">            System.out.println(&quot;13. Modificar los movimientos que tiene un pokemon&quot;);</span>
-<span class="nc" id="L428">            System.out.println(&quot;14. Modificar los movimientos por el estado que procova&quot;);</span>
-<span class="nc" id="L429">            System.out.println(&quot;15. Modificar los moviminetos por su categoria&quot;);</span>
-<span class="nc" id="L430">            System.out.println(&quot;16. Modificar un objeto por su nombre&quot;);</span>
-<span class="nc" id="L431">            System.out.println(&quot;17. Modificar objetos por el modo de obtencion&quot;);</span>
-<span class="nc" id="L432">            System.out.println(&quot;18. Modificar una maquina por el movimiento que tiene&quot;);</span>
-<span class="nc" id="L433">            System.out.println(&quot;19. Salir&quot;);</span>
+<span class="nc" id="L238">            System.out.println(&quot;Bienvenido al  opcion Modificar&quot;);</span>
+<span class="nc" id="L239">            System.out.println(&quot;¿Que quieres hacer?&quot;);</span>
+<span class="nc" id="L240">            System.out.println(&quot;1. Modificar por pokemon&quot;);</span>
+<span class="nc" id="L241">            System.out.println(&quot;2. Modificar por entrenador&quot;);</span>
+<span class="nc" id="L242">            System.out.println(&quot;3. Modificar por objecto&quot;);</span>
+<span class="nc" id="L243">            System.out.println(&quot;4. Modificar  por movimiento&quot;);</span>
+<span class="nc" id="L244">            System.out.println(&quot;0. Salir&quot;);</span>
 
             try {
-<span class="nc" id="L436">                System.out.println(&quot;Escribe una de las opciones&quot;);</span>
-<span class="nc" id="L437">                opcion = sn.nextInt();</span>
+<span class="nc" id="L247">                System.out.println(&quot;Escribe una de las opciones&quot;);</span>
+<span class="nc" id="L248">                opcion = sn.nextInt();</span>
 
-<span class="nc bnc" id="L439" title="All 20 branches missed.">                switch (opcion) {</span>
+<span class="nc bnc" id="L250" title="All 6 branches missed.">                switch (opcion) {</span>
                     case 1:
-<span class="nc" id="L441">                        System.out</span>
-<span class="nc" id="L442">                                .println(&quot;Has seleccionado la opcion modificar un pokemon por su numero en la pokedex &quot;);</span>
-<span class="nc" id="L443">                        break;</span>
+<span class="nc" id="L252">                        System.out.println(&quot;Has seleccionado la opcion modificar por pokemon&quot;);</span>
+<span class="nc" id="L253">                        break;</span>
                     case 2:
-<span class="nc" id="L445">                        System.out.println(&quot;Has seleccionado la opcionmodificar  un pokemon por su nombre &quot;);</span>
-<span class="nc" id="L446">                        break;</span>
+<span class="nc" id="L255">                        System.out.println(&quot;Has seleccionado la opcion modificar por entrenador&quot;);</span>
+<span class="nc" id="L256">                        break;</span>
                     case 3:
-<span class="nc" id="L448">                        System.out.println(&quot;Has seleccionado la opcion modificar pokemons por su tipo &quot;);</span>
-<span class="nc" id="L449">                        break;</span>
+<span class="nc" id="L258">                        System.out.println(&quot;Has seleccionado la opcion modificar por objecto&quot;);</span>
+<span class="nc" id="L259">                        break;</span>
                     case 4:
-<span class="nc" id="L451">                        System.out.println(&quot;Has seleccionado la opcion modificar la evolucion de un pokemon &quot;);</span>
-<span class="nc" id="L452">                        break;</span>
-                    case 5:
-<span class="nc" id="L454">                        System.out.println(&quot;Has seleccionado la opcion modificar los pokemon de un entrenador&quot;);</span>
-<span class="nc" id="L455">                        break;</span>
-                    case 6:
-<span class="nc" id="L457">                        System.out.println(&quot;Has seleccionado la opcion modificar pokemon por un movimiento &quot;);</span>
-<span class="nc" id="L458">                        break;</span>
-                    case 7:
-<span class="nc" id="L460">                        System.out.println(&quot;Has seleccionado la opcion modificar los pokemon que tiene un entrenador &quot;);</span>
-<span class="nc" id="L461">                        break;</span>
-                    case 8:
-<span class="nc" id="L463">                        System.out.println(&quot;Has seleccionado la opcion modificar un entrenador por nombre &quot;);</span>
-<span class="nc" id="L464">                        break;</span>
-                    case 9:
-<span class="nc" id="L466">                        System.out.println(&quot;Has seleccionado la opcion modificar un entrenador por sus pokemons &quot;);</span>
-<span class="nc" id="L467">                        break;</span>
-                    case 10:
-<span class="nc" id="L469">                        System.out.println(</span>
-                                &quot;Has seleccionado la opcion modificar un entrenador por la cantidad de medallas que tiene &quot;);
-<span class="nc" id="L471">                        break;</span>
-                    case 11:
-<span class="nc" id="L473">                        System.out.println(&quot;Has seleccionado la opcion modificar los objectos que tiene un entrenador &quot;);</span>
-<span class="nc" id="L474">                        break;</span>
-                    case 12:
-<span class="nc" id="L476">                        System.out.println(&quot;Has seleccionado la opcion modificar movimiento por su nombre &quot;);</span>
-<span class="nc" id="L477">                        break;</span>
-                    case 13:
-<span class="nc" id="L479">                        System.out.println(&quot;Has seleccionado la opcion modificar los movimientos que tiene un pokemon &quot;);</span>
-<span class="nc" id="L480">                        break;</span>
-                    case 14:
-<span class="nc" id="L482">                        System.out.println(</span>
-                                &quot;Has seleccionado la opcion modificar los movimientos por el estado que procova &quot;);
-<span class="nc" id="L484">                        break;</span>
-                    case 15:
-<span class="nc" id="L486">                        System.out.println(&quot;Has seleccionado la opcion modificar los moviminetos por su categoria &quot;);</span>
-<span class="nc" id="L487">                        break;</span>
-                    case 16:
-<span class="nc" id="L489">                        System.out.println(&quot;Has seleccionado la opcion modificar un objeto por su nombre &quot;);</span>
-<span class="nc" id="L490">                        break;</span>
-                    case 17:
-<span class="nc" id="L492">                        System.out.println(&quot;Has seleccionado la opcion modificar objetos por el modo de obtencion &quot;);</span>
-<span class="nc" id="L493">                        break;</span>
-                    case 18:
-<span class="nc" id="L495">                        System.out</span>
-<span class="nc" id="L496">                                .println(&quot;Has seleccionado la opcion modificar una maquina por el movimiento que tiene&quot;);</span>
-<span class="nc" id="L497">                        break;</span>
-                    case 19:
-<span class="nc" id="L499">                        salir = true;</span>
-<span class="nc" id="L500">                        break;</span>
+<span class="nc" id="L261">                        System.out.println(&quot;Has seleccionado la opcion modificar por movimiento&quot;);</span>
+<span class="nc" id="L262">                        break;</span>
+                    case 0:
+<span class="nc" id="L264">                        salir = true;</span>
+<span class="nc" id="L265">                        break;</span>
                     default:
-<span class="nc" id="L502">                        System.out.println(&quot;Solo números entre 1 y 19&quot;);</span>
+<span class="nc" id="L267">                        System.out.println(&quot;Solo números entre 0 y 4&quot;);</span>
                 }
-<span class="nc" id="L504">            } catch (InputMismatchException e) {</span>
-<span class="nc" id="L505">                System.out.println(&quot;Debes insertar un número&quot;);</span>
-<span class="nc" id="L506">                sn.next();</span>
-<span class="nc" id="L507">            }</span>
+<span class="nc" id="L269">            } catch (InputMismatchException e) {</span>
+<span class="nc" id="L270">                System.out.println(&quot;Debes insertar un número&quot;);</span>
+<span class="nc" id="L271">                sn.next();</span>
+<span class="nc" id="L272">            }</span>
         }
-<span class="nc" id="L509">    }</span>
+<span class="nc" id="L274">    }</span>
 
-    private static void AdminContasenia() {
-<span class="nc" id="L512">        Scanner sn = new Scanner(System.in);</span>
-<span class="nc" id="L513">        boolean salir = false;</span>
-<span class="nc" id="L514">        String contrasenia = &quot;SoyMew&quot;;</span>
+    public static void menuBuscarPokemon() {
+<span class="nc" id="L277">        Scanner sn = new Scanner(System.in);</span>
+<span class="nc" id="L278">        boolean salir = false;</span>
         int opcion; // Guardaremos la opcion del usuario
-<span class="nc" id="L516">        String password = &quot;SoyMew&quot;;</span>
+<span class="nc bnc" id="L280" title="All 2 branches missed.">        while (!salir) {</span>
 
-<span class="nc" id="L518">        System.out.println(&quot;Ingrese la Contraseña &quot;);</span>
-<span class="nc" id="L519">        password = sn.nextLine();</span>
+<span class="nc" id="L282">            System.out.println(&quot;Bienvenido al menu buscar por pokemon&quot;);</span>
+<span class="nc" id="L283">            System.out.println(&quot;¿Que quieres buscar?&quot;);</span>
+<span class="nc" id="L284">            System.out.println(&quot;1. Buscar Un pokemon por su numero en la pokedex&quot;);</span>
+<span class="nc" id="L285">            System.out.println(&quot;2. Buscar Un pokemon por su nombre&quot;);</span>
+<span class="nc" id="L286">            System.out.println(&quot;3. Buscar Pokemons por su tipo&quot;);</span>
+<span class="nc" id="L287">            System.out.println(&quot;4. Buscar Los pokemon de un entrenador&quot;);</span>
+<span class="nc" id="L288">            System.out.println(&quot;5. Buscar Pokemons que tienen un movimiento&quot;);</span>
+<span class="nc" id="L289">            System.out.println(&quot;6. Buscar Los pokemon que tiene un entrenador&quot;);</span>
+<span class="nc" id="L290">            System.out.println(&quot;0. Salir&quot;);</span>
 
-<span class="nc bnc" id="L521" title="All 2 branches missed.">        if (password.equals(&quot;SoyMew&quot;)) {</span>
-<span class="nc" id="L522">            menuAdmin();</span>
+            try {
+<span class="nc" id="L293">                System.out.println(&quot;Escribe una de las opciones&quot;);</span>
+<span class="nc" id="L294">                opcion = sn.nextInt();</span>
+
+<span class="nc bnc" id="L296" title="All 8 branches missed.">                switch (opcion) {</span>
+                    case 1:
+<span class="nc" id="L298">                        System.out.println(&quot;Has seleccionado la opcion Buscar Un pokemon por su numero en la pokedex&quot;);</span>
+<span class="nc" id="L299">                        break;</span>
+                    case 2:
+<span class="nc" id="L301">                        System.out.println(&quot;Has seleccionado la opcion Buscar Un pokemon por su nombre&quot;);</span>
+<span class="nc" id="L302">                        break;</span>
+                    case 3:
+<span class="nc" id="L304">                        System.out.println(&quot;Has seleccionado la opcion Buscar Pokemons por su tipo&quot;);</span>
+<span class="nc" id="L305">                        break;</span>
+                    case 4:
+<span class="nc" id="L307">                        System.out.println(&quot;Has seleccionado la opcion Buscar Los pokemon de un entrenador&quot;);</span>
+<span class="nc" id="L308">                        break;</span>
+                    case 5:
+<span class="nc" id="L310">                        System.out.println(&quot;Has seleccionado la opcion Buscar Pokemons que tienen un movimiento&quot;);</span>
+<span class="nc" id="L311">                        break;</span>
+                    case 6:
+<span class="nc" id="L313">                        System.out.println(&quot;Has seleccionado la opcion Buscar Los pokemon que tiene un entrenador&quot;);</span>
+<span class="nc" id="L314">                        break;</span>
+                    case 0:
+<span class="nc" id="L316">                        salir = true;</span>
+<span class="nc" id="L317">                        break;</span>
+                    default:
+<span class="nc" id="L319">                        System.out.println(&quot;Solo números entre 0 y 4&quot;);</span>
+                }
+<span class="nc" id="L321">            } catch (InputMismatchException e) {</span>
+<span class="nc" id="L322">                System.out.println(&quot;Debes insertar un número&quot;);</span>
+<span class="nc" id="L323">                sn.next();</span>
+<span class="nc" id="L324">            }</span>
+        }
+
+<span class="nc" id="L327">    }</span>
+    
+    public static void menuBuscarEntrenador() {
+<span class="nc" id="L330">        Scanner sn = new Scanner(System.in);</span>
+<span class="nc" id="L331">        boolean salir = false;</span>
+        int opcion; // Guardaremos la opcion del usuario
+<span class="nc bnc" id="L333" title="All 2 branches missed.">        while (!salir) {</span>
+
+<span class="nc" id="L335">            System.out.println(&quot;Bienvenido al menu buscar por pokemon&quot;);</span>
+<span class="nc" id="L336">            System.out.println(&quot;¿Que quieres buscar?&quot;);</span>
+<span class="nc" id="L337">            System.out.println(&quot;1. Buscar Un entrenador por nombre&quot;);</span>
+<span class="nc" id="L338">            System.out.println(&quot;2. Buscar Un entrenador por sus pokemons&quot;);</span>
+<span class="nc" id="L339">            System.out.println(&quot;3. Buscar Un entrenador por la cantidad de medallas que tiene&quot;);</span>
+<span class="nc" id="L340">            System.out.println(&quot;4. Buscar Los objectos que tiene un entrenador&quot;);</span>
+<span class="nc" id="L341">            System.out.println(&quot;0. Salir&quot;);</span>
+
+            try {
+<span class="nc" id="L344">                System.out.println(&quot;Escribe una de las opciones&quot;);</span>
+<span class="nc" id="L345">                opcion = sn.nextInt();</span>
+
+<span class="nc bnc" id="L347" title="All 6 branches missed.">                switch (opcion) {</span>
+                    case 1:
+<span class="nc" id="L349">                        System.out.println(&quot;Has seleccionado la opcion Buscar  Un entrenador por nombre&quot;);</span>
+<span class="nc" id="L350">                        break;</span>
+                    case 2:
+<span class="nc" id="L352">                        System.out.println(&quot;Has seleccionado la opcion Buscar Un entrenador por sus pokemons&quot;);</span>
+<span class="nc" id="L353">                        break;</span>
+                    case 3:
+<span class="nc" id="L355">                        System.out.println(&quot;Has seleccionado la opcion Buscar Un entrenador por la cantidad de medallas que tiene&quot;);</span>
+<span class="nc" id="L356">                        break;</span>
+                    case 4:
+<span class="nc" id="L358">                        System.out.println(&quot;Has seleccionado la opcion Buscar Los objectos que tiene un entrenador&quot;);</span>
+<span class="nc" id="L359">                        break;</span>
+                    case 0:
+<span class="nc" id="L361">                        salir = true;</span>
+<span class="nc" id="L362">                        break;</span>
+                    default:
+<span class="nc" id="L364">                        System.out.println(&quot;Solo números entre 0 y 4&quot;);</span>
+                }
+<span class="nc" id="L366">            } catch (InputMismatchException e) {</span>
+<span class="nc" id="L367">                System.out.println(&quot;Debes insertar un número&quot;);</span>
+<span class="nc" id="L368">                sn.next();</span>
+<span class="nc" id="L369">            }</span>
+        }
+
+<span class="nc" id="L372">    }</span>
+    
+    public static void menuBuscarMovivientos() {
+<span class="nc" id="L375">        Scanner sn = new Scanner(System.in);</span>
+<span class="nc" id="L376">        boolean salir = false;</span>
+        int opcion; // Guardaremos la opcion del usuario
+<span class="nc bnc" id="L378" title="All 2 branches missed.">        while (!salir) {</span>
+
+<span class="nc" id="L380">            System.out.println(&quot;Bienvenido al menu buscar por pokemon&quot;);</span>
+<span class="nc" id="L381">            System.out.println(&quot;¿Que quieres buscar?&quot;);</span>
+<span class="nc" id="L382">            System.out.println(&quot;1. Buscar Movimiento por su nombre&quot;);</span>
+<span class="nc" id="L383">            System.out.println(&quot;2. Buscar Los movimientos que tiene un pokemon&quot;);</span>
+<span class="nc" id="L384">            System.out.println(&quot;3. Buscar Los movimientos por el estado que procova&quot;);</span>
+<span class="nc" id="L385">            System.out.println(&quot;4. Buscar Los moviminetos por su categoria&quot;);</span>
+<span class="nc" id="L386">            System.out.println(&quot;0. Salir&quot;);</span>
+
+            try {
+<span class="nc" id="L389">                System.out.println(&quot;Escribe una de las opciones&quot;);</span>
+<span class="nc" id="L390">                opcion = sn.nextInt();</span>
+
+<span class="nc bnc" id="L392" title="All 6 branches missed.">                switch (opcion) {</span>
+                    case 1:
+<span class="nc" id="L394">                        System.out.println(&quot;Has seleccionado la opcion Buscar  Un entrenador por nombre&quot;);</span>
+<span class="nc" id="L395">                        break;</span>
+                    case 2:
+<span class="nc" id="L397">                        System.out.println(&quot;Has seleccionado la opcion BuscarLos movimientos que tiene un pokemon&quot;);</span>
+<span class="nc" id="L398">                        break;</span>
+                    case 3:
+<span class="nc" id="L400">                        System.out.println(</span>
+                                &quot;Has seleccionado la opcion Buscar Los movimientos por el estado que procova&quot;);
+<span class="nc" id="L402">                        break;</span>
+                    case 4:
+<span class="nc" id="L404">                        System.out.println(&quot;Has seleccionado la opcion Buscar Los moviminetos por su categoria&quot;);</span>
+<span class="nc" id="L405">                        break;</span>
+                    case 0:
+<span class="nc" id="L407">                        salir = true;</span>
+<span class="nc" id="L408">                        break;</span>
+                    default:
+<span class="nc" id="L410">                        System.out.println(&quot;Solo números entre 0 y 4&quot;);</span>
+                }
+<span class="nc" id="L412">            } catch (InputMismatchException e) {</span>
+<span class="nc" id="L413">                System.out.println(&quot;Debes insertar un número&quot;);</span>
+<span class="nc" id="L414">                sn.next();</span>
+<span class="nc" id="L415">            }</span>
+        }
+
+<span class="nc" id="L418">    }</span>
+
+    public static void menuBuscarobjeto() {
+<span class="nc" id="L421">        Scanner sn = new Scanner(System.in);</span>
+<span class="nc" id="L422">        boolean salir = false;</span>
+        int opcion; // Guardaremos la opcion del usuario
+<span class="nc bnc" id="L424" title="All 2 branches missed.">        while (!salir) {</span>
+
+<span class="nc" id="L426">            System.out.println(&quot;Bienvenido al menu buscar por pokemon&quot;);</span>
+<span class="nc" id="L427">            System.out.println(&quot;¿Que quieres buscar?&quot;);</span>
+<span class="nc" id="L428">            System.out.println(&quot;1. Buscar Un objeto por su nombre&quot;);</span>
+<span class="nc" id="L429">            System.out.println(&quot;2. Buscar Objetos por el modo de obtencion&quot;);</span>
+<span class="nc" id="L430">            System.out.println(&quot;3. Buscar Una maquina por el movimiento que tiene&quot;);</span>
+<span class="nc" id="L431">            System.out.println(&quot;0. Salir&quot;);</span>
+
+            try {
+<span class="nc" id="L434">                System.out.println(&quot;Escribe una de las opciones&quot;);</span>
+<span class="nc" id="L435">                opcion = sn.nextInt();</span>
+
+<span class="nc bnc" id="L437" title="All 6 branches missed.">                switch (opcion) {</span>
+                    case 1:
+<span class="nc" id="L439">                        System.out.println(&quot;Has seleccionado la opcion Buscar  Un objeto por su nombre&quot;);</span>
+<span class="nc" id="L440">                        break;</span>
+                    case 2:
+<span class="nc" id="L442">                        System.out.println(&quot;Has seleccionado la opcion Buscar Objetos por el modo de obtencion&quot;);</span>
+<span class="nc" id="L443">                        break;</span>
+                    case 3:
+<span class="nc" id="L445">                        System.out</span>
+<span class="nc" id="L446">                                .println(&quot;Has seleccionado la opcion Buscar Los movimientos por el estado que procova&quot;);</span>
+<span class="nc" id="L447">                        break;</span>
+                    case 4:
+<span class="nc" id="L449">                        System.out.println(&quot;Has seleccionado la opcion Buscar Una maquina por el movimiento que tiene&quot;);</span>
+<span class="nc" id="L450">                        break;</span>
+                    case 0:
+<span class="nc" id="L452">                        salir = true;</span>
+<span class="nc" id="L453">                        break;</span>
+                    default:
+<span class="nc" id="L455">                        System.out.println(&quot;Solo números entre 0 y 4&quot;);</span>
+                }
+<span class="nc" id="L457">            } catch (InputMismatchException e) {</span>
+<span class="nc" id="L458">                System.out.println(&quot;Debes insertar un número&quot;);</span>
+<span class="nc" id="L459">                sn.next();</span>
+<span class="nc" id="L460">            }</span>
+        }
+
+<span class="nc" id="L463">    }</span>
+    private static void AdminContasenia() {
+<span class="nc" id="L465">        Scanner sn = new Scanner(System.in);</span>
+<span class="nc" id="L466">        String password = &quot;SoyMew&quot;;</span>
+<span class="nc" id="L467">        System.out.println(&quot;Ingrese la Contraseña &quot;);</span>
+<span class="nc" id="L468">        password = sn.nextLine();</span>
+
+<span class="nc bnc" id="L470" title="All 2 branches missed.">        if (password.equals(&quot;SoyMew&quot;)) {</span>
+<span class="nc" id="L471">            menuAdmin();</span>
         } else {
             // si la contraseña es incorrecta se solicita ingresar nuevamente
-<span class="nc" id="L525">            System.out.println(&quot;Contraseña INCORRECTA&quot;);</span>
-<span class="nc" id="L526">            System.out.println(&quot;Ingrese la Contraseña nuevamente&quot;);</span>
-<span class="nc" id="L527">            password = sn.next();</span>
+<span class="nc" id="L474">            System.out.println(&quot;Contraseña INCORRECTA&quot;);</span>
+<span class="nc" id="L475">            System.out.println(&quot;Ingrese la Contraseña nuevamente&quot;);</span>
+<span class="nc" id="L476">            password = sn.next();</span>
 
-<span class="nc bnc" id="L529" title="All 2 branches missed.">             if (password.equals(&quot;SoyMew&quot;)) {</span>
-<span class="nc" id="L530">                password = sn.nextLine();</span>
-<span class="nc" id="L531">                 menuAdmin();</span>
-                    
+<span class="nc bnc" id="L478" title="All 2 branches missed.">            if (password.equals(&quot;SoyMew&quot;)) {</span>
+<span class="nc" id="L479">                password = sn.nextLine();</span>
+<span class="nc" id="L480">                menuAdmin();</span>
             }
-<span class="nc" id="L534">            menuPrincipal();</span>
+<span class="nc" id="L482">            menuPrincipal();</span>
         }
 
-<span class="nc" id="L537">    }</span>
+<span class="nc" id="L485">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

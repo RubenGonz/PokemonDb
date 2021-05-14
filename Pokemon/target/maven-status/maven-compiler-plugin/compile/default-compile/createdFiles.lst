@@ -16,7 +16,6 @@ es\iespuertolacruz\pokemon\api\CampeonLiga.class
 es\iespuertolacruz\pokemon\api\PokemonEquipa.class
 es\iespuertolacruz\pokemon\api\AltoMando.class
 es\iespuertolacruz\pokemon\api\Pokemon.class
-es\iespuertolacruz\pokemon\exception\PokemonException.class
 es\iespuertolacruz\pokemon\api\Evoluciona.class
 es\iespuertolacruz\pokemon\api\Entrenador.class
 es\iespuertolacruz\pokemon\vista\App.class
