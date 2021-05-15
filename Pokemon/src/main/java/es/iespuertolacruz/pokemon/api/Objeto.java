@@ -11,7 +11,6 @@ public class Objeto {
     int id;
     String nombre;
     String modoObtencion;
-    int precioVenta = null;
 
     //Constructores
 
@@ -27,13 +26,11 @@ public class Objeto {
      * @param id del obbjeto
      * @param nombre del objeto
      * @param modoObtencion modo en el que se puede obtener un objeto
-     * @param precioVenta precio de venta que tiene en las tiendas
      */
-    public Objeto(int id, String nombre, String modoObtencion, int precioVenta) {
+    public Objeto(int id, String nombre, String modoObtencion) {
         this.id = id;
         this.nombre = nombre;
         this.modoObtencion = modoObtencion;
-        this.precioVenta = precioVenta;
     }
 
     //Getters and Setters
@@ -62,22 +59,13 @@ public class Objeto {
         this.modoObtencion = modoObtencion;
     }
 
-    public int getPrecioVenta() {
-        return this.precioVenta;
-    }
-
-    public void setPrecioVenta(int precioVenta) {
-        this.precioVenta = precioVenta;
-    }
-
     //Metodos y funciones
 
     @Override
     public String toString() {
         return getId() + DELIMITADOR +
             getNombre() + DELIMITADOR +
-            getModoObtencion() + DELIMITADOR +
-            getPrecioVenta();
+            getModoObtencion();
     }
 
 }

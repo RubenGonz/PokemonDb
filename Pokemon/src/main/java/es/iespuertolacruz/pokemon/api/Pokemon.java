@@ -10,8 +10,6 @@ public class Pokemon {
     private static final String DELIMITADOR = "'";
     int numeroPokedex;
     String nombre;
-    String tipoPrincipal;
-    String tipoSecundario = nullds;
     int caracteristicas;
     int estadisticasBase;
 
@@ -28,16 +26,12 @@ public class Pokemon {
      * 
      * @param numeroPokedex identificador del pokemon
      * @param nombre del pokemon
-     * @param tipoPrincipal primer tipo del pokemon
-     * @param tipoSecundario segundo tipo del pokemon
      * @param caracteristicas numero que relaciona al pokemon con sus caracteristicas
      * @param estadisticasBase numero que relaciona al pokemon con sus estadisticas
      */
-    public Pokemon(int numeroPokedex, String nombre, String tipoPrincipal, String tipoSecundario, int caracteristicas, int estadisticasBase) {
+    public Pokemon(int numeroPokedex, String nombre, int caracteristicas, int estadisticasBase) {
         this.numeroPokedex = numeroPokedex;
         this.nombre = nombre;
-        this.tipoPrincipal = tipoPrincipal;
-        this.tipoSecundario = tipoSecundario;
         this.caracteristicas = caracteristicas;
         this.estadisticasBase = estadisticasBase;
     }
@@ -58,22 +52,6 @@ public class Pokemon {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public String getTipoPrincipal() {
-        return this.tipoPrincipal;
-    }
-
-    public void setTipoPrincipal(String tipoPrincipal) {
-        this.tipoPrincipal = tipoPrincipal;
-    }
-
-    public String getTipoSecundario() {
-        return this.tipoSecundario;
-    }
-
-    public void setTipoSecundario(String tipoSecundario) {
-        this.tipoSecundario = tipoSecundario;
     }
 
     public int getCaracteristicas() {
@@ -98,8 +76,6 @@ public class Pokemon {
     public String toString() {
         return getNumeroPokedex() + DELIMITADOR +
             getNombre() + DELIMITADOR +
-            getTipoPrincipal() + DELIMITADOR +
-            getTipoSecundario() + DELIMITADOR +
             getCaracteristicas() + DELIMITADOR +
             getEstadisticasBase();
     }

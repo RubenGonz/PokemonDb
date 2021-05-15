@@ -17,14 +17,14 @@ public class ObjetoTest {
     @BeforeEach
     public void SetUp() {
         objeto1 = crearObjeto();
-        objeto2 = new Objeto(8,"Fosil domo","Entregado",500);
+        objeto2 = new Objeto(8,"Fosil domo","Entregado");
     }
 
     //Test
 
     @Test
     public void toStringTest() {
-        assertEquals("8'Fosil domo'Entregado'500",objeto1.toString(), "El texto recibido no era el esperado");
+        assertEquals("8'Fosil domo'Entregado",objeto1.toString(), "El texto recibido no era el esperado");
     }
 
     //Funciones y metodos
@@ -35,7 +35,6 @@ public class ObjetoTest {
         objeto.setId(8);
         objeto.setNombre("Fosil domo");
         objeto.setModoObtencion("Entregado");
-        objeto.setPrecioVenta(500);
         return objeto;
     }
     

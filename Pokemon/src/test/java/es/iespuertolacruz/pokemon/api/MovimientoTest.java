@@ -17,14 +17,14 @@ public class MovimientoTest {
     @BeforeEach
     public void SetUp() {
         movimiento1 = crearMovimiento();
-        movimiento1 = new Movimiento(15,"Impactrueno","Electrico","Especial",30,40,100,1);
+        movimiento1 = new Movimiento(15,"Impactrueno","Electrico","Especial",30,40,100);
     }
 
     //Test
 
     @Test
     public void toStringTest() {
-        assertEquals("15'Impactrueno'Electrico'Especial'30'40'100'1",movimiento1.toString(), "El texto recibido no era el esperado");
+        assertEquals("15'Impactrueno'Electrico'Especial'30'40'100",movimiento1.toString(), "El texto recibido no era el esperado");
     }
 
     //Funciones y metodos
@@ -39,7 +39,6 @@ public class MovimientoTest {
         movimiento.setPp(30);
         movimiento.setPotencia(40);
         movimiento.setCerteza(100);
-        movimiento.setIdEstado(1);
         return movimiento;
     }
 

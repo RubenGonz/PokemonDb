@@ -15,7 +15,6 @@ public class Movimiento {
     int pp;
     int potencia;
     int certeza;
-    int idEstado;
 
     // Constructores
 
@@ -34,9 +33,8 @@ public class Movimiento {
      * @param pp cantida de veces que lo puede ejecutar hasta recuperarse
      * @param potencia fuerza del movimiento
      * @param certeza porcentaje de acierto sobre 100
-     * @param idEstado numero que lo relaciona con el estado si lo provocase
      */
-    public Movimiento(int id, String nombre, String tipo, String categoria, int pp, int potencia, int certeza, int idEstado) {
+    public Movimiento(int id, String nombre, String tipo, String categoria, int pp, int potencia, int certeza) {
         this.id = id;
         this.nombre = nombre;
         this.tipo = tipo;
@@ -44,7 +42,6 @@ public class Movimiento {
         this.pp = pp;
         this.potencia = potencia;
         this.certeza = certeza;
-        this.idEstado = idEstado;
     }
 
     //Getters and Setters
@@ -105,14 +102,6 @@ public class Movimiento {
         this.certeza = certeza;
     }
 
-    public int getIdEstado() {
-        return this.idEstado;
-    }
-
-    public void setIdEstado(int idEstado) {
-        this.idEstado = idEstado;
-    }
-
     //Funciones y metodos
 
     @Override
@@ -123,9 +112,7 @@ public class Movimiento {
             getCategoria() + DELIMITADOR +
             getPp() + DELIMITADOR +
             getPotencia() + DELIMITADOR +
-            getCerteza() + DELIMITADOR +
-            getIdEstado();
+            getCerteza();
     }
-
 
 }

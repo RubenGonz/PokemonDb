@@ -17,14 +17,14 @@ public class CaracteristicasTest {
     @BeforeEach
     public void SetUp() {
         caracteristicas1 = crearCaracteristicas();
-        caracteristicas2 = new Caracteristicas(1,6.9f, 0.7f, "Semilla", "Espesura", "Verde", "Starter");
+        caracteristicas2 = new Caracteristicas(1,6.9f, 0.7f, "Semilla", "Espesura", "Starter");
     }
 
     //Test
 
     @Test
     public void toStringTest() {
-        assertEquals("1'6.9'0.7'Semilla'Espesura'Verde'Starter",caracteristicas1.toString(), "El texto recibido no era el esperado");
+        assertEquals("1'6.9'0.7'Semilla'Espesura'Starter",caracteristicas1.toString(), "El texto recibido no era el esperado");
     }
 
     //Funciones y metodos
@@ -37,7 +37,6 @@ public class CaracteristicasTest {
         caracteristicas.setAltura(0.7f);
         caracteristicas.setEspecie("Semilla");
         caracteristicas.setHabilidad("Espesura");
-        caracteristicas.setColor("Verde");
         caracteristicas.setCategoria("Starter");
         return caracteristicas;
     }

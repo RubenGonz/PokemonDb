@@ -13,7 +13,6 @@ public class Caracteristicas {
     float altura;
     String especie;
     String habilidad;
-    String color;
     String categoria;
 
     //Constructores
@@ -32,16 +31,14 @@ public class Caracteristicas {
      * @param altura del pokemon
      * @param especie del pokemon
      * @param habilidad del pokemon
-     * @param color del pokemon
      * @param categoria del pokemon
      */
-    public Caracteristicas(int id, float peso, float altura, String especie, String habilidad, String color, String categoria) {
+    public Caracteristicas(int id, float peso, float altura, String especie, String habilidad, String categoria) {
         this.id = id;
         this.peso = peso;
         this.altura = altura;
         this.especie = especie;
         this.habilidad = habilidad;
-        this.color = color;
         this.categoria = categoria;
     }
 
@@ -87,14 +84,6 @@ public class Caracteristicas {
         this.habilidad = habilidad;
     }
 
-    public String getColor() {
-        return this.color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
     public String getCategoria() {
         return this.categoria;
     }
@@ -112,7 +101,6 @@ public class Caracteristicas {
             getAltura() + DELIMITADOR +
             getEspecie() + DELIMITADOR +
             getHabilidad() + DELIMITADOR +
-            getColor() + DELIMITADOR +
             getCategoria();
     }
 
