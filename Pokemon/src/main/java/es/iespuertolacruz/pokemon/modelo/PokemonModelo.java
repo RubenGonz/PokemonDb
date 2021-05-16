@@ -1,6 +1,6 @@
 package es.iespuertolacruz.pokemon.modelo;
 
-import es.iespuertolacruz.pokemon.api.Pokemon;
+import es.iespuertolacruz.pokemon.api.*;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
 /**
@@ -38,5 +38,6 @@ public class PokemonModelo {
     public void modificar(Pokemon pokemon) throws PersistenciaException {
         persistencia.modificar(pokemon);
     }
-
+    
+   
 }
