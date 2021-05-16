@@ -11,13 +11,15 @@ public class MovimientoTest {
 
     Movimiento movimiento1;
     Movimiento movimiento2;
+    Movimiento movimiento3;
 
     //BeforeEach y AfterEach
 
     @BeforeEach
     public void SetUp() {
         movimiento1 = crearMovimiento();
-        movimiento1 = new Movimiento(15,"Impactrueno","Electrico","Especial",30,40,100);
+        movimiento2 = new Movimiento(15,"Impactrueno","Electrico","Especial",30,40,100);
+        movimiento3 = new Movimiento("15'Impactrueno'Electrico'Especial'30'40'100");
     }
 
     //Test
@@ -25,6 +27,8 @@ public class MovimientoTest {
     @Test
     public void toStringTest() {
         assertEquals("15'Impactrueno'Electrico'Especial'30'40'100",movimiento1.toString(), "El texto recibido no era el esperado");
+        assertEquals("15'Impactrueno'Electrico'Especial'30'40'100",movimiento2.toString(), "El texto recibido no era el esperado");
+        assertEquals("15'Impactrueno'Electrico'Especial'30'40'100",movimiento3.toString(), "El texto recibido no era el esperado");
     }
 
     //Funciones y metodos
@@ -32,9 +36,9 @@ public class MovimientoTest {
     private Movimiento crearMovimiento() {
         Movimiento movimiento;
         movimiento = new Movimiento();
-        movimiento.setId(1);
-        movimiento.setNombre("Burbuja");
-        movimiento.setTipo("Agua");
+        movimiento.setId(15);
+        movimiento.setNombre("Impactrueno");
+        movimiento.setTipo("Electrico");
         movimiento.setCategoria("Especial");
         movimiento.setPp(30);
         movimiento.setPotencia(40);

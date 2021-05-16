@@ -1,5 +1,8 @@
 package es.iespuertolacruz.pokemon.api;
 
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
 /**
  * Clase donde se ven los posibles estados que puede provocar un movimiento
  */
@@ -34,6 +37,23 @@ public class Estado {
         this.nombre = nombre;
         this.persistencia = persistencia;
         this.efecto = efecto;
+    }
+
+    /**
+     * Constructor que recibe una cadena de texto
+     * 
+     * @param cadena con la informacion
+     */
+    public Estado(String cadena) {
+        ArrayList<Object> elementos = new ArrayList<>();
+        StringTokenizer tokenizer = new StringTokenizer(cadena, DELIMITADOR);
+        while (tokenizer.hasMoreElements()) {
+            elementos.add(tokenizer.nextToken());
+        }
+        this.id = Integer.parseInt((String) elementos.get(0));
+        this.nombre = (String) elementos.get(1);
+        this.persistencia = Integer.parseInt((String) elementos.get(2));
+        this.efecto = (String) elementos.get(3);
     }
 
     // Getters and Setters

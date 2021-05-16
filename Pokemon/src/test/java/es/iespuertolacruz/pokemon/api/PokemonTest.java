@@ -27,11 +27,8 @@ public class PokemonTest {
     @Test
     public void toStringTest() {
         assertEquals("1'Bulbasaur'1'1",pokemon1.toString(), "El texto recibido no era el esperado");
-    }
-
-    @Test
-    public void ConstructorCadenaTest() {
-        assertEquals(pokemon2,pokemon3, "El construcor de la cadena de texto no funciona como deberia");
+        assertEquals("1'Bulbasaur'1'1",pokemon2.toString(), "El texto recibido no era el esperado");
+        assertEquals("1'Bulbasaur'1'1",pokemon3.toString(), "El texto recibido no era el esperado");
     }
 
     //Funciones y metodos

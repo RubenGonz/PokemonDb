@@ -11,6 +11,7 @@ public class EstadoTest {
 
     Estado estado1;
     Estado estado2;
+    Estado estado3;
 
     //BeforeEach y AfterEach
 
@@ -18,6 +19,7 @@ public class EstadoTest {
     public void SetUp() {
         estado1 = crearEstado();
         estado2 = new Estado(1,"Paralizado",1,"Puede evitar que el pokemon ataque");
+        estado3 = new Estado("1'Paralizado'1'Puede evitar que el pokemon ataque");
     }
 
     //Test
@@ -25,6 +27,8 @@ public class EstadoTest {
     @Test
     public void toStringTest() {
         assertEquals("1'Paralizado'1'Puede evitar que el pokemon ataque",estado1.toString(), "El texto recibido no era el esperado");
+        assertEquals("1'Paralizado'1'Puede evitar que el pokemon ataque",estado2.toString(), "El texto recibido no era el esperado");
+        assertEquals("1'Paralizado'1'Puede evitar que el pokemon ataque",estado3.toString(), "El texto recibido no era el esperado");
     }
 
     //Funciones y metodos

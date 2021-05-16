@@ -1,5 +1,8 @@
 package es.iespuertolacruz.pokemon.api;
 
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
 /**
  * Clase del objeto objetoComun
  */
@@ -28,6 +31,21 @@ public class ObjetoComun {
     public ObjetoComun(int idObjeto, String efecto) {
         this.idObjeto = idObjeto;
         this.efecto = efecto;
+    }
+
+    /**
+     * Constructor que recibe una cadena de texto
+     * 
+     * @param cadena con la informacion
+     */
+    public ObjetoComun(String cadena) {
+        ArrayList<Object> elementos = new ArrayList<>();
+        StringTokenizer tokenizer = new StringTokenizer(cadena, DELIMITADOR);
+        while (tokenizer.hasMoreElements()) {
+            elementos.add(tokenizer.nextToken());
+        }
+        this.idObjeto = Integer.parseInt((String) elementos.get(0));
+        this.efecto = (String) elementos.get(1);
     }
 
     // Getters and Setters

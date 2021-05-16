@@ -11,13 +11,15 @@ public class EstadisticasBaseTest {
 
     EstadisticasBase estadisticasBase1;
     EstadisticasBase estadisticasBase2;
+    EstadisticasBase estadisticasBase3;
 
     //BeforeEach y AfterEach
 
     @BeforeEach
     public void SetUp() {
         estadisticasBase1 = crearEstadisticasBase();
-        estadisticasBase2 = new EstadisticasBase(1,45, 49, 49, 65, 65, 45);
+        estadisticasBase2 = new EstadisticasBase(1,45,49,49,65,65,45);
+        estadisticasBase3 = new EstadisticasBase("1'45'49'49'65'65'45");
     }
 
     //Test
@@ -25,6 +27,8 @@ public class EstadisticasBaseTest {
     @Test
     public void toStringTest() {
         assertEquals("1'45'49'49'65'65'45",estadisticasBase1.toString(), "El texto recibido no era el esperado");
+        assertEquals("1'45'49'49'65'65'45",estadisticasBase2.toString(), "El texto recibido no era el esperado");
+        assertEquals("1'45'49'49'65'65'45",estadisticasBase3.toString(), "El texto recibido no era el esperado");
     }
 
     //Funciones y metodos

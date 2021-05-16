@@ -1,5 +1,8 @@
 package es.iespuertolacruz.pokemon.api;
 
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
 /**
  * Clase del objeto maquina
  */
@@ -28,6 +31,21 @@ public class Maquina {
     public Maquina(int idObjeto, int idMovimiento) {
         this.idObjeto = idObjeto;
         this.idMovimiento = idMovimiento;
+    }
+
+    /**
+     * Constructor que recibe una cadena de texto
+     * 
+     * @param cadena con la informacion
+     */
+    public Maquina(String cadena) {
+        ArrayList<Object> elementos = new ArrayList<>();
+        StringTokenizer tokenizer = new StringTokenizer(cadena, DELIMITADOR);
+        while (tokenizer.hasMoreElements()) {
+            elementos.add(tokenizer.nextToken());
+        }
+        this.idObjeto = Integer.parseInt((String) elementos.get(0));
+        this.idMovimiento = Integer.parseInt((String) elementos.get(1));
     }
 
     //Getters ans Setters

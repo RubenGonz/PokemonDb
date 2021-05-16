@@ -11,6 +11,7 @@ public class ObjetoTest {
 
     Objeto objeto1;
     Objeto objeto2;
+    Objeto objeto3;
 
     //BeforeEach y AfterEach
 
@@ -18,6 +19,7 @@ public class ObjetoTest {
     public void SetUp() {
         objeto1 = crearObjeto();
         objeto2 = new Objeto(8,"Fosil domo","Entregado");
+        objeto3 = new Objeto("8'Fosil domo'Entregado");
     }
 
     //Test
@@ -25,6 +27,8 @@ public class ObjetoTest {
     @Test
     public void toStringTest() {
         assertEquals("8'Fosil domo'Entregado",objeto1.toString(), "El texto recibido no era el esperado");
+        assertEquals("8'Fosil domo'Entregado",objeto2.toString(), "El texto recibido no era el esperado");
+        assertEquals("8'Fosil domo'Entregado",objeto3.toString(), "El texto recibido no era el esperado");
     }
 
     //Funciones y metodos

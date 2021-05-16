@@ -1,5 +1,8 @@
 package es.iespuertolacruz.pokemon.api;
 
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
 /**
  * Clase de las estadisticas base de un pokemon
  */
@@ -43,6 +46,26 @@ public class EstadisticasBase {
         this.ataqueEspecialBase = ataqueEspecialBase;
         this.defensaEspecialBase = defensaEspecialBase;
         this.velocidadBase = velocidadBase;
+    }
+
+    /**
+     * Constructor que recibe una cadena de texto
+     * 
+     * @param cadena con la informacion
+     */
+    public EstadisticasBase(String cadena) {
+        ArrayList<Object> elementos = new ArrayList<>();
+        StringTokenizer tokenizer = new StringTokenizer(cadena, DELIMITADOR);
+        while (tokenizer.hasMoreElements()) {
+            elementos.add(tokenizer.nextToken());
+        }
+        this.id = Integer.parseInt((String) elementos.get(0));
+        this.psBase = Integer.parseInt((String) elementos.get(1));
+        this.ataqueBase = Integer.parseInt((String) elementos.get(2));
+        this.defensaBase = Integer.parseInt((String) elementos.get(3));
+        this.ataqueEspecialBase = Integer.parseInt((String) elementos.get(4));
+        this.defensaEspecialBase = Integer.parseInt((String) elementos.get(5));
+        this.velocidadBase = Integer.parseInt((String) elementos.get(6));
     }
 
     //Getters and Setters

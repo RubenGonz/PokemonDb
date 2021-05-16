@@ -11,6 +11,7 @@ public class PokeballTest {
 
     Pokeball pokeball1;
     Pokeball pokeball2;
+    Pokeball pokeball3;
 
     //BeforeEach y AfterEach
 
@@ -18,6 +19,7 @@ public class PokeballTest {
     public void SetUp() {
         pokeball1 = crearPokeball();
         pokeball2 = new Pokeball(12,1.0f);
+        pokeball3 = new Pokeball("12'1");
     }
 
     //Test
@@ -25,6 +27,8 @@ public class PokeballTest {
     @Test
     public void toStringTest() {
         assertEquals("12'1.0",pokeball1.toString(), "El texto recibido no era el esperado");
+        assertEquals("12'1.0",pokeball2.toString(), "El texto recibido no era el esperado");
+        assertEquals("12'1.0",pokeball3.toString(), "El texto recibido no era el esperado");
     }
 
     //Funciones y metodos

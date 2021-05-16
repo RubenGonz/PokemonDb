@@ -11,6 +11,7 @@ public class ObjetoComunTest {
 
     ObjetoComun objetoComun1;
     ObjetoComun objetoComun2;
+    ObjetoComun objetoComun3;
 
     //BeforeEach y AfterEach
 
@@ -18,6 +19,7 @@ public class ObjetoComunTest {
     public void SetUp() {
         objetoComun1 = crearObjetoComun();
         objetoComun2 = new ObjetoComun(1,"Muestra informacion sobre los pokemon");
+        objetoComun3 = new ObjetoComun("1'Muestra informacion sobre los pokemon");
     }
 
     //Test
@@ -25,6 +27,8 @@ public class ObjetoComunTest {
     @Test
     public void toStringTest() {
         assertEquals("1'Muestra informacion sobre los pokemon",objetoComun1.toString(), "El texto recibido no era el esperado");
+        assertEquals("1'Muestra informacion sobre los pokemon",objetoComun2.toString(), "El texto recibido no era el esperado");
+        assertEquals("1'Muestra informacion sobre los pokemon",objetoComun3.toString(), "El texto recibido no era el esperado");
     }
 
     //Funciones y metodos

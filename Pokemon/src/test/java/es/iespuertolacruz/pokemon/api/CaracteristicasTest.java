@@ -11,6 +11,7 @@ public class CaracteristicasTest {
 
     Caracteristicas caracteristicas1;
     Caracteristicas caracteristicas2;
+    Caracteristicas caracteristicas3;
 
     //BeforeEach y AfterEach
 
@@ -18,6 +19,7 @@ public class CaracteristicasTest {
     public void SetUp() {
         caracteristicas1 = crearCaracteristicas();
         caracteristicas2 = new Caracteristicas(1,6.9f, 0.7f, "Semilla", "Espesura", "Starter");
+        caracteristicas3 = new Caracteristicas("1'6.9'0.7'Semilla'Espesura'Starter");
     }
 
     //Test
@@ -25,6 +27,8 @@ public class CaracteristicasTest {
     @Test
     public void toStringTest() {
         assertEquals("1'6.9'0.7'Semilla'Espesura'Starter",caracteristicas1.toString(), "El texto recibido no era el esperado");
+        assertEquals("1'6.9'0.7'Semilla'Espesura'Starter",caracteristicas2.toString(), "El texto recibido no era el esperado");
+        assertEquals("1'6.9'0.7'Semilla'Espesura'Starter",caracteristicas3.toString(), "El texto recibido no era el esperado");
     }
 
     //Funciones y metodos

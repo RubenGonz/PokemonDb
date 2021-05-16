@@ -11,11 +11,13 @@ public class EvolucionaTest {
 
     Evoluciona evoluciona1;
     Evoluciona evoluciona2;
+    Evoluciona evoluciona3;
 
     @BeforeEach
     public void SetUp() {
         evoluciona1 = crearEvolucion();
         evoluciona2 = new Evoluciona(1,2,"Nivel");
+        evoluciona3 = new Evoluciona("1'2'Nivel");
     }
 
     //Test
@@ -23,6 +25,8 @@ public class EvolucionaTest {
     @Test
     public void toStringTest() {
         assertEquals("1'2'Nivel",evoluciona1.toString(), "El texto recibido no era el esperado");
+        assertEquals("1'2'Nivel",evoluciona2.toString(), "El texto recibido no era el esperado");
+        assertEquals("1'2'Nivel",evoluciona3.toString(), "El texto recibido no era el esperado");
     }
 
     //Funciones y metodos

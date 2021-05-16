@@ -1,5 +1,8 @@
 package es.iespuertolacruz.pokemon.api;
 
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
 public class AltoMando {
     
     //Variables de clase
@@ -25,6 +28,21 @@ public class AltoMando {
     public AltoMando(int idEntrenador, String tipoPrincipal) {
         this.idEntrenador = idEntrenador;
         this.tipoPrincipal = tipoPrincipal;
+    }
+
+    /**
+     * Constructor que recibe una cadena de texto
+     * 
+     * @param cadena con la informacion
+     */
+    public AltoMando(String cadena) {
+        ArrayList<Object> elementos = new ArrayList<>();
+        StringTokenizer tokenizer = new StringTokenizer(cadena, DELIMITADOR);
+        while (tokenizer.hasMoreElements()) {
+            elementos.add(tokenizer.nextToken());
+        }
+        this.idEntrenador = Integer.parseInt((String) elementos.get(0));
+        this.tipoPrincipal = (String) elementos.get(1);
     }
 
     //Getters and Setters

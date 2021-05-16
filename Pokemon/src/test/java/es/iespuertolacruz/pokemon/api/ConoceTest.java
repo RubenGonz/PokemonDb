@@ -11,6 +11,7 @@ public class ConoceTest {
 
     Conoce conoce1;
     Conoce conoce2;
+    Conoce conoce3;
 
     //BeforeEach y AfterEach
 
@@ -18,6 +19,7 @@ public class ConoceTest {
     public void SetUp() {
         conoce1 = crearConoce();
         conoce2 = new Conoce(1,119);
+        conoce3 = new Conoce("1'119");
     }
 
     //Test
@@ -25,6 +27,8 @@ public class ConoceTest {
     @Test
     public void toStringTest() {
         assertEquals("1'119",conoce1.toString(), "El texto recibido no era el esperado");
+        assertEquals("1'119",conoce2.toString(), "El texto recibido no era el esperado");
+        assertEquals("1'119",conoce3.toString(), "El texto recibido no era el esperado");
     }
 
     //Funciones y metodos

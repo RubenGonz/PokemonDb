@@ -1,5 +1,8 @@
 package es.iespuertolacruz.pokemon.api;
 
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
 /**
  * Clase donde se ven los estados que provoca un movimiento
  */
@@ -28,6 +31,21 @@ public class Provoca {
     public Provoca(int idMovimiento, int idEstado) {
         this.idMovimiento = idMovimiento;
         this.idEstado = idEstado;
+    }
+
+    /**
+     * Constructor que recibe una cadena de texto
+     * 
+     * @param cadena con la informacion
+     */
+    public Provoca(String cadena) {
+        ArrayList<Object> elementos = new ArrayList<>();
+        StringTokenizer tokenizer = new StringTokenizer(cadena, DELIMITADOR);
+        while (tokenizer.hasMoreElements()) {
+            elementos.add(tokenizer.nextToken());
+        }
+        this.idMovimiento = Integer.parseInt((String) elementos.get(0));
+        this.idEstado = Integer.parseInt((String) elementos.get(1));
     }
 
     //Getters and Setters

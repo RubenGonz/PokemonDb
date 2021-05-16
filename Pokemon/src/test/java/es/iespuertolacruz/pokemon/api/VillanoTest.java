@@ -11,13 +11,15 @@ public class VillanoTest {
 
     Villano villano1;
     Villano villano2;
+    Villano villano3;
 
     //BeforeEach y AfterEach
 
     @BeforeEach
     public void SetUp() {
         villano1 = crearVillano();
-        villano2 = new Villano(1,"Dominar el universo usando a todos los Pokemon");
+        villano2 = new Villano(13,"Dominar el universo usando a todos los Pokemon");
+        villano3 = new Villano("13'Dominar el universo usando a todos los Pokemon");
     }
 
     //Test
@@ -25,6 +27,8 @@ public class VillanoTest {
     @Test
     public void toStringTest() {
         assertEquals("13'Dominar el universo usando a todos los Pokemon",villano1.toString(), "El texto recibido no era el esperado");
+        assertEquals("13'Dominar el universo usando a todos los Pokemon",villano2.toString(), "El texto recibido no era el esperado");
+        assertEquals("13'Dominar el universo usando a todos los Pokemon",villano3.toString(), "El texto recibido no era el esperado");
     }
 
     //Funciones y metodos

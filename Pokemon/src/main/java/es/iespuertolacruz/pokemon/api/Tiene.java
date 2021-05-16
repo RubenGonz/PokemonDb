@@ -1,5 +1,8 @@
 package es.iespuertolacruz.pokemon.api;
 
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
 public class Tiene {
     
     //Variables de la clase
@@ -28,6 +31,22 @@ public class Tiene {
         this.idEntrenador = idEntrenador;
         this.numeroPokedex = numeroPokedex;
         this.cantidad = cantidad;
+    }
+
+    /**
+     * Constructor que recibe una cadena de texto
+     * 
+     * @param cadena con la informacion
+     */
+    public Tiene(String cadena) {
+        ArrayList<Object> elementos = new ArrayList<>();
+        StringTokenizer tokenizer = new StringTokenizer(cadena, DELIMITADOR);
+        while (tokenizer.hasMoreElements()) {
+            elementos.add(tokenizer.nextToken());
+        }
+        this.idEntrenador = Integer.parseInt((String) elementos.get(0));
+        this.numeroPokedex = Integer.parseInt((String) elementos.get(1));
+        this.cantidad = Integer.parseInt((String) elementos.get(2));
     }
 
     //Getters and Setters

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Bbdd.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PokemonApp</a> &gt; <a href="index.source.html" class="el_package">es.iespuertolacruz.pokemon.modelo</a> &gt; <span class="el_source">Bbdd.java</span></div><h1>Bbdd.java</h1><pre class="source lang-java linenums">package es.iespuertolacruz.pokemon.modelo;
+
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import es.iespuertolacruz.pokemon.api.Pokemon;
+import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
+
+public class Bbdd {
+
+    // Variables de clase
+
+    private String driver;
+    private String url;
+    private String usuario;
+    private String password;
+
+    ArrayList&lt;String&gt; listaTablas;
+
+    // Constructores
+
+    /**
+     * 
+     * @param driver
+     * @param url
+     * @param usuario
+     * @param password
+     * @param listaTablas
+     * @throws PersistenciaException
+     */
+<span class="nc" id="L36">    public Bbdd(String driver, String url, String usuario, String password) throws PersistenciaException {</span>
+<span class="nc" id="L37">        this.driver = driver;</span>
+<span class="nc" id="L38">        this.url = url;</span>
+<span class="nc" id="L39">        this.usuario = usuario;</span>
+<span class="nc" id="L40">        this.password = password;</span>
+<span class="nc" id="L41">        init();</span>
+<span class="nc" id="L42">    }</span>
+
+    private void init() throws PersistenciaException {
+<span class="nc" id="L45">        Connection connection = null;</span>
+<span class="nc bnc" id="L46" title="All 2 branches missed.">        for (String nombreTabla : listaTablas) {</span>
+<span class="nc" id="L47">            boolean existe = existeTabla(nombreTabla);</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">            if (!existe) {</span>
+                // Obtenemos la sentencia sql del fichero
+<span class="nc" id="L50">                String crearTabla = &quot;Create table if not exist fruta (identificador INT PRIMARY KEY,nombre VARCHAR(30),precio float(3,2), coste float(3,2));&quot;;</span>
+<span class="nc" id="L51">                actualizar(crearTabla);</span>
+                // Para cada uno de los insert de nombreTabla
+<span class="nc" id="L53">                String insertElemento = &quot;&quot;;</span>
+<span class="nc" id="L54">                actualizar(insertElemento);</span>
+            }
+<span class="nc" id="L56">        }</span>
+<span class="nc" id="L57">    }</span>
+
+    /**
+     * Funcion encargada de verificar si una tabla existe
+     * 
+     * @param nombreTabla a verificar
+     * @return true si existe o false si no existe
+     * @throws PersistenciaException
+     */
+    private boolean existeTabla(String nombreTabla) throws PersistenciaException {
+<span class="nc" id="L67">        Connection connection = null;</span>
+<span class="nc" id="L68">        boolean existe = false;</span>
+<span class="nc" id="L69">        ResultSet resultSet = null;</span>
+
+        try {
+<span class="nc" id="L72">            connection = getConnection();</span>
+<span class="nc" id="L73">            DatabaseMetaData meta = connection.getMetaData();</span>
+<span class="nc" id="L74">            resultSet = meta.getTables(null, null, nombreTabla, new String[] { &quot;TABLE&quot; });</span>
+<span class="nc" id="L75">            existe = resultSet.next();</span>
+<span class="nc" id="L76">        } catch (Exception e) {</span>
+            // TODO: handle exception
+        } finally {
+<span class="nc" id="L79">            closeConecction(connection, null, resultSet);</span>
+        }
+<span class="nc" id="L81">        return existe;</span>
+
+    }
+
+    /**
+     * Funcion encargada de realizar la conexion con la BBDD
+     * 
+     * @return la coneccion
+     * @throws PersistenciaException controlado
+     */
+    private Connection getConnection() throws PersistenciaException {
+<span class="nc" id="L92">        Connection connection = null;</span>
+
+        try {
+<span class="nc" id="L95">            Class.forName(driver);</span>
+<span class="nc bnc" id="L96" title="All 4 branches missed.">            if (usuario == null || password == null) {</span>
+<span class="nc" id="L97">                connection = DriverManager.getConnection(url);</span>
+            } else {
+<span class="nc" id="L99">                DriverManager.getConnection(url, usuario, password);</span>
+            }
+<span class="nc" id="L101">        } catch (Exception exception) {</span>
+<span class="nc" id="L102">            throw new PersistenciaException(&quot;No se ha podido establecer la coneccion con la BBDD&quot;, exception);</span>
+<span class="nc" id="L103">        }</span>
+
+<span class="nc" id="L105">        return connection;</span>
+    }
+
+    /**
+     * Metodo encargado de realizar la insercion de un pokemon
+     * 
+     * @param pokemon a insertar
+     * @throws PersistenciaException error controlado
+     */
+    public void insertar(Pokemon pokemon) throws PersistenciaException {
+<span class="nc" id="L115">        String sql = &quot;INSERT INTO POKEMON VALUES (&quot; + pokemon.getNumeroPokedex() + &quot;,'&quot; + pokemon.getNombre() + &quot;',&quot;</span>
+<span class="nc" id="L116">                + pokemon.getCaracteristicas() + &quot;,&quot; + pokemon.getEstadisticasBase() + &quot;);&quot;;</span>
+<span class="nc" id="L117">        actualizar(sql);</span>
+<span class="nc" id="L118">    }</span>
+
+    /**
+     * Metodo encargado de realizar la eliminacion
+     * 
+     * @param pokemon a eliminar
+     * @throws PersistenciaException error controlado
+     */
+    public void eliminar(Pokemon pokemon) throws PersistenciaException {
+<span class="nc" id="L127">        String sql = &quot;DELETE POKEMON FROM POKEMON WHERE numero_pokedex = &quot; + </span>
+<span class="nc" id="L128">        pokemon.getNumeroPokedex() + &quot;;&quot;;</span>
+<span class="nc" id="L129">        actualizar(sql);</span>
+<span class="nc" id="L130">    }</span>
+
+    /**
+     * Metodo encargado de realizar la modificacion
+     * 
+     * @param pokemon a actualizar
+     * @throws PersistenciaException error controlado
+     */
+    public void modificar(Pokemon pokemon) throws PersistenciaException {
+<span class="nc" id="L139">        String sql = &quot;UPDATE POKEMON SET &quot; +</span>
+<span class="nc" id="L140">        &quot;nombre = '&quot; + pokemon.getNombre() + &quot;', &quot; + </span>
+<span class="nc" id="L141">        &quot;id_caracteristica = &quot; + pokemon.getCaracteristicas() + &quot;, &quot; +</span>
+<span class="nc" id="L142">        &quot;id_estadisticas_base = &quot; + pokemon.getEstadisticasBase() + </span>
+<span class="nc" id="L143">        &quot; WHERE identificador = &quot; + pokemon.getNumeroPokedex() + &quot;;&quot;;</span>
+<span class="nc" id="L144">        actualizar(sql);</span>
+<span class="nc" id="L145">    }</span>
+
+    /**
+     * Metodo encargado de realizar la actualizacion de la BBDD
+     * 
+     * @param sql a ejecutar
+     * @throws PersistenciaException error controlado
+     */
+    private void actualizar(String sql) throws PersistenciaException {
+<span class="nc" id="L154">        Statement statement = null;</span>
+<span class="nc" id="L155">        Connection connection = null;</span>
+        try {
+<span class="nc" id="L157">            connection = getConnection();</span>
+<span class="nc" id="L158">            statement = connection.createStatement();</span>
+<span class="nc" id="L159">            statement.executeUpdate(sql);</span>
+<span class="nc" id="L160">        } catch (Exception exception) {</span>
+<span class="nc" id="L161">            throw new PersistenciaException(&quot;Se ha producido un error realizando la consulta&quot;, exception);</span>
+        } finally {
+<span class="nc" id="L163">            closeConecction(connection, statement, null);</span>
+        }
+<span class="nc" id="L165">    }</span>
+
+    /**
+     * Funcion que realiza la consulta sobre la BBDD y la tabla Pokemon
+     * 
+     * @param sql de la consulta
+     * @return lista de resultados
+     * @throws PersistenciaException controlado
+     */
+    private ArrayList&lt;Pokemon&gt; obtenerListado(String sql) throws PersistenciaException {
+<span class="nc" id="L175">        ArrayList&lt;Pokemon&gt; listaPokemons = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L177">        Pokemon pokemon = null;</span>
+<span class="nc" id="L178">        Statement statement = null;</span>
+<span class="nc" id="L179">        ResultSet resultSet = null;</span>
+<span class="nc" id="L180">        Connection connection = null;</span>
+        try {
+<span class="nc" id="L182">            connection = getConnection();</span>
+<span class="nc" id="L183">            statement = connection.createStatement();</span>
+<span class="nc" id="L184">            resultSet = statement.executeQuery(sql);</span>
+<span class="nc bnc" id="L185" title="All 2 branches missed.">            while (resultSet.next()) {</span>
+<span class="nc" id="L186">                int numeroPokedex = resultSet.getInt(&quot;numero_pokedex&quot;);</span>
+<span class="nc" id="L187">                String nombre = resultSet.getString(&quot;nombre&quot;);</span>
+<span class="nc" id="L188">                int caracteristicas = resultSet.getInt(&quot;id_caracteristica&quot;);</span>
+<span class="nc" id="L189">                int estadisticasBase = resultSet.getInt(&quot;id_estadisticas_base&quot;);</span>
+<span class="nc" id="L190">                pokemon = new Pokemon(numeroPokedex, nombre, caracteristicas, estadisticasBase);</span>
+<span class="nc" id="L191">                listaPokemons.add(pokemon);</span>
+<span class="nc" id="L192">            }</span>
+<span class="nc" id="L193">        } catch (Exception exception) {</span>
+<span class="nc" id="L194">            throw new PersistenciaException(&quot;Se ha producido un error realizando la consulta&quot;, exception);</span>
+        } finally {
+<span class="nc" id="L196">            closeConecction(connection, statement, resultSet);</span>
+        }
+<span class="nc" id="L198">        return listaPokemons;</span>
+    }
+
+    /**
+     * Funcion que obtiene el listado de todos los pokemon
+     * 
+     * @return lisa total
+     * @throws PersistenciaException controlado
+     */
+    public List&lt;Pokemon&gt; obtenerListado() throws PersistenciaException {
+<span class="nc" id="L208">        String sql = &quot;SELECT * FROM POKEMON&quot;;</span>
+<span class="nc" id="L209">        return obtenerListado(sql);</span>
+    }
+
+    /**
+     * Funcion que obtiene un pokemon por su numero de la pokedex
+     * 
+     * @param numero de la pokedex del pokemon
+     * @return lista total
+     * @throws PersistenciaException controlado
+     */
+    public Pokemon obtenerPokemon(int numeroPokedex) throws PersistenciaException {
+<span class="nc" id="L220">        Pokemon pokemon = null;</span>
+<span class="nc" id="L221">        ArrayList&lt;Pokemon&gt; listaPokemons = null;</span>
+<span class="nc" id="L222">        String sql = &quot;SELECT * FROM POKEMON WHERE numero_pokedex = &quot;;</span>
+<span class="nc" id="L223">        sql = sql + &quot;'&quot; + numeroPokedex + &quot;';&quot;;</span>
+<span class="nc" id="L224">        listaPokemons = obtenerListado(sql);</span>
+<span class="nc bnc" id="L225" title="All 2 branches missed.">        if (!listaPokemons.isEmpty()) {</span>
+<span class="nc" id="L226">            pokemon = listaPokemons.get(0);</span>
+        }
+<span class="nc" id="L228">        return pokemon;</span>
+    }
+
+    private void closeConecction(Connection connection, Statement statement, ResultSet resultSet)
+            throws PersistenciaException {
+        try {
+<span class="nc bnc" id="L234" title="All 2 branches missed.">            if (resultSet != null) {</span>
+<span class="nc" id="L235">                resultSet.close();</span>
+            }
+<span class="nc bnc" id="L237" title="All 2 branches missed.">            if (statement != null) {</span>
+<span class="nc" id="L238">                statement.close();</span>
+            }
+<span class="nc bnc" id="L240" title="All 2 branches missed.">            if (connection != null) {</span>
+<span class="nc" id="L241">                connection.close();</span>
+            }
+<span class="nc" id="L243">        } catch (Exception exception) {</span>
+<span class="nc" id="L244">            throw new PersistenciaException(&quot;Se ha producido un error cerrando la coneccion&quot;, exception);</span>
+<span class="nc" id="L245">        }</span>
+<span class="nc" id="L246">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,5 +1,8 @@
 package es.iespuertolacruz.pokemon.api;
 
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
 /**
  * Clase de las caracteristicas de un pokemon
  */
@@ -40,6 +43,25 @@ public class Caracteristicas {
         this.especie = especie;
         this.habilidad = habilidad;
         this.categoria = categoria;
+    }
+
+    /**
+     * Constructor que recibe una cadena de texto
+     * 
+     * @param cadena con la informacion
+     */
+    public Caracteristicas(String cadena) {
+        ArrayList<Object> elementos = new ArrayList<>();
+        StringTokenizer tokenizer = new StringTokenizer(cadena, DELIMITADOR);
+        while (tokenizer.hasMoreElements()) {
+            elementos.add(tokenizer.nextToken());
+        }
+        this.id = Integer.parseInt((String) elementos.get(0));
+        this.peso = Float.parseFloat((String) elementos.get(1));
+        this.altura = Float.parseFloat((String) elementos.get(2));
+        this.especie = (String) elementos.get(3);
+        this.habilidad = (String) elementos.get(4);
+        this.categoria = (String) elementos.get(5);
     }
 
     // Getters and Setters

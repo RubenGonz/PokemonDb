@@ -1,5 +1,8 @@
 package es.iespuertolacruz.pokemon.api;
 
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
 /**
  * Clase donde se ven los tipos que puede tener un pokemon/movimiento/entrenador
  */
@@ -28,6 +31,21 @@ public class Tipo {
     public Tipo(String nombre, String color) {
         this.nombre = nombre;
         this.color = color;
+    }
+
+    /**
+     * Constructor que recibe una cadena de texto
+     * 
+     * @param cadena con la informacion
+     */
+    public Tipo(String cadena) {
+        ArrayList<Object> elementos = new ArrayList<>();
+        StringTokenizer tokenizer = new StringTokenizer(cadena, DELIMITADOR);
+        while (tokenizer.hasMoreElements()) {
+            elementos.add(tokenizer.nextToken());
+        }
+        this.nombre = (String) elementos.get(0);
+        this.color = (String) elementos.get(1);
     }
 
     //Getters and Setters

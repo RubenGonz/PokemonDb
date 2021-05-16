@@ -1,5 +1,8 @@
 package es.iespuertolacruz.pokemon.api;
 
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
 /**
  * Clase del entrenador entrenado casual
  */
@@ -28,6 +31,21 @@ public class EntrenadorCasual {
     public EntrenadorCasual(int idEntrenador, int cantidadMedallas) {
         this.idEntrenador = idEntrenador;
         this.cantidadMedallas = cantidadMedallas;
+    }
+
+    /**
+     * Constructor que recibe una cadena de texto
+     * 
+     * @param cadena con la informacion
+     */
+    public EntrenadorCasual(String cadena) {
+        ArrayList<Object> elementos = new ArrayList<>();
+        StringTokenizer tokenizer = new StringTokenizer(cadena, DELIMITADOR);
+        while (tokenizer.hasMoreElements()) {
+            elementos.add(tokenizer.nextToken());
+        }
+        this.idEntrenador = Integer.parseInt((String) elementos.get(0));
+        this.cantidadMedallas = Integer.parseInt((String) elementos.get(1));
     }
 
     //Getters and Setters

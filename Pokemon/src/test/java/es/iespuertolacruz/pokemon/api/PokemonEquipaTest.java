@@ -11,6 +11,7 @@ public class PokemonEquipaTest {
 
     PokemonEquipa pokemonEquipa1;
     PokemonEquipa pokemonEquipa2;
+    PokemonEquipa pokemonEquipa3;
 
     //BeforeEach y AfterEach
 
@@ -18,6 +19,7 @@ public class PokemonEquipaTest {
     public void SetUp() {
         pokemonEquipa1 = crearPokemonEquipa();
         pokemonEquipa2 = new PokemonEquipa(143,11);
+        pokemonEquipa3 = new PokemonEquipa("143'11");
     }
 
     //Test
@@ -25,6 +27,8 @@ public class PokemonEquipaTest {
     @Test
     public void toStringTest() {
         assertEquals("143'11",pokemonEquipa1.toString(), "El texto recibido no era el esperado");
+        assertEquals("143'11",pokemonEquipa2.toString(), "El texto recibido no era el esperado");
+        assertEquals("143'11",pokemonEquipa3.toString(), "El texto recibido no era el esperado");
     }
 
     //Funciones y metodos

@@ -11,6 +11,7 @@ public class TipoTest {
 
     Tipo tipo1;
     Tipo tipo2;
+    Tipo tipo3;
 
     //BeforeEach y AfterEach
 
@@ -18,6 +19,7 @@ public class TipoTest {
     public void SetUp() {
         tipo1 = crearTipo();
         tipo2 = new Tipo("Agua","Azul");
+        tipo3 = new Tipo("Agua'Azul");
     }
 
     //Test
@@ -25,6 +27,8 @@ public class TipoTest {
     @Test
     public void toStringTest() {
         assertEquals("Agua'Azul",tipo1.toString(), "El texto recibido no era el esperado");
+        assertEquals("Agua'Azul",tipo2.toString(), "El texto recibido no era el esperado");
+        assertEquals("Agua'Azul",tipo3.toString(), "El texto recibido no era el esperado");
     }
 
     //Funciones y metodos

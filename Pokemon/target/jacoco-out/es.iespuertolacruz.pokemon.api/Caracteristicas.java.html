@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Caracteristicas.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PokemonApp</a> &gt; <a href="index.source.html" class="el_package">es.iespuertolacruz.pokemon.api</a> &gt; <span class="el_source">Caracteristicas.java</span></div><h1>Caracteristicas.java</h1><pre class="source lang-java linenums">package es.iespuertolacruz.pokemon.api;
+
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
+/**
+ * Clase de las caracteristicas de un pokemon
+ */
+public class Caracteristicas {
+
+    //Variables de clase
+
+    private static final String DELIMITADOR = &quot;'&quot;;
+    int id;
+    float peso;
+    float altura;
+    String especie;
+    String habilidad;
+    String categoria;
+
+    //Constructores
+
+    /**
+     * Constructor por defecto
+     */
+<span class="fc" id="L26">    public Caracteristicas() {</span>
+<span class="fc" id="L27">    }</span>
+
+    /**
+     * Constructor con todos los parametros
+     * 
+     * @param id del pokemon al que se refiere y el identificador del objeto
+     * @param peso del pokemon
+     * @param altura del pokemon
+     * @param especie del pokemon
+     * @param habilidad del pokemon
+     * @param categoria del pokemon
+     */
+<span class="fc" id="L39">    public Caracteristicas(int id, float peso, float altura, String especie, String habilidad, String categoria) {</span>
+<span class="fc" id="L40">        this.id = id;</span>
+<span class="fc" id="L41">        this.peso = peso;</span>
+<span class="fc" id="L42">        this.altura = altura;</span>
+<span class="fc" id="L43">        this.especie = especie;</span>
+<span class="fc" id="L44">        this.habilidad = habilidad;</span>
+<span class="fc" id="L45">        this.categoria = categoria;</span>
+<span class="fc" id="L46">    }</span>
+
+    /**
+     * Constructor que recibe una cadena de texto
+     * 
+     * @param cadena con la informacion
+     */
+<span class="fc" id="L53">    public Caracteristicas(String cadena) {</span>
+<span class="fc" id="L54">        ArrayList&lt;Object&gt; elementos = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L55">        StringTokenizer tokenizer = new StringTokenizer(cadena, DELIMITADOR);</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">        while (tokenizer.hasMoreElements()) {</span>
+<span class="fc" id="L57">            elementos.add(tokenizer.nextToken());</span>
+        }
+<span class="fc" id="L59">        this.id = Integer.parseInt((String) elementos.get(0));</span>
+<span class="fc" id="L60">        this.peso = Float.parseFloat((String) elementos.get(1));</span>
+<span class="fc" id="L61">        this.altura = Float.parseFloat((String) elementos.get(2));</span>
+<span class="fc" id="L62">        this.especie = (String) elementos.get(3);</span>
+<span class="fc" id="L63">        this.habilidad = (String) elementos.get(4);</span>
+<span class="fc" id="L64">        this.categoria = (String) elementos.get(5);</span>
+<span class="fc" id="L65">    }</span>
+
+    // Getters and Setters
+
+    public int getId() {
+<span class="fc" id="L70">        return this.id;</span>
+    }
+
+    public void setId(int id) {
+<span class="fc" id="L74">        this.id = id;</span>
+<span class="fc" id="L75">    }</span>
+
+    public float getPeso() {
+<span class="fc" id="L78">        return this.peso;</span>
+    }
+
+    public void setPeso(float peso) {
+<span class="fc" id="L82">        this.peso = peso;</span>
+<span class="fc" id="L83">    }</span>
+
+    public float getAltura() {
+<span class="fc" id="L86">        return this.altura;</span>
+    }
+
+    public void setAltura(float altura) {
+<span class="fc" id="L90">        this.altura = altura;</span>
+<span class="fc" id="L91">    }</span>
+
+    public String getEspecie() {
+<span class="fc" id="L94">        return this.especie;</span>
+    }
+
+    public void setEspecie(String especie) {
+<span class="fc" id="L98">        this.especie = especie;</span>
+<span class="fc" id="L99">    }</span>
+
+    public String getHabilidad() {
+<span class="fc" id="L102">        return this.habilidad;</span>
+    }
+
+    public void setHabilidad(String habilidad) {
+<span class="fc" id="L106">        this.habilidad = habilidad;</span>
+<span class="fc" id="L107">    }</span>
+
+    public String getCategoria() {
+<span class="fc" id="L110">        return this.categoria;</span>
+    }
+
+    public void setCategoria(String categoria) {
+<span class="fc" id="L114">        this.categoria = categoria;</span>
+<span class="fc" id="L115">    }</span>
+
+    //Metodos y funciones
+
+    @Override
+    public String toString() {
+<span class="fc" id="L121">        return getId() + DELIMITADOR +</span>
+<span class="fc" id="L122">            getPeso() + DELIMITADOR +</span>
+<span class="fc" id="L123">            getAltura() + DELIMITADOR +</span>
+<span class="fc" id="L124">            getEspecie() + DELIMITADOR +</span>
+<span class="fc" id="L125">            getHabilidad() + DELIMITADOR +</span>
+<span class="fc" id="L126">            getCategoria();</span>
+    }
+
+}
+   
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

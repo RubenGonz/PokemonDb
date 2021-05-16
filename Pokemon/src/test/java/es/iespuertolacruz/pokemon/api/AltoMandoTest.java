@@ -11,6 +11,7 @@ public class AltoMandoTest {
 
     AltoMando altoMando1;
     AltoMando altoMando2;
+    AltoMando altoMando3;
 
     //BeforeEach y AfterEach
 
@@ -18,6 +19,7 @@ public class AltoMandoTest {
     public void SetUp() {
         altoMando1 = crearAltoMando();
         altoMando2 = new AltoMando(2,"Hielo");
+        altoMando3 = new AltoMando("2'Hielo");
     }
 
     //Test
@@ -25,6 +27,8 @@ public class AltoMandoTest {
     @Test
     public void toStringTest() {
         assertEquals("2'Hielo",altoMando1.toString(), "El texto recibido no era el esperado");
+        assertEquals("2'Hielo",altoMando2.toString(), "El texto recibido no era el esperado");
+        assertEquals("2'Hielo",altoMando3.toString(), "El texto recibido no era el esperado");
     }
 
     //Funciones y metodos

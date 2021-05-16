@@ -1,5 +1,8 @@
 package es.iespuertolacruz.pokemon.api;
 
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
 /**
  * Clase del entrenador lider de gimnasio
  */
@@ -28,6 +31,21 @@ public class LiderGimnasio {
     public LiderGimnasio(int idEntrenador, int medalla) {
         this.idEntrenador = idEntrenador;
         this.medalla = medalla;
+    }
+
+    /**
+     * Constructor que recibe una cadena de texto
+     * 
+     * @param cadena con la informacion
+     */
+    public LiderGimnasio(String cadena) {
+        ArrayList<Object> elementos = new ArrayList<>();
+        StringTokenizer tokenizer = new StringTokenizer(cadena, DELIMITADOR);
+        while (tokenizer.hasMoreElements()) {
+            elementos.add(tokenizer.nextToken());
+        }
+        this.idEntrenador = Integer.parseInt((String) elementos.get(0));
+        this.medalla = Integer.parseInt((String) elementos.get(1));
     }
 
     //Getters and Setters

@@ -11,6 +11,7 @@ public class MaquinaTest {
 
     Maquina maquina1;
     Maquina maquina2;
+    Maquina maquina3;
 
     //BeforeEach y AfterEach
 
@@ -18,6 +19,7 @@ public class MaquinaTest {
     public void SetUp() {
         maquina1 = crearMaquina();
         maquina2 = new Maquina(17,61);
+        maquina3 = new Maquina("17'61");
     }
 
     //Test
@@ -25,6 +27,8 @@ public class MaquinaTest {
     @Test
     public void toStringTest() {
         assertEquals("17'61",maquina1.toString(), "El texto recibido no era el esperado");
+        assertEquals("17'61",maquina2.toString(), "El texto recibido no era el esperado");
+        assertEquals("17'61",maquina3.toString(), "El texto recibido no era el esperado");
     }
 
     //Funciones y metodos

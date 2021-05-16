@@ -1,5 +1,8 @@
 package es.iespuertolacruz.pokemon.api;
 
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
 /**
  * Clase principal de los objetos del juego
  */
@@ -31,6 +34,22 @@ public class Objeto {
         this.id = id;
         this.nombre = nombre;
         this.modoObtencion = modoObtencion;
+    }
+
+    /**
+     * Constructor que recibe una cadena de texto
+     * 
+     * @param cadena con la informacion
+     */
+    public Objeto(String cadena) {
+        ArrayList<Object> elementos = new ArrayList<>();
+        StringTokenizer tokenizer = new StringTokenizer(cadena, DELIMITADOR);
+        while (tokenizer.hasMoreElements()) {
+            elementos.add(tokenizer.nextToken());
+        }
+        this.id = Integer.parseInt((String) elementos.get(0));
+        this.nombre = (String) elementos.get(1);
+        this.modoObtencion = (String) elementos.get(2);
     }
 
     //Getters and Setters

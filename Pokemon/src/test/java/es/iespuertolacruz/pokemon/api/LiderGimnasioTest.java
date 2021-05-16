@@ -11,6 +11,7 @@ public class LiderGimnasioTest {
 
     LiderGimnasio liderGimnasio1;
     LiderGimnasio liderGimnasio2;
+    LiderGimnasio liderGimnasio3;
 
     //BeforeEach y AfterEach
 
@@ -18,6 +19,7 @@ public class LiderGimnasioTest {
     public void SetUp() {
         liderGimnasio1 = crearLiderGimnasio();
         liderGimnasio2 = new LiderGimnasio(6,1);
+        liderGimnasio3 = new LiderGimnasio("6'1");
     }
 
     //Test
@@ -25,6 +27,8 @@ public class LiderGimnasioTest {
     @Test
     public void toStringTest() {
         assertEquals("6'1",liderGimnasio1.toString(), "El texto recibido no era el esperado");
+        assertEquals("6'1",liderGimnasio2.toString(), "El texto recibido no era el esperado");
+        assertEquals("6'1",liderGimnasio3.toString(), "El texto recibido no era el esperado");
     }
 
     //Funciones y metodos

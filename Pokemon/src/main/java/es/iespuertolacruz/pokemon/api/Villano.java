@@ -1,5 +1,8 @@
 package es.iespuertolacruz.pokemon.api;
 
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
 /**
  * Clase del entrenador villano
  */
@@ -28,6 +31,21 @@ public class Villano {
     public Villano(int idEntrenador, String proposito) {
         this.idEntrenador = idEntrenador;
         this.proposito = proposito;
+    }
+
+    /**
+     * Constructor que recibe una cadena de texto
+     * 
+     * @param cadena con la informacion
+     */
+    public Villano(String cadena) {
+        ArrayList<Object> elementos = new ArrayList<>();
+        StringTokenizer tokenizer = new StringTokenizer(cadena, DELIMITADOR);
+        while (tokenizer.hasMoreElements()) {
+            elementos.add(tokenizer.nextToken());
+        }
+        this.idEntrenador = Integer.parseInt((String) elementos.get(0));
+        this.proposito = (String) elementos.get(1);
     }
 
     //Getters and Setters

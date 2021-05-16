@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: es.iespuertolacruz.pokemon.api.PokemonTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.011 s <<< FAILURE! - in es.iespuertolacruz.pokemon.api.PokemonTest
-ConstructorCadenaTest  Time elapsed: 0.001 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: El construcor de la cadena de texto no funciona como deberia ==> expected: es.iespuertolacruz.pokemon.api.Pokemon@659a2455<1'Bulbasaur'1'1> but was: es.iespuertolacruz.pokemon.api.Pokemon@267517e4<1'Bulbasaur'1'1>
-	at es.iespuertolacruz.pokemon.api.PokemonTest.ConstructorCadenaTest(PokemonTest.java:34)
-
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in es.iespuertolacruz.pokemon.api.PokemonTest

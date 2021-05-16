@@ -1,5 +1,8 @@
 package es.iespuertolacruz.pokemon.api;
 
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
 /**
  * Clase donde se ve a que a que pokemon evoluciona otro pokemon
  */
@@ -31,6 +34,22 @@ public class Evoluciona {
         this.numeroPokedexOrigen = numeroPokedexOrigen;
         this.numeroPokedexDestino = numeroPokedexDestino;
         this.modoEvoluciona = modoEvoluciona;
+    }
+
+    /**
+     * Constructor que recibe una cadena de texto
+     * 
+     * @param cadena con la informacion
+     */
+    public Evoluciona(String cadena) {
+        ArrayList<Object> elementos = new ArrayList<>();
+        StringTokenizer tokenizer = new StringTokenizer(cadena, DELIMITADOR);
+        while (tokenizer.hasMoreElements()) {
+            elementos.add(tokenizer.nextToken());
+        }
+        this.numeroPokedexOrigen = Integer.parseInt((String) elementos.get(0));
+        this.numeroPokedexDestino = Integer.parseInt((String) elementos.get(1));
+        this.modoEvoluciona = (String) elementos.get(2);
     }
 
     //Getters and Setters

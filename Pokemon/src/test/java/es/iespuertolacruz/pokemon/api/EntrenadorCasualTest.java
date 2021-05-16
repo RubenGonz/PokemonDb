@@ -11,6 +11,7 @@ public class EntrenadorCasualTest {
 
     EntrenadorCasual entrenadorCasual1;
     EntrenadorCasual entrenadorCasual2;
+    EntrenadorCasual entrenadorCasual3;
 
     //BeforeEach y AfterEach
 
@@ -18,6 +19,7 @@ public class EntrenadorCasualTest {
     public void SetUp() {
         entrenadorCasual1 = crearEntrenadorCasual();
         entrenadorCasual2 = new EntrenadorCasual(16,8);
+        entrenadorCasual3 = new EntrenadorCasual("16'8");
     }
 
     //Test
@@ -25,6 +27,8 @@ public class EntrenadorCasualTest {
     @Test
     public void toStringTest() {
         assertEquals("16'8",entrenadorCasual1.toString(), "El texto recibido no era el esperado");
+        assertEquals("16'8",entrenadorCasual2.toString(), "El texto recibido no era el esperado");
+        assertEquals("16'8",entrenadorCasual3.toString(), "El texto recibido no era el esperado");
     }
 
     //Funciones y metodos

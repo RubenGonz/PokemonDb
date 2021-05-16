@@ -11,6 +11,7 @@ public class TieneTest {
 
     Tiene tiene1;
     Tiene tiene2;
+    Tiene tiene3;
 
     //BeforeEach y AfterEach
 
@@ -18,6 +19,7 @@ public class TieneTest {
     public void SetUp() {
         tiene1 = crearTiene();
         tiene2 = new Tiene(1,18,1);
+        tiene3 = new Tiene("1'18'1");
     }
 
     //Test
@@ -25,6 +27,8 @@ public class TieneTest {
     @Test
     public void toStringTest() {
         assertEquals("1'18'1",tiene1.toString(), "El texto recibido no era el esperado");
+        assertEquals("1'18'1",tiene2.toString(), "El texto recibido no era el esperado");
+        assertEquals("1'18'1",tiene3.toString(), "El texto recibido no era el esperado");
     }
 
     //Funciones y metodos

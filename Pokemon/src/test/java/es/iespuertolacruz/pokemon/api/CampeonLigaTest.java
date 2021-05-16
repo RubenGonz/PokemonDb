@@ -11,6 +11,7 @@ public class CampeonLigaTest {
 
     CampeonLiga campeonLiga1;
     CampeonLiga campeonLiga2;
+    CampeonLiga campeonLiga3;
 
     //BeforeEach y AfterEach
 
@@ -18,6 +19,7 @@ public class CampeonLigaTest {
     public void SetUp() {
         campeonLiga1 = crearCampeonLiga();
         campeonLiga2 = new CampeonLiga(1,"Johto");
+        campeonLiga3 = new CampeonLiga("1'Johto");
     }
 
     //Test
@@ -25,6 +27,8 @@ public class CampeonLigaTest {
     @Test
     public void toStringTest() {
         assertEquals("1'Johto",campeonLiga1.toString(), "El texto recibido no era el esperado");
+        assertEquals("1'Johto",campeonLiga2.toString(), "El texto recibido no era el esperado");
+        assertEquals("1'Johto",campeonLiga3.toString(), "El texto recibido no era el esperado");
     }
 
     //Funciones y metodos

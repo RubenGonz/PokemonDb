@@ -1,5 +1,8 @@
 package es.iespuertolacruz.pokemon.api;
 
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
 /**
  * Clase donde se ven lod objetos que equipa un pokemon
  */
@@ -28,6 +31,21 @@ public class PokemonEquipa {
     public PokemonEquipa(int numeroPokedex, int idObjeto) {
         this.numeroPokedex = numeroPokedex;
         this.idObjeto = idObjeto;
+    }
+
+    /**
+     * Constructor que recibe una cadena de texto
+     * 
+     * @param cadena con la informacion
+     */
+    public PokemonEquipa(String cadena) {
+        ArrayList<Object> elementos = new ArrayList<>();
+        StringTokenizer tokenizer = new StringTokenizer(cadena, DELIMITADOR);
+        while (tokenizer.hasMoreElements()) {
+            elementos.add(tokenizer.nextToken());
+        }
+        this.numeroPokedex = Integer.parseInt((String) elementos.get(0));
+        this.idObjeto = Integer.parseInt((String) elementos.get(1));
     }
 
     //Getters and Setters

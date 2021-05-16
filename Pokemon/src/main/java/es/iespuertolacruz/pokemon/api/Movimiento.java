@@ -1,5 +1,8 @@
 package es.iespuertolacruz.pokemon.api;
 
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
 /**
  * Clase donde estan los atributos de movimiento
  */
@@ -42,6 +45,26 @@ public class Movimiento {
         this.pp = pp;
         this.potencia = potencia;
         this.certeza = certeza;
+    }
+
+    /**
+     * Constructor que recibe una cadena de texto
+     * 
+     * @param cadena con la informacion
+     */
+    public Movimiento(String cadena) {
+        ArrayList<Object> elementos = new ArrayList<>();
+        StringTokenizer tokenizer = new StringTokenizer(cadena, DELIMITADOR);
+        while (tokenizer.hasMoreElements()) {
+            elementos.add(tokenizer.nextToken());
+        }
+        this.id = Integer.parseInt((String) elementos.get(0));
+        this.nombre = (String) elementos.get(1);
+        this.tipo = (String) elementos.get(2);
+        this.categoria = (String) elementos.get(3);
+        this.pp = Integer.parseInt((String) elementos.get(4));
+        this.potencia = Integer.parseInt((String) elementos.get(5));
+        this.certeza = Integer.parseInt((String) elementos.get(6));
     }
 
     //Getters and Setters

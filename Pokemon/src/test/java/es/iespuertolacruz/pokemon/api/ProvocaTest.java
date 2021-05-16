@@ -11,6 +11,7 @@ public class ProvocaTest {
 
     Provoca provoca1;
     Provoca provoca2;
+    Provoca provoca3;
 
     //BeforeEach y AfterEach
 
@@ -18,6 +19,7 @@ public class ProvocaTest {
     public void SetUp() {
         provoca1 = crearProvoca();
         provoca2 = new Provoca(15,1);
+        provoca3 = new Provoca("15'1");
     }
 
     //Test
@@ -25,6 +27,8 @@ public class ProvocaTest {
     @Test
     public void toStringTest() {
         assertEquals("15'1",provoca1.toString(), "El texto recibido no era el esperado");
+        assertEquals("15'1",provoca2.toString(), "El texto recibido no era el esperado");
+        assertEquals("15'1",provoca3.toString(), "El texto recibido no era el esperado");
     }
 
     //Funciones y metodos

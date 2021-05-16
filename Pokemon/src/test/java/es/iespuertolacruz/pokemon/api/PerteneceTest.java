@@ -11,6 +11,7 @@ public class PerteneceTest {
 
     Pertenece pertenece1;
     Pertenece pertenece2;
+    Pertenece pertenece3;
 
     //BeforeEach y AfterEach
 
@@ -18,6 +19,7 @@ public class PerteneceTest {
     public void SetUp() {
         pertenece1 = crearPertenece();
         pertenece2 = new Pertenece(1,"Planta");
+        pertenece3 = new Pertenece("1'Planta");
     }
 
     //Test
@@ -25,6 +27,8 @@ public class PerteneceTest {
     @Test
     public void toStringTest() {
         assertEquals("1'Planta",pertenece1.toString(), "El texto recibido no era el esperado");
+        assertEquals("1'Planta",pertenece2.toString(), "El texto recibido no era el esperado");
+        assertEquals("1'Planta",pertenece3.toString(), "El texto recibido no era el esperado");
     }
 
     //Funciones y metodos
