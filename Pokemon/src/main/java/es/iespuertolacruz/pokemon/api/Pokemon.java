@@ -1,5 +1,8 @@
 package es.iespuertolacruz.pokemon.api;
 
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
 /**
  * Clase principal de pokemon
  */
@@ -13,7 +16,7 @@ public class Pokemon {
     int caracteristicas;
     int estadisticasBase;
 
-    //Constructores
+    // Constructores
 
     /**
      * Construcor por defecto
@@ -24,9 +27,10 @@ public class Pokemon {
     /**
      * Constructor con todos los parametros
      * 
-     * @param numeroPokedex identificador del pokemon
-     * @param nombre del pokemon
-     * @param caracteristicas numero que relaciona al pokemon con sus caracteristicas
+     * @param numeroPokedex    identificador del pokemon
+     * @param nombre           del pokemon
+     * @param caracteristicas  numero que relaciona al pokemon con sus
+     *                         caracteristicas
      * @param estadisticasBase numero que relaciona al pokemon con sus estadisticas
      */
     public Pokemon(int numeroPokedex, String nombre, int caracteristicas, int estadisticasBase) {
@@ -36,7 +40,24 @@ public class Pokemon {
         this.estadisticasBase = estadisticasBase;
     }
 
-    //Getters and Setters
+    /**
+     * Constructor que recibe una cadena de texto
+     * 
+     * @param cadena con la informacion
+     */
+    public Pokemon(String cadena) {
+        ArrayList<Object> elementos = new ArrayList<>();
+        StringTokenizer tokenizer = new StringTokenizer(cadena, DELIMITADOR);
+        while (tokenizer.hasMoreElements()) {
+            elementos.add(tokenizer.nextToken());
+        }
+        this.numeroPokedex = Integer.parseInt((String) elementos.get(0));
+        this.nombre = (String) elementos.get(1);
+        this.caracteristicas = Integer.parseInt((String) elementos.get(2));
+        this.estadisticasBase = Integer.parseInt((String) elementos.get(3));
+    }
+
+    // Getters and Setters
 
     public int getNumeroPokedex() {
         return this.numeroPokedex;
@@ -70,14 +91,12 @@ public class Pokemon {
         this.estadisticasBase = estadisticasBase;
     }
 
-    //Metosos y funciones
+    // Metosos y funciones
 
     @Override
     public String toString() {
-        return getNumeroPokedex() + DELIMITADOR +
-            getNombre() + DELIMITADOR +
-            getCaracteristicas() + DELIMITADOR +
-            getEstadisticasBase();
+        return getNumeroPokedex() + DELIMITADOR + getNombre() + DELIMITADOR + getCaracteristicas() + DELIMITADOR
+                + getEstadisticasBase();
     }
 
 }

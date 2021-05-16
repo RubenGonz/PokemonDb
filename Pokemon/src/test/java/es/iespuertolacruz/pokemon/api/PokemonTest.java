@@ -11,6 +11,7 @@ public class PokemonTest {
 
     Pokemon pokemon1;
     Pokemon pokemon2;
+    Pokemon pokemon3;
 
     //BeforeEach y AfterEach
 
@@ -18,6 +19,7 @@ public class PokemonTest {
     public void SetUp() {
         pokemon1 = crearPokemon(); 
         pokemon2 = new Pokemon(1,"Bulbasaur",1,1);
+        pokemon3 = new Pokemon("1'Bulbasaur'1'1");
     }
     
     //Test
@@ -25,6 +27,11 @@ public class PokemonTest {
     @Test
     public void toStringTest() {
         assertEquals("1'Bulbasaur'1'1",pokemon1.toString(), "El texto recibido no era el esperado");
+    }
+
+    @Test
+    public void ConstructorCadenaTest() {
+        assertEquals(pokemon2,pokemon3, "El construcor de la cadena de texto no funciona como deberia");
     }
 
     //Funciones y metodos

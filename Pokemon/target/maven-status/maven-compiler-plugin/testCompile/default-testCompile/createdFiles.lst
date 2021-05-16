@@ -1,5 +1,4 @@
 es\iespuertolacruz\pokemon\api\MovimientoTest.class
-es\iespuertolacruz\pokemon\PerteneceTest.class
 es\iespuertolacruz\pokemon\api\VillanoTest.class
 es\iespuertolacruz\pokemon\api\ObjetoComunTest.class
 es\iespuertolacruz\pokemon\api\EntrenadorTest.class
@@ -19,5 +18,6 @@ es\iespuertolacruz\pokemon\api\PokemonEquipaTest.class
 es\iespuertolacruz\pokemon\api\PokemonTest.class
 es\iespuertolacruz\pokemon\api\EntrenadorEquipaTest.class
 es\iespuertolacruz\pokemon\api\EstadoTest.class
+es\iespuertolacruz\pokemon\api\PerteneceTest.class
 es\iespuertolacruz\pokemon\api\TieneTest.class
 es\iespuertolacruz\pokemon\api\ObjetoTest.class
