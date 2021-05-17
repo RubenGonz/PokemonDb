@@ -356,7 +356,7 @@ public class Bbdd {
      * @param altoMando a actualizar
      * @throws PersistenciaException error controlado
      */
-    public void modificarObjeto(AltoMando altoMando) throws PersistenciaException {
+    public void modificarAltoMando(AltoMando altoMando) throws PersistenciaException {
         String sql = "UPDATE POKEMON SET " + "id_entrenador = '" + altoMando.getIdEntrenador() + "', "
                 + "tipo_principal = " + altoMando.getTipoPrincipal() + " WHERE id_entrenador = "
                 + altoMando.getIdEntrenador() + ";";
