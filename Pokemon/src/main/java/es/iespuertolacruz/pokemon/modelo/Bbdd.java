@@ -1231,7 +1231,7 @@ public class Bbdd {
     public Estado obtenerEstado(int id) throws PersistenciaException {
         Estado estado = null;
         ArrayList<Estado> listaEstado = null;
-        String sql = "SELECT * FROM POKEMON WHERE numero_pokedex = ";
+        String sql = "SELECT * FROM ESTADO WHERE  numero_pokedex_origen = ";
         sql = sql + "'" + id + "';";
         listaEstado = obtenerListadoEstado(sql);
         if (!listaEstado.isEmpty()) {
@@ -1240,7 +1240,303 @@ public class Bbdd {
         return estado;
     }
 
-    
+    /**
+     * Metodo encargado de realizar la insercion de una evoluciona
+     * 
+     * @param evoluciona a insertar
+     * @throws PersistenciaException error controlado
+     */
+    public void insertarEvoluciona(Evoluciona evoluciona) throws PersistenciaException {
+
+        String sql = "INSERT INTO EVOLUCIONA VALUES (" + evoluciona.getNumeroPokedexOrigen() + ",'"
+                + evoluciona.getNumeroPokedexDestino() + "'," + evoluciona.getModoEvoluciona() + ");";
+        actualizar(sql);
+    }
+
+    /**
+     * Metodo encargado de realizar la eliminacion
+     * 
+     * @param evoluciona a eliminar
+     * @throws PersistenciaException error controlado
+     */
+    public void eliminarEvoluciona(Evoluciona evoluciona) throws PersistenciaException {
+        String sql = "DELETE EVOLUCIONA FROM EVOLUCIONA WHERE  numero_pokedex_origen = "
+                + evoluciona.getNumeroPokedexOrigen() + ";";
+        actualizar(sql);
+    }
+
+    /**
+     * Metodo encargado de realizar la modificacion
+     * 
+     * @param evoluciona a actualizar
+     * @throws PersistenciaException error controlado
+     */
+    public void modificarEvoluciona(Evoluciona evoluciona) throws PersistenciaException {
+        String sql = "UPDATE EVOLUCIONA SET " + " numero_pokedex_origen= '" + evoluciona.getNumeroPokedexOrigen()
+                + "', " + " modo_evoluciona= " + evoluciona.getModoEvoluciona() + ", "
+                + " WHERE numero_pokedex_origen = " + evoluciona.getNumeroPokedexOrigen() + ";";
+        actualizar(sql);
+    }
+
+    /**
+     * Funcion que realiza la consulta sobre la BBDD y la tabla EVOLUCIONA
+     * 
+     * @param sql de la consulta
+     * @return lista de resultados
+     * @throws PersistenciaException controlado
+     */
+    private ArrayList<Evoluciona> obtenerListadoEvoluciona(String sql) throws PersistenciaException {
+        ArrayList<Evoluciona> listaEvoluciona = new ArrayList<>();
+
+        Evoluciona evoluciona = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        Connection connection = null;
+        try {
+            connection = getConnection();
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                int numeroPokedexOrigen = resultSet.getInt("numero_pokedex_Origen");
+                int numeroPokedexDestino = resultSet.getInt("numero_pokedex_Destino");
+                String modoEvoluciona = resultSet.getString("modoEvoluciona");
+                evoluciona = new Evoluciona(numeroPokedexOrigen, numeroPokedexDestino, modoEvoluciona);
+                listaEvoluciona.add(evoluciona);
+            }
+        } catch (Exception exception) {
+            throw new PersistenciaException("Se ha producido un error realizando la consulta", exception);
+        } finally {
+            closeConecction(connection, statement, resultSet);
+        }
+        return listaEvoluciona;
+    }
+
+    /**
+     * Funcion que obtiene el listado de todos los objeto
+     * 
+     * @return lisa total
+     * @throws PersistenciaException controlado
+     */
+    public List<Evoluciona> obtenerEvoluciona() throws PersistenciaException {
+        String sql = "SELECT * FROM EVOLUCIONA";
+        return obtenerListadoEvoluciona(sql);
+    }
+
+    /**
+     * Funcion que obtiene un pokemon por su numero de la pokedex
+     * 
+     * @param numero de la pokedex del pokemon
+     * @return lista total
+     * @throws PersistenciaException controlado
+     */
+    public Evoluciona obtenerEvoluciona(int numeroPokedexOrigen) throws PersistenciaException {
+        Evoluciona evoluciona = null;
+        ArrayList<Evoluciona> listaEvoluciona = null;
+        String sql = "SELECT * FROM POKEMON WHERE numero_pokedex = ";
+        sql = sql + "'" + numeroPokedexOrigen + "';";
+        listaEvoluciona = obtenerListadoEvoluciona(sql);
+        if (!listaEvoluciona.isEmpty()) {
+            evoluciona = listaEvoluciona.get(0);
+        }
+        return evoluciona;
+    }
+
+    /**
+     * Metodo encargado de realizar la insercion del liderGimnasio
+     * 
+     * @param liderGimnasio a insertar
+     * @throws PersistenciaException error controlado
+     */
+    public void insertarLiderGimnasio(LiderGimnasio liderGimnasio) throws PersistenciaException {
+
+        String sql = "INSERT INTO LIDER_GIMNASIO VALUES (" + liderGimnasio.getIdEntrenador() + ",'"
+                + liderGimnasio.getMedalla() + "'," + ");";
+        actualizar(sql);
+    }
+
+    /**
+     * Metodo encargado de realizar la eliminacion
+     * 
+     * @param liderGimnasio a eliminar
+     * @throws PersistenciaException error controlado
+     */
+    public void eliminarObjeto(LiderGimnasio liderGimnasio) throws PersistenciaException {
+        String sql = "DELETE LIDER_GIMNASIO FROM LIDER_GIMNASIO WHERE Id_Entrenador = "
+                + liderGimnasio.getIdEntrenador() + ";";
+        actualizar(sql);
+    }
+
+    /**
+     * Metodo encargado de realizar la modificacion
+     * 
+     * @param liderGimnasio a actualizar
+     * @throws PersistenciaException error controlado
+     */
+    public void modificarObjeto(LiderGimnasio liderGimnasio) throws PersistenciaException {
+        String sql = "UPDATE LIDER_GIMNASIO SET " + "medalla=" + liderGimnasio.getMedalla() + " WHERE Id_Entrenador = "
+                + liderGimnasio.getIdEntrenador() + ";";
+        actualizar(sql);
+    }
+
+    /**
+     * Funcion que realiza la consulta sobre la BBDD y la tabla LIDER_GIMNASIO
+     * 
+     * @param sql de la consulta
+     * @return lista de resultados
+     * @throws PersistenciaException controlado
+     */
+    private ArrayList<LiderGimnasio> obtenerListadoLiderGimnasio(String sql) throws PersistenciaException {
+        ArrayList<LiderGimnasio> listaLiderGimnasio = new ArrayList<>();
+
+        LiderGimnasio liderGimnasio = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        Connection connection = null;
+        try {
+            connection = getConnection();
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                int idEntrenador = resultSet.getInt("idEntrenador");
+                int medalla = resultSet.getInt("medalla");
+                liderGimnasio = new LiderGimnasio(idEntrenador, medalla);
+                listaLiderGimnasio.add(liderGimnasio);
+            }
+        } catch (Exception exception) {
+            throw new PersistenciaException("Se ha producido un error realizando la consulta", exception);
+        } finally {
+            closeConecction(connection, statement, resultSet);
+        }
+        return listaLiderGimnasio;
+    }
+
+    /**
+     * Funcion que obtiene el listado de LiderGimnasio
+     * 
+     * @return lisa total
+     * @throws PersistenciaException controlado
+     */
+    public List<LiderGimnasio> obtenerListadoLiderGimnasio() throws PersistenciaException {
+        String sql = "SELECT * FROM LIDER_GIMNASIO";
+        return obtenerListadoLiderGimnasio(sql);
+    }
+
+    /**
+     * Funcion que obtiene un liderGimnasio
+     * 
+     * @param liderGimnasio
+     * @return lista total
+     * @throws PersistenciaException controlado
+     */
+    public LiderGimnasio obtenerLiderGimnasio(int idEntrenador) throws PersistenciaException {
+        LiderGimnasio liderGimnasio = null;
+        ArrayList<LiderGimnasio> listaLiderGimnasio = null;
+        String sql = "SELECT * FROM POKEMON WHERE numero_pokedex = ";
+        sql = sql + "'" + idEntrenador + "';";
+        listaLiderGimnasio = obtenerListadoLiderGimnasio(sql);
+        if (!listaLiderGimnasio.isEmpty()) {
+            liderGimnasio = listaLiderGimnasio.get(0);
+        }
+        return liderGimnasio;
+    }
+
+    /**
+     * Metodo encargado de realizar la insercion de maquina
+     * 
+     * @param maquina a insertar
+     * @throws PersistenciaException error controlado
+     */
+    public void insertarMaquina(Maquina maquina) throws PersistenciaException {
+
+        String sql = "INSERT INTO MAQUINA VALUES (" + maquina.getIdObjeto() + ",'" + maquina.getIdMovimiento() + "',"
+                + ");";
+        actualizar(sql);
+    }
+
+    /**
+     * Metodo encargado de realizar la eliminacion
+     * 
+     * @param maquina a eliminar
+     * @throws PersistenciaException error controlado
+     */
+    public void eliminarObjeto(Maquina maquina) throws PersistenciaException {
+        String sql = "DELETE MAQUINA FROM MAQUINA WHERE id_objeto = " + maquina.getIdObjeto() + ";";
+        actualizar(sql);
+    }
+
+    /**
+     * Metodo encargado de realizar la modificacion
+     * 
+     * @param maquina a actualizar
+     * @throws PersistenciaException error controlado
+     */
+    public void modificarObjeto(Maquina maquina) throws PersistenciaException {
+        String sql = "UPDATE MAQUINA SET " + "id_objeto = '" + maquina.getIdObjeto() + "', " + "Id_Objeto= "
+                + maquina.getIdObjeto() + ", " + " WHERE id_objeto = " + maquina.getIdObjeto() + ";";
+        actualizar(sql);
+    }
+
+    /**
+     * Funcion que realiza la consulta sobre la BBDD y la tabla MAQUINA
+     * 
+     * @param sql de la consulta
+     * @return lista de resultados
+     * @throws PersistenciaException controlado
+     */
+    private ArrayList<Maquina> obtenerListadoMaquina(String sql) throws PersistenciaException {
+        ArrayList<Maquina> listaMaquina = new ArrayList<>();
+
+        Maquina maquina = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        Connection connection = null;
+        try {
+            connection = getConnection();
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                int idObjeto = resultSet.getInt("id_Objeto");
+                int idMovimiento = resultSet.getInt("id_Movimiento");
+                maquina = new Maquina(idObjeto, idMovimiento);
+                listaMaquina.add(maquina);
+            }
+        } catch (Exception exception) {
+            throw new PersistenciaException("Se ha producido un error realizando la consulta", exception);
+        } finally {
+            closeConecction(connection, statement, resultSet);
+        }
+        return listaMaquina;
+    }
+
+    /**
+     * Funcion que obtiene el listado de todos las Maquina
+     * 
+     * @return lisa total
+     * @throws PersistenciaException controlado
+     */
+    public List<Maquina> obtenerListadoMaquina() throws PersistenciaException {
+        String sql = "SELECT * FROM MAQUINA";
+        return obtenerListadoMaquina(sql);
+    }
+
+    /**
+     * Funcion que obtiene una Maquina
+     * 
+     * @param maquina 
+     * @return lista total
+     * @throws PersistenciaException controlado
+     */
+    public Maquina obtenerMaquina(int idObjeto) throws PersistenciaException {
+        Maquina maquina = null;
+        ArrayList<Maquina> listaMaquina = null;
+        String sql = "SELECT * FROM MAQUINA WHERE id_objeto = ";
+        sql = sql + "'" + idObjeto + "';";
+        listaMaquina = obtenerListadoMaquina(sql);
+        if (!listaMaquina.isEmpty()) {
+            maquina = listaMaquina.get(0);
+        }
+        return maquina;
+    }
 
     private void closeConecction(Connection connection, Statement statement, ResultSet resultSet)
             throws PersistenciaException {
