@@ -1,2 +1,0 @@
-- Explicarle a Jose como enlazar imagenes del drive a la wiki
-- Cambiar los pdf a img en los diagramas 
