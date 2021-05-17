@@ -457,7 +457,7 @@ public class Bbdd {
      * @param campeonLiga a actualizar
      * @throws PersistenciaException error controlado
      */
-    public void modificarObjeto(CampeonLiga campeonLiga) throws PersistenciaException {
+    public void modificarCampeonLiga(CampeonLiga campeonLiga) throws PersistenciaException {
         String sql = "UPDATE CAMPEON_LIGA SET " + "id_entrenador = '" + campeonLiga.getIdEntrenador() + ", "
                 + "region = " + campeonLiga.getRegion() + " WHERE id_entrenador = " + campeonLiga.getIdEntrenador()
                 + ";";
@@ -640,7 +640,7 @@ public class Bbdd {
      * @param conoce a insertar
      * @throws PersistenciaException error controlado
      */
-    public void insertarCaracteristicas(Conoce conoce) throws PersistenciaException {
+    public void insertarConoce(Conoce conoce) throws PersistenciaException {
 
         String sql = "INSERT INTO CARACTERISTICAS VALUES (" + conoce.getIdMovimiento() + ",'"
                 + conoce.getNumeroPokedex() + ");";
@@ -653,7 +653,7 @@ public class Bbdd {
      * @param conoce a eliminar
      * @throws PersistenciaException error controlado
      */
-    public void eliminarObjeto(Conoce conoce) throws PersistenciaException {
+    public void eliminarConoce(Conoce conoce) throws PersistenciaException {
         String sql = "DELETE CONOCE FROM CONOCE WHERE id_movimiento = " + conoce.getIdMovimiento() + ";";
         actualizar(sql);
     }
@@ -664,7 +664,7 @@ public class Bbdd {
      * @param conoce a actualizar
      * @throws PersistenciaException error controlado
      */
-    public void modificarObjeto(Conoce conoce) throws PersistenciaException {
+    public void modificarConoce(Conoce conoce) throws PersistenciaException {
         String sql = "UPDATE POKEMON SET " + "id_movimiento = '" + conoce.getIdMovimiento() + "numero_pokedex"
                 + conoce.getNumeroPokedex() + ";";
         actualizar(sql);
