@@ -20,7 +20,7 @@ public class EstadoModelo {
     }
 
     public void insertar(Estado estado) throws PersistenciaException {
-        persistencia.insertar(estado);
+        persistencia.insertarEstado(estado);
     }
 
     public void eliminar(Estado estado) throws PersistenciaException {
