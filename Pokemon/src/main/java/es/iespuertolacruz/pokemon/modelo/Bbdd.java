@@ -951,7 +951,7 @@ public class Bbdd {
                 + entrenadorEquipa.getIdEntrenador() + ";";
         actualizar(sql);
     }
-    
+
     /**
      * Metodo encargado de realizar la modificacion
      * 
@@ -959,12 +959,12 @@ public class Bbdd {
      * @throws PersistenciaException error controlado
      */
     public void modificarEntrenadorEquipa(EntrenadorEquipa entrenadorEquipa) throws PersistenciaException {
-        String sql = "UPDATE  ENTRENADOR_EQUIPA SET " + "id_entrenador = '" + entrenadorEquipa.getIdEntrenador() + "', " + " id_objeto= "
-                +entrenadorEquipa.getIdEntrenador() + ", " + "cantidad = " + entrenadorEquipa.getCantidad()
-                + " WHERE id_entrenador = " + entrenadorEquipa.getIdEntrenador() + ";";
+        String sql = "UPDATE  ENTRENADOR_EQUIPA SET " + "id_entrenador = '" + entrenadorEquipa.getIdEntrenador() + "', "
+                + " id_objeto= " + entrenadorEquipa.getIdEntrenador() + ", " + "cantidad = "
+                + entrenadorEquipa.getCantidad() + " WHERE id_entrenador = " + entrenadorEquipa.getIdEntrenador() + ";";
         actualizar(sql);
     }
-    
+
     /**
      * Funcion que realiza la consulta sobre la BBDD y la tabla ENTRENADOR_EQUIPA
      * 
@@ -1027,6 +1027,220 @@ public class Bbdd {
         }
         return entrenadorEquipa;
     }
+
+    /**
+     * Metodo encargado de realizar la insercion de estadisticasBase de un pokemon
+     * 
+     * @param estadisticasBase a insertar
+     * @throws PersistenciaException error controlado
+     */
+    public void insertarEstadisticasBase(EstadisticasBase estadisticasBase) throws PersistenciaException {
+
+        String sql = "INSERT INTO ESTADISTICAS_BASE VALUES (" + estadisticasBase.getId() + ",'"
+                + estadisticasBase.getPsBase() + "'," + estadisticasBase.getAtaqueBase() + "',"
+                + estadisticasBase.getDefensaBase() + "'," + estadisticasBase.getAtaqueEspecialBase() + "',"
+                + estadisticasBase.getDefensaEspecialBase() + "'," + estadisticasBase.getVelocidadBase() + ");";
+        actualizar(sql);
+    }
+
+    /**
+     * Metodo encargado de realizar la eliminacion
+     * 
+     * @param estadisticasBase a eliminar
+     * @throws PersistenciaException error controlado
+     */
+    public void eliminarEstadisticasBase(EstadisticasBase estadisticasBase) throws PersistenciaException {
+        String sql = "DELETE ESTADISTICAS_BASE FROM ESTADISTICAS_BASE WHERE id_estadisticas_base = "
+                + estadisticasBase.getId() + ";";
+        actualizar(sql);
+    }
+
+    /**
+     * Metodo encargado de realizar la modificacion
+     * 
+     * @param estadisticasBase a actualizar
+     * @throws PersistenciaException error controlado
+     */
+    public void modificarEstadisticasBase(EstadisticasBase estadisticasBase) throws PersistenciaException {
+        String sql = "UPDATE ESTADISTICAS_BASE SET " + "psBase = '" + estadisticasBase.getPsBase() + "', "
+                + "ataque_Base = " + estadisticasBase.getAtaqueBase() + ", " + "defensaBase = "
+                + estadisticasBase.getDefensaBase() + "ataqueEspecialBase = " + estadisticasBase.getAtaqueEspecialBase()
+                + "defensaEspecial_Base=" + estadisticasBase.getDefensaEspecialBase() + "velocidad_Base= "
+                + estadisticasBase.getVelocidadBase() + "id_estadisticas_base" + estadisticasBase.getId()
+                + " WHERE id_estadisticas_base = " + estadisticasBase.getId() + ";";
+        actualizar(sql);
+    }
+
+    /**
+     * Funcion que realiza la consulta sobre la BBDD y la tabla ESTADISTICAS_BASE
+     * 
+     * @param sql de la consulta
+     * @return lista de resultados
+     * @throws PersistenciaException controlado
+     */
+    private ArrayList<EstadisticasBase> obtenerListadoEstadisticasBase(String sql) throws PersistenciaException {
+        ArrayList<EstadisticasBase> listaEstadisticasBase = new ArrayList<>();
+
+        EstadisticasBase estadisticasBase = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        Connection connection = null;
+        try {
+            connection = getConnection();
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id_estadisticas_base");
+                int psBase = resultSet.getInt("ps_base");
+                int ataqueBase = resultSet.getInt("ataque_base");
+                int defensaBase = resultSet.getInt("defensa_base");
+                int ataqueEspecialBase = resultSet.getInt("ataque_especial_base");
+                int defensaEspecialBase = resultSet.getInt("defensa_especial_base");
+                int velocidadBase = resultSet.getInt("velocidad_base");
+                estadisticasBase = new EstadisticasBase(id, psBase, ataqueBase, defensaBase, ataqueEspecialBase,
+                        defensaEspecialBase, velocidadBase);
+                listaEstadisticasBase.add(estadisticasBase);
+            }
+        } catch (Exception exception) {
+            throw new PersistenciaException("Se ha producido un error realizando la consulta", exception);
+        } finally {
+            closeConecction(connection, statement, resultSet);
+        }
+        return listaEstadisticasBase;
+    }
+
+    /**
+     * Funcion que obtiene el listado de todas estadisticasBase
+     * 
+     * @return lisa total
+     * @throws PersistenciaException controlado
+     */
+    public List<EstadisticasBase> obtenerListadoEstadisticasBase() throws PersistenciaException {
+        String sql = "SELECT * FROM  ESTADISTICAS_BASE";
+        return obtenerListadoEstadisticasBase(sql);
+    }
+
+    /**
+     * Funcion que obtiene estadisticasBase de un pokemon
+     * 
+     * @param estadisticasBase del pokemon
+     * @return lista total
+     * @throws PersistenciaException controlado
+     */
+    public EstadisticasBase obtenerEstadisticasBase(int id) throws PersistenciaException {
+        EstadisticasBase estadisticasBase = null;
+        ArrayList<EstadisticasBase> listaEstadisticasBase = null;
+        String sql = "SELECT * FROM ESTADISTICAS_BASE WHERE id_estadisticas_base = ";
+        sql = sql + "'" + id + "';";
+        listaEstadisticasBase = obtenerListadoEstadisticasBase(sql);
+        if (!listaEstadisticasBase.isEmpty()) {
+            estadisticasBase = listaEstadisticasBase.get(0);
+        }
+        return estadisticasBase;
+    }
+
+    /**
+     * Metodo encargado de realizar la insercion de un estado
+     * 
+     * @param estado a insertar
+     * @throws PersistenciaException error controlado
+     */
+    public void insertarEstado(Estado estado) throws PersistenciaException {
+
+        String sql = "INSERT INTO ESTADO VALUES (" + estado.getId() + ",'" + estado.getNombre() + "',"
+                + estado.getPersistencia() + estado.getEfecto() + ");";
+        actualizar(sql);
+    }
+
+    /**
+     * Metodo encargado de realizar la eliminacion
+     * 
+     * @param estado a eliminar
+     * @throws PersistenciaException error controlado
+     */
+    public void eliminarEstado(Estado estado) throws PersistenciaException {
+        String sql = "DELETE ESTADO FROM ESTADO WHERE id_estado = " + estado.getId() + ";";
+        actualizar(sql);
+    }
+
+    /**
+     * Metodo encargado de realizar la modificacion
+     * 
+     * @param estado a actualizar
+     * @throws PersistenciaException error controlado
+     */
+    public void modificarEstado(Estado estado) throws PersistenciaException {
+        String sql = "UPDATE ESTADO SET " + "nombre = '" + estado.getNombre() + "', " + " persitencia = "
+                + estado.getPersistencia() + ", " + "efecto =" + estado.getEfecto() + "id_estado = " + estado.getId()
+                + " WHERE id_estado = " + estado.getId() + ";";
+        actualizar(sql);
+    }
+
+    /**
+     * Funcion que realiza la consulta sobre la BBDD y la tabla ESTADO
+     * 
+     * @param sql de la consulta
+     * @return lista de resultados
+     * @throws PersistenciaException controlado
+     */
+    private ArrayList<Estado> obtenerListadoEstado(String sql) throws PersistenciaException {
+        ArrayList<Estado> listaEstado = new ArrayList<>();
+
+        Estado estado = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        Connection connection = null;
+        try {
+            connection = getConnection();
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id_estado");
+                String nombre = resultSet.getString("nombre");
+                int persistencia = resultSet.getInt("persistencia");
+                String efecto = resultSet.getString("efecto");
+                estado = new Estado(id, nombre, persistencia, efecto);
+                listaEstado.add(estado);
+            }
+        } catch (Exception exception) {
+            throw new PersistenciaException("Se ha producido un error realizando la consulta", exception);
+        } finally {
+            closeConecction(connection, statement, resultSet);
+        }
+        return listaEstado;
+    }
+
+    /**
+     * Funcion que obtiene el listado de todos los estado
+     * 
+     * @return lisa total
+     * @throws PersistenciaException controlado
+     */
+    public List<Estado> obtenerListadoEstado() throws PersistenciaException {
+        String sql = "SELECT * FROM ESTADO";
+        return obtenerListadoEstado(sql);
+    }
+
+    /**
+     * Funcion que obtiene el estado
+     * 
+     * @param estado
+     * @return lista total
+     * @throws PersistenciaException controlado
+     */
+    public Estado obtenerEstado(int id) throws PersistenciaException {
+        Estado estado = null;
+        ArrayList<Estado> listaEstado = null;
+        String sql = "SELECT * FROM POKEMON WHERE numero_pokedex = ";
+        sql = sql + "'" + id + "';";
+        listaEstado = obtenerListadoEstado(sql);
+        if (!listaEstado.isEmpty()) {
+            estado = listaEstado.get(0);
+        }
+        return estado;
+    }
+
+    
 
     private void closeConecction(Connection connection, Statement statement, ResultSet resultSet)
             throws PersistenciaException {
