@@ -848,7 +848,7 @@ public class Bbdd {
      * @param entrenadorCasual a eliminar
      * @throws PersistenciaException error controlado
      */
-    public void eliminarObjeto(EntrenadorCasual entrenadorCasual) throws PersistenciaException {
+    public void eliminarEntrenadorCasual(EntrenadorCasual entrenadorCasual) throws PersistenciaException {
         String sql = "DELETE ENTRENADOR_CASUAL FROM ENTRENADOR_CASUAL WHERE numero_pokedex = "
                 + entrenadorCasual.getIdEntrenador() + ";";
         actualizar(sql);
