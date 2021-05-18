@@ -6,9 +6,9 @@
 *****
  ## Contenido 
 
-* [Modo de Intalaccion](https://github.com/RubenGonz/PokemonDb/wiki/Manual-de-intalacion)
-* [Manual de usuario ](https://github.com/RubenGonz/PokemonDb/wiki/Manual-del-Usuario)
-* [Estructura de la base de datos](https://github.com/RubenGonz/PokemonDb/wiki/Estructura-de-la-base-de-datos)
+* [Manual de Instalacion](https://github.com/RubenGonz/PokemonDb/wiki/Manual-de-instalacion)
+* [Manual de usuario](https://github.com/RubenGonz/PokemonDb/wiki/Manual-del-Usuario)
+* [Base de datos](https://github.com/RubenGonz/PokemonDb/wiki/PokemonDb-base-de-datos)
 *****
 ## Licencia 
 
