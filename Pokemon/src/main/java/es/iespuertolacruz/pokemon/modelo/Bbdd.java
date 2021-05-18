@@ -1652,7 +1652,7 @@ public class Bbdd {
      * @param objetoComun a insertar
      * @throws PersistenciaException error controlado
      */
-    public void insertarOBJETO_COMUN(ObjetoComun objetoComun) throws PersistenciaException {
+    public void insertarObjetoComun(ObjetoComun objetoComun) throws PersistenciaException {
 
         String sql = "INSERT INTO OBJETO_COMUN VALUES (" + objetoComun.getIdObjeto() + ",'" + objetoComun.getEfecto()
                 + ");";
