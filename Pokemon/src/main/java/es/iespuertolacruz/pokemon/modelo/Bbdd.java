@@ -2332,6 +2332,17 @@ public class Bbdd {
                 + ");";
         actualizar(sql);
     }
+    
+    /**
+     * Metodo encargado de realizar la eliminacion
+     * 
+     * @param villano a eliminar
+     * @throws PersistenciaException error controlado
+     */
+    public void eliminarVillano(Villano villano) throws PersistenciaException {
+        String sql = "DELETE VILLANO FROM TIPO WHERE Id_Entrenador = " + villano.getIdEntrenador() + ";";
+        actualizar(sql);
+    }
 
     /**
      * Metodo encargado de realizar la modificacion
