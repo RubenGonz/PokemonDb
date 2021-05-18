@@ -1461,7 +1461,7 @@ public class Bbdd {
      * @param maquina a eliminar
      * @throws PersistenciaException error controlado
      */
-    public void eliminarObjeto(Maquina maquina) throws PersistenciaException {
+    public void eliminarMaquina(Maquina maquina) throws PersistenciaException {
         String sql = "DELETE MAQUINA FROM MAQUINA WHERE id_objeto = " + maquina.getIdObjeto() + ";";
         actualizar(sql);
     }
@@ -1472,7 +1472,7 @@ public class Bbdd {
      * @param maquina a actualizar
      * @throws PersistenciaException error controlado
      */
-    public void modificarObjeto(Maquina maquina) throws PersistenciaException {
+    public void modificarMaquina(Maquina maquina) throws PersistenciaException {
         String sql = "UPDATE MAQUINA SET " + "id_objeto = '" + maquina.getIdObjeto() + "', " + "Id_Objeto= "
                 + maquina.getIdObjeto() + ", " + " WHERE id_objeto = " + maquina.getIdObjeto() + ";";
         actualizar(sql);
