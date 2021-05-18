@@ -1763,7 +1763,7 @@ public class Bbdd {
      * @param pertenece a eliminar
      * @throws PersistenciaException error controlado
      */
-    public void eliminarObjeto(Pertenece pertenece) throws PersistenciaException {
+    public void eliminarPertenece(Pertenece pertenece) throws PersistenciaException {
         String sql = "DELETE PERTENECE FROM PERTENECE WHERE numeroPokedex = " + pertenece.getNumeroPokedex() + ";";
         actualizar(sql);
     }
@@ -1774,7 +1774,7 @@ public class Bbdd {
      * @param pertenece a actualizar
      * @throws PersistenciaException error controlado
      */
-    public void modificarObjeto(Pertenece pertenece) throws PersistenciaException {
+    public void modificarPertenece(Pertenece pertenece) throws PersistenciaException {
         String sql = "UPDATE POKEMON SET " + " tipo = '" + pertenece.getTipo() + " WHERE Numero_Pokedex = "
                 + pertenece.getNumeroPokedex() + ";";
         actualizar(sql);
