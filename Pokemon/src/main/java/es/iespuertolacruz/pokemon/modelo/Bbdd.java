@@ -1362,7 +1362,7 @@ public class Bbdd {
      * @param liderGimnasio a eliminar
      * @throws PersistenciaException error controlado
      */
-    public void eliminarObjeto(LiderGimnasio liderGimnasio) throws PersistenciaException {
+    public void eliminarLiderGimnasio(LiderGimnasio liderGimnasio) throws PersistenciaException {
         String sql = "DELETE LIDER_GIMNASIO FROM LIDER_GIMNASIO WHERE Id_Entrenador = "
                 + liderGimnasio.getIdEntrenador() + ";";
         actualizar(sql);
@@ -1374,7 +1374,7 @@ public class Bbdd {
      * @param liderGimnasio a actualizar
      * @throws PersistenciaException error controlado
      */
-    public void modificarObjeto(LiderGimnasio liderGimnasio) throws PersistenciaException {
+    public void modificarLiderGimnasio(LiderGimnasio liderGimnasio) throws PersistenciaException {
         String sql = "UPDATE LIDER_GIMNASIO SET " + "medalla=" + liderGimnasio.getMedalla() + " WHERE Id_Entrenador = "
                 + liderGimnasio.getIdEntrenador() + ";";
         actualizar(sql);
