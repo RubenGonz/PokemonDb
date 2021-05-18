@@ -2,22 +2,13 @@
 
 ![PokemonDb](https://raw.githubusercontent.com/RubenGonz/PokemonDb/develop/Imagenes/Pokedex.png)
 
- 
 
 *****
  ## Contenido 
 
-* [Acerca de](https://github.com/RubenGonz/PokemonDb#acerca-de)
 * [Modo de Intalaccion](https://github.com/RubenGonz/PokemonDb/wiki/Manual-de-intalacion)
 * [Manual de usuario ](https://github.com/RubenGonz/PokemonDb/wiki/Manual-del-Usuario)
-
-* [Descargar](https://github.com/RubenGonz/PokemonDb/wiki/MANUAL-DE--INSTALACI%C3%93N)
-* [Licencia](https://github.com/RubenGonz/PokemonDb#licencia)
-
-*****
-
- ## Acerca de
-
+* [Estructura de la base de datos](https://github.com/RubenGonz/PokemonDb/wiki/Estructura-de-la-base-de-datos)
 
 *****
 ## Licencia 
