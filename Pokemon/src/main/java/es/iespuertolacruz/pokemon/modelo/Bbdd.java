@@ -1960,7 +1960,7 @@ public class Bbdd {
      * @param pokemonEquipa a actualizar
      * @throws PersistenciaException error controlado
      */
-    public void modificarObjeto(PokemonEquipa pokemonEquipa) throws PersistenciaException {
+    public void modificarPokemonEquipa(PokemonEquipa pokemonEquipa) throws PersistenciaException {
         String sql = "UPDATE POKEMON_EQUIPA SET " + "id_e = " + pokemonEquipa.getIdObjeto() + " WHERE Numero_Pokedex = "
                 + pokemonEquipa.getNumeroPokedex() + ";";
         actualizar(sql);
