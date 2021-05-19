@@ -1,6 +1,7 @@
 package es.iespuertolacruz.pokemon.api;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 /**
@@ -67,6 +68,18 @@ public class Pertenece {
     }
 
     //Metodos y funciones
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Pertenece)) {
+            return false;
+        }
+        Pertenece pertenece = (Pertenece) o;
+        return numeroPokedex == pertenece.numeroPokedex && Objects.equals(tipo, pertenece.tipo);
+    }
 
     @Override
     public String toString() {

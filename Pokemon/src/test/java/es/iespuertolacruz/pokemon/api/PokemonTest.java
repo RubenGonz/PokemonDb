@@ -27,8 +27,11 @@ public class PokemonTest {
     @Test
     public void toStringTest() {
         assertEquals("1'Bulbasaur'1'1",pokemon1.toString(), "El texto recibido no era el esperado");
-        assertEquals("1'Bulbasaur'1'1",pokemon2.toString(), "El texto recibido no era el esperado");
-        assertEquals("1'Bulbasaur'1'1",pokemon3.toString(), "El texto recibido no era el esperado");
+    }
+
+    @Test
+    public void EqualsTest() {
+        assertEquals(pokemon2,pokemon3,"Los objetos son iguales y equals no lo reconoce");
     }
 
     //Funciones y metodos

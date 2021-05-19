@@ -27,8 +27,11 @@ public class VillanoTest {
     @Test
     public void toStringTest() {
         assertEquals("13'Dominar el universo usando a todos los Pokemon",villano1.toString(), "El texto recibido no era el esperado");
-        assertEquals("13'Dominar el universo usando a todos los Pokemon",villano2.toString(), "El texto recibido no era el esperado");
-        assertEquals("13'Dominar el universo usando a todos los Pokemon",villano3.toString(), "El texto recibido no era el esperado");
+    }
+
+    @Test
+    public void EqualsTest() {
+        assertEquals(villano2,villano3,"Los objetos son iguales y equals no lo reconoce");
     }
 
     //Funciones y metodos

@@ -27,8 +27,11 @@ public class TipoTest {
     @Test
     public void toStringTest() {
         assertEquals("Agua'Azul",tipo1.toString(), "El texto recibido no era el esperado");
-        assertEquals("Agua'Azul",tipo2.toString(), "El texto recibido no era el esperado");
-        assertEquals("Agua'Azul",tipo3.toString(), "El texto recibido no era el esperado");
+    }
+
+    @Test
+    public void EqualsTest() {
+        assertEquals(tipo2,tipo3,"Los objetos son iguales y equals no lo reconoce");
     }
 
     //Funciones y metodos

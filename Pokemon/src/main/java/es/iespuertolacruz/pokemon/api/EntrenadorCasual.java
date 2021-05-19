@@ -69,6 +69,17 @@ public class EntrenadorCasual {
     //Funciones y metodos
 
     @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof EntrenadorCasual)) {
+            return false;
+        }
+        EntrenadorCasual entrenadorCasual = (EntrenadorCasual) o;
+        return idEntrenador == entrenadorCasual.idEntrenador && cantidadMedallas == entrenadorCasual.cantidadMedallas;
+    }
+
+    @Override
     public String toString() {
         return getIdEntrenador() + DELIMITADOR +
             getCantidadMedallas();

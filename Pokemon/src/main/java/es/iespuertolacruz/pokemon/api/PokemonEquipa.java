@@ -68,6 +68,18 @@ public class PokemonEquipa {
 
     //Funciones y metodos
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof PokemonEquipa)) {
+            return false;
+        }
+        PokemonEquipa pokemonEquipa = (PokemonEquipa) o;
+        return numeroPokedex == pokemonEquipa.numeroPokedex && idObjeto == pokemonEquipa.idObjeto;
+    }
+
     @Override
     public String toString() {
         return getNumeroPokedex() + DELIMITADOR +

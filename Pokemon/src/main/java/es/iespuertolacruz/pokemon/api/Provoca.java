@@ -69,6 +69,17 @@ public class Provoca {
     //Metodos y funciones
 
     @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Provoca)) {
+            return false;
+        }
+        Provoca provoca = (Provoca) o;
+        return idMovimiento == provoca.idMovimiento && idEstado == provoca.idEstado;
+    }
+
+    @Override
     public String toString() {
         return getIdMovimiento() + DELIMITADOR +
             getIdEstado();

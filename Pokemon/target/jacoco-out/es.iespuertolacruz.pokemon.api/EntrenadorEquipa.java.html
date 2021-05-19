@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EntrenadorEquipa.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PokemonApp</a> &gt; <a href="index.source.html" class="el_package">es.iespuertolacruz.pokemon.api</a> &gt; <span class="el_source">EntrenadorEquipa.java</span></div><h1>EntrenadorEquipa.java</h1><pre class="source lang-java linenums">package es.iespuertolacruz.pokemon.api;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EntrenadorEquipa.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PokemonApp</a> &gt; <a href="index.source.html" class="el_package">es.iespuertolacruz.pokemon.api</a> &gt; <span class="el_source">EntrenadorEquipa.java</span></div><h1>EntrenadorEquipa.java</h1><pre class="source lang-java linenums">package es.iespuertolacruz.pokemon.api;
 
 import java.util.ArrayList;
 import java.util.StringTokenizer;
@@ -78,10 +78,21 @@ public class EntrenadorEquipa {
     //Funciones y Metodos
 
     @Override
+    public boolean equals(Object o) {
+<span class="pc bpc" id="L82" title="1 of 2 branches missed.">        if (o == this)</span>
+<span class="nc" id="L83">            return true;</span>
+<span class="pc bpc" id="L84" title="1 of 2 branches missed.">        if (!(o instanceof EntrenadorEquipa)) {</span>
+<span class="nc" id="L85">            return false;</span>
+        }
+<span class="fc" id="L87">        EntrenadorEquipa entrenadorEquipa = (EntrenadorEquipa) o;</span>
+<span class="pc bpc" id="L88" title="3 of 6 branches missed.">        return idEntrenador == entrenadorEquipa.idEntrenador &amp;&amp; idObjeto == entrenadorEquipa.idObjeto &amp;&amp; cantidad == entrenadorEquipa.cantidad;</span>
+    }
+
+    @Override
     public String toString() {
-<span class="fc" id="L82">        return getIdEntrenador() + DELIMITADOR +</span>
-<span class="fc" id="L83">            getIdObjeto() + DELIMITADOR +</span>
-<span class="fc" id="L84">            getCantidad();</span>
+<span class="fc" id="L93">        return getIdEntrenador() + DELIMITADOR +</span>
+<span class="fc" id="L94">            getIdObjeto() + DELIMITADOR +</span>
+<span class="fc" id="L95">            getCantidad();</span>
     }
 
 }

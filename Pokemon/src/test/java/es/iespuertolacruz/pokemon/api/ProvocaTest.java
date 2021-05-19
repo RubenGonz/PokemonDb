@@ -27,8 +27,11 @@ public class ProvocaTest {
     @Test
     public void toStringTest() {
         assertEquals("15'1",provoca1.toString(), "El texto recibido no era el esperado");
-        assertEquals("15'1",provoca2.toString(), "El texto recibido no era el esperado");
-        assertEquals("15'1",provoca3.toString(), "El texto recibido no era el esperado");
+    }
+
+    @Test
+    public void EqualsTest() {
+        assertEquals(provoca2,provoca3,"Los objetos son iguales y equals no lo reconoce");
     }
 
     //Funciones y metodos

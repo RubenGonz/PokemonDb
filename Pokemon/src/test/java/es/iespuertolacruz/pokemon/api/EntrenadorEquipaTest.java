@@ -28,8 +28,11 @@ public class EntrenadorEquipaTest {
     @Test
     public void toStringTest() {
         assertEquals("1'1'1",entrenadorEquipa1.toString(), "El texto recibido no era el esperado");
-        assertEquals("1'1'1",entrenadorEquipa2.toString(), "El texto recibido no era el esperado");
-        assertEquals("1'1'1",entrenadorEquipa3.toString(), "El texto recibido no era el esperado");
+    }
+
+    @Test
+    public void EqualsTest() {
+        assertEquals(entrenadorEquipa2,entrenadorEquipa3,"Los objetos son iguales y equals no lo reconoce");
     }
 
     //Funciones y metodos

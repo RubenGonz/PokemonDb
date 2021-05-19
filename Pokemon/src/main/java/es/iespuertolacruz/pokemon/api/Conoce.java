@@ -68,6 +68,18 @@ public class Conoce {
 
     //Metodos y funciones
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Conoce)) {
+            return false;
+        }
+        Conoce conoce = (Conoce) o;
+        return numeroPokedex == conoce.numeroPokedex && idMovimiento == conoce.idMovimiento;
+    }    
+
     @Override
     public String toString() {
         return getNumeroPokedex() + DELIMITADOR +

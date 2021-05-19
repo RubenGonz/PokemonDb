@@ -69,6 +69,17 @@ public class LiderGimnasio {
     //Funciones y metodos
 
     @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof LiderGimnasio)) {
+            return false;
+        }
+        LiderGimnasio liderGimnasio = (LiderGimnasio) o;
+        return idEntrenador == liderGimnasio.idEntrenador && medalla == liderGimnasio.medalla;
+    }
+
+    @Override
     public String toString() {
         return getIdEntrenador() + DELIMITADOR +
             getMedalla();

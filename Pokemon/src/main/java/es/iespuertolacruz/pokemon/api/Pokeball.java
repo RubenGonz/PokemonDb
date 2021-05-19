@@ -69,6 +69,17 @@ public class Pokeball {
     //Metodos y funciones
 
     @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Pokeball)) {
+            return false;
+        }
+        Pokeball pokeball = (Pokeball) o;
+        return idObjeto == pokeball.idObjeto && ratio == pokeball.ratio;
+    }
+
+    @Override
     public String toString() {
         return getIdObjeto() + DELIMITADOR +
             getRatio();

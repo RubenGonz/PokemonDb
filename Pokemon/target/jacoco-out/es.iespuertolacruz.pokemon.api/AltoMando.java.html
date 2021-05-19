@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AltoMando.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PokemonApp</a> &gt; <a href="index.source.html" class="el_package">es.iespuertolacruz.pokemon.api</a> &gt; <span class="el_source">AltoMando.java</span></div><h1>AltoMando.java</h1><pre class="source lang-java linenums">package es.iespuertolacruz.pokemon.api;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AltoMando.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PokemonApp</a> &gt; <a href="index.source.html" class="el_package">es.iespuertolacruz.pokemon.api</a> &gt; <span class="el_source">AltoMando.java</span></div><h1>AltoMando.java</h1><pre class="source lang-java linenums">package es.iespuertolacruz.pokemon.api;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 public class AltoMando {
@@ -16,8 +17,8 @@ public class AltoMando {
     /**
      * Constructor por defecto
      */
-<span class="fc" id="L19">    public AltoMando() {</span>
-<span class="fc" id="L20">    }</span>
+<span class="fc" id="L20">    public AltoMando() {</span>
+<span class="fc" id="L21">    }</span>
 
     /**
      * Constructor con todos los parametros
@@ -25,50 +26,62 @@ public class AltoMando {
      * @param idEntrenador identificador del entrenador padre
      * @param tipoPrincipal tipo principal de los pokemon que usa el entrenador
      */
-<span class="fc" id="L28">    public AltoMando(int idEntrenador, String tipoPrincipal) {</span>
-<span class="fc" id="L29">        this.idEntrenador = idEntrenador;</span>
-<span class="fc" id="L30">        this.tipoPrincipal = tipoPrincipal;</span>
-<span class="fc" id="L31">    }</span>
+<span class="fc" id="L29">    public AltoMando(int idEntrenador, String tipoPrincipal) {</span>
+<span class="fc" id="L30">        this.idEntrenador = idEntrenador;</span>
+<span class="fc" id="L31">        this.tipoPrincipal = tipoPrincipal;</span>
+<span class="fc" id="L32">    }</span>
 
     /**
      * Constructor que recibe una cadena de texto
      * 
      * @param cadena con la informacion
      */
-<span class="fc" id="L38">    public AltoMando(String cadena) {</span>
-<span class="fc" id="L39">        ArrayList&lt;Object&gt; elementos = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L40">        StringTokenizer tokenizer = new StringTokenizer(cadena, DELIMITADOR);</span>
-<span class="fc bfc" id="L41" title="All 2 branches covered.">        while (tokenizer.hasMoreElements()) {</span>
-<span class="fc" id="L42">            elementos.add(tokenizer.nextToken());</span>
+<span class="fc" id="L39">    public AltoMando(String cadena) {</span>
+<span class="fc" id="L40">        ArrayList&lt;Object&gt; elementos = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L41">        StringTokenizer tokenizer = new StringTokenizer(cadena, DELIMITADOR);</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        while (tokenizer.hasMoreElements()) {</span>
+<span class="fc" id="L43">            elementos.add(tokenizer.nextToken());</span>
         }
-<span class="fc" id="L44">        this.idEntrenador = Integer.parseInt((String) elementos.get(0));</span>
-<span class="fc" id="L45">        this.tipoPrincipal = (String) elementos.get(1);</span>
-<span class="fc" id="L46">    }</span>
+<span class="fc" id="L45">        this.idEntrenador = Integer.parseInt((String) elementos.get(0));</span>
+<span class="fc" id="L46">        this.tipoPrincipal = (String) elementos.get(1);</span>
+<span class="fc" id="L47">    }</span>
 
     //Getters and Setters
 
     public int getIdEntrenador() {
-<span class="fc" id="L51">        return this.idEntrenador;</span>
+<span class="fc" id="L52">        return this.idEntrenador;</span>
     }
 
     public void setIdEntrenador(int idEntrenador) {
-<span class="fc" id="L55">        this.idEntrenador = idEntrenador;</span>
-<span class="fc" id="L56">    }</span>
+<span class="fc" id="L56">        this.idEntrenador = idEntrenador;</span>
+<span class="fc" id="L57">    }</span>
 
     public String getTipoPrincipal() {
-<span class="fc" id="L59">        return this.tipoPrincipal;</span>
+<span class="fc" id="L60">        return this.tipoPrincipal;</span>
     }
 
     public void setTipoPrincipal(String tipoPrincipal) {
-<span class="fc" id="L63">        this.tipoPrincipal = tipoPrincipal;</span>
-<span class="fc" id="L64">    }</span>
+<span class="fc" id="L64">        this.tipoPrincipal = tipoPrincipal;</span>
+<span class="fc" id="L65">    }</span>
 
     //Metodos y funciones
+
+
+    @Override
+    public boolean equals(Object o) {
+<span class="pc bpc" id="L72" title="1 of 2 branches missed.">        if (o == this)</span>
+<span class="nc" id="L73">            return true;</span>
+<span class="pc bpc" id="L74" title="1 of 2 branches missed.">        if (!(o instanceof AltoMando)) {</span>
+<span class="nc" id="L75">            return false;</span>
+        }
+<span class="fc" id="L77">        AltoMando altoMando = (AltoMando) o;</span>
+<span class="pc bpc" id="L78" title="2 of 4 branches missed.">        return idEntrenador == altoMando.idEntrenador &amp;&amp; Objects.equals(tipoPrincipal, altoMando.tipoPrincipal);</span>
+    }
     
     @Override
     public String toString() {
-<span class="fc" id="L70">        return getIdEntrenador() + DELIMITADOR +</span>
-<span class="fc" id="L71">            getTipoPrincipal();</span>
+<span class="fc" id="L83">        return getIdEntrenador() + DELIMITADOR +</span>
+<span class="fc" id="L84">            getTipoPrincipal();</span>
     }
 
 }

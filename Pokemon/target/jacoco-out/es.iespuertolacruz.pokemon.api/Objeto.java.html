@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Objeto.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PokemonApp</a> &gt; <a href="index.source.html" class="el_package">es.iespuertolacruz.pokemon.api</a> &gt; <span class="el_source">Objeto.java</span></div><h1>Objeto.java</h1><pre class="source lang-java linenums">package es.iespuertolacruz.pokemon.api;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Objeto.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PokemonApp</a> &gt; <a href="index.source.html" class="el_package">es.iespuertolacruz.pokemon.api</a> &gt; <span class="el_source">Objeto.java</span></div><h1>Objeto.java</h1><pre class="source lang-java linenums">package es.iespuertolacruz.pokemon.api;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 /**
@@ -20,8 +21,8 @@ public class Objeto {
     /**
      * Constructor por defecto
      */
-<span class="fc" id="L23">    public Objeto() {</span>
-<span class="fc" id="L24">    }</span>
+<span class="fc" id="L24">    public Objeto() {</span>
+<span class="fc" id="L25">    }</span>
 
     /**
      * Constructor con todos los parametros
@@ -30,61 +31,72 @@ public class Objeto {
      * @param nombre del objeto
      * @param modoObtencion modo en el que se puede obtener un objeto
      */
-<span class="fc" id="L33">    public Objeto(int id, String nombre, String modoObtencion) {</span>
-<span class="fc" id="L34">        this.id = id;</span>
-<span class="fc" id="L35">        this.nombre = nombre;</span>
-<span class="fc" id="L36">        this.modoObtencion = modoObtencion;</span>
-<span class="fc" id="L37">    }</span>
+<span class="fc" id="L34">    public Objeto(int id, String nombre, String modoObtencion) {</span>
+<span class="fc" id="L35">        this.id = id;</span>
+<span class="fc" id="L36">        this.nombre = nombre;</span>
+<span class="fc" id="L37">        this.modoObtencion = modoObtencion;</span>
+<span class="fc" id="L38">    }</span>
 
     /**
      * Constructor que recibe una cadena de texto
      * 
      * @param cadena con la informacion
      */
-<span class="fc" id="L44">    public Objeto(String cadena) {</span>
-<span class="fc" id="L45">        ArrayList&lt;Object&gt; elementos = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L46">        StringTokenizer tokenizer = new StringTokenizer(cadena, DELIMITADOR);</span>
-<span class="fc bfc" id="L47" title="All 2 branches covered.">        while (tokenizer.hasMoreElements()) {</span>
-<span class="fc" id="L48">            elementos.add(tokenizer.nextToken());</span>
+<span class="fc" id="L45">    public Objeto(String cadena) {</span>
+<span class="fc" id="L46">        ArrayList&lt;Object&gt; elementos = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L47">        StringTokenizer tokenizer = new StringTokenizer(cadena, DELIMITADOR);</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">        while (tokenizer.hasMoreElements()) {</span>
+<span class="fc" id="L49">            elementos.add(tokenizer.nextToken());</span>
         }
-<span class="fc" id="L50">        this.id = Integer.parseInt((String) elementos.get(0));</span>
-<span class="fc" id="L51">        this.nombre = (String) elementos.get(1);</span>
-<span class="fc" id="L52">        this.modoObtencion = (String) elementos.get(2);</span>
-<span class="fc" id="L53">    }</span>
+<span class="fc" id="L51">        this.id = Integer.parseInt((String) elementos.get(0));</span>
+<span class="fc" id="L52">        this.nombre = (String) elementos.get(1);</span>
+<span class="fc" id="L53">        this.modoObtencion = (String) elementos.get(2);</span>
+<span class="fc" id="L54">    }</span>
 
     //Getters and Setters
     
     public int getId() {
-<span class="fc" id="L58">        return this.id;</span>
+<span class="fc" id="L59">        return this.id;</span>
     }
 
     public void setId(int id) {
-<span class="fc" id="L62">        this.id = id;</span>
-<span class="fc" id="L63">    }</span>
+<span class="fc" id="L63">        this.id = id;</span>
+<span class="fc" id="L64">    }</span>
 
     public String getNombre() {
-<span class="fc" id="L66">        return this.nombre;</span>
+<span class="fc" id="L67">        return this.nombre;</span>
     }
 
     public void setNombre(String nombre) {
-<span class="fc" id="L70">        this.nombre = nombre;</span>
-<span class="fc" id="L71">    }</span>
+<span class="fc" id="L71">        this.nombre = nombre;</span>
+<span class="fc" id="L72">    }</span>
 
     public String getModoObtencion() {
-<span class="fc" id="L74">        return this.modoObtencion;</span>
+<span class="fc" id="L75">        return this.modoObtencion;</span>
     }
 
     public void setModoObtencion(String modoObtencion) {
-<span class="fc" id="L78">        this.modoObtencion = modoObtencion;</span>
-<span class="fc" id="L79">    }</span>
+<span class="fc" id="L79">        this.modoObtencion = modoObtencion;</span>
+<span class="fc" id="L80">    }</span>
 
     //Metodos y funciones
 
     @Override
+    public boolean equals(Object o) {
+<span class="pc bpc" id="L86" title="1 of 2 branches missed.">        if (o == this)</span>
+<span class="nc" id="L87">            return true;</span>
+<span class="pc bpc" id="L88" title="1 of 2 branches missed.">        if (!(o instanceof Objeto)) {</span>
+<span class="nc" id="L89">            return false;</span>
+        }
+<span class="fc" id="L91">        Objeto objeto = (Objeto) o;</span>
+<span class="pc bpc" id="L92" title="3 of 6 branches missed.">        return id == objeto.id &amp;&amp; Objects.equals(nombre, objeto.nombre) &amp;&amp; Objects.equals(modoObtencion, objeto.modoObtencion);</span>
+    }
+
+    @Override
     public String toString() {
-<span class="fc" id="L85">        return getId() + DELIMITADOR +</span>
-<span class="fc" id="L86">            getNombre() + DELIMITADOR +</span>
-<span class="fc" id="L87">            getModoObtencion();</span>
+<span class="fc" id="L97">        return getId() + DELIMITADOR +</span>
+<span class="fc" id="L98">            getNombre() + DELIMITADOR +</span>
+<span class="fc" id="L99">            getModoObtencion();</span>
     }
 
 }

@@ -128,6 +128,18 @@ public class EstadisticasBase {
 
     // Metodos y funciones
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof EstadisticasBase)) {
+            return false;
+        }
+        EstadisticasBase estadisticasBase = (EstadisticasBase) o;
+        return id == estadisticasBase.id && psBase == estadisticasBase.psBase && ataqueBase == estadisticasBase.ataqueBase && defensaBase == estadisticasBase.defensaBase && ataqueEspecialBase == estadisticasBase.ataqueEspecialBase && defensaEspecialBase == estadisticasBase.defensaEspecialBase && velocidadBase == estadisticasBase.velocidadBase;
+    }
+
     @Override
     public String toString() {
         return getId() + DELIMITADOR +

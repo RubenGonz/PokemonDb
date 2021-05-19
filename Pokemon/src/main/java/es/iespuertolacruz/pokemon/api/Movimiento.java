@@ -1,6 +1,7 @@
 package es.iespuertolacruz.pokemon.api;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 /**
@@ -126,6 +127,17 @@ public class Movimiento {
     }
 
     //Funciones y metodos
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Movimiento)) {
+            return false;
+        }
+        Movimiento movimiento = (Movimiento) o;
+        return id == movimiento.id && Objects.equals(nombre, movimiento.nombre) && Objects.equals(tipo, movimiento.tipo) && Objects.equals(categoria, movimiento.categoria) && pp == movimiento.pp && potencia == movimiento.potencia && certeza == movimiento.certeza;
+    }    
 
     @Override
     public String toString() {

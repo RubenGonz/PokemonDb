@@ -27,8 +27,11 @@ public class TieneTest {
     @Test
     public void toStringTest() {
         assertEquals("1'18'1",tiene1.toString(), "El texto recibido no era el esperado");
-        assertEquals("1'18'1",tiene2.toString(), "El texto recibido no era el esperado");
-        assertEquals("1'18'1",tiene3.toString(), "El texto recibido no era el esperado");
+    }
+
+    @Test
+    public void EqualsTest() {
+        assertEquals(tiene2,tiene3,"Los objetos son iguales y equals no lo reconoce");
     }
 
     //Funciones y metodos

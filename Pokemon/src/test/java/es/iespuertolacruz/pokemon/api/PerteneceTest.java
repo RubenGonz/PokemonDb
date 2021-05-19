@@ -27,8 +27,11 @@ public class PerteneceTest {
     @Test
     public void toStringTest() {
         assertEquals("1'Planta",pertenece1.toString(), "El texto recibido no era el esperado");
-        assertEquals("1'Planta",pertenece2.toString(), "El texto recibido no era el esperado");
-        assertEquals("1'Planta",pertenece3.toString(), "El texto recibido no era el esperado");
+    }
+
+    @Test
+    public void EqualsTest() {
+        assertEquals(pertenece2,pertenece3,"Los objetos son iguales y equals no lo reconoce");
     }
 
     //Funciones y metodos

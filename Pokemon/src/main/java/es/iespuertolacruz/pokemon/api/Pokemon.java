@@ -1,6 +1,7 @@
 package es.iespuertolacruz.pokemon.api;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 /**
@@ -92,6 +93,17 @@ public class Pokemon {
     }
 
     // Metosos y funciones
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Pokemon)) {
+            return false;
+        }
+        Pokemon pokemon = (Pokemon) o;
+        return numeroPokedex == pokemon.numeroPokedex && Objects.equals(nombre, pokemon.nombre) && caracteristicas == pokemon.caracteristicas && estadisticasBase == pokemon.estadisticasBase;
+    }
 
     @Override
     public String toString() {

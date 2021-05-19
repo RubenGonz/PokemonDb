@@ -78,6 +78,17 @@ public class EntrenadorEquipa {
     //Funciones y Metodos
 
     @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof EntrenadorEquipa)) {
+            return false;
+        }
+        EntrenadorEquipa entrenadorEquipa = (EntrenadorEquipa) o;
+        return idEntrenador == entrenadorEquipa.idEntrenador && idObjeto == entrenadorEquipa.idObjeto && cantidad == entrenadorEquipa.cantidad;
+    }
+
+    @Override
     public String toString() {
         return getIdEntrenador() + DELIMITADOR +
             getIdObjeto() + DELIMITADOR +

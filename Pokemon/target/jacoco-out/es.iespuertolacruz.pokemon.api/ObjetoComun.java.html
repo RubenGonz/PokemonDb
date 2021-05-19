@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ObjetoComun.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PokemonApp</a> &gt; <a href="index.source.html" class="el_package">es.iespuertolacruz.pokemon.api</a> &gt; <span class="el_source">ObjetoComun.java</span></div><h1>ObjetoComun.java</h1><pre class="source lang-java linenums">package es.iespuertolacruz.pokemon.api;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ObjetoComun.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PokemonApp</a> &gt; <a href="index.source.html" class="el_package">es.iespuertolacruz.pokemon.api</a> &gt; <span class="el_source">ObjetoComun.java</span></div><h1>ObjetoComun.java</h1><pre class="source lang-java linenums">package es.iespuertolacruz.pokemon.api;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 /**
@@ -19,8 +20,8 @@ public class ObjetoComun {
     /**
      * Constructor por defecto
      */
-<span class="fc" id="L22">    public ObjetoComun() {</span>
-<span class="fc" id="L23">    }</span>
+<span class="fc" id="L23">    public ObjetoComun() {</span>
+<span class="fc" id="L24">    }</span>
 
     /**
      * Constructor con todos los parametros
@@ -28,50 +29,61 @@ public class ObjetoComun {
      * @param idObjeto identificador del objeto padre
      * @param efecto que provoca el objeto
      */
-<span class="fc" id="L31">    public ObjetoComun(int idObjeto, String efecto) {</span>
-<span class="fc" id="L32">        this.idObjeto = idObjeto;</span>
-<span class="fc" id="L33">        this.efecto = efecto;</span>
-<span class="fc" id="L34">    }</span>
+<span class="fc" id="L32">    public ObjetoComun(int idObjeto, String efecto) {</span>
+<span class="fc" id="L33">        this.idObjeto = idObjeto;</span>
+<span class="fc" id="L34">        this.efecto = efecto;</span>
+<span class="fc" id="L35">    }</span>
 
     /**
      * Constructor que recibe una cadena de texto
      * 
      * @param cadena con la informacion
      */
-<span class="fc" id="L41">    public ObjetoComun(String cadena) {</span>
-<span class="fc" id="L42">        ArrayList&lt;Object&gt; elementos = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L43">        StringTokenizer tokenizer = new StringTokenizer(cadena, DELIMITADOR);</span>
-<span class="fc bfc" id="L44" title="All 2 branches covered.">        while (tokenizer.hasMoreElements()) {</span>
-<span class="fc" id="L45">            elementos.add(tokenizer.nextToken());</span>
+<span class="fc" id="L42">    public ObjetoComun(String cadena) {</span>
+<span class="fc" id="L43">        ArrayList&lt;Object&gt; elementos = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L44">        StringTokenizer tokenizer = new StringTokenizer(cadena, DELIMITADOR);</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        while (tokenizer.hasMoreElements()) {</span>
+<span class="fc" id="L46">            elementos.add(tokenizer.nextToken());</span>
         }
-<span class="fc" id="L47">        this.idObjeto = Integer.parseInt((String) elementos.get(0));</span>
-<span class="fc" id="L48">        this.efecto = (String) elementos.get(1);</span>
-<span class="fc" id="L49">    }</span>
+<span class="fc" id="L48">        this.idObjeto = Integer.parseInt((String) elementos.get(0));</span>
+<span class="fc" id="L49">        this.efecto = (String) elementos.get(1);</span>
+<span class="fc" id="L50">    }</span>
 
     // Getters and Setters
 
     public int getIdObjeto() {
-<span class="fc" id="L54">        return this.idObjeto;</span>
+<span class="fc" id="L55">        return this.idObjeto;</span>
     }
 
     public void setIdObjeto(int idObjeto) {
-<span class="fc" id="L58">        this.idObjeto = idObjeto;</span>
-<span class="fc" id="L59">    }</span>
+<span class="fc" id="L59">        this.idObjeto = idObjeto;</span>
+<span class="fc" id="L60">    }</span>
 
     public String getEfecto() {
-<span class="fc" id="L62">        return this.efecto;</span>
+<span class="fc" id="L63">        return this.efecto;</span>
     }
 
     public void setEfecto(String efecto) {
-<span class="fc" id="L66">        this.efecto = efecto;</span>
-<span class="fc" id="L67">    }</span>
+<span class="fc" id="L67">        this.efecto = efecto;</span>
+<span class="fc" id="L68">    }</span>
 
     //Funciones y metodos
 
     @Override
+    public boolean equals(Object o) {
+<span class="pc bpc" id="L74" title="1 of 2 branches missed.">        if (o == this)</span>
+<span class="nc" id="L75">            return true;</span>
+<span class="pc bpc" id="L76" title="1 of 2 branches missed.">        if (!(o instanceof ObjetoComun)) {</span>
+<span class="nc" id="L77">            return false;</span>
+        }
+<span class="fc" id="L79">        ObjetoComun objetoComun = (ObjetoComun) o;</span>
+<span class="pc bpc" id="L80" title="2 of 4 branches missed.">        return idObjeto == objetoComun.idObjeto &amp;&amp; Objects.equals(efecto, objetoComun.efecto);</span>
+    }
+
+    @Override
     public String toString() {
-<span class="fc" id="L73">        return getIdObjeto() + DELIMITADOR +</span>
-<span class="fc" id="L74">            getEfecto();</span>
+<span class="fc" id="L85">        return getIdObjeto() + DELIMITADOR +</span>
+<span class="fc" id="L86">            getEfecto();</span>
     }
 
 }

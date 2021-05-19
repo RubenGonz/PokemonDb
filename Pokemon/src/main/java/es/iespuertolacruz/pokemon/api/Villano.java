@@ -1,6 +1,7 @@
 package es.iespuertolacruz.pokemon.api;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 /**
@@ -67,6 +68,17 @@ public class Villano {
     }
 
     //Funciones y metodos
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Villano)) {
+            return false;
+        }
+        Villano villano = (Villano) o;
+        return idEntrenador == villano.idEntrenador && Objects.equals(proposito, villano.proposito);
+    }
 
     @Override
     public String toString() {

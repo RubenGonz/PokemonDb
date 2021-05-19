@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PokemonController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PokemonApp</a> &gt; <a href="index.source.html" class="el_package">es.iespuertolacruz.pokemon.controller</a> &gt; <span class="el_source">PokemonController.java</span></div><h1>PokemonController.java</h1><pre class="source lang-java linenums">package es.iespuertolacruz.pokemon.controller;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PokemonController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PokemonApp</a> &gt; <a href="index.source.html" class="el_package">es.iespuertolacruz.pokemon.controller</a> &gt; <span class="el_source">PokemonController.java</span></div><h1>PokemonController.java</h1><pre class="source lang-java linenums">package es.iespuertolacruz.pokemon.controller;
 
 import es.iespuertolacruz.pokemon.api.Pokemon;
+import es.iespuertolacruz.pokemon.api.*;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.PokemonModelo;
@@ -20,40 +21,40 @@ public class PokemonController {
     /**
      * Construcor por defecto con pokemon modelo inicializado
      */
-<span class="nc" id="L23">    public PokemonController() {</span>
-<span class="nc" id="L24">        pokemonModelo = new PokemonModelo();</span>
-<span class="nc" id="L25">    }</span>
+<span class="nc" id="L24">    public PokemonController() {</span>
+<span class="nc" id="L25">        pokemonModelo = new PokemonModelo();</span>
+<span class="nc" id="L26">    }</span>
 
     // Metodos y funciones
 
     public void validar(Pokemon pokemon) throws PokemonException {
-<span class="nc" id="L30">        String mensaje = &quot;&quot;;</span>
+<span class="nc" id="L31">        String mensaje = &quot;&quot;;</span>
 
-<span class="nc bnc" id="L32" title="All 2 branches missed.">        if (pokemon == null) {</span>
-<span class="nc" id="L33">            mensaje = &quot;Se esta validando un objeto nulo&quot;;</span>
-<span class="nc" id="L34">            throw new PokemonException(mensaje);</span>
+<span class="nc bnc" id="L33" title="All 2 branches missed.">        if (pokemon == null) {</span>
+<span class="nc" id="L34">            mensaje = &quot;Se esta validando un objeto nulo&quot;;</span>
+<span class="nc" id="L35">            throw new PokemonException(mensaje);</span>
         }
 
-<span class="nc bnc" id="L37" title="All 2 branches missed.">        if (pokemon.getNumeroPokedex() &lt; 0) {</span>
-<span class="nc" id="L38">            mensaje = &quot;El numero de la pokedex del pokemon es 0 o menor, &quot;;</span>
+<span class="nc bnc" id="L38" title="All 2 branches missed.">        if (pokemon.getNumeroPokedex() &lt; 0) {</span>
+<span class="nc" id="L39">            mensaje = &quot;El numero de la pokedex del pokemon es 0 o menor, &quot;;</span>
         }
 
-<span class="nc bnc" id="L41" title="All 4 branches missed.">        if (pokemon.getNombre() == null || pokemon.getNombre().isEmpty()) {</span>
-<span class="nc" id="L42">            mensaje += &quot;El nombre del pokemon es nulo o vacio, &quot;;</span>
+<span class="nc bnc" id="L42" title="All 4 branches missed.">        if (pokemon.getNombre() == null || pokemon.getNombre().isEmpty()) {</span>
+<span class="nc" id="L43">            mensaje += &quot;El nombre del pokemon es nulo o vacio, &quot;;</span>
         }
 
-<span class="nc bnc" id="L45" title="All 2 branches missed.">        if (pokemon.getCaracteristicas() &lt; 0) {</span>
-<span class="nc" id="L46">            mensaje += &quot;El identificador de las caracteristicas del pokemon es 0 o menor, &quot;;</span>
+<span class="nc bnc" id="L46" title="All 2 branches missed.">        if (pokemon.getCaracteristicas() &lt; 0) {</span>
+<span class="nc" id="L47">            mensaje += &quot;El identificador de las caracteristicas del pokemon es 0 o menor, &quot;;</span>
         }
 
-<span class="nc bnc" id="L49" title="All 2 branches missed.">        if (pokemon.getEstadisticasBase() &lt; 0) {</span>
-<span class="nc" id="L50">            mensaje += &quot;El identificador de las estadisticas base del pokemon es 0 o menor.&quot;;</span>
+<span class="nc bnc" id="L50" title="All 2 branches missed.">        if (pokemon.getEstadisticasBase() &lt; 0) {</span>
+<span class="nc" id="L51">            mensaje += &quot;El identificador de las estadisticas base del pokemon es 0 o menor.&quot;;</span>
         }
 
-<span class="nc bnc" id="L53" title="All 2 branches missed.">        if (!mensaje.isEmpty()) {</span>
-<span class="nc" id="L54">            throw new PokemonException(mensaje);</span>
+<span class="nc bnc" id="L54" title="All 2 branches missed.">        if (!mensaje.isEmpty()) {</span>
+<span class="nc" id="L55">            throw new PokemonException(mensaje);</span>
         }
-<span class="nc" id="L56">    }</span>
+<span class="nc" id="L57">    }</span>
 
     /**
      * Metodo encargado de insertar
@@ -63,12 +64,12 @@ public class PokemonController {
      * @throws PersistenciaException
      */
     public void insertar(Pokemon pokemon) throws PokemonException, PersistenciaException {
-<span class="nc" id="L66">        validar(pokemon);</span>
-<span class="nc bnc" id="L67" title="All 2 branches missed.">        if (existe(pokemon)) {</span>
-<span class="nc" id="L68">            throw new PokemonException(&quot;El pokemon indicado ya existe&quot;);</span>
+<span class="nc" id="L67">        validar(pokemon);</span>
+<span class="nc bnc" id="L68" title="All 2 branches missed.">        if (existe(pokemon)) {</span>
+<span class="nc" id="L69">            throw new PokemonException(&quot;El pokemon indicado ya existe&quot;);</span>
         }
-<span class="nc" id="L70">        pokemonModelo.insertar(pokemon);</span>
-<span class="nc" id="L71">    }</span>
+<span class="nc" id="L71">        pokemonModelo.insertar(pokemon);</span>
+<span class="nc" id="L72">    }</span>
 
     /**
      * Metodo encargado de eliminar
@@ -78,12 +79,12 @@ public class PokemonController {
      * @throws PersistenciaException
      */
     public void eliminar(Pokemon pokemon) throws PokemonException, PersistenciaException {
-<span class="nc" id="L81">        validar(pokemon);</span>
-<span class="nc bnc" id="L82" title="All 2 branches missed.">        if (!existe(pokemon)) {</span>
-<span class="nc" id="L83">            throw new PokemonException(EL_POKEMON_INDICADO_NO_EXISTE);</span>
+<span class="nc" id="L82">        validar(pokemon);</span>
+<span class="nc bnc" id="L83" title="All 2 branches missed.">        if (!existe(pokemon)) {</span>
+<span class="nc" id="L84">            throw new PokemonException(EL_POKEMON_INDICADO_NO_EXISTE);</span>
         }
-<span class="nc" id="L85">        pokemonModelo.eliminar(pokemon);</span>
-<span class="nc" id="L86">    }</span>
+<span class="nc" id="L86">        pokemonModelo.eliminar(pokemon);</span>
+<span class="nc" id="L87">    }</span>
 
     /**
      * Metodos encargado de realizar la eliminacion de un pokemon usando el numero
@@ -95,9 +96,9 @@ public class PokemonController {
      */
     public void eliminar(int numeroPokedex) throws PokemonException, PersistenciaException {
         Pokemon pokemon;
-<span class="nc" id="L98">        pokemon = buscar(numeroPokedex);</span>
-<span class="nc" id="L99">        eliminar(pokemon);</span>
-<span class="nc" id="L100">    }</span>
+<span class="nc" id="L99">        pokemon = buscar(numeroPokedex);</span>
+<span class="nc" id="L100">        eliminar(pokemon);</span>
+<span class="nc" id="L101">    }</span>
 
     /**
      * Metodo encargado de buscar por el numero de la pokedex
@@ -107,9 +108,9 @@ public class PokemonController {
      * @throws PersistenciaException
      */
     public Pokemon buscar(int numeroPokedex) throws PersistenciaException {
-<span class="nc" id="L110">        Pokemon pokemon = null;</span>
-<span class="nc" id="L111">        pokemon = pokemonModelo.buscar(numeroPokedex);</span>
-<span class="nc" id="L112">        return pokemon;</span>
+<span class="nc" id="L111">        Pokemon pokemon = null;</span>
+<span class="nc" id="L112">        pokemon = pokemonModelo.buscar(numeroPokedex);</span>
+<span class="nc" id="L113">        return pokemon;</span>
     }
 
     /**
@@ -121,12 +122,12 @@ public class PokemonController {
      */
     public void modificar(Pokemon pokemon) throws PokemonException, PersistenciaException {
 
-<span class="nc" id="L124">        validar(pokemon);</span>
-<span class="nc bnc" id="L125" title="All 2 branches missed.">        if (!existe(pokemon)) {</span>
-<span class="nc" id="L126">            throw new PokemonException(EL_POKEMON_INDICADO_NO_EXISTE);</span>
+<span class="nc" id="L125">        validar(pokemon);</span>
+<span class="nc bnc" id="L126" title="All 2 branches missed.">        if (!existe(pokemon)) {</span>
+<span class="nc" id="L127">            throw new PokemonException(EL_POKEMON_INDICADO_NO_EXISTE);</span>
         }
-<span class="nc" id="L128">        pokemonModelo.modificar(pokemon);</span>
-<span class="nc" id="L129">    }</span>
+<span class="nc" id="L129">        pokemonModelo.modificar(pokemon);</span>
+<span class="nc" id="L130">    }</span>
 
     /**
      * Funcion encargada de verificar si un pokemon existe
@@ -136,14 +137,16 @@ public class PokemonController {
      * @throws PersistenciaException error controlado
      */
     private boolean existe(Pokemon pokemon) throws PersistenciaException {
-<span class="nc" id="L139">        boolean encontrado = false;</span>
+<span class="nc" id="L140">        boolean encontrado = false;</span>
         Pokemon pokemonEncontrado;
 
-<span class="nc" id="L142">        pokemonEncontrado = buscar(pokemon.getNumeroPokedex());</span>
-<span class="nc bnc" id="L143" title="All 2 branches missed.">        if (pokemonEncontrado != null) {</span>
-<span class="nc" id="L144">            encontrado = true;</span>
+<span class="nc" id="L143">        pokemonEncontrado = buscar(pokemon.getNumeroPokedex());</span>
+<span class="nc bnc" id="L144" title="All 2 branches missed.">        if (pokemonEncontrado != null) {</span>
+<span class="nc" id="L145">            encontrado = true;</span>
         }
-<span class="nc" id="L146">        return encontrado;</span>
+<span class="nc" id="L147">        return encontrado;</span>
     }
+
+    
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

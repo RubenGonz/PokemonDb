@@ -1,6 +1,7 @@
 package es.iespuertolacruz.pokemon.api;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 /**
@@ -68,6 +69,17 @@ public class Tipo {
 
     //Metodos y funciones
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Tipo)) {
+            return false;
+        }
+        Tipo tipo = (Tipo) o;
+        return Objects.equals(nombre, tipo.nombre) && Objects.equals(color, tipo.color);
+    }
+    
     @Override
     public String toString() {
         return getNombre() + DELIMITADOR +

@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Entrenador.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PokemonApp</a> &gt; <a href="index.source.html" class="el_package">es.iespuertolacruz.pokemon.api</a> &gt; <span class="el_source">Entrenador.java</span></div><h1>Entrenador.java</h1><pre class="source lang-java linenums">package es.iespuertolacruz.pokemon.api;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Entrenador.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PokemonApp</a> &gt; <a href="index.source.html" class="el_package">es.iespuertolacruz.pokemon.api</a> &gt; <span class="el_source">Entrenador.java</span></div><h1>Entrenador.java</h1><pre class="source lang-java linenums">package es.iespuertolacruz.pokemon.api;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 /**
@@ -19,8 +20,8 @@ public class Entrenador {
     /**
      * Constructor por defecto
      */
-<span class="fc" id="L22">    public Entrenador() {</span>
-<span class="fc" id="L23">    }</span>
+<span class="fc" id="L23">    public Entrenador() {</span>
+<span class="fc" id="L24">    }</span>
 
     /**
      * Constructor con todos los parametros
@@ -28,50 +29,61 @@ public class Entrenador {
      * @param id identificador del entrenador
      * @param nombre del entrenador
      */
-<span class="fc" id="L31">    public Entrenador(int id, String nombre) {</span>
-<span class="fc" id="L32">        this.id = id;</span>
-<span class="fc" id="L33">        this.nombre = nombre;</span>
-<span class="fc" id="L34">    }</span>
+<span class="fc" id="L32">    public Entrenador(int id, String nombre) {</span>
+<span class="fc" id="L33">        this.id = id;</span>
+<span class="fc" id="L34">        this.nombre = nombre;</span>
+<span class="fc" id="L35">    }</span>
 
     /**
      * Constructor que recibe una cadena de texto
      * 
      * @param cadena con la informacion
      */
-<span class="fc" id="L41">    public Entrenador(String cadena) {</span>
-<span class="fc" id="L42">        ArrayList&lt;Object&gt; elementos = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L43">        StringTokenizer tokenizer = new StringTokenizer(cadena, DELIMITADOR);</span>
-<span class="fc bfc" id="L44" title="All 2 branches covered.">        while (tokenizer.hasMoreElements()) {</span>
-<span class="fc" id="L45">            elementos.add(tokenizer.nextToken());</span>
+<span class="fc" id="L42">    public Entrenador(String cadena) {</span>
+<span class="fc" id="L43">        ArrayList&lt;Object&gt; elementos = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L44">        StringTokenizer tokenizer = new StringTokenizer(cadena, DELIMITADOR);</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        while (tokenizer.hasMoreElements()) {</span>
+<span class="fc" id="L46">            elementos.add(tokenizer.nextToken());</span>
         }
-<span class="fc" id="L47">        this.id = Integer.parseInt((String) elementos.get(0));</span>
-<span class="fc" id="L48">        this.nombre = (String) elementos.get(1);</span>
-<span class="fc" id="L49">    }</span>
+<span class="fc" id="L48">        this.id = Integer.parseInt((String) elementos.get(0));</span>
+<span class="fc" id="L49">        this.nombre = (String) elementos.get(1);</span>
+<span class="fc" id="L50">    }</span>
     
     //Getters and Setters
 
     public int getId() {
-<span class="fc" id="L54">        return this.id;</span>
+<span class="fc" id="L55">        return this.id;</span>
     }
 
     public void setId(int id) {
-<span class="fc" id="L58">        this.id = id;</span>
-<span class="fc" id="L59">    }</span>
+<span class="fc" id="L59">        this.id = id;</span>
+<span class="fc" id="L60">    }</span>
 
     public String getNombre() {
-<span class="fc" id="L62">        return this.nombre;</span>
+<span class="fc" id="L63">        return this.nombre;</span>
     }
 
     public void setNombre(String nombre) {
-<span class="fc" id="L66">        this.nombre = nombre;</span>
-<span class="fc" id="L67">    }</span>
+<span class="fc" id="L67">        this.nombre = nombre;</span>
+<span class="fc" id="L68">    }</span>
 
     //Funciones y metodos
 
     @Override
+    public boolean equals(Object o) {
+<span class="pc bpc" id="L74" title="1 of 2 branches missed.">        if (o == this)</span>
+<span class="nc" id="L75">            return true;</span>
+<span class="pc bpc" id="L76" title="1 of 2 branches missed.">        if (!(o instanceof Entrenador)) {</span>
+<span class="nc" id="L77">            return false;</span>
+        }
+<span class="fc" id="L79">        Entrenador entrenador = (Entrenador) o;</span>
+<span class="pc bpc" id="L80" title="2 of 4 branches missed.">        return id == entrenador.id &amp;&amp; Objects.equals(nombre, entrenador.nombre);</span>
+    }
+
+    @Override
     public String toString() {
-<span class="fc" id="L73">        return getId() + DELIMITADOR +</span>
-<span class="fc" id="L74">            getNombre();</span>
+<span class="fc" id="L85">        return getId() + DELIMITADOR +</span>
+<span class="fc" id="L86">            getNombre();</span>
     }
 
 }

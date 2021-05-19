@@ -27,8 +27,11 @@ public class AltoMandoTest {
     @Test
     public void toStringTest() {
         assertEquals("2'Hielo",altoMando1.toString(), "El texto recibido no era el esperado");
-        assertEquals("2'Hielo",altoMando2.toString(), "El texto recibido no era el esperado");
-        assertEquals("2'Hielo",altoMando3.toString(), "El texto recibido no era el esperado");
+    }
+
+    @Test
+    public void EqualsTest() {
+        assertEquals(altoMando2,altoMando3,"Los objetos son iguales y equals no lo reconoce");
     }
 
     //Funciones y metodos

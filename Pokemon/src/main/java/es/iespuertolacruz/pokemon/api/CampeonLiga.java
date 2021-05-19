@@ -1,6 +1,7 @@
 package es.iespuertolacruz.pokemon.api;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 public class CampeonLiga {
@@ -64,6 +65,17 @@ public class CampeonLiga {
     }
 
     //Funciones y metodos
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof CampeonLiga)) {
+            return false;
+        }
+        CampeonLiga campeonLiga = (CampeonLiga) o;
+        return idEntrenador == campeonLiga.idEntrenador && Objects.equals(region, campeonLiga.region);
+    }
 
     @Override
     public String toString() {

@@ -27,8 +27,11 @@ public class MaquinaTest {
     @Test
     public void toStringTest() {
         assertEquals("17'61",maquina1.toString(), "El texto recibido no era el esperado");
-        assertEquals("17'61",maquina2.toString(), "El texto recibido no era el esperado");
-        assertEquals("17'61",maquina3.toString(), "El texto recibido no era el esperado");
+    }
+
+    @Test
+    public void EqualsTest() {
+        assertEquals(maquina2,maquina3,"Los objetos son iguales y equals no lo reconoce");
     }
 
     //Funciones y metodos

@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Movimiento.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PokemonApp</a> &gt; <a href="index.source.html" class="el_package">es.iespuertolacruz.pokemon.api</a> &gt; <span class="el_source">Movimiento.java</span></div><h1>Movimiento.java</h1><pre class="source lang-java linenums">package es.iespuertolacruz.pokemon.api;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Movimiento.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PokemonApp</a> &gt; <a href="index.source.html" class="el_package">es.iespuertolacruz.pokemon.api</a> &gt; <span class="el_source">Movimiento.java</span></div><h1>Movimiento.java</h1><pre class="source lang-java linenums">package es.iespuertolacruz.pokemon.api;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 /**
@@ -24,8 +25,8 @@ public class Movimiento {
     /**
      * Constructor por defecto
      */
-<span class="fc" id="L27">    public Movimiento() {</span>
-<span class="fc" id="L28">    }</span>
+<span class="fc" id="L28">    public Movimiento() {</span>
+<span class="fc" id="L29">    }</span>
 
     /**
      * Constructor con todos los parametros
@@ -37,105 +38,116 @@ public class Movimiento {
      * @param potencia fuerza del movimiento
      * @param certeza porcentaje de acierto sobre 100
      */
-<span class="fc" id="L40">    public Movimiento(int id, String nombre, String tipo, String categoria, int pp, int potencia, int certeza) {</span>
-<span class="fc" id="L41">        this.id = id;</span>
-<span class="fc" id="L42">        this.nombre = nombre;</span>
-<span class="fc" id="L43">        this.tipo = tipo;</span>
-<span class="fc" id="L44">        this.categoria = categoria;</span>
-<span class="fc" id="L45">        this.pp = pp;</span>
-<span class="fc" id="L46">        this.potencia = potencia;</span>
-<span class="fc" id="L47">        this.certeza = certeza;</span>
-<span class="fc" id="L48">    }</span>
+<span class="fc" id="L41">    public Movimiento(int id, String nombre, String tipo, String categoria, int pp, int potencia, int certeza) {</span>
+<span class="fc" id="L42">        this.id = id;</span>
+<span class="fc" id="L43">        this.nombre = nombre;</span>
+<span class="fc" id="L44">        this.tipo = tipo;</span>
+<span class="fc" id="L45">        this.categoria = categoria;</span>
+<span class="fc" id="L46">        this.pp = pp;</span>
+<span class="fc" id="L47">        this.potencia = potencia;</span>
+<span class="fc" id="L48">        this.certeza = certeza;</span>
+<span class="fc" id="L49">    }</span>
 
     /**
      * Constructor que recibe una cadena de texto
      * 
      * @param cadena con la informacion
      */
-<span class="fc" id="L55">    public Movimiento(String cadena) {</span>
-<span class="fc" id="L56">        ArrayList&lt;Object&gt; elementos = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L57">        StringTokenizer tokenizer = new StringTokenizer(cadena, DELIMITADOR);</span>
-<span class="fc bfc" id="L58" title="All 2 branches covered.">        while (tokenizer.hasMoreElements()) {</span>
-<span class="fc" id="L59">            elementos.add(tokenizer.nextToken());</span>
+<span class="fc" id="L56">    public Movimiento(String cadena) {</span>
+<span class="fc" id="L57">        ArrayList&lt;Object&gt; elementos = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L58">        StringTokenizer tokenizer = new StringTokenizer(cadena, DELIMITADOR);</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">        while (tokenizer.hasMoreElements()) {</span>
+<span class="fc" id="L60">            elementos.add(tokenizer.nextToken());</span>
         }
-<span class="fc" id="L61">        this.id = Integer.parseInt((String) elementos.get(0));</span>
-<span class="fc" id="L62">        this.nombre = (String) elementos.get(1);</span>
-<span class="fc" id="L63">        this.tipo = (String) elementos.get(2);</span>
-<span class="fc" id="L64">        this.categoria = (String) elementos.get(3);</span>
-<span class="fc" id="L65">        this.pp = Integer.parseInt((String) elementos.get(4));</span>
-<span class="fc" id="L66">        this.potencia = Integer.parseInt((String) elementos.get(5));</span>
-<span class="fc" id="L67">        this.certeza = Integer.parseInt((String) elementos.get(6));</span>
-<span class="fc" id="L68">    }</span>
+<span class="fc" id="L62">        this.id = Integer.parseInt((String) elementos.get(0));</span>
+<span class="fc" id="L63">        this.nombre = (String) elementos.get(1);</span>
+<span class="fc" id="L64">        this.tipo = (String) elementos.get(2);</span>
+<span class="fc" id="L65">        this.categoria = (String) elementos.get(3);</span>
+<span class="fc" id="L66">        this.pp = Integer.parseInt((String) elementos.get(4));</span>
+<span class="fc" id="L67">        this.potencia = Integer.parseInt((String) elementos.get(5));</span>
+<span class="fc" id="L68">        this.certeza = Integer.parseInt((String) elementos.get(6));</span>
+<span class="fc" id="L69">    }</span>
 
     //Getters and Setters
 
     public int getId() {
-<span class="fc" id="L73">        return this.id;</span>
+<span class="fc" id="L74">        return this.id;</span>
     }
 
     public void setId(int id) {
-<span class="fc" id="L77">        this.id = id;</span>
-<span class="fc" id="L78">    }</span>
+<span class="fc" id="L78">        this.id = id;</span>
+<span class="fc" id="L79">    }</span>
 
     public String getNombre() {
-<span class="fc" id="L81">        return this.nombre;</span>
+<span class="fc" id="L82">        return this.nombre;</span>
     }
 
     public void setNombre(String nombre) {
-<span class="fc" id="L85">        this.nombre = nombre;</span>
-<span class="fc" id="L86">    }</span>
+<span class="fc" id="L86">        this.nombre = nombre;</span>
+<span class="fc" id="L87">    }</span>
 
     public String getTipo() {
-<span class="fc" id="L89">        return this.tipo;</span>
+<span class="fc" id="L90">        return this.tipo;</span>
     }
 
     public void setTipo(String tipo) {
-<span class="fc" id="L93">        this.tipo = tipo;</span>
-<span class="fc" id="L94">    }</span>
+<span class="fc" id="L94">        this.tipo = tipo;</span>
+<span class="fc" id="L95">    }</span>
 
     public String getCategoria() {
-<span class="fc" id="L97">        return this.categoria;</span>
+<span class="fc" id="L98">        return this.categoria;</span>
     }
 
     public void setCategoria(String categoria) {
-<span class="fc" id="L101">        this.categoria = categoria;</span>
-<span class="fc" id="L102">    }</span>
+<span class="fc" id="L102">        this.categoria = categoria;</span>
+<span class="fc" id="L103">    }</span>
 
     public int getPp() {
-<span class="fc" id="L105">        return this.pp;</span>
+<span class="fc" id="L106">        return this.pp;</span>
     }
 
     public void setPp(int pp) {
-<span class="fc" id="L109">        this.pp = pp;</span>
-<span class="fc" id="L110">    }</span>
+<span class="fc" id="L110">        this.pp = pp;</span>
+<span class="fc" id="L111">    }</span>
 
     public int getPotencia() {
-<span class="fc" id="L113">        return this.potencia;</span>
+<span class="fc" id="L114">        return this.potencia;</span>
     }
 
     public void setPotencia(int potencia) {
-<span class="fc" id="L117">        this.potencia = potencia;</span>
-<span class="fc" id="L118">    }</span>
+<span class="fc" id="L118">        this.potencia = potencia;</span>
+<span class="fc" id="L119">    }</span>
 
     public int getCerteza() {
-<span class="fc" id="L121">        return this.certeza;</span>
+<span class="fc" id="L122">        return this.certeza;</span>
     }
 
     public void setCerteza(int certeza) {
-<span class="fc" id="L125">        this.certeza = certeza;</span>
-<span class="fc" id="L126">    }</span>
+<span class="fc" id="L126">        this.certeza = certeza;</span>
+<span class="fc" id="L127">    }</span>
 
     //Funciones y metodos
 
     @Override
+    public boolean equals(Object o) {
+<span class="pc bpc" id="L133" title="1 of 2 branches missed.">        if (o == this)</span>
+<span class="nc" id="L134">            return true;</span>
+<span class="pc bpc" id="L135" title="1 of 2 branches missed.">        if (!(o instanceof Movimiento)) {</span>
+<span class="nc" id="L136">            return false;</span>
+        }
+<span class="fc" id="L138">        Movimiento movimiento = (Movimiento) o;</span>
+<span class="pc bpc" id="L139" title="7 of 14 branches missed.">        return id == movimiento.id &amp;&amp; Objects.equals(nombre, movimiento.nombre) &amp;&amp; Objects.equals(tipo, movimiento.tipo) &amp;&amp; Objects.equals(categoria, movimiento.categoria) &amp;&amp; pp == movimiento.pp &amp;&amp; potencia == movimiento.potencia &amp;&amp; certeza == movimiento.certeza;</span>
+    }    
+
+    @Override
     public String toString() {
-<span class="fc" id="L132">        return getId() + DELIMITADOR +</span>
-<span class="fc" id="L133">            getNombre() + DELIMITADOR +</span>
-<span class="fc" id="L134">            getTipo() + DELIMITADOR +</span>
-<span class="fc" id="L135">            getCategoria() + DELIMITADOR +</span>
-<span class="fc" id="L136">            getPp() + DELIMITADOR +</span>
-<span class="fc" id="L137">            getPotencia() + DELIMITADOR +</span>
-<span class="fc" id="L138">            getCerteza();</span>
+<span class="fc" id="L144">        return getId() + DELIMITADOR +</span>
+<span class="fc" id="L145">            getNombre() + DELIMITADOR +</span>
+<span class="fc" id="L146">            getTipo() + DELIMITADOR +</span>
+<span class="fc" id="L147">            getCategoria() + DELIMITADOR +</span>
+<span class="fc" id="L148">            getPp() + DELIMITADOR +</span>
+<span class="fc" id="L149">            getPotencia() + DELIMITADOR +</span>
+<span class="fc" id="L150">            getCerteza();</span>
     }
 
 }

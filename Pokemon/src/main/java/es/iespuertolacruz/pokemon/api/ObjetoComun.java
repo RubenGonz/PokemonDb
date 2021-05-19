@@ -1,6 +1,7 @@
 package es.iespuertolacruz.pokemon.api;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 /**
@@ -67,6 +68,17 @@ public class ObjetoComun {
     }
 
     //Funciones y metodos
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof ObjetoComun)) {
+            return false;
+        }
+        ObjetoComun objetoComun = (ObjetoComun) o;
+        return idObjeto == objetoComun.idObjeto && Objects.equals(efecto, objetoComun.efecto);
+    }
 
     @Override
     public String toString() {

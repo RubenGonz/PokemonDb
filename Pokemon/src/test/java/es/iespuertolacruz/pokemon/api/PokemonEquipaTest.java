@@ -27,8 +27,11 @@ public class PokemonEquipaTest {
     @Test
     public void toStringTest() {
         assertEquals("143'11",pokemonEquipa1.toString(), "El texto recibido no era el esperado");
-        assertEquals("143'11",pokemonEquipa2.toString(), "El texto recibido no era el esperado");
-        assertEquals("143'11",pokemonEquipa3.toString(), "El texto recibido no era el esperado");
+    }
+
+    @Test
+    public void EqualsTest() {
+        assertEquals(pokemonEquipa2,pokemonEquipa3,"Los objetos son iguales y equals no lo reconoce");
     }
 
     //Funciones y metodos

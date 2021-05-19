@@ -27,8 +27,11 @@ public class ConoceTest {
     @Test
     public void toStringTest() {
         assertEquals("1'119",conoce1.toString(), "El texto recibido no era el esperado");
-        assertEquals("1'119",conoce2.toString(), "El texto recibido no era el esperado");
-        assertEquals("1'119",conoce3.toString(), "El texto recibido no era el esperado");
+    }
+
+    @Test
+    public void EqualsTest() {
+        assertEquals(conoce2,conoce3,"Los objetos son iguales y equals no lo reconoce");
     }
 
     //Funciones y metodos

@@ -27,8 +27,11 @@ public class EstadoTest {
     @Test
     public void toStringTest() {
         assertEquals("1'Paralizado'1'Puede evitar que el pokemon ataque",estado1.toString(), "El texto recibido no era el esperado");
-        assertEquals("1'Paralizado'1'Puede evitar que el pokemon ataque",estado2.toString(), "El texto recibido no era el esperado");
-        assertEquals("1'Paralizado'1'Puede evitar que el pokemon ataque",estado3.toString(), "El texto recibido no era el esperado");
+   }
+
+    @Test
+    public void EqualsTest() {
+        assertEquals(estado2,estado3,"Los objetos son iguales y equals no lo reconoce");
     }
 
     //Funciones y metodos

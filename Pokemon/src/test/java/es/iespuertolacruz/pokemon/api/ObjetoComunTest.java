@@ -27,8 +27,11 @@ public class ObjetoComunTest {
     @Test
     public void toStringTest() {
         assertEquals("1'Muestra informacion sobre los pokemon",objetoComun1.toString(), "El texto recibido no era el esperado");
-        assertEquals("1'Muestra informacion sobre los pokemon",objetoComun2.toString(), "El texto recibido no era el esperado");
-        assertEquals("1'Muestra informacion sobre los pokemon",objetoComun3.toString(), "El texto recibido no era el esperado");
+    }
+
+    @Test
+    public void EqualsTest() {
+        assertEquals(objetoComun2,objetoComun3,"Los objetos son iguales y equals no lo reconoce");
     }
 
     //Funciones y metodos

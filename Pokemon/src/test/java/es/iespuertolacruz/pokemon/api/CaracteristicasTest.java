@@ -27,8 +27,11 @@ public class CaracteristicasTest {
     @Test
     public void toStringTest() {
         assertEquals("1'6.9'0.7'Semilla'Espesura'Starter",caracteristicas1.toString(), "El texto recibido no era el esperado");
-        assertEquals("1'6.9'0.7'Semilla'Espesura'Starter",caracteristicas2.toString(), "El texto recibido no era el esperado");
-        assertEquals("1'6.9'0.7'Semilla'Espesura'Starter",caracteristicas3.toString(), "El texto recibido no era el esperado");
+    }
+
+    @Test
+    public void EqualsTest() {
+        assertEquals(caracteristicas2,caracteristicas3,"Los objetos son iguales y equals no lo reconoce");
     }
 
     //Funciones y metodos

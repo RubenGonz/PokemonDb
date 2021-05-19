@@ -1,6 +1,7 @@
 package es.iespuertolacruz.pokemon.api;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 /**
@@ -79,6 +80,17 @@ public class Objeto {
     }
 
     //Metodos y funciones
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Objeto)) {
+            return false;
+        }
+        Objeto objeto = (Objeto) o;
+        return id == objeto.id && Objects.equals(nombre, objeto.nombre) && Objects.equals(modoObtencion, objeto.modoObtencion);
+    }
 
     @Override
     public String toString() {

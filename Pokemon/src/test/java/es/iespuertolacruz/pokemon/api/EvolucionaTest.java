@@ -25,8 +25,11 @@ public class EvolucionaTest {
     @Test
     public void toStringTest() {
         assertEquals("1'2'Nivel",evoluciona1.toString(), "El texto recibido no era el esperado");
-        assertEquals("1'2'Nivel",evoluciona2.toString(), "El texto recibido no era el esperado");
-        assertEquals("1'2'Nivel",evoluciona3.toString(), "El texto recibido no era el esperado");
+    }
+
+    @Test
+    public void EqualsTest() {
+        assertEquals(evoluciona2,evoluciona3,"Los objetos son iguales y equals no lo reconoce");
     }
 
     //Funciones y metodos

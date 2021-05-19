@@ -78,6 +78,17 @@ public class Tiene {
     //Funciones y metodos
 
     @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Tiene)) {
+            return false;
+        }
+        Tiene tiene = (Tiene) o;
+        return idEntrenador == tiene.idEntrenador && numeroPokedex == tiene.numeroPokedex && cantidad == tiene.cantidad;
+    }
+
+    @Override
     public String toString() {
         return getIdEntrenador() + DELIMITADOR +
             getNumeroPokedex() + DELIMITADOR +

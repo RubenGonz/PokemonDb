@@ -1,6 +1,7 @@
 package es.iespuertolacruz.pokemon.api;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 /**
@@ -67,6 +68,17 @@ public class Entrenador {
     }
 
     //Funciones y metodos
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Entrenador)) {
+            return false;
+        }
+        Entrenador entrenador = (Entrenador) o;
+        return id == entrenador.id && Objects.equals(nombre, entrenador.nombre);
+    }
 
     @Override
     public String toString() {

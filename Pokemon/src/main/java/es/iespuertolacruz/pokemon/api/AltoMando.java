@@ -1,6 +1,7 @@
 package es.iespuertolacruz.pokemon.api;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 public class AltoMando {
@@ -64,6 +65,18 @@ public class AltoMando {
     }
 
     //Metodos y funciones
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof AltoMando)) {
+            return false;
+        }
+        AltoMando altoMando = (AltoMando) o;
+        return idEntrenador == altoMando.idEntrenador && Objects.equals(tipoPrincipal, altoMando.tipoPrincipal);
+    }
     
     @Override
     public String toString() {

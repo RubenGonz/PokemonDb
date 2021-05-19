@@ -1,6 +1,7 @@
 package es.iespuertolacruz.pokemon.api;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 /**
@@ -92,6 +93,17 @@ public class Estado {
 
     //Metodos y funciones
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Estado)) {
+            return false;
+        }
+        Estado estado = (Estado) o;
+        return id == estado.id && Objects.equals(nombre, estado.nombre) && persistencia == estado.persistencia && Objects.equals(efecto, estado.efecto);
+    }
+    
     @Override
     public String toString() {
         return getId() + DELIMITADOR +

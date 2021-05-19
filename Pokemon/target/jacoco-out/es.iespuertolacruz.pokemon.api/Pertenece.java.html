@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Pertenece.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PokemonApp</a> &gt; <a href="index.source.html" class="el_package">es.iespuertolacruz.pokemon.api</a> &gt; <span class="el_source">Pertenece.java</span></div><h1>Pertenece.java</h1><pre class="source lang-java linenums">package es.iespuertolacruz.pokemon.api;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Pertenece.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PokemonApp</a> &gt; <a href="index.source.html" class="el_package">es.iespuertolacruz.pokemon.api</a> &gt; <span class="el_source">Pertenece.java</span></div><h1>Pertenece.java</h1><pre class="source lang-java linenums">package es.iespuertolacruz.pokemon.api;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 /**
@@ -19,8 +20,8 @@ public class Pertenece {
     /**
      * Constructor por defecto
      */
-<span class="fc" id="L22">    public Pertenece() {</span>
-<span class="fc" id="L23">    }</span>
+<span class="fc" id="L23">    public Pertenece() {</span>
+<span class="fc" id="L24">    }</span>
 
     /**
      * Constructor con todos los parametros
@@ -28,50 +29,62 @@ public class Pertenece {
      * @param numeroPokedex identificador del pokemon
      * @param tipo tipo del pokemon
      */
-<span class="fc" id="L31">    public Pertenece(int numeroPokedex, String tipo) {</span>
-<span class="fc" id="L32">        this.numeroPokedex = numeroPokedex;</span>
-<span class="fc" id="L33">        this.tipo = tipo;</span>
-<span class="fc" id="L34">    }</span>
+<span class="fc" id="L32">    public Pertenece(int numeroPokedex, String tipo) {</span>
+<span class="fc" id="L33">        this.numeroPokedex = numeroPokedex;</span>
+<span class="fc" id="L34">        this.tipo = tipo;</span>
+<span class="fc" id="L35">    }</span>
 
     /**
      * Constructor que recibe una cadena de texto
      * 
      * @param cadena con la informacion
      */
-<span class="fc" id="L41">    public Pertenece(String cadena) {</span>
-<span class="fc" id="L42">        ArrayList&lt;Object&gt; elementos = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L43">        StringTokenizer tokenizer = new StringTokenizer(cadena, DELIMITADOR);</span>
-<span class="fc bfc" id="L44" title="All 2 branches covered.">        while (tokenizer.hasMoreElements()) {</span>
-<span class="fc" id="L45">            elementos.add(tokenizer.nextToken());</span>
+<span class="fc" id="L42">    public Pertenece(String cadena) {</span>
+<span class="fc" id="L43">        ArrayList&lt;Object&gt; elementos = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L44">        StringTokenizer tokenizer = new StringTokenizer(cadena, DELIMITADOR);</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        while (tokenizer.hasMoreElements()) {</span>
+<span class="fc" id="L46">            elementos.add(tokenizer.nextToken());</span>
         }
-<span class="fc" id="L47">        this.numeroPokedex = Integer.parseInt((String) elementos.get(0));</span>
-<span class="fc" id="L48">        this.tipo = (String) elementos.get(1);</span>
-<span class="fc" id="L49">    }</span>
+<span class="fc" id="L48">        this.numeroPokedex = Integer.parseInt((String) elementos.get(0));</span>
+<span class="fc" id="L49">        this.tipo = (String) elementos.get(1);</span>
+<span class="fc" id="L50">    }</span>
 
     //Getters and Setters
 
     public int getNumeroPokedex() {
-<span class="fc" id="L54">        return this.numeroPokedex;</span>
+<span class="fc" id="L55">        return this.numeroPokedex;</span>
     }
 
     public void setNumeroPokedex(int numeroPokedex) {
-<span class="fc" id="L58">        this.numeroPokedex = numeroPokedex;</span>
-<span class="fc" id="L59">    }</span>
+<span class="fc" id="L59">        this.numeroPokedex = numeroPokedex;</span>
+<span class="fc" id="L60">    }</span>
 
     public String getTipo() {
-<span class="fc" id="L62">        return this.tipo;</span>
+<span class="fc" id="L63">        return this.tipo;</span>
     }
 
     public void setTipo(String tipo) {
-<span class="fc" id="L66">        this.tipo = tipo;</span>
-<span class="fc" id="L67">    }</span>
+<span class="fc" id="L67">        this.tipo = tipo;</span>
+<span class="fc" id="L68">    }</span>
 
     //Metodos y funciones
 
+
+    @Override
+    public boolean equals(Object o) {
+<span class="pc bpc" id="L75" title="1 of 2 branches missed.">        if (o == this)</span>
+<span class="nc" id="L76">            return true;</span>
+<span class="pc bpc" id="L77" title="1 of 2 branches missed.">        if (!(o instanceof Pertenece)) {</span>
+<span class="nc" id="L78">            return false;</span>
+        }
+<span class="fc" id="L80">        Pertenece pertenece = (Pertenece) o;</span>
+<span class="pc bpc" id="L81" title="2 of 4 branches missed.">        return numeroPokedex == pertenece.numeroPokedex &amp;&amp; Objects.equals(tipo, pertenece.tipo);</span>
+    }
+
     @Override
     public String toString() {
-<span class="fc" id="L73">        return getNumeroPokedex() + DELIMITADOR +</span>
-<span class="fc" id="L74">            getTipo();</span>
+<span class="fc" id="L86">        return getNumeroPokedex() + DELIMITADOR +</span>
+<span class="fc" id="L87">            getTipo();</span>
     }
 
 }

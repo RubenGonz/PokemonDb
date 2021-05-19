@@ -1,6 +1,7 @@
 package es.iespuertolacruz.pokemon.api;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 /**
@@ -115,6 +116,17 @@ public class Caracteristicas {
     }
 
     //Metodos y funciones
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Caracteristicas)) {
+            return false;
+        }
+        Caracteristicas caracteristicas = (Caracteristicas) o;
+        return id == caracteristicas.id && peso == caracteristicas.peso && altura == caracteristicas.altura && Objects.equals(especie, caracteristicas.especie) && Objects.equals(habilidad, caracteristicas.habilidad) && Objects.equals(categoria, caracteristicas.categoria);
+    }
 
     @Override
     public String toString() {

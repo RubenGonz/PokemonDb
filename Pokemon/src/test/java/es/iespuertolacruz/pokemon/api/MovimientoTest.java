@@ -27,8 +27,11 @@ public class MovimientoTest {
     @Test
     public void toStringTest() {
         assertEquals("15'Impactrueno'Electrico'Especial'30'40'100",movimiento1.toString(), "El texto recibido no era el esperado");
-        assertEquals("15'Impactrueno'Electrico'Especial'30'40'100",movimiento2.toString(), "El texto recibido no era el esperado");
-        assertEquals("15'Impactrueno'Electrico'Especial'30'40'100",movimiento3.toString(), "El texto recibido no era el esperado");
+    }
+
+    @Test
+    public void EqualsTest() {
+        assertEquals(movimiento2,movimiento3,"Los objetos son iguales y equals no lo reconoce");
     }
 
     //Funciones y metodos

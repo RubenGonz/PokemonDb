@@ -1,6 +1,7 @@
 package es.iespuertolacruz.pokemon.api;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 /**
@@ -79,6 +80,17 @@ public class Evoluciona {
     }
 
     //Metodos y funciones
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Evoluciona)) {
+            return false;
+        }
+        Evoluciona evoluciona = (Evoluciona) o;
+        return numeroPokedexOrigen == evoluciona.numeroPokedexOrigen && numeroPokedexDestino == evoluciona.numeroPokedexDestino && Objects.equals(modoEvoluciona, evoluciona.modoEvoluciona);
+    }
 
     @Override
     public String toString() {

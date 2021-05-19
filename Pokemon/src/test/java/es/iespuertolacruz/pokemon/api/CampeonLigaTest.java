@@ -27,8 +27,11 @@ public class CampeonLigaTest {
     @Test
     public void toStringTest() {
         assertEquals("1'Johto",campeonLiga1.toString(), "El texto recibido no era el esperado");
-        assertEquals("1'Johto",campeonLiga2.toString(), "El texto recibido no era el esperado");
-        assertEquals("1'Johto",campeonLiga3.toString(), "El texto recibido no era el esperado");
+    }
+
+    @Test
+    public void EqualsTest() {
+        assertEquals(campeonLiga2,campeonLiga3,"Los objetos son iguales y equals no lo reconoce");
     }
 
     //Funciones y metodos

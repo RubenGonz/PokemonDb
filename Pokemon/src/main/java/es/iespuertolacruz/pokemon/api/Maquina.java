@@ -69,6 +69,17 @@ public class Maquina {
     //Funciones y metodos
 
     @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Maquina)) {
+            return false;
+        }
+        Maquina maquina = (Maquina) o;
+        return idObjeto == maquina.idObjeto && idMovimiento == maquina.idMovimiento;
+    }
+
+    @Override
     public String toString() {
         return getIdObjeto() + DELIMITADOR +
             getIdMovimiento();
