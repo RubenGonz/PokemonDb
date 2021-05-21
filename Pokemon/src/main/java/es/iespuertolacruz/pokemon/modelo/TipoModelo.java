@@ -4,35 +4,43 @@ import es.iespuertolacruz.pokemon.api.Tipo;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
 public class TipoModelo {
-    // Persistencia en MySql
 
-    MySqlBdDd persistencia;
+    //Variables de clase
+
+    DdBbSqLite persistencia;
+    private static final String TABLA = "TIPO";
+    private static final String CLAVE = "nombre";
 
     // Constructores
 
     public TipoModelo() {
-        try {
-            persistencia = new MySqlBdDd("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/test", "minty", "greatsqldb");
-        } catch (PersistenciaException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        persistencia = new DdBbSqLite(TABLA, CLAVE, null, null);
     }
 
+    //Metodos y funciones
+    
     public void insertar(Tipo tipo) throws PersistenciaException {
-        persistencia.insertarTipo(tipo);
+        String sql = "INSERT INTO " + TABLA + " VALUES ('" + 
+        tipo.getNombre() + "','" + 
+        tipo.getColor()+ ");";
+        persistencia.update(sql);
     }
 
     public void eliminar(Tipo tipo) throws PersistenciaException {
-        persistencia.eliminarTipo(tipo);
+        String sql = "DELETE FROM " + TABLA + 
+        " WHERE " + CLAVE + " = '" + tipo.getNombre() + "';";
+        persistencia.update(sql);
     }
 
     public Tipo buscar(String nombre) throws PersistenciaException {
-        return persistencia.obtenerTipo(nombre);
+        return (Tipo) persistencia.buscarElemento(nombre);
     }
 
-    public void modificar(Tipo tipo) throws PersistenciaException {
-        persistencia.modificarTipo(tipo);
+    public void actualizar(Tipo tipo) throws PersistenciaException {
+        String sql = "UPDATE " + TABLA + 
+        " SET color = '" + tipo.getColor() +
+        "' WHERE " + CLAVE + " = '" + tipo.getNombre()+"';";
+        persistencia.update(sql);
     }
 
 }
