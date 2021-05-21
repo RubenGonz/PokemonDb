@@ -12,31 +12,34 @@ import java.util.ArrayList;
 import es.iespuertolacruz.pokemon.api.Tipo;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
-public class Bbdd {
+public abstract class DdBbRefactorizado {
 
     // Variables de clase
 
     private static final String TABLE = "TABLE";
-    private static final String TABLE_NAME = "TIPO";
+    private static final String TABLE_NAME= "TABLE_NAME";
 
+    protected String nombreTabla;
+    protected String clave;
     protected String driver;
     protected String urlConexion;
     protected String usuario;
     protected String password;
 
-    // Constructores
+    // Constructor
 
-    public Bbdd(String driver, String urlConexion, String usuario, String password) throws PersistenciaException {
+    public DdBbRefactorizado(String nombreTabla, String clave, String driver, String urlConexion, String usuario,
+            String password) throws PersistenciaException {
+        this.nombreTabla = nombreTabla;
+        this.clave = clave;
         this.driver = driver;
         this.urlConexion = urlConexion;
         this.usuario = usuario;
         this.password = password;
-        inicializarDdBd();
+        inicializarTabla(nombreTabla);
     }
 
-    // Metodos de la clase
-
-    private void inicializarDdBd() throws PersistenciaException {
+    private void inicializarTabla(String tabla) throws PersistenciaException {
         DatabaseMetaData databaseMetaData;
         Connection connection = null;
         ResultSet resultSet = null;
@@ -48,12 +51,12 @@ public class Bbdd {
             while (resultSet.next()) {
                 listaTablas.add(resultSet.getString("TABLE_NAME"));
             }
-            if (!listaTablas.contains(TABLE_NAME)) {
+            if (!listaTablas.contains(tabla)) {
                 String sqlCrearTabla = "CREATE TABLE IF NOT EXISTS TIPO( " + "nombre VARCHAR (15) CHECK (nombre IN "
-                        + "('Agua', 'Bicho', 'Dragon', 'Electrico', 'Fantasma', "
-                        + "'Fuego', 'Hielo', 'Lucha', 'Normal', 'Planta', "
-                        + "'Psiquico', 'Roca', 'Tierra', 'Veneno', 'Pajaro')), " + "color VARCHAR (20), "
-                        + "PRIMARY KEY (nombre));";
+                + "('Agua', 'Bicho', 'Dragon', 'Electrico', 'Fantasma', "
+                + "'Fuego', 'Hielo', 'Lucha', 'Normal', 'Planta', "
+                + "'Psiquico', 'Roca', 'Tierra', 'Veneno', 'Pajaro')), " + "color VARCHAR (20), "
+                + "PRIMARY KEY (nombre));";
                 update(sqlCrearTabla);
             }
         } catch (Exception e) {
@@ -82,34 +85,35 @@ public class Bbdd {
         } catch (ClassNotFoundException | SQLException exception) {
             throw new PersistenciaException("No se ha podido estabalecer la conexion", exception);
         }
+
         return connection;
     }
 
     /**
-     * Funcion encargada de obtener un tipo
+     * Funcion encargada de obtener un objeto
      * 
-     * @param nombre del tipo
-     * @return Objeto Tipo
+     * @param identificador del objeto
+     * @return Objeto 
      * @throws PersistenciaException
      */
-    public Tipo buscarTipo(String nombre) throws PersistenciaException {
-        Tipo tipo = null;
-        String sql = "SELECT * FROM " + TABLE_NAME + " WHERE nombre = '" + nombre + "';";
-        ArrayList<Tipo> lista = buscar(sql);
+    public Object buscarElemento(String identificador) throws PersistenciaException {
+        Object elemento = null;
+        String sql = "SELECT * FROM " + this.nombreTabla + " WHERE " + this.clave + " = '" + identificador + "';";
+        ArrayList<Object> lista = buscar(sql);
         if (!lista.isEmpty()) {
-            tipo = lista.get(0);
+            elemento = lista.get(0);
         }
-        return tipo;
+        return elemento;
     }
 
     /**
-     * Funcion que obtiene todos los tipos de la BBDD
+     * Funcion que obtiene todos los usuarios de la BBDD
      * 
-     * @return lista de tipos
+     * @return lista usuarios
      * @throws PersistenciaException error controlado
      */
-    public ArrayList<Tipo> buscarTodos() throws PersistenciaException {
-        String sql = "SELECT * FROM " + TABLE_NAME + ";";
+    public ArrayList<Object> buscarTodos() throws PersistenciaException {
+        String sql = "SELECT * FROM " + this.nombreTabla + ";";
         return buscar(sql);
     }
 
@@ -117,11 +121,11 @@ public class Bbdd {
      * Funcion que realiza una consulta sobre una sentencia sql dada
      * 
      * @param sql de la consulta
-     * @return lista resultados (0..n) Tipos
+     * @return lista resultados (0..n) Usuasios
      * @throws PersistenciaException error controlado
      */
-    private ArrayList<Tipo> buscar(String sql) throws PersistenciaException {
-        ArrayList<Tipo> lista = new ArrayList<>();
+    private ArrayList<Object> buscar(String sql) throws PersistenciaException {
+        ArrayList<Object> lista = new ArrayList<>();
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         Connection connection = null;
@@ -129,6 +133,7 @@ public class Bbdd {
             connection = getConnection();
             statement = connection.prepareStatement(sql);
             resultSet = statement.executeQuery();
+
             while (resultSet.next()) {
                 Tipo tipo = new Tipo();
                 tipo.setNombre(resultSet.getString("nombre"));
@@ -141,40 +146,6 @@ public class Bbdd {
             closeConecction(connection, statement, resultSet);
         }
         return lista;
-    }
-
-    /**
-     * Metodo encargado de realizar la insercion en la BBDD
-     * 
-     * @param tipo a insertar
-     * @throws PersistenciaException
-     */
-    public void insertar(Tipo tipo) throws PersistenciaException {
-        String sql = "INSERT INTO TIPO VALUES ('" + tipo.getNombre() + "','" + tipo.getColor() + "');";
-        update(sql);
-    }
-
-    /**
-     * Metodo encargado de realizar la actualizacion de un tipo
-     * 
-     * @param tipo a actualizar
-     * @throws PersistenciaException error controlado
-     */
-    public void update(Tipo tipo) throws PersistenciaException {
-        String sql = "UPDATE TIPO SET color = '" + tipo.getColor() + 
-        "' WHERE nombre = '" + tipo.getNombre() + "';";
-        update(sql);
-    }
-
-    /**
-     * Metodo encargado de realizar la eliminacion de un tipo
-     * 
-     * @param tipo a eliminar
-     * @throws PersistenciaException
-     */
-    public void eliminar(String nombre) throws PersistenciaException {
-        String sql = "DELETE FROM TIPO WHERE nombre = '" + nombre + "';";
-        update(sql);
     }
 
     /**

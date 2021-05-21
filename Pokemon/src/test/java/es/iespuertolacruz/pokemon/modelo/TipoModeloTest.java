@@ -9,19 +9,19 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import es.iespuertolacruz.pokemon.api.Pokemon;
+import es.iespuertolacruz.pokemon.api.Tipo;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
-public class PokemonModeloTest {
+public class TipoModeloTest {
 
-    static PokemonModelo pokemonModelo;
-    Pokemon pokemon = null;
+    static TipoModelo tipoModelo;
+    Tipo tipo = null;
 
     @BeforeAll 
     public static void beforeAll() {
-        if (pokemonModelo == null) {
+        if (tipoModelo == null) {
             try {
-                pokemonModelo = new PokemonModelo();
+                tipoModelo = new TipoModelo();
             } catch (Exception e) {
                 fail("Se ha producido un error en el indicio de la BBDD");
             }
@@ -29,20 +29,20 @@ public class PokemonModeloTest {
     }
 
     @BeforeEach
-    public void crearCuenta() {
-        pokemon = new Pokemon(1,"Bulbasaur",1,1);
+    public void crearTipo() {
+        tipo = new Tipo("Agua","Azul");
         try {
-            pokemonModelo.insertar(pokemon);
+            tipoModelo.insertar(tipo);
         } catch (PersistenciaException e) {
-            fail("Se ha producido un error insertando el pokemon");
+            fail("Se ha producido un error insertando el tipo");
         }
     }
 
     @AfterEach
-    public void eliminarCuenta() {
-        if (pokemon != null) {
+    public void eliminarTipo() {
+        if (tipo != null) {
             try {
-                pokemonModelo.eliminar(pokemon);
+                tipoModelo.eliminar(tipo);
             } catch (PersistenciaException e) {
                 fail("Se ha producido un error eliminando el pokemon");
             }
@@ -50,13 +50,13 @@ public class PokemonModeloTest {
     }
 
     @Test
-    public void buscarPokemonTest(){
+    public void buscarTipoTest(){
         try {
-            Pokemon pokemonEncontrado = pokemonModelo.buscar(pokemon.getNumeroPokedex());
-            assertNotNull(pokemonEncontrado, "No se debe de obtener un elemento nulo");
-            assertEquals(pokemon, pokemonEncontrado, "No se ha encontrado lo esperado");
+            Tipo tipoEncontrado = tipoModelo.buscar(tipo.getNombre());
+            assertNotNull(tipoEncontrado, "No se debe de obtener un elemento nulo");
+            assertEquals(tipo, tipoEncontrado, "No se ha encontrado lo esperado");
         } catch (PersistenciaException e) {
-           fail("Se ha producido un error en la consulta del pokemon,e:"+e.getMessage());
+           fail("Se ha producido un error en la consulta del tipo,e:"+e.getMessage());
         }
     }
 }

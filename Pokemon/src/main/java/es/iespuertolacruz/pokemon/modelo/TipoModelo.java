@@ -13,7 +13,7 @@ public class TipoModelo {
 
     // Constructores
 
-    public TipoModelo() {
+    public TipoModelo() throws PersistenciaException {
         persistencia = new DdBbSqLite(TABLA, CLAVE, null, null);
     }
 
@@ -22,7 +22,7 @@ public class TipoModelo {
     public void insertar(Tipo tipo) throws PersistenciaException {
         String sql = "INSERT INTO " + TABLA + " VALUES ('" + 
         tipo.getNombre() + "','" + 
-        tipo.getColor()+ ");";
+        tipo.getColor()+ "');";
         persistencia.update(sql);
     }
 

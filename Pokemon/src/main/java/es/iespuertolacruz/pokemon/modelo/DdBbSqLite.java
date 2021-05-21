@@ -1,18 +1,19 @@
 package es.iespuertolacruz.pokemon.modelo;
 
-import es.iespuertolacruz.pokemon.api.Tipo;
+import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
-public class DdBbSqLite {
+public class DdBbSqLite extends DdBbRefactorizado {
 
-    public DdBbSqLite(String tabla, String clave, Object object, Object object2) {
-    }
+   private static final String DRIVER = "org.sqlite.JDBC";
+   private static final String URL = "jdbc:sqlite:test.db";
 
-    public void update(String sql) {
-    }
+   public DdBbSqLite(String nombreTabla, String clave, String driver, String urlConexion, String usuario,
+         String password) throws PersistenciaException {
+      super(nombreTabla, clave, driver, urlConexion, usuario, password);
+   }
 
-    public Tipo buscarElemento(String nombre) {
-        return null;
-    }
-
+   public DdBbSqLite(String nombreTabla, String clave, String usuario, String password) throws PersistenciaException {
+      super(nombreTabla, clave, DRIVER, URL, usuario, password);
+   }
 
 }
