@@ -2243,3 +2243,239 @@ INSERT INTO POKEMON_EQUIPA VALUES (138,8);
 INSERT INTO POKEMON_EQUIPA VALUES (140,9);
 INSERT INTO POKEMON_EQUIPA VALUES (52,10);
 INSERT INTO POKEMON_EQUIPA VALUES (130,6);
+
+/**
+ * Procedimientos, vistas...
+*/
+
+/**
+ * Procedimiento que enseña todo de un pokemon
+*/
+DROP PROCEDURE IF EXISTS InformacionPokemon;
+
+DELIMITER //
+CREATE PROCEDURE InformacionPokemon(IN nombrePokemon VARCHAR(15)) 
+BEGIN 
+    SELECT POKEMON.numero_pokedex AS NumeroPokedex,
+            POKEMON.nombre AS Nombre,
+            CARACTERISTICAS.peso AS Peso,
+            CARACTERISTICAS.altura AS Altura,
+            CARACTERISTICAS.especie AS Especie,
+            CARACTERISTICAS.habilidad AS Habilidad,
+            CARACTERISTICAS.categoria AS Categoria,
+            ESTADISTICAS_BASE.ps_base AS Ps,
+            ESTADISTICAS_BASE.ataque_base AS Ataque,
+            ESTADISTICAS_BASE.defensa_base AS Defensa,
+            ESTADISTICAS_BASE.ataque_especial_base AS Ataque_especial,
+            ESTADISTICAS_BASE.defensa_especial_base AS Defensa_especial,
+            ESTADISTICAS_BASE.velocidad_base AS Velocidad
+        FROM POKEMON
+        JOIN CARACTERISTICAS ON
+            POKEMON.numero_pokedex = CARACTERISTICAS.id_caracteristica
+        JOIN ESTADISTICAS_BASE ON
+            POKEMON.numero_pokedex = ESTADISTICAS_BASE.id_estadisticas_base
+        WHERE 
+            POKEMON.nombre = nombrePokemon;
+END //
+DELIMITER ;
+
+/**
+ * CALL InformacionPokemon("Dragonite");
+*/
+
+/**
+ * Procedimiento que muestra los movimientos de un pokemon
+*/
+DROP PROCEDURE IF EXISTS MovimientosDePokemon;
+
+DELIMITER //
+CREATE PROCEDURE MovimientosDePokemon(IN nombrePokemon VARCHAR(15)) 
+BEGIN 
+    SELECT POKEMON.nombre AS Pokemon,
+            MOVIMIENTO.nombre AS Movimientos
+        FROM POKEMON
+        JOIN CONOCE ON
+            POKEMON.numero_pokedex = CONOCE.numero_pokedex
+        JOIN MOVIMIENTO ON
+            CONOCE.id_movimiento = MOVIMIENTO.id_movimiento
+        WHERE 
+            POKEMON.nombre = nombrePokemon;
+END //
+DELIMITER ;
+
+/**
+ * CALL MovimientosDePokemon("Dragonite");
+*/
+
+/**
+ * Procedimiento que muestra la evolucion de un pokemon
+*/
+DROP PROCEDURE IF EXISTS EvolucionDePokemon;
+
+DELIMITER //
+CREATE PROCEDURE EvolucionDePokemon(IN PokemonOrigen VARCHAR(15)) 
+BEGIN
+
+    /**
+     * Declaramos variables
+    */
+    DECLARE NumeroPokedexOrigen INT;
+    DECLARE NumeroPokedexDestino INT;
+    DECLARE PokemonDestino VARCHAR(15);
+
+    /**
+     * Metemos en NumeroPokedexOrigen el numero de la pokedex del pokemon sin evolucionar
+    */
+    SELECT numero_pokedex INTO NumeroPokedexOrigen
+        FROM POKEMON
+        WHERE nombre = PokemonOrigen;
+
+    /**
+     * Metemos en NumeroPokedexDestino el numero de la pokedex del pokemon evolucionado
+    */
+    SELECT EVOLUCIONA.numero_pokedex_destino INTO NumeroPokedexDestino
+        FROM EVOLUCIONA
+        JOIN POKEMON ON 
+            EVOLUCIONA.numero_pokedex_origen = POKEMON.numero_pokedex
+        WHERE POKEMON.nombre = PokemonOrigen;
+
+    /**
+     * Metemos en PokemonDestino el nombre del pokemon evolucionado
+    */
+    SELECT nombre INTO PokemonDestino
+        FROM POKEMON
+        WHERE numero_pokedex = NumeroPokedexDestino;
+
+    /**
+     * Consulta final
+    */
+    SELECT PokemonOrigen,
+            PokemonDestino,
+            EVOLUCIONA.modo_evoluciona
+        FROM EVOLUCIONA
+        WHERE EVOLUCIONA.numero_pokedex_origen = NumeroPokedexOrigen;
+
+END //
+DELIMITER ;
+
+/**
+ * CALL EvolucionDePokemon("Kadabra");
+*/
+
+/**
+ * Procedimiento que muestra los pokemon de un entrenador
+*/
+DROP PROCEDURE IF EXISTS PokemonsDeEntrenador;
+
+DELIMITER //
+CREATE PROCEDURE PokemonsDeEntrenador(IN nombreEntrenador VARCHAR(15)) 
+BEGIN 
+    SELECT ENTRENADOR.nombre AS Entrenador,
+            POKEMON.nombre AS Pokemon,
+            TIENE.cantidad AS Cantidad
+        FROM POKEMON
+        JOIN TIENE ON
+            POKEMON.numero_pokedex = TIENE.numero_pokedex
+        JOIN ENTRENADOR ON
+            TIENE.id_entrenador = ENTRENADOR.id_entrenador
+        WHERE 
+            ENTRENADOR.nombre = nombreEntrenador;
+END //
+DELIMITER ;
+
+/**
+ * CALL PokemonsDeEntrenador("Giovanni");
+*/
+
+/**
+ * Procedimiento que enseña los pokemon de un tipo
+*/
+DROP PROCEDURE IF EXISTS PokemonDeTipo;
+
+DELIMITER //
+CREATE PROCEDURE PokemonDeTipo(IN nombreTipo VARCHAR(15)) 
+BEGIN 
+    SELECT POKEMON.nombre AS Nombre,
+            TIPO.nombre AS Tipo
+        FROM POKEMON
+        JOIN PERTENECE ON
+            POKEMON.numero_pokedex = PERTENECE.numero_pokedex
+        JOIN TIPO ON
+            PERTENECE.tipo = TIPO.nombre
+        WHERE 
+            TIPO.nombre = nombreTipo;
+END //
+DELIMITER ;
+
+/**
+ * CALL PokemonDeTipo("Fuego");
+*/
+
+/**
+ * Vista de los pokemon que son starters
+*/
+DROP VIEW IF EXISTS PokemonStarters;
+
+
+CREATE VIEW PokemonStarters AS
+    SELECT POKEMON.nombre AS Pokemon,
+            CARACTERISTICAS.categoria AS Categoria
+        FROM CARACTERISTICAS
+        JOIN POKEMON ON
+            POKEMON.numero_pokedex = CARACTERISTICAS.id_caracteristica
+        WHERE CARACTERISTICAS.categoria = "Starter";
+
+/**
+ * Vista de los movimientos que provocan estado
+*/
+DROP VIEW IF EXISTS MovimientosConEstado;
+
+CREATE VIEW MovimientosConEstado AS
+    SELECT MOVIMIENTO.nombre AS Movimientos,
+            ESTADO.nombre AS Estado
+        FROM MOVIMIENTO
+        JOIN PROVOCA ON
+            MOVIMIENTO.id_movimiento = PROVOCA.id_movimiento
+        JOIN ESTADO ON
+            PROVOCA.id_estado = ESTADO.id_estado;
+
+/**
+ * Vista de los entrenadores con todas las medallas 
+*/
+DROP VIEW IF EXISTS EntrenadoresCon8Medallas;
+
+
+CREATE VIEW EntrenadoresCon8Medallas AS
+    SELECT ENTRENADOR.nombre AS Entrenadores,
+            ENTRENADOR_CASUAL.cantidad_medalla AS Medallas
+        FROM ENTRENADOR
+        JOIN ENTRENADOR_CASUAL ON
+            ENTRENADOR.id_entrenador = ENTRENADOR_CASUAL.id_entrenador
+        WHERE ENTRENADOR_CASUAL.cantidad_medalla = 8;
+
+/**
+ * Vista de los pokemon que equipan objeto 
+*/
+DROP VIEW IF EXISTS PokemonsConObjetos;
+
+CREATE VIEW PokemonsConObjetos AS
+    SELECT POKEMON.nombre AS Pokemons,
+            OBJETO.nombre AS Objeto
+        FROM POKEMON
+        JOIN POKEMON_EQUIPA ON
+            POKEMON.numero_pokedex = POKEMON_EQUIPA.numero_pokedex
+        JOIN OBJETO ON
+            POKEMON_EQUIPA.id_objeto = OBJETO.id_objeto;
+
+/**
+ * Vista de los pokemon que evolucionan con piedra 
+*/
+DROP VIEW IF EXISTS PokemonEvolucionaConPiedra;
+
+CREATE VIEW PokemonEvolucionaConPiedra AS
+    SELECT POKEMON.nombre AS Pokemons,
+            EVOLUCIONA.modo_evoluciona AS ModoEvoluciona
+        FROM POKEMON
+        JOIN EVOLUCIONA ON
+            POKEMON.numero_pokedex = EVOLUCIONA.numero_pokedex_origen
+        WHERE EVOLUCIONA.modo_evoluciona = "Piedra";
