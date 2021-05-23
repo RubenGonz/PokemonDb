@@ -4,6 +4,7 @@ es/iespuertolacruz/pokemon/api/Pertenece.class
 es/iespuertolacruz/pokemon/api/Conoce.class
 es/iespuertolacruz/pokemon/api/LiderGimnasio.class
 es/iespuertolacruz/pokemon/api/Provoca.class
+es/iespuertolacruz/pokemon/modelo/DdBb.class
 es/iespuertolacruz/pokemon/modelo/PokemonFichero.class
 es/iespuertolacruz/pokemon/api/Entrenador.class
 es/iespuertolacruz/pokemon/api/ObjetoComun.class
@@ -15,16 +16,14 @@ es/iespuertolacruz/pokemon/modelo/TipoModelo.class
 es/iespuertolacruz/pokemon/api/Evoluciona.class
 es/iespuertolacruz/pokemon/api/AltoMando.class
 es/iespuertolacruz/pokemon/api/EstadisticasBase.class
-es/iespuertolacruz/pokemon/modelo/Bbdd.class
 es/iespuertolacruz/pokemon/api/Maquina.class
 es/iespuertolacruz/pokemon/api/EntrenadorCasual.class
 es/iespuertolacruz/pokemon/excepciones/PokemonException.class
-es/iespuertolacruz/pokemon/api/Tipo.class
 es/iespuertolacruz/pokemon/api/EntrenadorEquipa.class
-es/iespuertolacruz/pokemon/modelo/DdBbRefactorizado.class
-es/iespuertolacruz/pokemon/api/Caracteristicas.class
-es/iespuertolacruz/pokemon/api/Pokeball.class
+es/iespuertolacruz/pokemon/api/Tipo.class
 es/iespuertolacruz/pokemon/api/Pokemon.class
+es/iespuertolacruz/pokemon/api/Pokeball.class
+es/iespuertolacruz/pokemon/api/Caracteristicas.class
 es/iespuertolacruz/pokemon/api/Estado.class
 es/iespuertolacruz/pokemon/modelo/DdBbSqLite.class
 es/iespuertolacruz/pokemon/api/PokemonEquipa.class

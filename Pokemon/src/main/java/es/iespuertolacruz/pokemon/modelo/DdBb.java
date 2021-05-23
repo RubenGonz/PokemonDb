@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import es.iespuertolacruz.pokemon.api.Tipo;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
-public abstract class DdBbRefactorizado {
+public abstract class DdBb {
 
     // Variables de clase
 
@@ -28,7 +28,7 @@ public abstract class DdBbRefactorizado {
 
     // Constructor
 
-    public DdBbRefactorizado(String nombreTabla, String clave, String driver, String urlConexion, String usuario,
+    public DdBb(String nombreTabla, String clave, String driver, String urlConexion, String usuario,
             String password) throws PersistenciaException {
         this.nombreTabla = nombreTabla;
         this.clave = clave;
