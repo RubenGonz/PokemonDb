@@ -26,11 +26,11 @@ public class PokeballModelo {
         String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = '" + pokeball.getIdObjeto() + "';";
         persistencia.update(sql);
     }
-
+/**
     public Pokeball buscar(int idObjeto) throws PersistenciaException {
         return (Pokeball) persistencia.buscarElemento(idObjeto);
     }
-
+*/
     public void modificar(Pokeball pokeball) throws PersistenciaException {
         String sql = "UPDATE " + TABLA + " SET Ratio = '" + pokeball.getRatio() + "' WHERE " + CLAVE
                 + " = '" + pokeball.getIdObjeto() + "';";

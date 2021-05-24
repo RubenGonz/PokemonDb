@@ -26,11 +26,11 @@ public class TieneModelo {
         String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = '" + tiene.getIdEntrenador() + "';";
         persistencia.update(sql);
     }
-
+/**
     public Tiene buscar(int idEntrenador) throws PersistenciaException {
         return (Tiene) persistencia.buscarElemento(idEntrenador);
     }
-
+*/
     public void modificar(Tiene tiene) throws PersistenciaException {
         String sql = "UPDATE " + TABLA + " SET Tipo_Principal = '" + tiene.getNumeroPokedex() + "','"
                 + tiene.getCantidad() + "' WHERE " + CLAVE

@@ -25,11 +25,11 @@ public class ConoceModelo {
         String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = '" + conoce.getNumeroPokedex() + "';";
         persistencia.update(sql);
     }
-
+/**
     public Conoce buscar(int numeroPokedex) throws PersistenciaException {
         return (Conoce) persistencia.buscarElemento(numeroPokedex);
     }
-
+*/
     public void modificar(Conoce conoce) throws PersistenciaException {
          String sql = "UPDATE " + TABLA + " SET Tipo_Principal = '" + conoce.getIdMovimiento() + "' WHERE " + CLAVE + " = '"
                 + conoce.getNumeroPokedex() + "';";

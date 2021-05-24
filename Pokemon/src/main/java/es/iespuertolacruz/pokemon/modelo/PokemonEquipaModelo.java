@@ -27,11 +27,11 @@ public class PokemonEquipaModelo {
         String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = '" + pokemonEquipa.getNumeroPokedex() + "';";
         persistencia.update(sql);
     }
-
+/**
     public PokemonEquipa buscar(int numeroPokedex) throws PersistenciaException {
-        return (AltoMando) persistencia.buscarElemento(numeroPokedex);
+        return (PokemonEquipa) persistencia.buscarElemento(numeroPokedex);
     }
-
+*/
     public void modificar(PokemonEquipa pokemonEquipa) throws PersistenciaException {
         String sql = "UPDATE " + TABLA + " SET Tipo_Principal = '" + pokemonEquipa.getIdObjeto() + "' WHERE " + CLAVE
                 + " = '" + pokemonEquipa.getNumeroPokedex() + "';";

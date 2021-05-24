@@ -25,11 +25,11 @@ public class ObjetoComunModelo {
         String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = '" + objetoComun.getIdObjeto() + "';";
         persistencia.update(sql);
     }
-
+/**
     public ObjetoComun buscar(int idObjeto) throws PersistenciaException {
-        return (AltoMando) persistencia.buscarElemento(idObjeto);
+        return (ObjetoComun) persistencia.buscarElemento(idObjeto);
     }
-
+*/
     public void modificar(ObjetoComun objetoComun) throws PersistenciaException {
         String sql = "UPDATE " + TABLA + " SET Tipo_Principal = '" + objetoComun.getEfecto() + "' WHERE " + CLAVE
                 + " = '" + objetoComun.getIdObjeto() + "';";

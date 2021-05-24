@@ -28,11 +28,11 @@ public class EntrenadorModelo {
         String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = '" + entrenador.getId() + "';";
         persistencia.update(sql);
     }
-
+/**
     public Entrenador buscar(int id) throws PersistenciaException {
         return (Entrenador) persistencia.buscarElemento(id);
     }
-
+*/
     public void actualizar(Entrenador entrenador) throws PersistenciaException {
         String sql = "UPDATE " + TABLA + " SET nombre = '" +entrenador.getNombre() + "' WHERE " + CLAVE + " = '"
                 + entrenador.getId() + "';";

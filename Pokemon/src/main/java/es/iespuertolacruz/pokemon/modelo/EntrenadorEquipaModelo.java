@@ -27,11 +27,11 @@ public class EntrenadorEquipaModelo {
         String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = '" + entrenadorEquipa.getIdObjeto() + "';";
         persistencia.update(sql);
     }
-
+/**
     public EntrenadorEquipa buscar(int idEntrenador) throws PersistenciaException {
         return (EntrenadorEquipa) persistencia.buscarElemento(idEntrenador);
     }
-
+*/
     public void modificar(EntrenadorEquipa entrenadorEquipa) throws PersistenciaException {
         String sql = "UPDATE " + TABLA + " SET id_Entrenador = '" + entrenadorEquipa.getIdObjeto()+entrenadorEquipa.getCantidad() + "' WHERE " + CLAVE
                 + " = '" + entrenadorEquipa.getIdObjeto() + "';";

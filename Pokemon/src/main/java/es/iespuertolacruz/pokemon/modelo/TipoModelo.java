@@ -36,7 +36,7 @@ public class TipoModelo {
         return (Tipo) persistencia.buscarElemento(nombre);
     }
 
-    public void actualizar(Tipo tipo) throws PersistenciaException {
+    public void modificar(Tipo tipo) throws PersistenciaException {
         String sql = "UPDATE " + TABLA + 
         " SET color = '" + tipo.getColor() +
         "' WHERE " + CLAVE + " = '" + tipo.getNombre()+"';";

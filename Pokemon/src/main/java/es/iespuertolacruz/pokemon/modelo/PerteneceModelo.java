@@ -26,11 +26,11 @@ public class PerteneceModelo {
         String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = '" + pertenece.getNumeroPokedex() + "';";
         persistencia.update(sql);
     }
-
+/**
     public Pertenece buscar(int numeroPokedex) throws PersistenciaException {
         return (Pertenece) persistencia.buscarElemento(numeroPokedex);
     }
-
+*/
     public void modificar(Pertenece pertenece) throws PersistenciaException {
         String sql = "UPDATE " + TABLA + " SET Tipo_Principal = '" + pertenece.getTipo() + "' WHERE " + CLAVE
                 + " = '" + pertenece.getNumeroPokedex() + "';";

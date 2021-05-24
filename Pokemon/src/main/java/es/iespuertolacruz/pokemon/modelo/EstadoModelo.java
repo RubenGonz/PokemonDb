@@ -25,11 +25,11 @@ public class EstadoModelo {
         String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = '" + estado.getId() + "';";
         persistencia.update(sql);
     }
-
+/**
     public Estado buscar(int id) throws PersistenciaException {
         return (Estado) persistencia.buscarElemento(id);
     }
-
+*/
     public void modificar(Estado estado) throws PersistenciaException {
         String sql = "UPDATE " + TABLA + " SET Tipo_Principal = '" + estado.getNombre() + "','"
                 + estado.getPersistencia() + "','" + estado.getEfecto() + "' WHERE " + CLAVE + " = '" + estado.getId()

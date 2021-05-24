@@ -27,11 +27,11 @@ public class EstadisticasBaseModelo {
         String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = '" + estadisticasBase.getId() + "';";
         persistencia.update(sql);
     }
-
+/**
     public EstadisticasBase buscar(int id) throws PersistenciaException {
         return (EstadisticasBase) persistencia.buscarElemento(id);
     }
-
+*/
     public void modificar(EstadisticasBase estadisticasBase) throws PersistenciaException {
         String sql = "UPDATE " + TABLA + " SET Tipo_Principal = '"  +estadisticasBase.getPsBase() + "','"
                 + estadisticasBase.getAtaqueBase() + "','" + estadisticasBase.getDefensaBase() + "','"

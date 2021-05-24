@@ -26,11 +26,11 @@ public class MaquinaModelo {
         String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = '" + maquina.getIdObjeto() + "';";
         persistencia.update(sql);
     }
-
+/**
     public Maquina buscar(int idObjeto) throws PersistenciaException {
         return (Maquina) persistencia.buscarElemento(idObjeto);
     }
-
+*/
     public void modificar(Maquina maquina) throws PersistenciaException {
         String sql = "UPDATE " + TABLA + " SET Tipo_Principal = '" + maquina.getIdMovimiento() + "' WHERE " + CLAVE
                 + " = '" + maquina.getIdObjeto() + "';";

@@ -27,11 +27,11 @@ public class MovimientoModelo {
         String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = '" + movimiento.getId() + "';";
         persistencia.update(sql);
     }
-
+/**
     public Movimiento buscar(int id) throws PersistenciaException {
         return (Movimiento) persistencia.buscarElemento(id);
     }
-
+*/
     public void modificar(Movimiento movimiento) throws PersistenciaException {
         String sql = "UPDATE " + TABLA + " SET nombre = '" + movimiento.getNombre() + "','" + movimiento.getTipo()
                 + "','" + movimiento.getCategoria() + "','" + movimiento.getPp() + "','" + movimiento.getPotencia()

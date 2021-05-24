@@ -26,11 +26,11 @@ public class ProvocaModelo {
         String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = '" + provoca.getIdMovimiento() + "';";
         persistencia.update(sql);
     }
-
+/**
     public Provoca buscar(int idMovimiento) throws PersistenciaException {
-        return (AltoMando) persistencia.buscarElemento(idMovimiento);
+        return (Provoca) persistencia.buscarElemento(idMovimiento);
     }
-
+*/
     public void modificar(Provoca provoca) throws PersistenciaException {
         String sql = "UPDATE " + TABLA + " SET Id_Estado = '" + provoca.getIdEstado()
                 + "' WHERE " + CLAVE

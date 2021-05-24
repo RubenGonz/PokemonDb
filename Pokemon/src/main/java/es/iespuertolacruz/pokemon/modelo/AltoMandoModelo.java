@@ -25,11 +25,11 @@ public class AltoMandoModelo {
         String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = '" + altoMando.getIdEntrenador() + "';";
         persistencia.update(sql);
     }
-
+/** 
     public AltoMando buscar(int idEntrenador) throws PersistenciaException {
         return (AltoMando) persistencia.buscarElemento(idEntrenador);
     }
-
+*/
     public void actualizar(AltoMando altoMando) throws PersistenciaException {
         String sql = "UPDATE " + TABLA + " SET Tipo_Principal = '" + altoMando.getTipoPrincipal() + "' WHERE " + CLAVE + " = '"
                 + altoMando.getIdEntrenador() + "';";

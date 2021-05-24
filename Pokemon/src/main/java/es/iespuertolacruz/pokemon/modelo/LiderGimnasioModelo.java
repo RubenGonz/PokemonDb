@@ -22,14 +22,14 @@ public class LiderGimnasioModelo {
     }
 
     public void eliminar(LiderGimnasio liderGimnasio) throws PersistenciaException {
-        String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = '" + altoMando.getIdEntrenador() + "';";
+        String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = '" + liderGimnasio.getIdEntrenador() + "';";
         persistencia.update(sql);
     }
-
+/**
     public LiderGimnasio buscar(int idEntrenador) throws PersistenciaException {
         return (LiderGimnasio) persistencia.buscarElemento(idEntrenador);
     }
-
+*/
     public void modificar(LiderGimnasio liderGimnasio) throws PersistenciaException {
         String sql = "UPDATE " + TABLA + " SET Tipo_Principal = '" + liderGimnasio.getMedalla() + "' WHERE " + CLAVE
                 + " = '" + liderGimnasio.getIdEntrenador() + "';";

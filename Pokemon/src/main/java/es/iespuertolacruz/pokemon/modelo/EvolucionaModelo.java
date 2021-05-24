@@ -25,15 +25,15 @@ public class EvolucionaModelo {
         String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = '" + evolucionan.getNumeroPokedexOrigen() + "';";
         persistencia.update(sql);
     }
-
+/**
     public Evoluciona buscar(int numeroPokedexOrigen) throws PersistenciaException {
         return (Evoluciona) persistencia.buscarElemento(NumeroPokedexOrigen);
     }
-
+*/
     public void modificar(Evoluciona evoluciona) throws PersistenciaException {
         String sql = "UPDATE " + TABLA + " SET Tipo_Principal = '" + evoluciona.getNumeroPokedexDestino()+ evoluciona
                 .getModoEvoluciona()+ "' WHERE " + CLAVE
-                + " = '" + evolucionan.getNumeroPokedexOrigen() + "';";
+                + " = '" + evoluciona.getNumeroPokedexOrigen() + "';";
         persistencia.update(sql);
     }
 }

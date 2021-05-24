@@ -26,11 +26,11 @@ public class CaracteristicasModelo {
         String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = '" + caracteristicas.getId() + "';";
         persistencia.update(sql);
     }
-
+/**
     public Caracteristicas buscar(int Id_caracteristica) throws PersistenciaException {
         return (Caracteristicas) persistencia.buscarElemento(Id_caracteristica);
     }
-
+*/
     public void modificar(Caracteristicas caracteristicas) throws PersistenciaException {
         String sql = "UPDATE " + TABLA + " SET Id_caracteristica = '" +caracteristicas.getPeso() + "','"
                 + caracteristicas.getAltura()+"','"+ caracteristicas.getEspecie()+ "','"+caracteristicas.getHabilidad()+  "' WHERE " + CLAVE

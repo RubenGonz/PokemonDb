@@ -26,11 +26,11 @@ public class VillanoModelo {
         String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = '" + villano.getIdEntrenador() + "';";
         persistencia.update(sql);
     }
-
+/**
     public Villano buscar(int numeroPokedex) throws PersistenciaException {
         return (Villano) persistencia.buscarElemento(numeroPokedex);
     }
-
+*/
     public void modificar(Villano villano) throws PersistenciaException {
         String sql = "UPDATE " + TABLA + " SET Tipo_Principal = '" + villano.getProposito() + "' WHERE " + CLAVE
                 + " = '" + villano.getIdEntrenador() + "';";

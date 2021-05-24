@@ -31,12 +31,12 @@ public class CampeonLigaModelo {
             String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = '" + campeonLiga.getIdEntrenador() + "';";
             persistencia.update(sql);
         }
-
+/**
         public CampeonLiga buscar(int idEntrenador) throws PersistenciaException {
             return (CampeonLiga) persistencia.buscarElemento(idEntrenador);
 
         }
-
+*/
         public void modificar(CampeonLiga campeonLiga) throws PersistenciaException {
             String sql = "UPDATE " + TABLA + " SET Region = '" + campeonLiga.getRegion() + "' WHERE "
                     + CLAVE + " = '" + campeonLiga.getIdEntrenador() + "';";
