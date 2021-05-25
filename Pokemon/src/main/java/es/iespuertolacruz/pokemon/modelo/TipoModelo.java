@@ -14,7 +14,7 @@ public class TipoModelo {
     // Constructores
 
     public TipoModelo() throws PersistenciaException {
-        persistencia = new DdBbSqLite(TABLA, CLAVE, null, null);
+        persistencia = new DdBbSqLite(null, null);
     }
 
     //Metodos y funciones
