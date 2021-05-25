@@ -8,8 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
 
+import es.iespuertolacruz.pokemon.api.Pokemon;
 import es.iespuertolacruz.pokemon.api.Tipo;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
@@ -17,6 +17,10 @@ public abstract class DdBb {
 
     // Variables de clase
 
+    /**
+     *
+     */
+    private static final String SE_HA_PRODUCIDO_UN_ERROR_EN_LA_BUSQUEDA = "Se ha producido un error en la busqueda";
     private static final String CARACTERISTICAS = "CARACTERISTICAS";
     private static final String ESTADISTICAS_BASE = "ESTADISTICAS_BASE";
     private static final String POKEMON = "POKEMON";
@@ -105,11 +109,40 @@ public abstract class DdBb {
                     && !listaTablas.contains(ENTRENADOR_CASUAL) && !listaTablas.contains(CAMPEON_LIGA)
                     && !listaTablas.contains(ALTO_MANDO) && !listaTablas.contains(ENTRENADOR_EQUIPA)
                     && !listaTablas.contains(TIENE)) {
-                String sqlCrearTablaTipo = "CREATE TABLE IF NOT EXISTS TIPO( " + "nombre VARCHAR (15) CHECK (nombre IN "
-                        + "('Agua', 'Bicho', 'Dragon', 'Electrico', 'Fantasma', "
-                        + "'Fuego', 'Hielo', 'Lucha', 'Normal', 'Planta', "
-                        + "'Psiquico', 'Roca', 'Tierra', 'Veneno', 'Pajaro')), " + "color VARCHAR (20), "
-                        + "PRIMARY KEY (nombre));";
+                
+                String sqlCrearTablaEstadisticasBase = "CREATE TABLE IF NOT EXISTS CARACTERISTICAS (" +
+                    "id_caracteristica INT CHECK (id_caracteristica > 0), " +
+                    "peso FLOAT CHECK (peso > 0), " +
+                    "altura FLOAT CHECK (altura > 0), " +
+                    "especie VARCHAR (20), " +
+                    "habilidad VARCHAR (20), " +
+                    "categoria VARCHAR (20) CHECK (categoria IN ('Normal', 'Starter', 'Semi-legendario', 'Legendario')), " +
+                    "PRIMARY KEY (id_caracteristica));";
+                String sqlCrearTablaCaracteristicas = "CREATE TABLE IF NOT EXISTS ESTADISTICAS_BASE ( " +
+                    "id_estadisticas_base INT CHECK (id_estadisticas_base > 0), " +
+                    "ps_base INT CHECK (ps_base > 0), " +
+                    "ataque_base INT CHECK (ataque_base > 0), " +
+                    "defensa_base INT CHECK (defensa_base > 0), " +
+                    "ataque_especial_base INT CHECK (ataque_especial_base > 0), " +
+                    "defensa_especial_base INT CHECK (defensa_especial_base > 0), " +
+                    "velocidad_base INT CHECK (velocidad_base > 0), " +
+                    "PRIMARY KEY (id_estadisticas_base));";
+                String sqlCrearTablaPokemon = "CREATE TABLE IF NOT EXISTS POKEMON ( " +
+                    "numero_pokedex INT CHECK (numero_pokedex > 0), " +
+                    "nombre VARCHAR (15), " +
+                    "id_caracteristica INT CHECK (id_caracteristica > 0), " +
+                    "id_estadisticas_base INT CHECK (id_estadisticas_base > 0), " +
+                    "PRIMARY KEY (numero_pokedex), " +
+                    "FOREIGN KEY (id_caracteristica) REFERENCES CARACTERISTICAS (id_caracteristica), " +
+                    "FOREIGN KEY (id_estadisticas_base) REFERENCES ESTADISTICAS_BASE (id_estadisticas_base));";
+                String sqlCrearTablaTipo = "CREATE TABLE IF NOT EXISTS TIPO( " + "nombre VARCHAR (15) CHECK (nombre IN " +
+                    "('Agua', 'Bicho', 'Dragon', 'Electrico', 'Fantasma', " +
+                    "'Fuego', 'Hielo', 'Lucha', 'Normal', 'Planta', " +
+                    "'Psiquico', 'Roca', 'Tierra', 'Veneno', 'Pajaro')), " + "color VARCHAR (20), " +
+                    "PRIMARY KEY (nombre));";
+                update(sqlCrearTablaEstadisticasBase);
+                update(sqlCrearTablaCaracteristicas);
+                update(sqlCrearTablaPokemon);
                 update(sqlCrearTablaTipo);
             }
         } catch (Exception e) {
@@ -142,16 +175,16 @@ public abstract class DdBb {
     }
 
     /**
-     * Funcion encargada de obtener un objeto
+     * Funcion encargada de obtener un tipo
      * 
-     * @param identificador del objeto
-     * @return Objeto
-     * @throws PersistenciaException
+     * @param nombre del tipo
+     * @return Tipo buscado
+     * @throws PersistenciaException con error controlado
      */
-    public Object buscarTipo(String identificador) throws PersistenciaException {
+    public Object buscarTipoPorNombre(String nombre) throws PersistenciaException {
         Object elemento = null;
-        String sql = "SELECT * FROM TIPO WHERE nombre = '" + identificador + "';";
-        ArrayList<Tipo> lista = buscar(sql);
+        String sql = "SELECT * FROM TIPO WHERE nombre = '" + nombre + "';";
+        ArrayList<Tipo> lista = buscarTipo(sql);
         if (!lista.isEmpty()) {
             elemento = lista.get(0);
         }
@@ -159,14 +192,20 @@ public abstract class DdBb {
     }
 
     /**
-     * Funcion que obtiene todos los usuarios de la BBDD
+     * Funcion encargada de obtener un pokemon
      * 
-     * @return lista usuarios
-     * @throws PersistenciaException error controlado
+     * @param numeroPokedex del pokemon
+     * @return Pokemon buscado
+     * @throws PersistenciaException con error controlado
      */
-    public List<Tipo> buscarTipos() throws PersistenciaException {
-        String sql = "SELECT * FROM TIPO;";
-        return buscar(sql);
+    public Object buscarPokemonPorNumeroPokedex(int numeroPokedex) throws PersistenciaException {
+        Object elemento = null;
+        String sql = "SELECT * FROM POKEMON WHERE numero_pokedex = " + numeroPokedex + ";";
+        ArrayList<Pokemon> lista = buscarPokemon(sql);
+        if (!lista.isEmpty()) {
+            elemento = lista.get(0);
+        }
+        return elemento;
     }
 
     /**
@@ -176,7 +215,7 @@ public abstract class DdBb {
      * @return lista resultados (0..n) Usuasios
      * @throws PersistenciaException error controlado
      */
-    private ArrayList<Tipo> buscar(String sql) throws PersistenciaException {
+    private ArrayList<Tipo> buscarTipo(String sql) throws PersistenciaException {
         ArrayList<Tipo> lista = new ArrayList<>();
         PreparedStatement statement = null;
         ResultSet resultSet = null;
@@ -193,7 +232,40 @@ public abstract class DdBb {
                 lista.add(tipo);
             }
         } catch (SQLException exception) {
-            throw new PersistenciaException("Se ha producido un error en la busqueda", exception);
+            throw new PersistenciaException(SE_HA_PRODUCIDO_UN_ERROR_EN_LA_BUSQUEDA, exception);
+        } finally {
+            closeConecction(connection, statement, resultSet);
+        }
+        return lista;
+    }
+
+    /**
+     * Funcion que realiza una consulta sobre una sentencia sql dada
+     * 
+     * @param sql de la consulta
+     * @return lista resultados (0..n) Usuasios
+     * @throws PersistenciaException error controlado
+     */
+    private ArrayList<Pokemon> buscarPokemon(String sql) throws PersistenciaException {
+        ArrayList<Pokemon> lista = new ArrayList<>();
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        Connection connection = null;
+        try {
+            connection = getConnection();
+            statement = connection.prepareStatement(sql);
+            resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                Pokemon pokemon = new Pokemon();
+                pokemon.setNumeroPokedex(resultSet.getInt("numero_pokedex"));
+                pokemon.setNombre(resultSet.getString("nombre"));
+                pokemon.setCaracteristicas(resultSet.getInt("id_caracteristica"));
+                pokemon.setEstadisticasBase(resultSet.getInt("id_estadisticas_base"));
+                lista.add(pokemon);
+            }
+        } catch (SQLException exception) {
+            throw new PersistenciaException(SE_HA_PRODUCIDO_UN_ERROR_EN_LA_BUSQUEDA, exception);
         } finally {
             closeConecction(connection, statement, resultSet);
         }
@@ -215,7 +287,7 @@ public abstract class DdBb {
             statement = connection.prepareStatement(sql);
             statement.executeUpdate();
         } catch (SQLException exception) {
-            throw new PersistenciaException("Se ha producido un error en la busqueda", exception);
+            throw new PersistenciaException(SE_HA_PRODUCIDO_UN_ERROR_EN_LA_BUSQUEDA, exception);
         } finally {
             closeConecction(connection, statement, null);
         }

@@ -26,8 +26,10 @@ C:\Users\admin\Desktop\Repositorios\Pokemon\PokemonDb\Pokemon\src\main\java\es\i
 C:\Users\admin\Desktop\Repositorios\Pokemon\PokemonDb\Pokemon\src\main\java\es\iespuertolacruz\pokemon\modelo\PokemonEquipaModelo.java
 C:\Users\admin\Desktop\Repositorios\Pokemon\PokemonDb\Pokemon\src\main\java\es\iespuertolacruz\pokemon\api\AltoMando.java
 C:\Users\admin\Desktop\Repositorios\Pokemon\PokemonDb\Pokemon\src\main\java\es\iespuertolacruz\pokemon\modelo\ObjetoModelo.java
+C:\Users\admin\Desktop\Repositorios\Pokemon\PokemonDb\Pokemon\src\main\java\es\iespuertolacruz\pokemon\modelo\PokemonModelo.java
 C:\Users\admin\Desktop\Repositorios\Pokemon\PokemonDb\Pokemon\src\main\java\es\iespuertolacruz\pokemon\api\Movimiento.java
 C:\Users\admin\Desktop\Repositorios\Pokemon\PokemonDb\Pokemon\src\main\java\es\iespuertolacruz\pokemon\api\Villano.java
+C:\Users\admin\Desktop\Repositorios\Pokemon\PokemonDb\Pokemon\src\main\java\es\iespuertolacruz\pokemon\controller\PokemonController.java
 C:\Users\admin\Desktop\Repositorios\Pokemon\PokemonDb\Pokemon\src\main\java\es\iespuertolacruz\pokemon\api\CampeonLiga.java
 C:\Users\admin\Desktop\Repositorios\Pokemon\PokemonDb\Pokemon\src\main\java\es\iespuertolacruz\pokemon\api\Conoce.java
 C:\Users\admin\Desktop\Repositorios\Pokemon\PokemonDb\Pokemon\src\main\java\es\iespuertolacruz\pokemon\api\Maquina.java
@@ -36,7 +38,6 @@ C:\Users\admin\Desktop\Repositorios\Pokemon\PokemonDb\Pokemon\src\main\java\es\i
 C:\Users\admin\Desktop\Repositorios\Pokemon\PokemonDb\Pokemon\src\main\java\es\iespuertolacruz\pokemon\excepciones\PersistenciaException.java
 C:\Users\admin\Desktop\Repositorios\Pokemon\PokemonDb\Pokemon\src\main\java\es\iespuertolacruz\pokemon\api\Pokeball.java
 C:\Users\admin\Desktop\Repositorios\Pokemon\PokemonDb\Pokemon\src\main\java\es\iespuertolacruz\pokemon\modelo\AltoMandoModelo.java
-C:\Users\admin\Desktop\Repositorios\Pokemon\PokemonDb\Pokemon\src\main\java\es\iespuertolacruz\pokemon\modelo\ProvocaModelo.java
 C:\Users\admin\Desktop\Repositorios\Pokemon\PokemonDb\Pokemon\src\main\java\es\iespuertolacruz\pokemon\api\Estado.java
 C:\Users\admin\Desktop\Repositorios\Pokemon\PokemonDb\Pokemon\src\main\java\es\iespuertolacruz\pokemon\api\Tiene.java
 C:\Users\admin\Desktop\Repositorios\Pokemon\PokemonDb\Pokemon\src\main\java\es\iespuertolacruz\pokemon\modelo\ConoceModelo.java

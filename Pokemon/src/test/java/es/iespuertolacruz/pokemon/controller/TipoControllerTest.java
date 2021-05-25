@@ -60,9 +60,9 @@ public class TipoControllerTest {
 
     @Test
     public void validarTest() {
-        Tipo tipoInvalida = new Tipo("", "");
+        Tipo tipoInvalido = new Tipo("", "");
         try {
-            tipoController.validarTipo(tipoInvalida);
+            tipoController.validar(tipoInvalido);
         } catch (PokemonException e) {
             assertTrue(e.getMessage().contains(
                     "El nombre del tipo es nulo o vacio, el color del tipo es nulo o vacio."),
@@ -74,7 +74,7 @@ public class TipoControllerTest {
     public void validarNuloTest() {
         Tipo tipoInvalido = null;
         try {
-            tipoController.validarTipo(tipoInvalido);
+            tipoController.validar(tipoInvalido);
         } catch (PokemonException e) {
             assertTrue(e.getMessage().contains("Se esta validando un objeto nulo"),
                     "No se recibio el mensaje esperado");
@@ -115,7 +115,7 @@ public class TipoControllerTest {
         try {
             tipoController.modificar(tipo);
         } catch (PokemonException | PersistenciaException e) {
-            assertEquals(null,e.getMessage(), "No deberia llgar ningun mensaje de error y llega");
+            fail("No deberia llgar ningun mensaje de error y llega");
         }
     }
 

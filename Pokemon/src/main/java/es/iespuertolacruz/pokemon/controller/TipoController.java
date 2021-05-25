@@ -25,7 +25,7 @@ public class TipoController {
      * @param tipo a validar
      * @throws PokemonException con el mensaje descriptivo de lo que sucede
      */
-    public void validarTipo(Tipo tipo) throws PokemonException {
+    public void validar(Tipo tipo) throws PokemonException {
         String mensaje = "";
 
         if (tipo == null) {
@@ -54,7 +54,7 @@ public class TipoController {
      * @throws PersistenciaException con mensaje controlado
      */
     public void insertar(Tipo tipo) throws PokemonException, PersistenciaException {
-        validarTipo(tipo);
+        validar(tipo);
         if (existe(tipo)) {
             throw new PokemonException("El tipo indicado ya existe");
         }
@@ -69,7 +69,7 @@ public class TipoController {
      * @throws PersistenciaException con mensaje controlado
      */
     public void eliminar(Tipo tipo) throws PokemonException, PersistenciaException {
-        validarTipo(tipo);
+        validar(tipo);
         if (!existe(tipo)) {
             throw new PokemonException("El tipo indicado no existe");
         }
@@ -110,7 +110,7 @@ public class TipoController {
      * @throws PersistenciaException con mensaje controlado
      */
     public void modificar(Tipo tipo) throws PokemonException, PersistenciaException {
-        validarTipo(tipo);
+        validar(tipo);
         if (!existe(tipo)) {
             throw new PokemonException("El tipo indicado no existe");
         }

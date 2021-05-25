@@ -27,15 +27,15 @@ public class TipoModelo {
     }
 
     public void eliminar(Tipo tipo) throws PersistenciaException {
-        String sql = "DELETE FROM " + TABLA + 
-        " WHERE " + CLAVE + " = '" + tipo.getNombre() + "';";
+        String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = '" + 
+        tipo.getNombre() + "';";
         persistencia.update(sql);
     }
 
     public Tipo buscar(String nombre) throws PersistenciaException {
-        return (Tipo) persistencia.buscarTipo(nombre);
+        return (Tipo) persistencia.buscarTipoPorNombre(nombre);
     }
-
+    
     public void modificar(Tipo tipo) throws PersistenciaException {
         String sql = "UPDATE " + TABLA + 
         " SET color = '" + tipo.getColor() +

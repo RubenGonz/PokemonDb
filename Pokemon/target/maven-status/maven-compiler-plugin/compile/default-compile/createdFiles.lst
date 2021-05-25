@@ -6,7 +6,9 @@ es\iespuertolacruz\pokemon\api\Pokeball.class
 es\iespuertolacruz\pokemon\api\EntrenadorEquipa.class
 es\iespuertolacruz\pokemon\api\LiderGimnasio.class
 es\iespuertolacruz\pokemon\api\Pertenece.class
+es\iespuertolacruz\pokemon\controller\PokemonController.class
 es\iespuertolacruz\pokemon\modelo\ObjetoComunModelo.class
+es\iespuertolacruz\pokemon\modelo\PokemonModelo.class
 es\iespuertolacruz\pokemon\api\CampeonLiga.class
 es\iespuertolacruz\pokemon\api\PokemonEquipa.class
 es\iespuertolacruz\pokemon\api\Pokemon.class
@@ -47,6 +49,5 @@ es\iespuertolacruz\pokemon\api\AltoMando.class
 es\iespuertolacruz\pokemon\api\Evoluciona.class
 es\iespuertolacruz\pokemon\modelo\EstadisticasBaseModelo.class
 es\iespuertolacruz\pokemon\modelo\PokemonFichero.class
-es\iespuertolacruz\pokemon\modelo\ProvocaModelo.class
 es\iespuertolacruz\pokemon\vista\App.class
 es\iespuertolacruz\pokemon\modelo\TipoModelo.class

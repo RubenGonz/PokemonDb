@@ -29,6 +29,7 @@ PokemonApp,es.iespuertolacruz.pokemon.modelo,PerteneceModelo,43,0,0,0,14,0,4,0,4
 PokemonApp,es.iespuertolacruz.pokemon.modelo,MaquinaModelo,43,0,0,0,14,0,4,0,4,0
 PokemonApp,es.iespuertolacruz.pokemon.modelo,ConoceModelo,43,0,0,0,14,0,4,0,4,0
 PokemonApp,es.iespuertolacruz.pokemon.modelo,DdBbSqLite,7,7,0,0,2,2,1,1,1,1
+PokemonApp,es.iespuertolacruz.pokemon.modelo,PokemonModelo,55,0,0,0,22,0,5,0,5,0
 PokemonApp,es.iespuertolacruz.pokemon.modelo,AltoMandoModelo,43,0,0,0,13,0,4,0,4,0
 PokemonApp,es.iespuertolacruz.pokemon.modelo,EstadoModelo,51,0,0,0,14,0,4,0,4,0
 PokemonApp,es.iespuertolacruz.pokemon.modelo,TieneModelo,47,0,0,0,15,0,4,0,4,0
@@ -39,15 +40,15 @@ PokemonApp,es.iespuertolacruz.pokemon.modelo,TipoModelo,0,47,0,0,0,18,0,5,0,5
 PokemonApp,es.iespuertolacruz.pokemon.modelo,PokemonEquipaModelo,43,0,0,0,14,0,4,0,4,0
 PokemonApp,es.iespuertolacruz.pokemon.modelo,EntrenadorModelo,43,0,0,0,13,0,4,0,4,0
 PokemonApp,es.iespuertolacruz.pokemon.modelo,LiderGimnasioModelo,43,0,0,0,14,0,4,0,4,0
-PokemonApp,es.iespuertolacruz.pokemon.modelo,DdBb,191,354,28,34,36,71,28,11,1,7
+PokemonApp,es.iespuertolacruz.pokemon.modelo,DdBb,269,369,32,34,59,77,31,11,2,7
 PokemonApp,es.iespuertolacruz.pokemon.modelo,EstadisticasBaseModelo,63,0,0,0,19,0,4,0,4,0
 PokemonApp,es.iespuertolacruz.pokemon.modelo,EntrenadrCasualModelo,43,0,0,0,14,0,4,0,4,0
-PokemonApp,es.iespuertolacruz.pokemon.modelo,ProvocaModelo,43,0,0,0,14,0,4,0,4,0
 PokemonApp,es.iespuertolacruz.pokemon.modelo,PokeballModelo,43,0,0,0,14,0,4,0,4,0
 PokemonApp,es.iespuertolacruz.pokemon.modelo,EntrenadorEquipaModelo,47,0,0,0,14,0,4,0,4,0
 PokemonApp,es.iespuertolacruz.pokemon.modelo,PokemonFichero,254,0,20,0,80,0,20,0,10,0
 PokemonApp,es.iespuertolacruz.pokemon.modelo,MovimientoModelo,63,0,0,0,16,0,4,0,4,0
 PokemonApp,es.iespuertolacruz.pokemon.modelo,ObjetoModelo,47,0,0,0,15,0,4,0,4,0
 PokemonApp,es.iespuertolacruz.pokemon.modelo,VillanoModelo,43,0,0,0,14,0,4,0,4,0
+PokemonApp,es.iespuertolacruz.pokemon.controller,PokemonController,134,0,22,0,44,0,19,0,8,0
 PokemonApp,es.iespuertolacruz.pokemon.controller,TipoController,0,128,2,18,0,40,2,16,0,8
 PokemonApp,es.iespuertolacruz.pokemon.vista,App,742,0,83,0,314,0,74,0,13,0
