@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 import es.iespuertolacruz.pokemon.api.Tipo;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
@@ -150,7 +151,7 @@ public abstract class DdBb {
     public Object buscarElemento(String identificador) throws PersistenciaException {
         Object elemento = null;
         String sql = "SELECT * FROM TIPO WHERE nombre = '" + identificador + "';";
-        ArrayList<Object> lista = buscar(sql);
+        ArrayList<Tipo> lista = buscar(sql);
         if (!lista.isEmpty()) {
             elemento = lista.get(0);
         }
@@ -163,7 +164,7 @@ public abstract class DdBb {
      * @return lista usuarios
      * @throws PersistenciaException error controlado
      */
-    public ArrayList<Object> buscarTodos() throws PersistenciaException {
+    public List<Tipo> buscarTodos() throws PersistenciaException {
         String sql = "SELECT * FROM TIPO;";
         return buscar(sql);
     }
@@ -175,8 +176,8 @@ public abstract class DdBb {
      * @return lista resultados (0..n) Usuasios
      * @throws PersistenciaException error controlado
      */
-    private ArrayList<Object> buscar(String sql) throws PersistenciaException {
-        ArrayList<Object> lista = new ArrayList<>();
+    private ArrayList<Tipo> buscar(String sql) throws PersistenciaException {
+        ArrayList<Tipo> lista = new ArrayList<>();
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         Connection connection = null;
