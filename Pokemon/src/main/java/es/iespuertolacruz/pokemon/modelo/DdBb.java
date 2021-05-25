@@ -47,7 +47,7 @@ public abstract class DdBb {
 
     // Constructor
 
-    public DdBb(String driver, String urlConexion, String usuario, String password) throws PersistenciaException {
+    protected DdBb(String driver, String urlConexion, String usuario, String password) throws PersistenciaException {
         this.driver = driver;
         this.urlConexion = urlConexion;
         this.usuario = usuario;
