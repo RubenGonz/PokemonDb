@@ -148,7 +148,7 @@ public abstract class DdBb {
      * @return Objeto
      * @throws PersistenciaException
      */
-    public Object buscarElemento(String identificador) throws PersistenciaException {
+    public Object buscarTipo(String identificador) throws PersistenciaException {
         Object elemento = null;
         String sql = "SELECT * FROM TIPO WHERE nombre = '" + identificador + "';";
         ArrayList<Tipo> lista = buscar(sql);
@@ -164,7 +164,7 @@ public abstract class DdBb {
      * @return lista usuarios
      * @throws PersistenciaException error controlado
      */
-    public List<Tipo> buscarTodos() throws PersistenciaException {
+    public List<Tipo> buscarTipos() throws PersistenciaException {
         String sql = "SELECT * FROM TIPO;";
         return buscar(sql);
     }

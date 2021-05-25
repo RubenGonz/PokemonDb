@@ -33,7 +33,7 @@ public class TipoModelo {
     }
 
     public Tipo buscar(String nombre) throws PersistenciaException {
-        return (Tipo) persistencia.buscarElemento(nombre);
+        return (Tipo) persistencia.buscarTipo(nombre);
     }
 
     public void modificar(Tipo tipo) throws PersistenciaException {
