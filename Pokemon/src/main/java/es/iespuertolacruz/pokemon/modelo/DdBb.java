@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import es.iespuertolacruz.pokemon.api.Caracteristicas;
 import es.iespuertolacruz.pokemon.api.Pokemon;
 import es.iespuertolacruz.pokemon.api.Tipo;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
@@ -175,16 +176,16 @@ public abstract class DdBb {
     }
 
     /**
-     * Funcion encargada de obtener un tipo
+     * Funcion encargada de obtener una caracteristica
      * 
-     * @param nombre del tipo
-     * @return Tipo buscado
+     * @param id_caracteristica del pokemon
+     * @return Pokemon buscado
      * @throws PersistenciaException con error controlado
      */
-    public Object buscarTipoPorNombre(String nombre) throws PersistenciaException {
+    public Object buscarCaracteristicaPorId(int idCaracteristica) throws PersistenciaException {
         Object elemento = null;
-        String sql = "SELECT * FROM TIPO WHERE nombre = '" + nombre + "';";
-        ArrayList<Tipo> lista = buscarTipo(sql);
+        String sql = "SELECT * FROM CARACTERISTICAS WHERE id_caracteristica = " + idCaracteristica + ";";
+        ArrayList<Caracteristicas> lista = buscarCaracteristica(sql);
         if (!lista.isEmpty()) {
             elemento = lista.get(0);
         }
@@ -209,14 +210,31 @@ public abstract class DdBb {
     }
 
     /**
+     * Funcion encargada de obtener un tipo
+     * 
+     * @param nombre del tipo
+     * @return Tipo buscado
+     * @throws PersistenciaException con error controlado
+     */
+    public Object buscarTipoPorNombre(String nombre) throws PersistenciaException {
+        Object elemento = null;
+        String sql = "SELECT * FROM TIPO WHERE nombre = '" + nombre + "';";
+        ArrayList<Tipo> lista = buscarTipo(sql);
+        if (!lista.isEmpty()) {
+            elemento = lista.get(0);
+        }
+        return elemento;
+    }
+
+    /**
      * Funcion que realiza una consulta sobre una sentencia sql dada
      * 
      * @param sql de la consulta
      * @return lista resultados (0..n) Usuasios
      * @throws PersistenciaException error controlado
      */
-    private ArrayList<Tipo> buscarTipo(String sql) throws PersistenciaException {
-        ArrayList<Tipo> lista = new ArrayList<>();
+    private ArrayList<Caracteristicas> buscarCaracteristica(String sql) throws PersistenciaException {
+        ArrayList<Caracteristicas> lista = new ArrayList<>();
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         Connection connection = null;
@@ -226,10 +244,14 @@ public abstract class DdBb {
             resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                Tipo tipo = new Tipo();
-                tipo.setNombre(resultSet.getString("nombre"));
-                tipo.setColor(resultSet.getString("color"));
-                lista.add(tipo);
+                Caracteristicas caracteristicas = new Caracteristicas();
+                caracteristicas.setId(resultSet.getInt("id_caracteristica"));
+                caracteristicas.setPeso(resultSet.getFloat("peso"));
+                caracteristicas.setAltura(resultSet.getFloat("altura"));
+                caracteristicas.setEspecie(resultSet.getString("especie"));               
+                caracteristicas.setHabilidad(resultSet.getString("habilidad"));
+                caracteristicas.setCategoria(resultSet.getString("categoria"));           
+                lista.add(caracteristicas);
             }
         } catch (SQLException exception) {
             throw new PersistenciaException(SE_HA_PRODUCIDO_UN_ERROR_EN_LA_BUSQUEDA, exception);
@@ -263,6 +285,37 @@ public abstract class DdBb {
                 pokemon.setCaracteristicas(resultSet.getInt("id_caracteristica"));
                 pokemon.setEstadisticasBase(resultSet.getInt("id_estadisticas_base"));
                 lista.add(pokemon);
+            }
+        } catch (SQLException exception) {
+            throw new PersistenciaException(SE_HA_PRODUCIDO_UN_ERROR_EN_LA_BUSQUEDA, exception);
+        } finally {
+            closeConecction(connection, statement, resultSet);
+        }
+        return lista;
+    }
+
+    /**
+     * Funcion que realiza una consulta sobre una sentencia sql dada
+     * 
+     * @param sql de la consulta
+     * @return lista resultados (0..n) Usuasios
+     * @throws PersistenciaException error controlado
+     */
+    private ArrayList<Tipo> buscarTipo(String sql) throws PersistenciaException {
+        ArrayList<Tipo> lista = new ArrayList<>();
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        Connection connection = null;
+        try {
+            connection = getConnection();
+            statement = connection.prepareStatement(sql);
+            resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                Tipo tipo = new Tipo();
+                tipo.setNombre(resultSet.getString("nombre"));
+                tipo.setColor(resultSet.getString("color"));
+                lista.add(tipo);
             }
         } catch (SQLException exception) {
             throw new PersistenciaException(SE_HA_PRODUCIDO_UN_ERROR_EN_LA_BUSQUEDA, exception);

@@ -15,7 +15,7 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
 public class PokemonControllerTest {
-    /** 
+/**
     // Variables de clase
 
     static PokemonController pokemonController;
@@ -29,7 +29,7 @@ public class PokemonControllerTest {
             try {
                 pokemonController = new PokemonController();
             } catch (PersistenciaException e) {
-                fail("Se ha producido un error iniciando pokemonController");
+                fail("Se ha producido un error iniciando pokemonController" + e);
             }
         }
     }
