@@ -354,7 +354,7 @@ public abstract class DdBb {
      * @param resultSet  resultado
      * @throws PersistenciaException error controlado
      */
-    private void closeConecction(Connection connection, Statement statement, ResultSet resultSet)
+    public void closeConecction(Connection connection, Statement statement, ResultSet resultSet)
             throws PersistenciaException {
         try {
             if (resultSet != null) {
