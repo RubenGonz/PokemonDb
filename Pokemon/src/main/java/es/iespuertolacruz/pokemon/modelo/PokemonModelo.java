@@ -32,10 +32,6 @@ public class PokemonModelo {
         persistencia.update(sql);
     }
 
-    public Pokemon buscar(int numeroPokedex) throws PersistenciaException {
-        return (Pokemon) persistencia.buscarPokemonPorNumeroPokedex(numeroPokedex);
-    }
-
     public void modificar(Pokemon pokemon) throws PersistenciaException {
         String sql = "UPDATE " + TABLA +  
             " SET nombre = '" + pokemon.getNombre() + "'," +

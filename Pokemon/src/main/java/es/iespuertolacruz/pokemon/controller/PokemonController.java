@@ -60,7 +60,7 @@ public class PokemonController {
      * @param pokemon a insertar
      * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
-     */
+    
     public void insertar(Pokemon pokemon) throws PokemonException, PersistenciaException {
         validar(pokemon);
         if (existe(pokemon)) {
@@ -68,14 +68,14 @@ public class PokemonController {
         }
         pokemonModelo.insertar(pokemon);
     }
-
+ */
     /**
      * Metodo encargado de eliminar
      * 
      * @param pokemon a eliminar
      * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
-     */
+     
     public void eliminar(Pokemon pokemon) throws PokemonException, PersistenciaException {
         validar(pokemon);
         if (!existe(pokemon)) {
@@ -83,40 +83,40 @@ public class PokemonController {
         }
         pokemonModelo.eliminar(pokemon);
     }
-
+*/
     /**
      * Metodo encargado de realizar la eliminacion
      * 
      * @param numeroPokedex del pokemon a eliminar
      * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
-     */
+    
     public void eliminar(int numeroPokedex) throws PokemonException, PersistenciaException {
         Pokemon pokemon;
         pokemon = buscar(numeroPokedex);
         eliminar(pokemon);
     }
-
+ */
     /**
      * Metodo encargado de buscar por el numero de la pokedex
      * 
      * @param numeroPokedex para localizar el pokemon
      * @return pokemon a traves del numero de la pokedex
      * @throws PersistenciaException con mensaje controlado
-     */
+    
     public Pokemon buscar(int numeroPokedex) throws PersistenciaException {
         Pokemon pokemon = null;
         pokemon = pokemonModelo.buscar(numeroPokedex);
         return pokemon;
     }
-
+ */
     /**
      * Metodo encargado de realizar la modificacion de un pokemon
      * 
      * @param pokemon a modficar
      * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
-     */
+     
     public void modificar(Pokemon pokemon) throws PokemonException, PersistenciaException {
         validar(pokemon);
         if (!existe(pokemon)) {
@@ -124,14 +124,14 @@ public class PokemonController {
         }
         pokemonModelo.modificar(pokemon);
     }
-
+*/
     /**
      * Funcion encargada de verificar si existe el pokemon
      * 
      * @param pokemon a encontrar
      * @return true si existe o false si no existe
      * @throws PersistenciaException con mensaje controlado
-     */
+    
     private boolean existe(Pokemon pokemon) throws PersistenciaException {
         boolean encontrado = false;
         Pokemon pokemonEncontrado;
@@ -142,5 +142,5 @@ public class PokemonController {
         }
         return encontrado;
     }
-
+*/
 }
