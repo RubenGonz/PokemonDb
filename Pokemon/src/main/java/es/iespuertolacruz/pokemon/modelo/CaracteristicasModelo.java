@@ -15,45 +15,55 @@ public class CaracteristicasModelo {
     DdBbSqLite persistencia;
     private static final String TABLA = "CARACTERISTICAS";
     private static final String CLAVE = "id_caracteristica";
-    private static final String SQLCREARTABLA = "CREATE TABLE IF NOT EXISTS CARACTERISTICAS (" +
-    "id_caracteristica INT CHECK (id_caracteristica > 0), " +
-    "peso FLOAT CHECK (peso > 0), " +
-    "altura FLOAT CHECK (altura > 0), " +
-    "especie VARCHAR (20), " +
-    "habilidad VARCHAR (20), " +
-    "categoria VARCHAR (20) CHECK (categoria IN ('Normal', 'Starter', 'Semi-legendario', 'Legendario')), " +
-    "PRIMARY KEY (id_caracteristica));";
+    private static final String SQLCREARTABLA = "CREATE TABLE IF NOT EXISTS CARACTERISTICAS ("
+            + "id_caracteristica INT CHECK (id_caracteristica > 0), " + "peso FLOAT CHECK (peso > 0), "
+            + "altura FLOAT CHECK (altura > 0), " + "especie VARCHAR (20), " + "habilidad VARCHAR (20), "
+            + "categoria VARCHAR (20) CHECK (categoria IN ('Normal', 'Starter', 'Semi-legendario', 'Legendario')), "
+            + "PRIMARY KEY (id_caracteristica));";
 
     // Constructores
 
     public CaracteristicasModelo() throws PersistenciaException {
-        persistencia = new DdBbSqLite(TABLA,null, null,SQLCREARTABLA);
+        persistencia = new DdBbSqLite(TABLA, null, null, SQLCREARTABLA);
     }
 
+    // Metodos y funciones
+
+    /**
+     * Metodo que inserta caracteristicas en la base de datos
+     * 
+     * @param caracteristicas a insertar
+     * @throws PersistenciaException error controlado
+     */
     public void insertar(Caracteristicas caracteristicas) throws PersistenciaException {
-        String sql = "INSERT INTO " + TABLA + " VALUES (" + 
-            caracteristicas.getId() + "," + 
-            caracteristicas.getPeso() + "," + 
-            caracteristicas.getAltura() + ",'" + 
-            caracteristicas.getEspecie() + "','" + 
-            caracteristicas.getHabilidad() + "','" + 
-            caracteristicas.getCategoria() + "');";
+        String sql = "INSERT INTO " + TABLA + " VALUES (" + caracteristicas.getId() + "," + caracteristicas.getPeso()
+                + "," + caracteristicas.getAltura() + ",'" + caracteristicas.getEspecie() + "','"
+                + caracteristicas.getHabilidad() + "','" + caracteristicas.getCategoria() + "');";
         persistencia.update(sql);
     }
 
+    /**
+     * Metodo que elimina una Caracteristica de la base de datos
+     * 
+     * @param caracteristica a eliminar
+     * @throws PersistenciaException error controlado
+     */
     public void eliminar(Caracteristicas caracteristicas) throws PersistenciaException {
-        String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = " + 
-            caracteristicas.getId() + ";";
+        String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = " + caracteristicas.getId() + ";";
         persistencia.update(sql);
     }
 
+    /**
+     * Metodo que modifica una Caracteristica de la base de datos
+     * 
+     * @param caracteristicas a modificar
+     * @throws PersistenciaException error controlado
+     */
     public void modificar(Caracteristicas caracteristicas) throws PersistenciaException {
-        String sql = "UPDATE " + TABLA + " SET peso = " + caracteristicas.getPeso() + "," + 
-            "altura = " + caracteristicas.getAltura() + "," +
-            "especie = '" + caracteristicas.getEspecie() + "'," +
-            "habilidad = '" + caracteristicas.getHabilidad() + "'," +
-            "categoria = '" + caracteristicas.getCategoria() + "' " +
-            "WHERE " + CLAVE + " = " + caracteristicas.getId() + ";";
+        String sql = "UPDATE " + TABLA + " SET peso = " + caracteristicas.getPeso() + "," + "altura = "
+                + caracteristicas.getAltura() + "," + "especie = '" + caracteristicas.getEspecie() + "',"
+                + "habilidad = '" + caracteristicas.getHabilidad() + "'," + "categoria = '"
+                + caracteristicas.getCategoria() + "' " + "WHERE " + CLAVE + " = " + caracteristicas.getId() + ";";
         persistencia.update(sql);
     }
 
@@ -96,9 +106,9 @@ public class CaracteristicasModelo {
                 caracteristicas.setId(resultSet.getInt(CLAVE));
                 caracteristicas.setPeso(resultSet.getFloat("peso"));
                 caracteristicas.setAltura(resultSet.getFloat("altura"));
-                caracteristicas.setEspecie(resultSet.getString("especie"));               
+                caracteristicas.setEspecie(resultSet.getString("especie"));
                 caracteristicas.setHabilidad(resultSet.getString("habilidad"));
-                caracteristicas.setCategoria(resultSet.getString("categoria"));           
+                caracteristicas.setCategoria(resultSet.getString("categoria"));
                 lista.add(caracteristicas);
             }
         } catch (SQLException exception) {

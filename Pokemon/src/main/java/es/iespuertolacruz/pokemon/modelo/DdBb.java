@@ -26,6 +26,17 @@ public abstract class DdBb {
 
     // Constructor
 
+    /**
+     * Constructor con los parametros pasados por la clase DdBbSqlite
+     * 
+     * @param nombreTabla nombre de la tabla
+     * @param driver de la conexion
+     * @param urlConexion de la conexion
+     * @param usuario de la base de datos
+     * @param password contrasenia del usario
+     * @param sqlCreate sql de la creacion de la tabla
+     * @throws PersistenciaException con error controlado
+     */
     protected DdBb(String nombreTabla, String driver, String urlConexion, String usuario, String password,
             String sqlCreate) throws PersistenciaException {
         this.nombreTabla = nombreTabla;
@@ -36,6 +47,13 @@ public abstract class DdBb {
         inicializarTabla(nombreTabla, sqlCreate);
     }
 
+    /**
+     * Metodo que crea la tabla en la base de datos
+     * 
+     * @param nombreTabla nombre de la tabla a crear
+     * @param sqlCreate sql de la creacion de la tabla
+     * @throws PersistenciaException con error controlado
+     */
     private void inicializarTabla(String nombreTabla, String sqlCreate) throws PersistenciaException {
         DatabaseMetaData databaseMetaData;
         Connection connection = null;

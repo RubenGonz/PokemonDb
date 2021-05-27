@@ -9,27 +9,34 @@ import java.util.ArrayList;
 import es.iespuertolacruz.pokemon.api.Tipo;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
+/**
+ * Clase principal del modelo de tipo
+ */
 public class TipoModelo {
 
-    //Variables de clase
+    // Variables de clase
 
     DdBbSqLite persistencia;
     private static final String TABLA = "TIPO";
     private static final String CLAVE = "nombre";
-    private static final String SQLCREARTABLA = "CREATE TABLE IF NOT EXISTS TIPO( " + "nombre VARCHAR (15) CHECK (nombre IN " +
-    "('Agua', 'Bicho', 'Dragon', 'Electrico', 'Fantasma', " +
-    "'Fuego', 'Hielo', 'Lucha', 'Normal', 'Planta', " +
-    "'Psiquico', 'Roca', 'Tierra', 'Veneno', 'Pajaro')), " + "color VARCHAR (20), " +
-    "PRIMARY KEY (nombre));";
+    private static final String SQLCREARTABLA = "CREATE TABLE IF NOT EXISTS TIPO( "
+            + "nombre VARCHAR (15) CHECK (nombre IN " + "('Agua', 'Bicho', 'Dragon', 'Electrico', 'Fantasma', "
+            + "'Fuego', 'Hielo', 'Lucha', 'Normal', 'Planta', " + "'Psiquico', 'Roca', 'Tierra', 'Veneno', 'Pajaro')), "
+            + "color VARCHAR (20), " + "PRIMARY KEY (nombre));";
 
     // Constructores
 
+    /**
+     * Constructor de TipoModelo donde inicializa DdBbSqLite
+     * 
+     * @throws PersistenciaException con error controlado
+     */
     public TipoModelo() throws PersistenciaException {
-        persistencia = new DdBbSqLite(TABLA,null, null,SQLCREARTABLA);
+        persistencia = new DdBbSqLite(TABLA, null, null, SQLCREARTABLA);
     }
 
-    //Metodos y funciones
-    
+    // Metodos y funciones
+
     /**
      * Metodo que inserta tipos en la base de datos
      * 
@@ -37,9 +44,7 @@ public class TipoModelo {
      * @throws PersistenciaException error controlado
      */
     public void insertar(Tipo tipo) throws PersistenciaException {
-        String sql = "INSERT INTO " + TABLA + " VALUES ('" + 
-        tipo.getNombre() + "','" + 
-        tipo.getColor()+ "');";
+        String sql = "INSERT INTO " + TABLA + " VALUES ('" + tipo.getNombre() + "','" + tipo.getColor() + "');";
         persistencia.update(sql);
     }
 
@@ -47,14 +52,13 @@ public class TipoModelo {
      * Metodo que elimina un tipo de la base de datos
      * 
      * @param tipo a eliminar
-     * @throws PersistenciaException errror controlado
+     * @throws PersistenciaException error controlado
      */
     public void eliminar(Tipo tipo) throws PersistenciaException {
-        String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = '" + 
-        tipo.getNombre() + "';";
+        String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = '" + tipo.getNombre() + "';";
         persistencia.update(sql);
     }
-    
+
     /**
      * Metodo que modifica un Tipo de la base de datos
      * 
@@ -62,9 +66,8 @@ public class TipoModelo {
      * @throws PersistenciaException error controlado
      */
     public void modificar(Tipo tipo) throws PersistenciaException {
-        String sql = "UPDATE " + TABLA + 
-        " SET color = '" + tipo.getColor() +
-        "' WHERE " + CLAVE + " = '" + tipo.getNombre()+"';";
+        String sql = "UPDATE " + TABLA + " SET color = '" + tipo.getColor() + "' WHERE " + CLAVE + " = '"
+                + tipo.getNombre() + "';";
         persistencia.update(sql);
     }
 
