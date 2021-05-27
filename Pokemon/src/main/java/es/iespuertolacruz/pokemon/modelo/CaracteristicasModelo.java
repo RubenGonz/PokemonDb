@@ -15,11 +15,19 @@ public class CaracteristicasModelo {
     DdBbSqLite persistencia;
     private static final String TABLA = "CARACTERISTICAS";
     private static final String CLAVE = "id_caracteristica";
+    private static final String SQLCREARTABLA = "CREATE TABLE IF NOT EXISTS CARACTERISTICAS (" +
+    "id_caracteristica INT CHECK (id_caracteristica > 0), " +
+    "peso FLOAT CHECK (peso > 0), " +
+    "altura FLOAT CHECK (altura > 0), " +
+    "especie VARCHAR (20), " +
+    "habilidad VARCHAR (20), " +
+    "categoria VARCHAR (20) CHECK (categoria IN ('Normal', 'Starter', 'Semi-legendario', 'Legendario')), " +
+    "PRIMARY KEY (id_caracteristica));";
 
     // Constructores
 
     public CaracteristicasModelo() throws PersistenciaException {
-        persistencia = new DdBbSqLite(null, null);
+        persistencia = new DdBbSqLite(TABLA,null, null,SQLCREARTABLA);
     }
 
     public void insertar(Caracteristicas caracteristicas) throws PersistenciaException {

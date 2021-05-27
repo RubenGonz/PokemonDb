@@ -15,34 +15,10 @@ public abstract class DdBb {
 
     // Variables de clase
 
-    /**
-     *
-     */
-    private static final String SE_HA_PRODUCIDO_UN_ERROR_EN_LA_BUSQUEDA = "Se ha producido un error en la busqueda";
-    private static final String CARACTERISTICAS = "CARACTERISTICAS";
-    private static final String ESTADISTICAS_BASE = "ESTADISTICAS_BASE";
-    private static final String POKEMON = "POKEMON";
-    private static final String EVOLUCIONA = "EVOLUCIONA";
-    private static final String TIPO = "TIPO";
-    private static final String PERTENECE = "PERTENECE";
-    private static final String ESTADO = "ESTADO";
-    private static final String MOVIMIENTO = "MOVIMIENTO";
-    private static final String PROVOCA = "PROVOCA";
-    private static final String CONOCE = "CONOCE";
-    private static final String OBJETO = "OBJETO";
-    private static final String POKEBALL = "POKEBALL";
-    private static final String OBJETO_COMUN = "OBJETO_COMUN";
-    private static final String MAQUINA = "MAQUINA";
-    private static final String POKEMON_EQUIPA = "POKEMON_EQUIPA";
-    private static final String ENTRENADOR = "ENTRENADOR";
-    private static final String VILLANO = "VILLANO";
-    private static final String LIDER_GIMNASIO = "LIDER_GIMNASIO";
-    private static final String ENTRENADOR_CASUAL = "ENTRENADOR_CASUAL";
-    private static final String CAMPEON_LIGA = "CAMPEON_LIGA";
-    private static final String ALTO_MANDO = "ALTO_MANDO";
-    private static final String ENTRENADOR_EQUIPA = "ENTRENADOR_EQUIPA";
-    private static final String TIENE = "TIENE";
+    private static final String TABLA = "TABLA";
 
+    protected String nombreTabla;
+    protected String clave;
     protected String driver;
     protected String urlConexion;
     protected String usuario;
@@ -50,15 +26,17 @@ public abstract class DdBb {
 
     // Constructor
 
-    protected DdBb(String driver, String urlConexion, String usuario, String password) throws PersistenciaException {
+    protected DdBb(String nombreTabla, String driver, String urlConexion, String usuario, String password,
+            String sqlCreate) throws PersistenciaException {
+        this.nombreTabla = nombreTabla;
         this.driver = driver;
         this.urlConexion = urlConexion;
         this.usuario = usuario;
         this.password = password;
-        inicializarDdBd();
+        inicializarTabla(nombreTabla, sqlCreate);
     }
 
-    private void inicializarDdBd() throws PersistenciaException {
+    private void inicializarTabla(String nombreTabla, String sqlCreate) throws PersistenciaException {
         DatabaseMetaData databaseMetaData;
         Connection connection = null;
         ResultSet resultSet = null;
@@ -66,82 +44,12 @@ public abstract class DdBb {
         try {
             connection = getConnection();
             databaseMetaData = connection.getMetaData();
-            resultSet = databaseMetaData.getTables(null, null, null,
-                    new String[] { CARACTERISTICAS, ESTADISTICAS_BASE, POKEMON, EVOLUCIONA, TIPO, PERTENECE, ESTADO,
-                            MOVIMIENTO, PROVOCA, CONOCE, OBJETO, POKEBALL, OBJETO_COMUN, MAQUINA, POKEMON_EQUIPA,
-                            ENTRENADOR, VILLANO, LIDER_GIMNASIO, ENTRENADOR_CASUAL, CAMPEON_LIGA, ALTO_MANDO,
-                            ENTRENADOR_EQUIPA, TIENE });
+            resultSet = databaseMetaData.getTables(null, null, null, new String[] { TABLA });
             while (resultSet.next()) {
-                listaTablas.add(resultSet.getString(CARACTERISTICAS));
-                listaTablas.add(resultSet.getString(ESTADISTICAS_BASE));
-                listaTablas.add(resultSet.getString(POKEMON));
-                listaTablas.add(resultSet.getString(EVOLUCIONA));
-                listaTablas.add(resultSet.getString(TIPO));
-                listaTablas.add(resultSet.getString(PERTENECE));
-                listaTablas.add(resultSet.getString(ESTADO));
-                listaTablas.add(resultSet.getString(MOVIMIENTO));
-                listaTablas.add(resultSet.getString(PROVOCA));
-                listaTablas.add(resultSet.getString(CONOCE));
-                listaTablas.add(resultSet.getString(OBJETO));
-                listaTablas.add(resultSet.getString(POKEBALL));
-                listaTablas.add(resultSet.getString(OBJETO_COMUN));
-                listaTablas.add(resultSet.getString(MAQUINA));
-                listaTablas.add(resultSet.getString(POKEMON_EQUIPA));
-                listaTablas.add(resultSet.getString(ENTRENADOR));
-                listaTablas.add(resultSet.getString(VILLANO));
-                listaTablas.add(resultSet.getString(LIDER_GIMNASIO));
-                listaTablas.add(resultSet.getString(ENTRENADOR_CASUAL));
-                listaTablas.add(resultSet.getString(CAMPEON_LIGA));
-                listaTablas.add(resultSet.getString(ALTO_MANDO));
-                listaTablas.add(resultSet.getString(ENTRENADOR_EQUIPA));
-                listaTablas.add(resultSet.getString(TIENE));
+                listaTablas.add(resultSet.getString(TABLA));
             }
-            if (!listaTablas.contains(CARACTERISTICAS) && !listaTablas.contains(ESTADISTICAS_BASE)
-                    && !listaTablas.contains(POKEMON) && !listaTablas.contains(EVOLUCIONA)
-                    && !listaTablas.contains(TIPO) && !listaTablas.contains(PERTENECE) && !listaTablas.contains(ESTADO)
-                    && !listaTablas.contains(MOVIMIENTO) && !listaTablas.contains(PROVOCA)
-                    && !listaTablas.contains(CONOCE) && !listaTablas.contains(OBJETO) && !listaTablas.contains(POKEBALL)
-                    && !listaTablas.contains(OBJETO_COMUN) && !listaTablas.contains(MAQUINA)
-                    && !listaTablas.contains(POKEMON_EQUIPA) && !listaTablas.contains(ENTRENADOR)
-                    && !listaTablas.contains(VILLANO) && !listaTablas.contains(LIDER_GIMNASIO)
-                    && !listaTablas.contains(ENTRENADOR_CASUAL) && !listaTablas.contains(CAMPEON_LIGA)
-                    && !listaTablas.contains(ALTO_MANDO) && !listaTablas.contains(ENTRENADOR_EQUIPA)
-                    && !listaTablas.contains(TIENE)) {
-                
-                String sqlCrearTablaEstadisticasBase = "CREATE TABLE IF NOT EXISTS CARACTERISTICAS (" +
-                    "id_caracteristica INT CHECK (id_caracteristica > 0), " +
-                    "peso FLOAT CHECK (peso > 0), " +
-                    "altura FLOAT CHECK (altura > 0), " +
-                    "especie VARCHAR (20), " +
-                    "habilidad VARCHAR (20), " +
-                    "categoria VARCHAR (20) CHECK (categoria IN ('Normal', 'Starter', 'Semi-legendario', 'Legendario')), " +
-                    "PRIMARY KEY (id_caracteristica));";
-                String sqlCrearTablaCaracteristicas = "CREATE TABLE IF NOT EXISTS ESTADISTICAS_BASE ( " +
-                    "id_estadisticas_base INT CHECK (id_estadisticas_base > 0), " +
-                    "ps_base INT CHECK (ps_base > 0), " +
-                    "ataque_base INT CHECK (ataque_base > 0), " +
-                    "defensa_base INT CHECK (defensa_base > 0), " +
-                    "ataque_especial_base INT CHECK (ataque_especial_base > 0), " +
-                    "defensa_especial_base INT CHECK (defensa_especial_base > 0), " +
-                    "velocidad_base INT CHECK (velocidad_base > 0), " +
-                    "PRIMARY KEY (id_estadisticas_base));";
-                String sqlCrearTablaPokemon = "CREATE TABLE IF NOT EXISTS POKEMON ( " +
-                    "numero_pokedex INT CHECK (numero_pokedex > 0), " +
-                    "nombre VARCHAR (15), " +
-                    "id_caracteristica INT CHECK (id_caracteristica > 0), " +
-                    "id_estadisticas_base INT CHECK (id_estadisticas_base > 0), " +
-                    "PRIMARY KEY (numero_pokedex), " +
-                    "FOREIGN KEY (id_caracteristica) REFERENCES CARACTERISTICAS (id_caracteristica), " +
-                    "FOREIGN KEY (id_estadisticas_base) REFERENCES ESTADISTICAS_BASE (id_estadisticas_base));";
-                String sqlCrearTablaTipo = "CREATE TABLE IF NOT EXISTS TIPO( " + "nombre VARCHAR (15) CHECK (nombre IN " +
-                    "('Agua', 'Bicho', 'Dragon', 'Electrico', 'Fantasma', " +
-                    "'Fuego', 'Hielo', 'Lucha', 'Normal', 'Planta', " +
-                    "'Psiquico', 'Roca', 'Tierra', 'Veneno', 'Pajaro')), " + "color VARCHAR (20), " +
-                    "PRIMARY KEY (nombre));";
-                update(sqlCrearTablaEstadisticasBase);
-                update(sqlCrearTablaCaracteristicas);
-                update(sqlCrearTablaPokemon);
-                update(sqlCrearTablaTipo);
+            if (!listaTablas.contains(nombreTabla)) {
+                update(sqlCreate);
             }
         } catch (Exception e) {
             throw new PersistenciaException("Se ha producido un error en la inicializacion de la BBDD", e);
@@ -187,7 +95,7 @@ public abstract class DdBb {
             statement = connection.prepareStatement(sql);
             statement.executeUpdate();
         } catch (SQLException exception) {
-            throw new PersistenciaException(SE_HA_PRODUCIDO_UN_ERROR_EN_LA_BUSQUEDA, exception);
+            throw new PersistenciaException("Se ha producido un error en la busqueda", exception);
         } finally {
             closeConecction(connection, statement, null);
         }

@@ -14,7 +14,7 @@ public class PokemonModelo {
     // Constructores
 
     public PokemonModelo() throws PersistenciaException {
-        persistencia = new DdBbSqLite(null, null);
+        persistencia = new DdBbSqLite(TABLA,null, null,"Hola");
     }
 
     public void insertar(Pokemon pokemon) throws PersistenciaException {
