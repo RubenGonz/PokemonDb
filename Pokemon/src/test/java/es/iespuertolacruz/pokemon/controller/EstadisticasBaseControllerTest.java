@@ -10,71 +10,71 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import es.iespuertolacruz.pokemon.api.Tipo;
+import es.iespuertolacruz.pokemon.api.EstadisticasBase;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
 public class EstadisticasBaseControllerTest {
-    /**
+    
     // Variables de clase
 
-    static TipoController tipoController;
-    Tipo tipo = null;
+    static EstadisticasBaseController estadisticasBaseController;
+    EstadisticasBase estadisticasBase = null;
 
     // Before y after
 
     @BeforeAll
     public static void beforeAll() {
-        if (tipoController == null) {
+        if (estadisticasBaseController == null) {
             try {
-                tipoController = new TipoController();
+                estadisticasBaseController = new EstadisticasBaseController();
             } catch (PersistenciaException e) {
-                fail("Se ha producido un error iniciando tipoController");
+                fail("Se ha producido un error iniciando estadisticasBaseController" + e);
             }
         }
     }
 
     @BeforeEach
-    public void crearTipo() {
-        insertarTipoTest();
+    public void crearEstadisticasBase() {
+        insertarEstadisticasBaseTest();
     }
 
     @AfterEach
-    public void eliminarTipo() {
-        if (tipo != null) {
-            eliminarTipoTest();
+    public void eliminarEstadisticasBase() {
+        if (estadisticasBase != null) {
+            eliminarEstadisticasBaseTest();
         }
     }
 
     // Test
 
     @Test
-    public void insertarTipoTest() {
-        tipo = new Tipo("Fuego", "Rojo");
+    public void insertarEstadisticasBaseTest() {
+        estadisticasBase = new EstadisticasBase(1,1,1,1,1,1,1);
         try {
-            tipoController.insertar(tipo);
+            estadisticasBaseController.insertar(estadisticasBase);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El tipo indicado ya existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El estadisticasBase indicado ya existe"), "No se recibio el mensaje esperado");
         }
     }
 
     @Test
     public void validarTest() {
-        Tipo tipoInvalido = new Tipo("", "");
+        EstadisticasBase estadisticasBaseInvalido = new EstadisticasBase(0,0,0,0,0,0,0);
         try {
-            tipoController.validar(tipoInvalido);
+            estadisticasBaseController.validar(estadisticasBaseInvalido);
         } catch (PokemonException e) {
             assertTrue(e.getMessage().contains(
-                    "El nombre del tipo es nulo o vacio, el color del tipo es nulo o vacio."),
+                    "El nombre del estadisticasBase es nulo o vacio, el color del estadisticasBase es nulo o vacio."),
                     "No se recibio el mensaje esperado");
         }
     }
 
     @Test
     public void validarNuloTest() {
-        Tipo tipoInvalido = null;
+        EstadisticasBase estadisticasBaseInvalido = null;
         try {
-            tipoController.validar(tipoInvalido);
+            estadisticasBaseController.validar(estadisticasBaseInvalido);
         } catch (PokemonException e) {
             assertTrue(e.getMessage().contains("Se esta validando un objeto nulo"),
                     "No se recibio el mensaje esperado");
@@ -82,51 +82,51 @@ public class EstadisticasBaseControllerTest {
     }
 
     @Test
-    public void eliminarTipoTest() {
+    public void eliminarEstadisticasBaseTest() {
         try {
-            tipoController.eliminar(tipo);
+            estadisticasBaseController.eliminar(estadisticasBase);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El tipo indicado no existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El estadisticasBase indicado no existe"), "No se recibio el mensaje esperado");
         }
     }
 
     @Test
     public void eliminarPorNombreTest() {
         try {
-            tipoController.eliminar("Fuego");
+            estadisticasBaseController.eliminar(1);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El tipo indicado no existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El estadisticasBase indicado no existe"), "No se recibio el mensaje esperado");
         }
     }
 
     @Test
-    public void buscarTipoTest() {
+    public void buscarEstadisticasBaseTest() {
         try {
-            Tipo tipoEncontrado = tipoController.buscar(tipo.getNombre());
-            assertNotNull(tipoEncontrado, "No se debe de obtener un elemento nulo");
-            assertEquals(tipo, tipoEncontrado, "No se ha encontrado lo esperado");
+            EstadisticasBase estadisticasBaseEncontrado = estadisticasBaseController.buscar(estadisticasBase.getId());
+            assertNotNull(estadisticasBaseEncontrado, "No se debe de obtener un elemento nulo");
+            assertEquals(estadisticasBase, estadisticasBaseEncontrado, "No se ha encontrado lo esperado");
         } catch (PersistenciaException e) {
-            fail("Se ha producido un error en la consulta del tipo ,e:" + e.getMessage());
+            fail("Se ha producido un error en la consulta del estadisticasBase ,e:" + e.getMessage());
         }
     }
 
     @Test
-    public void modificarTipoExistenteTest() {
+    public void modificarEstadisticasBaseExistenteTest() {
         try {
-            tipoController.modificar(tipo);
+            estadisticasBaseController.modificar(estadisticasBase);
         } catch (PokemonException | PersistenciaException e) {
             fail("No deberia llgar ningun mensaje de error y llega");
         }
     }
 
     @Test
-    public void modificarTipoInexistenteTest() {
-        Tipo tipoInexistente = new Tipo("Tipo","Inexistente");
+    public void modificarEstadisticasBaseInexistenteTest() {
+        EstadisticasBase estadisticasBaseInexistente = new EstadisticasBase(1000,1000,1000,1000,1000,1000,1000);
         try {
-            tipoController.modificar(tipoInexistente);
+            estadisticasBaseController.modificar(estadisticasBaseInexistente);
         } catch (PokemonException | PersistenciaException e) {
-            assertEquals("El tipo indicado no existe",e.getMessage(), "El mensaje recibido no es el esperado");
+            assertEquals("El estadisticasBase indicado no existe",e.getMessage(), "El mensaje recibido no es el esperado");
         }
     }
-*/
+
 }
