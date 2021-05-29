@@ -17,7 +17,9 @@ es\iespuertolacruz\pokemon\controller\PokemonController.class
 es\iespuertolacruz\pokemon\controller\CaracteristicasController.class
 es\iespuertolacruz\pokemon\modelo\PokemonModelo.class
 es\iespuertolacruz\pokemon\api\Provoca.class
+es\iespuertolacruz\pokemon\controller\EntrenadorController.class
 es\iespuertolacruz\pokemon\api\EstadisticasBase.class
+es\iespuertolacruz\pokemon\modelo\EntrenadorModelo.class
 es\iespuertolacruz\pokemon\api\CampeonLiga.class
 es\iespuertolacruz\pokemon\api\PokemonEquipa.class
 es\iespuertolacruz\pokemon\api\Pokemon.class
