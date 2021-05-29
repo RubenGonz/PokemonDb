@@ -7,6 +7,7 @@ es\iespuertolacruz\pokemon\api\LiderGimnasioTest.class
 es\iespuertolacruz\pokemon\api\PokeballTest.class
 es\iespuertolacruz\pokemon\api\MaquinaTest.class
 es\iespuertolacruz\pokemon\api\EntrenadorCasualTest.class
+es\iespuertolacruz\pokemon\controller\ObjetoControllerTest.class
 es\iespuertolacruz\pokemon\api\AltoMandoTest.class
 es\iespuertolacruz\pokemon\api\PokemonTest.class
 es\iespuertolacruz\pokemon\api\EntrenadorEquipaTest.class

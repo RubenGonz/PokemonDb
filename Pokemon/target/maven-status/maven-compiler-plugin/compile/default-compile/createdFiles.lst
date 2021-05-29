@@ -5,6 +5,7 @@ es\iespuertolacruz\pokemon\api\Caracteristicas.class
 es\iespuertolacruz\pokemon\api\Estado.class
 es\iespuertolacruz\pokemon\api\ObjetoComun.class
 es\iespuertolacruz\pokemon\api\Pokeball.class
+es\iespuertolacruz\pokemon\modelo\ObjetoModelo.class
 es\iespuertolacruz\pokemon\api\Conoce.class
 es\iespuertolacruz\pokemon\api\EntrenadorEquipa.class
 es\iespuertolacruz\pokemon\controller\EstadoController.class
@@ -31,6 +32,7 @@ es\iespuertolacruz\pokemon\api\Villano.class
 es\iespuertolacruz\pokemon\api\Maquina.class
 es\iespuertolacruz\pokemon\api\AltoMando.class
 es\iespuertolacruz\pokemon\modelo\DdBbSqLite.class
+es\iespuertolacruz\pokemon\controller\ObjetoController.class
 es\iespuertolacruz\pokemon\api\Evoluciona.class
 es\iespuertolacruz\pokemon\modelo\EstadisticasBaseModelo.class
 es\iespuertolacruz\pokemon\modelo\PokemonFichero.class
