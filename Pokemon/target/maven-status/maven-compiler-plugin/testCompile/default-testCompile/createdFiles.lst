@@ -1,5 +1,6 @@
 es\iespuertolacruz\pokemon\api\ObjetoComunTest.class
 es\iespuertolacruz\pokemon\controller\TipoControllerTest.class
+es\iespuertolacruz\pokemon\controller\EstadoControllerTest.class
 es\iespuertolacruz\pokemon\api\EstadisticasBaseTest.class
 es\iespuertolacruz\pokemon\api\ConoceTest.class
 es\iespuertolacruz\pokemon\api\LiderGimnasioTest.class
