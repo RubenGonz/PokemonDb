@@ -70,7 +70,7 @@ public abstract class DdBb {
                 update(sqlCreate);
             }
         } catch (Exception e) {
-            throw new PersistenciaException("Se ha producido un error en la inicializacion de la BBDD", e);
+            throw new PersistenciaException("Se ha producido un error en la inicializacion de la tabla", e);
         } finally {
             closeConecction(connection, null, resultSet);
         }

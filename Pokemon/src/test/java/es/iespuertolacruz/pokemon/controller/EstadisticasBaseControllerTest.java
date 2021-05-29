@@ -50,11 +50,11 @@ public class EstadisticasBaseControllerTest {
 
     @Test
     public void insertarEstadisticasBaseTest() {
-        estadisticasBase = new EstadisticasBase(1,1,1,1,1,1,1);
+        estadisticasBase = new EstadisticasBase(1,45,49,49,65,65,45);
         try {
             estadisticasBaseController.insertar(estadisticasBase);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El estadisticasBase indicado ya existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("La estadisticasBase indicada ya existe"), "No se recibio el mensaje esperado " + e);
         }
     }
 
