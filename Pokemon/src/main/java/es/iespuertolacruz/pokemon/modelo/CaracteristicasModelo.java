@@ -9,7 +9,11 @@ import java.util.ArrayList;
 import es.iespuertolacruz.pokemon.api.Caracteristicas;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
+/**
+ * Clase principal del modelo de las caracteristicas
+ */
 public class CaracteristicasModelo {
+
     // Variables de clase
 
     DdBbSqLite persistencia;

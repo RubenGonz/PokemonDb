@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import es.iespuertolacruz.pokemon.api.EstadisticasBase;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
+/**
+ * Clase principal del modelo de las estadisticas
+ */
 public class EstadisticasBaseModelo {
 
     // Variables de clase
@@ -16,14 +19,14 @@ public class EstadisticasBaseModelo {
     DdBbSqLite persistencia;
     private static final String TABLA = "ESTADISTICAS_BASE";
     private static final String CLAVE = "id_estadisticas_base";
-    private static final String SQLCREARTABLA = "CREATE TABLE IF NOT EXISTS ESTADISTICAS_BASE ("+
-        "id_estadisticas_base INT CHECK (id_estadisticas_base > 0),"+
-        "ps_base INT CHECK (ps_base > 0),"+
-        "ataque_base INT CHECK (ataque_base > 0),"+
-        "defensa_base INT CHECK (defensa_base > 0),"+
-        "ataque_especial_base INT CHECK (ataque_especial_base > 0),"+
-        "defensa_especial_base INT CHECK (defensa_especial_base > 0),"+
-        "velocidad_base INT CHECK (velocidad_base > 0),"+
+    private static final String SQLCREARTABLA = "CREATE TABLE IF NOT EXISTS ESTADISTICAS_BASE ( "+
+        "id_estadisticas_base INT CHECK (id_estadisticas_base > 0), "+
+        "ps_base INT CHECK (ps_base > 0), "+
+        "ataque_base INT CHECK (ataque_base > 0), "+
+        "defensa_base INT CHECK (defensa_base > 0), "+
+        "ataque_especial_base INT CHECK (ataque_especial_base > 0), "+
+        "defensa_especial_base INT CHECK (defensa_especial_base > 0), "+
+        "velocidad_base INT CHECK (velocidad_base > 0), "+
         "PRIMARY KEY (id_estadisticas_base));";
 
     // Constructores
@@ -46,13 +49,13 @@ public class EstadisticasBaseModelo {
      * @throws PersistenciaException error controlado
      */
     public void insertar(EstadisticasBase estadisticasBases) throws PersistenciaException {
-        String sql = "INSERT INTO " + TABLA + " VALUES (" 
-        + estadisticasBases.getId() + ","
-        + estadisticasBases.getPsBase() + "," 
-        + estadisticasBases.getAtaqueBase() + ","
-        + estadisticasBases.getDefensaBase() + "," 
-        + estadisticasBases.getAtaqueEspecialBase() + ","
-        + estadisticasBases.getDefensaEspecialBase() + "," 
+        String sql = "INSERT INTO " + TABLA + " VALUES ( " 
+        + estadisticasBases.getId() + ", "
+        + estadisticasBases.getPsBase() + ", " 
+        + estadisticasBases.getAtaqueBase() + ", "
+        + estadisticasBases.getDefensaBase() + ", " 
+        + estadisticasBases.getAtaqueEspecialBase() + ", "
+        + estadisticasBases.getDefensaEspecialBase() + ", " 
         + estadisticasBases.getVelocidadBase() + ");";
         persistencia.update(sql);
     }
@@ -75,10 +78,10 @@ public class EstadisticasBaseModelo {
      * @throws PersistenciaException error controlado
      */
     public void modificar(EstadisticasBase estadisticasBases) throws PersistenciaException {
-        String sql = "UPDATE " + TABLA + " SET psBase = " + estadisticasBases.getPsBase() + "," + "ataqueBase = "
-                + estadisticasBases.getAtaqueBase() + "," + "defensaBase = " + estadisticasBases.getDefensaBase() + ","
-                + "ataqueEspecialBase = " + estadisticasBases.getAtaqueEspecialBase() + "," + "defensaEspecialBase = "
-                + estadisticasBases.getDefensaEspecialBase() + "," + "velocidadBase = "
+        String sql = "UPDATE " + TABLA + " SET ps_base = " + estadisticasBases.getPsBase() + "," + "ataque_base = "
+                + estadisticasBases.getAtaqueBase() + "," + "defensa_base = " + estadisticasBases.getDefensaBase() + ","
+                + "ataque_especial_base = " + estadisticasBases.getAtaqueEspecialBase() + "," + "defensa_especial_base = "
+                + estadisticasBases.getDefensaEspecialBase() + "," + "velocidad_base = "
                 + estadisticasBases.getVelocidadBase() + " WHERE " + CLAVE + " = " + estadisticasBases.getId() + ";";
         persistencia.update(sql);
     }
@@ -120,12 +123,12 @@ public class EstadisticasBaseModelo {
             while (resultSet.next()) {
                 EstadisticasBase estadisticasBases = new EstadisticasBase();
                 estadisticasBases.setId(resultSet.getInt(CLAVE));
-                estadisticasBases.setPsBase(resultSet.getInt("psBase"));
-                estadisticasBases.setAtaqueBase(resultSet.getInt("ataqueBase"));
-                estadisticasBases.setDefensaBase(resultSet.getInt("defensaBase"));
-                estadisticasBases.setAtaqueEspecialBase(resultSet.getInt("ataqueEspecialBase"));
-                estadisticasBases.setDefensaEspecialBase(resultSet.getInt("defensaEspecialBase"));
-                estadisticasBases.setVelocidadBase(resultSet.getInt("velocidadBase"));
+                estadisticasBases.setPsBase(resultSet.getInt("ps_base"));
+                estadisticasBases.setAtaqueBase(resultSet.getInt("ataque_base"));
+                estadisticasBases.setDefensaBase(resultSet.getInt("defensa_base"));
+                estadisticasBases.setAtaqueEspecialBase(resultSet.getInt("ataque_especial_base"));
+                estadisticasBases.setDefensaEspecialBase(resultSet.getInt("defensa_especial_base"));
+                estadisticasBases.setVelocidadBase(resultSet.getInt("velocidad_base"));
                 lista.add(estadisticasBases);
             }
         } catch (SQLException exception) {
