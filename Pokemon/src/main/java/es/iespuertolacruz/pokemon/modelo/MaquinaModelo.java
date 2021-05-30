@@ -61,13 +61,13 @@ public class MaquinaModelo {
     /**
      * Funcion encargada de obtener maquina
      * 
-     * @param IdEntrenador del maquina
+     * @param IdObjeto y IdMovimiento del maquina
      * @return maquina buscado
      * @throws PersistenciaException con error controlado
      */
-    public Maquina buscar(int IdEntrenador) throws PersistenciaException {
+    public Maquina buscar(int IdMovimiento ,int IdObjeto) throws PersistenciaException {
         Maquina maquina = null;
-        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVE + " = " + IdEntrenador + ";";
+        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVE + " = " + IdObjeto+IdMovimiento+ ";";
         ArrayList<Maquina> lista = transformarAMaquina(sql);
         if (!lista.isEmpty()) {
             maquina = lista.get(0);
