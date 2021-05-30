@@ -1,0 +1,15 @@
+INSERT INTO TIPO VALUES ('Agua','Azul');
+INSERT INTO TIPO VALUES ('Bicho','Verde pistacho');
+INSERT INTO TIPO VALUES ('Dragon','Morado');
+INSERT INTO TIPO VALUES ('Electrico','Amarillo');
+INSERT INTO TIPO VALUES ('Fantasma','Morado oscuro');
+INSERT INTO TIPO VALUES ('Fuego','Rojo');
+INSERT INTO TIPO VALUES ('Hielo','Azul celeste');
+INSERT INTO TIPO VALUES ('Lucha','Teja');
+INSERT INTO TIPO VALUES ('Normal','Beige');
+INSERT INTO TIPO VALUES ('Planta','Verde');
+INSERT INTO TIPO VALUES ('Psiquico','Rosa');
+INSERT INTO TIPO VALUES ('Roca','Ocre');
+INSERT INTO TIPO VALUES ('Tierra','Mostaza');
+INSERT INTO TIPO VALUES ('Veneno','Berenjena');
+INSERT INTO TIPO VALUES ('Pajaro','Azul Grisaceo');
