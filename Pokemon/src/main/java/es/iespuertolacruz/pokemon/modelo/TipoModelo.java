@@ -19,10 +19,6 @@ public class TipoModelo {
     DdBbSqLite persistencia;
     private static final String TABLA = "TIPO";
     private static final String CLAVE = "nombre";
-    private static final String SQLCREARTABLA = "CREATE TABLE IF NOT EXISTS TIPO( "
-            + "nombre VARCHAR (15) CHECK (nombre IN " + "('Agua', 'Bicho', 'Dragon', 'Electrico', 'Fantasma', "
-            + "'Fuego', 'Hielo', 'Lucha', 'Normal', 'Planta', " + "'Psiquico', 'Roca', 'Tierra', 'Veneno', 'Pajaro')), "
-            + "color VARCHAR (20), " + "PRIMARY KEY (nombre));";
 
     // Constructores
 
@@ -32,7 +28,7 @@ public class TipoModelo {
      * @throws PersistenciaException con error controlado
      */
     public TipoModelo() throws PersistenciaException {
-        persistencia = new DdBbSqLite(TABLA, null, null, SQLCREARTABLA);
+        persistencia = new DdBbSqLite(TABLA, null, null);
     }
 
     // Metodos y funciones

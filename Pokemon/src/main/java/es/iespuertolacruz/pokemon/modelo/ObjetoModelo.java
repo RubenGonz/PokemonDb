@@ -19,16 +19,11 @@ public class ObjetoModelo {
     DdBbSqLite persistencia;
     private static final String TABLA = "OBJETO";
     private static final String CLAVE = "id_objeto";
-    private static final String SQLCREARTABLA = "CREATE TABLE IF NOT EXISTS OBJETO (  " +
-        "id_objeto INT CHECK (id_objeto > 0), " +
-        "nombre VARCHAR (25), " +
-        "modo_obtencion VARCHAR (20) CHECK (modo_obtencion IN ('Comprado', 'Recogido', 'Entregado')), " +
-        "PRIMARY KEY (id_objeto));";
 
     // Constructores
 
     public ObjetoModelo() throws PersistenciaException {
-        persistencia = new DdBbSqLite(TABLA, null, null, SQLCREARTABLA);
+        persistencia = new DdBbSqLite(TABLA, null, null);
     }
 
     // Metodos y funciones

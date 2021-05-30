@@ -15,7 +15,7 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
 public class PokemonControllerTest {
-/**
+
     // Variables de clase
 
     static PokemonController pokemonController;
@@ -33,7 +33,7 @@ public class PokemonControllerTest {
             }
         }
     }
-
+/**
     @BeforeEach
     public void crearPokemon() {
         insertarPokemonTest();

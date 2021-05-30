@@ -10,10 +10,20 @@ public class PokemonController {
     // Variables de clase
 
     PokemonModelo pokemonModelo;
+    EstadisticasBaseController estadisticasBaseController;
+    CaracteristicasController caracteristicasController;
 
     // Constructores
 
+    /**
+     * Constructor de pokemon con estadisticasBaseController y 
+     * caracteristicasController para crear las tablas con si no existiesen antes
+     * 
+     * @throws PersistenciaException con error controlado
+     */
     public PokemonController() throws PersistenciaException {
+        estadisticasBaseController = new EstadisticasBaseController();
+        caracteristicasController = new CaracteristicasController();
         pokemonModelo = new PokemonModelo();
     }
 

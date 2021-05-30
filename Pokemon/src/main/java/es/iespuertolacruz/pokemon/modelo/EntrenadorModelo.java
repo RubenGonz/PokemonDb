@@ -19,15 +19,11 @@ public class EntrenadorModelo {
     DdBbSqLite persistencia;
     private static final String TABLA = "ENTRENADOR";
     private static final String CLAVE = "id_entrenador";
-    private static final String SQLCREARTABLA = "CREATE TABLE IF NOT EXISTS ENTRENADOR ( " +
-        "id_entrenador INT CHECK (id_entrenador > 0), " +
-        "nombre VARCHAR (25), " +
-        "PRIMARY KEY (id_entrenador));";
 
     // Constructores
 
     public EntrenadorModelo() throws PersistenciaException {
-        persistencia = new DdBbSqLite(TABLA, null, null, SQLCREARTABLA);
+        persistencia = new DdBbSqLite(TABLA, null, null);
     }
 
     // Metodos y funciones

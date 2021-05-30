@@ -19,19 +19,11 @@ public class PokemonModelo {
     DdBbSqLite persistencia;
     private static final String TABLA = "POKEMON";
     private static final String CLAVE = "numero_pokedex";
-    private static final String SQLCREARTABLA = "CREATE TABLE IF NOT EXISTS POKEMON ( " +
-        "numero_pokedex INT CHECK (numero_pokedex > 0), " +
-        "nombre VARCHAR (15), " +
-        "id_pokemon INT CHECK (id_pokemon > 0), " +
-        "id_estadisticas_base INT CHECK (id_estadisticas_base > 0), " +
-        "PRIMARY KEY (numero_pokedex), " +
-        "FOREIGN KEY (id_pokemon) REFERENCES CARACTERISTICAS (id_pokemon), " +
-        "FOREIGN KEY (id_estadisticas_base) REFERENCES ESTADISTICAS_BASE (id_estadisticas_base));";
 
     // Constructores
 
     public PokemonModelo() throws PersistenciaException {
-        persistencia = new DdBbSqLite(TABLA, null, null, SQLCREARTABLA);
+        persistencia = new DdBbSqLite(TABLA, null, null);
     }
 
     // Metodos y funciones

@@ -22,12 +22,11 @@ public class DdBbSqLite extends DdBb {
     * @param urlConexion de la conexion
     * @param usuario de la conexion
     * @param password contrasenia del usuario
-    * @param sqlCretate sql de la creacion de la tabla
     * @throws PersistenciaException con error controlado
     */
    public DdBbSqLite(String nombreTabla, String driver, String urlConexion, String usuario,
-         String password, String sqlCretate) throws PersistenciaException {
-      super(nombreTabla, driver, urlConexion, usuario, password, sqlCretate);
+         String password) throws PersistenciaException {
+      super(nombreTabla, driver, urlConexion, usuario, password);
    }
 
    /**
@@ -36,12 +35,11 @@ public class DdBbSqLite extends DdBb {
     * @param nombreTabla nombre de la tabla
     * @param usuario de la conexion
     * @param password contrasenia del usuario
-    * @param sqlCretate sql de la creacion de la tabla
     * @throws PersistenciaException con error controlado
     */
-   public DdBbSqLite(String nombreTabla, String usuario, String password, String sqlCreate)
+   public DdBbSqLite(String nombreTabla, String usuario, String password)
          throws PersistenciaException {
-      super(nombreTabla, DRIVER, URL, usuario, password, sqlCreate);
+      super(nombreTabla, DRIVER, URL, usuario, password);
    }
 
 }

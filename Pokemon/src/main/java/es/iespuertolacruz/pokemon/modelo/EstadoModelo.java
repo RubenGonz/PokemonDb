@@ -19,17 +19,11 @@ public class EstadoModelo {
     DdBbSqLite persistencia;
     private static final String TABLA = "ESTADO";
     private static final String CLAVE = "id_estado";
-    private static final String SQLCREARTABLA = "CREATE TABLE IF NOT EXISTS ESTADO ( " +
-        "id_estado INT CHECK (id_estado > 0), " +
-        "nombre VARCHAR (15), " +
-        "persistencia BOOLEAN, " +
-        "efecto VARCHAR (75), " +
-        "PRIMARY KEY (id_estado));";
 
     // Constructores
 
     public EstadoModelo() throws PersistenciaException {
-        persistencia = new DdBbSqLite(TABLA, null, null, SQLCREARTABLA);
+        persistencia = new DdBbSqLite(TABLA, null, null);
     }
 
     // Metodos y funciones

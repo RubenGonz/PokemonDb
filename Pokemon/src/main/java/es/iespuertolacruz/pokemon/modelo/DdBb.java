@@ -34,17 +34,15 @@ public abstract class DdBb {
      * @param urlConexion de la conexion
      * @param usuario de la base de datos
      * @param password contrasenia del usario
-     * @param sqlCreate sql de la creacion de la tabla
      * @throws PersistenciaException con error controlado
      */
-    protected DdBb(String nombreTabla, String driver, String urlConexion, String usuario, String password,
-            String sqlCreate) throws PersistenciaException {
+    protected DdBb(String nombreTabla, String driver, String urlConexion, String usuario, String password) throws PersistenciaException {
         this.nombreTabla = nombreTabla;
         this.driver = driver;
         this.urlConexion = urlConexion;
         this.usuario = usuario;
         this.password = password;
-        inicializarTabla(nombreTabla, sqlCreate);
+        inicializarTabla(nombreTabla);
     }
 
     /**
@@ -54,7 +52,7 @@ public abstract class DdBb {
      * @param sqlCreate sql de la creacion de la tabla
      * @throws PersistenciaException con error controlado
      */
-    private void inicializarTabla(String nombreTabla, String sqlCreate) throws PersistenciaException {
+    private void inicializarTabla(String nombreTabla) throws PersistenciaException {
         DatabaseMetaData databaseMetaData;
         Connection connection = null;
         ResultSet resultSet = null;
@@ -67,12 +65,26 @@ public abstract class DdBb {
                 listaTablas.add(resultSet.getString(TABLA));
             }
             if (!listaTablas.contains(nombreTabla)) {
-                update(sqlCreate);
+                String estructuraTabla = new Fichero().leer("resources/sqlite/crear/" + nombreTabla + ".sql");
+                update(estructuraTabla);
             }
         } catch (Exception e) {
             throw new PersistenciaException("Se ha producido un error en la inicializacion de la tabla", e);
         } finally {
             closeConecction(connection, null, resultSet);
+        }
+    }
+
+    /**
+     * Metodo que separa las inserciones del script y las aniade una a una
+     * 
+     * @param scriptTabla script de la tabla
+     * @throws PersistenciaException error controlado
+     */
+    protected void hacerInserciones(String scriptTabla) throws PersistenciaException {
+        String[] insercionesSeparadas = scriptTabla.split(";");
+        for (String insercion : insercionesSeparadas) {
+            update(insercion);
         }
     }
 
