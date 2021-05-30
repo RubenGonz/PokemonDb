@@ -14,7 +14,7 @@ USE PokemonDb;
 /**
  * Tabla donde se ven las caracteristicas de un pokemon
 */
-CREATE TABLE CARACTERISTICAS (
+CREATE TABLE IF NOT EXISTS CARACTERISTICAS (
     id_caracteristica INT CHECK (id_caracteristica > 0),
     peso FLOAT CHECK (peso > 0),
     altura FLOAT CHECK (altura > 0),
@@ -27,7 +27,7 @@ CREATE TABLE CARACTERISTICAS (
 /**
  * Tabla donde se ven las estadisticas base de un pokemon
 */
-CREATE TABLE ESTADISTICAS_BASE (
+CREATE TABLE IF NOT EXISTS ESTADISTICAS_BASE (
     id_estadisticas_base INT CHECK (id_estadisticas_base > 0),
     ps_base INT CHECK (ps_base > 0),
     ataque_base INT CHECK (ataque_base > 0),
@@ -41,7 +41,7 @@ CREATE TABLE ESTADISTICAS_BASE (
 /**
  * Tabla principal donde estan los pokemon
 */
-CREATE TABLE POKEMON (
+CREATE TABLE IF NOT EXISTS POKEMON (
     numero_pokedex INT CHECK (numero_pokedex > 0),
     nombre VARCHAR (15),
     id_caracteristica INT CHECK (id_caracteristica > 0),
@@ -54,7 +54,7 @@ CREATE TABLE POKEMON (
 /**
  * Tabla donde se ve las evoluciones de un pokemon
 */
-CREATE TABLE EVOLUCIONA (
+CREATE TABLE IF NOT EXISTS EVOLUCIONA (
     numero_pokedex_origen INT CHECK (numero_pokedex_origen > 0),
     numero_pokedex_destino INT CHECK (numero_pokedex_destino > 0),
     modo_evoluciona VARCHAR (20) CHECK (modo_evoluciona IN ("Nivel", "Intercambio", "Piedra")),
@@ -66,7 +66,7 @@ CREATE TABLE EVOLUCIONA (
 /**
  * Tabla donde se ven los tipos
 */
-CREATE TABLE TIPO (
+CREATE TABLE IF NOT EXISTS TIPO (
     nombre VARCHAR (15) CHECK (nombre IN ("Agua", "Bicho", "Dragon", "Electrico", "Fantasma", "Fuego", "Hielo", "Lucha", "Normal", "Planta", "Psiquico", "Roca", "Tierra", "Veneno", "Pajaro")),
     color VARCHAR (20),
     PRIMARY KEY (nombre)
@@ -75,7 +75,7 @@ CREATE TABLE TIPO (
 /**
  * Tabla donde se ven los tipos de los pokemon
 */
-CREATE TABLE PERTENECE (
+CREATE TABLE IF NOT EXISTS PERTENECE (
     numero_pokedex INT,
     tipo VARCHAR (15),
     PRIMARY KEY (numero_pokedex,tipo),
@@ -86,7 +86,7 @@ CREATE TABLE PERTENECE (
 /**
  * Tabla donde se ven los posibles estados de un pokemon
 */
-CREATE TABLE ESTADO (
+CREATE TABLE IF NOT EXISTS ESTADO (
     id_estado INT CHECK (id_estado > 0),
     nombre VARCHAR (15),
     persistencia BOOLEAN,
@@ -97,7 +97,7 @@ CREATE TABLE ESTADO (
 /**
  * Tabla donde se ven las movimientos que pude hacer un pokemon
 */
-CREATE TABLE MOVIMIENTO (
+CREATE TABLE IF NOT EXISTS MOVIMIENTO (
     id_movimiento INT CHECK (id_movimiento > 0),
     nombre VARCHAR (25),
     tipo VARCHAR(10),
@@ -112,7 +112,7 @@ CREATE TABLE MOVIMIENTO (
 /**
  * Tabla donde se ven los estados que provoca un movimiento
 */
-CREATE TABLE PROVOCA (
+CREATE TABLE IF NOT EXISTS PROVOCA (
     id_movimiento INT,
     id_estado INT,    
     PRIMARY KEY (id_estado,id_movimiento),
@@ -123,7 +123,7 @@ CREATE TABLE PROVOCA (
 /**
  * Tabla donde se ve que movimientos tiene un pokemon
 */
-CREATE TABLE CONOCE (
+CREATE TABLE IF NOT EXISTS CONOCE (
     numero_pokedex INT CHECK (numero_pokedex > 0),
     id_movimiento INT CHECK (id_movimiento > 0),
     PRIMARY KEY (numero_pokedex, id_movimiento),
@@ -134,7 +134,7 @@ CREATE TABLE CONOCE (
 /**
  * Tabla donde se ven los objetos del juego
 */
-CREATE TABLE OBJETO (
+CREATE TABLE IF NOT EXISTS OBJETO (
     id_objeto INT CHECK (id_objeto > 0),
     nombre VARCHAR (25),
     modo_obtencion VARCHAR (20) CHECK (modo_obtencion IN ("Comprado", "Recogido", "Entregado")),
@@ -144,7 +144,7 @@ CREATE TABLE OBJETO (
 /**
  * Tabla donde se ven los objetos de tipo pokeball
 */
-CREATE TABLE POKEBALL (
+CREATE TABLE IF NOT EXISTS POKEBALL (
     id_objeto INT CHECK (id_objeto > 0),
     ratio FLOAT CHECK (ratio > 0),
     PRIMARY KEY (id_objeto),
@@ -154,7 +154,7 @@ CREATE TABLE POKEBALL (
 /**
  * Tabla donde se ven los objetos comunes
 */
-CREATE TABLE OBJETO_COMUN (
+CREATE TABLE IF NOT EXISTS OBJETO_COMUN (
     id_objeto INT CHECK (id_objeto > 0),
     efecto VARCHAR (75),
     PRIMARY KEY (id_objeto),
@@ -164,7 +164,7 @@ CREATE TABLE OBJETO_COMUN (
 /**
  * Tabla donde se ven los objetos de tipo maquina
 */
-CREATE TABLE MAQUINA (
+CREATE TABLE IF NOT EXISTS MAQUINA (
     id_objeto INT CHECK (id_objeto > 0),
     id_movimiento INT CHECK (id_movimiento > 0),
     PRIMARY KEY (id_objeto),
@@ -175,7 +175,7 @@ CREATE TABLE MAQUINA (
 /**
  * Tabla donde se ve  objeto que lleva un pokemonn
 */
-CREATE TABLE POKEMON_EQUIPA (
+CREATE TABLE IF NOT EXISTS POKEMON_EQUIPA (
     numero_pokedex INT CHECK (numero_pokedex > 0),
     id_objeto INT CHECK (id_objeto > 0),
     PRIMARY KEY (numero_pokedex, id_objeto),
@@ -186,7 +186,7 @@ CREATE TABLE POKEMON_EQUIPA (
 /**
  * Tabla donde se ven los entrenadores del juego
 */
-CREATE TABLE ENTRENADOR (
+CREATE TABLE IF NOT EXISTS ENTRENADOR (
     id_entrenador INT CHECK (id_entrenador > 0),
     nombre VARCHAR (25),
     PRIMARY KEY (id_entrenador)
@@ -195,7 +195,7 @@ CREATE TABLE ENTRENADOR (
 /**
  * Tabla donde se ven los entrenadores de tipo villano
 */
-CREATE TABLE VILLANO (
+CREATE TABLE IF NOT EXISTS VILLANO (
     id_entrenador INT CHECK (id_entrenador > 0),
     proposito VARCHAR (75),
     PRIMARY KEY (id_entrenador),
@@ -205,7 +205,7 @@ CREATE TABLE VILLANO (
 /**
  * Tabla donde se ven los entrenadores de tipo lider de gimnasio
 */
-CREATE TABLE LIDER_GIMNASIO (
+CREATE TABLE IF NOT EXISTS LIDER_GIMNASIO (
     id_entrenador INT CHECK (id_entrenador > 0),
     medalla INT CHECK (medalla < 9),
     PRIMARY KEY (id_entrenador),
@@ -215,7 +215,7 @@ CREATE TABLE LIDER_GIMNASIO (
 /**
  * Tabla donde se ven los entrenadores casuales
 */
-CREATE TABLE ENTRENADOR_CASUAL (
+CREATE TABLE IF NOT EXISTS ENTRENADOR_CASUAL (
     id_entrenador INT CHECK (id_entrenador > 0),
     cantidad_medalla INT CHECK (cantidad_medalla < 9),
     PRIMARY KEY (id_entrenador),
@@ -225,7 +225,7 @@ CREATE TABLE ENTRENADOR_CASUAL (
 /**
  * Tabla donde se ven los entrenadores de tipo campeon de liga
 */
-CREATE TABLE CAMPEON_LIGA (
+CREATE TABLE IF NOT EXISTS CAMPEON_LIGA (
     id_entrenador INT CHECK (id_entrenador > 0),
     region VARCHAR (10) UNIQUE,
     PRIMARY KEY (id_entrenador),
@@ -235,7 +235,7 @@ CREATE TABLE CAMPEON_LIGA (
 /**
  * Tabla donde se ven los entrenadores de tipo alto mando
 */
-CREATE TABLE ALTO_MANDO (
+CREATE TABLE IF NOT EXISTS ALTO_MANDO (
     id_entrenador INT CHECK (id_entrenador > 0),
     tipo_principal VARCHAR (10), 
     PRIMARY KEY (id_entrenador),
@@ -246,7 +246,7 @@ CREATE TABLE ALTO_MANDO (
 /**
  * Tabla donde se ven los objetos que equipa un entrenador
 */
-CREATE TABLE ENTRENADOR_EQUIPA (
+CREATE TABLE IF NOT EXISTS ENTRENADOR_EQUIPA (
     id_entrenador INT CHECK (id_entrenador > 0),
     id_objeto INT CHECK (id_objeto > 0),
     cantidad INT CHECK (cantidad > 0),    
@@ -258,7 +258,7 @@ CREATE TABLE ENTRENADOR_EQUIPA (
 /**
  * Tabla donde se ven los pokemons que tiene un entrenador
 */
-CREATE TABLE TIENE (
+CREATE TABLE IF NOT EXISTS TIENE (
     id_entrenador INT CHECK (id_entrenador > 0),
     numero_pokedex INT CHECK (numero_pokedex > 0),
     cantidad INT CHECK (cantidad > 0),
