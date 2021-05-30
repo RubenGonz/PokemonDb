@@ -1,4 +1,5 @@
 es\iespuertolacruz\pokemon\controller\EntrenadorControllerTest.class
+es\iespuertolacruz\pokemon\controller\AltaMandoControllerTest.class
 es\iespuertolacruz\pokemon\api\ObjetoComunTest.class
 es\iespuertolacruz\pokemon\controller\TipoControllerTest.class
 es\iespuertolacruz\pokemon\controller\EstadoControllerTest.class
