@@ -67,6 +67,8 @@ public abstract class DdBb {
             if (!listaTablas.contains(nombreTabla)) {
                 String estructuraTabla = new Fichero().leer("resources/sqlite/crear/" + nombreTabla + ".sql");
                 update(estructuraTabla);
+                String scriptTabla = new Fichero().leer("resources/sqlite/insertar/" + nombreTabla + ".sql");
+                update(scriptTabla);
             }
         } catch (Exception e) {
             throw new PersistenciaException("Se ha producido un error en la inicializacion de la tabla", e);
