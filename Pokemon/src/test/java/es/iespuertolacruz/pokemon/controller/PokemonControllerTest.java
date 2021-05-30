@@ -22,18 +22,18 @@ public class PokemonControllerTest {
     Pokemon pokemon = null;
 
     // Before y after
-
+/**
     @BeforeAll
     public static void beforeAll() {
         if (pokemonController == null) {
             try {
                 pokemonController = new PokemonController();
             } catch (PersistenciaException e) {
-                fail("Se ha producido un error iniciando pokemonController" + e);
+                fail("Se ha producido un error iniciando pokemonController");
             }
         }
     }
-/**
+
     @BeforeEach
     public void crearPokemon() {
         insertarPokemonTest();

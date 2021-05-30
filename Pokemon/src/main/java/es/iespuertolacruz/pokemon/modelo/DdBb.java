@@ -15,8 +15,6 @@ public abstract class DdBb {
 
     // Variables de clase
 
-    private static final String TABLA = "TABLA";
-
     protected String nombreTabla;
     protected String clave;
     protected String driver;
@@ -60,9 +58,9 @@ public abstract class DdBb {
         try {
             connection = getConnection();
             databaseMetaData = connection.getMetaData();
-            resultSet = databaseMetaData.getTables(null, null, null, new String[] { TABLA });
+            resultSet = databaseMetaData.getTables(null, null, null, new String[] { "TABLE" });
             while (resultSet.next()) {
-                listaTablas.add(resultSet.getString(TABLA));
+                listaTablas.add(resultSet.getString("TABLE_NAME"));
             }
             if (!listaTablas.contains(nombreTabla)) {
                 String estructuraTabla = new Fichero().leer("resources/sqlite/crear/" + nombreTabla + ".sql");
