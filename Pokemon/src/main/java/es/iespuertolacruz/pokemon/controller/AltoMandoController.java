@@ -96,10 +96,10 @@ public class AltoMandoController {
     }
 
     /**
-     * Metodo encargado de buscar por el id
+     * Metodo encargado de buscar por el IdEntrenador
      * 
-     * @param id para localizar el altoMando
-     * @return altoMando a traves del id
+     * @param IdEntrenador para localizar el altoMando
+     * @return altoMando a traves del IdEntrenador
      * @throws PersistenciaException con mensaje controlado
      */
     public AltoMando buscar(int IdEntrenador) throws PersistenciaException {
