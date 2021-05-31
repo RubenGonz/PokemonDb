@@ -10,51 +10,48 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import es.iespuertolacruz.pokemon.api.AltoMando;
+import es.iespuertolacruz.pokemon.api.CampeonLiga;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
-
-public class AltaMandoControllerTest {
+public class CampeonLigaControllerTest {
     
     // Variables de clase
 
-    static AltoMandoController altoMandoController;
-    AltoMando altoMando = null;
+    static CampeonLigaController campeonLigaController;
+    CampeonLiga campeonLiga;
 
-
-     @BeforeAll
+    @BeforeAll
     public static void beforeAll() {
-        if (altoMandoController == null) {
+        if (campeonLigaController == null) {
             try {
-                altoMandoController = new AltoMandoController();
+                campeonLigaController = new CampeonLigaController();
             } catch (Exception e) {
-                fail("Se ha producido un error iniciando altoMandoController");
+                fail("Se ha producido un error iniciando campeonLigaController");
             }
         }
     }
-
- /** 
+/** 
     @BeforeEach
-    public void crearAltoMando() {
-        insertarAltoMandoTest();
+    public void crearCampeonLiga() {
+        insertarCampeonLigaTest();
     }
 
     @AfterEach
-    public void eliminarAltoMando() {
-        if (altoMando != null) {
-            eliminarAltoMandoTest();
+    public void eliminarCampeonLiga() {
+        if (campeonLiga != null) {
+            eliminarCampeonLigaTest();
         }
     }
 
-    // Test
-    **/
-/** 
+// Test
+
+
     @Test
-    public void insertarAltoMandoTest() {
-        altoMando = new AltoMando(1, "");
+    public void insertarCampeonLigaTest() {
+        campeonLiga = new CampeonLiga(1, "");
         try {
-            altoMandoController.insertar(altoMando);
+            campeonLigaController.insertar(campeonLiga);
         } catch (PokemonException | PersistenciaException e) {
             assertTrue(e.getMessage().contains("El pokemon indicado ya existe"), "No se recibio el mensaje esperado");
         }
@@ -62,9 +59,9 @@ public class AltaMandoControllerTest {
 
     @Test
     public void validarTest() {
-        AltoMando altoMandoInvalido = new AltoMando(1, "");
+        CampeonLiga campeonLigaInvalido = new CampeonLiga(1, "");
         try {
-            altoMandoController.validar(altoMandoInvalido);
+            campeonLigaController.validar(campeonLigaInvalido);
         } catch (PokemonException e) {
             assertTrue(e.getMessage().contains(""));
         }
@@ -72,9 +69,9 @@ public class AltaMandoControllerTest {
 
     @Test
     public void validarNuloTest() {
-        AltoMando altoMandoInvalido = null;
+        CampeonLiga campeonLigaInvalido = null;
         try {
-            altoMandoController.validar(altoMandoInvalido);
+            campeonLigaController.validar(campeonLigaInvalido);
         } catch (PokemonException e) {
             assertTrue(e.getMessage().contains("Se esta validando un objeto nulo"),
                     "No se recibio el mensaje esperado");
@@ -82,51 +79,52 @@ public class AltaMandoControllerTest {
     }
 
     @Test
-    public void eliminarAltoMandoTest() {
+    public void eliminarCampeonLigaTest() {
         try {
-            altoMandoController.eliminar(altoMando);
+            campeonLigaController.eliminar(campeonLiga);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El AltoMando indicado no existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El campeonLiga indicado no existe"), "No se recibio el mensaje esperado");
         }
     }
 
     @Test
     public void eliminarPorIdEntrenadorTest() {
         try {
-            altoMandoController.eliminar(1);
+            campeonLigaController.eliminar(1);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El AltoMando indicado no existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El campeonLiga indicado no existe"), "No se recibio el mensaje esperado");
         }
     }
 
     @Test
-    public void buscarAltoMandoTest() {
+    public void buscarcampeonLigaTest() {
         try {
-          AltoMando AltoMandoEncontrado = AltoMandoController.buscar(altoMando.getIdEntrenador());
-           assertNotNull(AltoMandoEncontrado, "No se debe de obtener un elemento nulo");
-            assertEquals(altoMando, AltoMandoEncontrado, "No se ha encontrado lo esperado");
+          CampeonLiga campeonLigaEncontrado = campeonLigaController.buscar(campeonLiga.getIdEntrenador());
+           assertNotNull(campeonLigaEncontrado, "No se debe de obtener un elemento nulo");
+            assertEquals(campeonLiga, campeonLigaEncontrado, "No se ha encontrado lo esperado");
         } catch (PersistenciaException e) {
             fail("Se ha producido un error en la consulta del pokemon ,e:" + e.getMessage());
         }
     }
 
     @Test
-    public void modificarAltoMandoExistenteTest() {
+    public void modificarcampeonLigaExistenteTest() {
         try {
-            altoMandoController.modificar(altoMando);
+            campeonLigaController.modificar(campeonLiga);
         } catch (PokemonException | PersistenciaException e) {
             fail("No deberia llgar ningun mensaje de error y llega");
         }
     }
 
     @Test
-    public void modificarAltoMandoInexistenteTest() {
-        AltoMando AltoMandoInexistente = new AltoMando(1, "Fuego");
+    public void modificarcampeonLigaInexistenteTest() {
+        CampeonLiga campeonLigaInexistente = new CampeonLiga(1, "Johto");
         try {
-            altoMandoController.modificar(AltoMandoInexistente);
+            campeonLigaController.modificar(campeonLigaInexistente);
         } catch (PokemonException | PersistenciaException e) {
-            assertEquals("El AltoMando indicado no existe", e.getMessage(), "El mensaje recibido no es el esperado");
+            assertEquals("El campeonLiga indicado no existe", e.getMessage(), "El mensaje recibido no es el esperado");
         }
     }
-**/
+
+*/
 }
