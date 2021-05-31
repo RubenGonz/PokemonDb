@@ -51,11 +51,11 @@ public class App {
     Movimiento movimiento;
     MovimientoController movimientoController;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws PokemonException, PersistenciaException {
         menuPrincipal();
     }
     
-    public static void menuPrincipal() {
+    public static void menuPrincipal() throws PokemonException, PersistenciaException {
         Scanner sn = new Scanner(System.in);
         boolean salir = false;
         int opcion; // Guardaremos la opcion del usuario
