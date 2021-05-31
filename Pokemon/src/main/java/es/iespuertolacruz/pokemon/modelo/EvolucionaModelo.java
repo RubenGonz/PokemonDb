@@ -17,8 +17,8 @@ public class EvolucionaModelo {
     private static final String CLAVE = "numero_pokedex_origen";
     
     // Constructores
-    public EvolucionaModelo(DdBbSqLite persistencia) {
-        this.persistencia = persistencia;
+    public EvolucionaModelo() throws PersistenciaException {
+        persistencia = new DdBbSqLite(TABLA, null, null);
     }
 
     // Metodos y funciones

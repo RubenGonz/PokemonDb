@@ -6,24 +6,20 @@ import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.AltoMandoModelo;
 
 public class AltoMandoController {
-   
+
     // Variables de clase
 
+    EntrenadorController entrenadorController;
     AltoMandoModelo altoMandoModelo;
 
     // Constructores
 
-
-    public AltoMandoController(AltoMandoModelo altoMandoModelo) {
-        this.altoMandoModelo = altoMandoModelo;
+    public AltoMandoController() throws PersistenciaException {
+        entrenadorController = new EntrenadorController();
+        altoMandoModelo = new AltoMandoModelo();
     }
-    
 
     // Funciones y metodos
-
-    public AltoMandoController() {
-    }
-
 
     /**
      * Metodo encargado de realizar la validacion del objeto altoMando

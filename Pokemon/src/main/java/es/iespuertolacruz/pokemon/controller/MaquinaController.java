@@ -1,11 +1,5 @@
 package es.iespuertolacruz.pokemon.controller;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-
 import es.iespuertolacruz.pokemon.api.Maquina;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
@@ -14,15 +8,17 @@ import es.iespuertolacruz.pokemon.modelo.MaquinaModelo;
 public class MaquinaController {
     // Variables de clase
 
+    ObjetoController objetoController;
+    MovimientoController movimientoController;
     MaquinaModelo maquinaModelo;
 
     // Constructores
 
-
-    public MaquinaController(MaquinaModelo maquinaModelo) {
-        this.maquinaModelo = maquinaModelo;
+    public MaquinaController() throws PersistenciaException {
+        objetoController = new ObjetoController();
+        movimientoController = new MovimientoController();
+        maquinaModelo = new MaquinaModelo();
     }
-   
 
     // Funciones y metodos
 
@@ -40,7 +36,7 @@ public class MaquinaController {
             throw new PokemonException(mensaje);
         }
 
-        if (maquina.getIdObjeto()  <= 0) {
+        if (maquina.getIdObjeto() <= 0) {
             mensaje = "El dObjeto del maquina es 0 o menor, ";
         }
 
@@ -90,7 +86,7 @@ public class MaquinaController {
      * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
-    public void eliminar(int IdObjeto , int  IdMovimiento) throws PokemonException, PersistenciaException {
+    public void eliminar(int IdObjeto, int IdMovimiento) throws PokemonException, PersistenciaException {
         Maquina maquina;
         maquina = buscar(IdObjeto, IdMovimiento);
         eliminar(maquina);
@@ -103,9 +99,9 @@ public class MaquinaController {
      * @return maquina a traves del id
      * @throws PersistenciaException con mensaje controlado
      */
-    public Maquina buscar(int IdObjeto , int IdMovimiento) throws PersistenciaException {
+    public Maquina buscar(int IdObjeto, int IdMovimiento) throws PersistenciaException {
         Maquina maquina = null;
-        maquina = maquinaModelo.buscar(IdObjeto ,  IdMovimiento);
+        maquina = maquinaModelo.buscar(IdObjeto, IdMovimiento);
         return maquina;
     }
 
@@ -135,7 +131,7 @@ public class MaquinaController {
         boolean encontrada = false;
         Maquina maquinaEncontrada;
 
-        maquinaEncontrada = buscar(maquina.getIdObjeto() , maquina.getIdMovimiento());
+        maquinaEncontrada = buscar(maquina.getIdObjeto(), maquina.getIdMovimiento());
         if (maquinaEncontrada != null) {
             encontrada = true;
         }

@@ -9,18 +9,18 @@ import es.iespuertolacruz.pokemon.modelo.CampeonLigaModelo;
  * Clase principal del modelo de CampeonLigaModelo
  */
 public class CampeonLigaController {
-    
-   // Variables de clase
 
+    // Variables de clase
+
+    EntrenadorController entrenadorController;
     CampeonLigaModelo campeonLigaModelo;
 
     // Constructores
 
-
-    public CampeonLigaController(CampeonLigaModelo campeonLigaModelo) {
-        this.campeonLigaModelo = campeonLigaModelo;
+    public CampeonLigaController() throws PersistenciaException {
+        entrenadorController = new EntrenadorController();
+        campeonLigaModelo = new CampeonLigaModelo();
     }
-    
 
     // Funciones y metodos
 
@@ -55,7 +55,7 @@ public class CampeonLigaController {
      * Metodo encargado de insertar
      * 
      * @param campeonLiga a insertar
-     * @throws PokemonException        con mensaje controlado
+     * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
     public void insertar(CampeonLiga campeonLiga) throws PokemonException, PersistenciaException {
@@ -70,7 +70,7 @@ public class CampeonLigaController {
      * Metodo encargado de eliminar
      * 
      * @param campeonLiga a eliminar
-     * @throws PokemonException        con mensaje controlado
+     * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
     public void eliminar(CampeonLiga campeonLiga) throws PokemonException, PersistenciaException {
@@ -85,7 +85,7 @@ public class CampeonLigaController {
      * Metodo encargado de realizar la eliminacion
      * 
      * @param nombre del campeonLiga a eliminar
-     * @throws PokemonException        con mensaje controlado
+     * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
     public void eliminar(int id) throws PokemonException, PersistenciaException {
@@ -111,7 +111,7 @@ public class CampeonLigaController {
      * Metodo encargado de realizar la modificacion de un campeonLiga
      * 
      * @param campeonLiga a modficar
-     * @throws PokemonException        con mensaje controlado
+     * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
     public void modificar(CampeonLiga campeonLiga) throws PokemonException, PersistenciaException {
@@ -141,5 +141,3 @@ public class CampeonLigaController {
     }
 
 }
-
-

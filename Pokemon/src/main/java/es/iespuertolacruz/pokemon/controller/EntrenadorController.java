@@ -6,7 +6,7 @@ import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.EntrenadorModelo;
 
 public class EntrenadorController {
-    
+
     // Variables de clase
 
     EntrenadorModelo entrenadorModelo;
@@ -50,7 +50,7 @@ public class EntrenadorController {
      * Metodo encargado de insertar
      * 
      * @param entrenador a insertar
-     * @throws PokemonException        con mensaje controlado
+     * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
     public void insertar(Entrenador entrenador) throws PokemonException, PersistenciaException {
@@ -65,7 +65,7 @@ public class EntrenadorController {
      * Metodo encargado de eliminar
      * 
      * @param entrenador a eliminar
-     * @throws PokemonException        con mensaje controlado
+     * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
     public void eliminar(Entrenador entrenador) throws PokemonException, PersistenciaException {
@@ -80,7 +80,7 @@ public class EntrenadorController {
      * Metodo encargado de realizar la eliminacion
      * 
      * @param nombre del entrenador a eliminar
-     * @throws PokemonException        con mensaje controlado
+     * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
     public void eliminar(int id) throws PokemonException, PersistenciaException {
@@ -106,7 +106,7 @@ public class EntrenadorController {
      * Metodo encargado de realizar la modificacion de un entrenador
      * 
      * @param entrenador a modficar
-     * @throws PokemonException        con mensaje controlado
+     * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
     public void modificar(Entrenador entrenador) throws PokemonException, PersistenciaException {

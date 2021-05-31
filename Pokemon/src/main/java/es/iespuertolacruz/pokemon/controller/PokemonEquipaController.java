@@ -1,22 +1,23 @@
 package es.iespuertolacruz.pokemon.controller;
 
-
 import es.iespuertolacruz.pokemon.api.PokemonEquipa;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.PokemonEquipaModelo;
 
 public class PokemonEquipaController {
-   
+
+    PokemonController pokemonController;
+    ObjetoController objetoController;
     PokemonEquipaModelo pokemonEquipaModelo;
 
     // Constructores
 
-
-    public PokemonEquipaController(PokemonEquipaModelo pokemonEquipaModelo) {
-        this.pokemonEquipaModelo = pokemonEquipaModelo;
+    public PokemonEquipaController() throws PersistenciaException {
+        pokemonController = new PokemonController();
+        objetoController = new ObjetoController();
+        pokemonEquipaModelo = new PokemonEquipaModelo();
     }
-   
 
     // Funciones y metodos
 
@@ -84,7 +85,7 @@ public class PokemonEquipaController {
      * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
-    public void eliminar(int  NumeroPokedex ,int  IdObjeto) throws PokemonException, PersistenciaException {
+    public void eliminar(int NumeroPokedex, int IdObjeto) throws PokemonException, PersistenciaException {
         PokemonEquipa pokemonEquipa;
         pokemonEquipa = buscar(NumeroPokedex, IdObjeto);
         eliminar(pokemonEquipa);
@@ -97,9 +98,9 @@ public class PokemonEquipaController {
      * @return pokemonEquipa a traves del NumeroPokedex ,IdObjeto
      * @throws PersistenciaException con mensaje controlado
      */
-    public PokemonEquipa buscar(int NumeroPokedex ,int  IdObjeto) throws PersistenciaException {
+    public PokemonEquipa buscar(int NumeroPokedex, int IdObjeto) throws PersistenciaException {
         PokemonEquipa pokemonEquipa = null;
-        pokemonEquipa = pokemonEquipaModelo.buscar(NumeroPokedex ,IdObjeto);
+        pokemonEquipa = pokemonEquipaModelo.buscar(NumeroPokedex, IdObjeto);
         return pokemonEquipa;
     }
 
@@ -129,7 +130,7 @@ public class PokemonEquipaController {
         boolean encontrada = false;
         PokemonEquipa pokemonEquipaEncontrada;
 
-        pokemonEquipaEncontrada = buscar(pokemonEquipa.getNumeroPokedex() ,pokemonEquipa.getIdObjeto());
+        pokemonEquipaEncontrada = buscar(pokemonEquipa.getNumeroPokedex(), pokemonEquipa.getIdObjeto());
         if (pokemonEquipaEncontrada != null) {
             encontrada = true;
         }

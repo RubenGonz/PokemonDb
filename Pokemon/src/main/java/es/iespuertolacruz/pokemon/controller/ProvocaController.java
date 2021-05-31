@@ -1,24 +1,25 @@
 package es.iespuertolacruz.pokemon.controller;
 
-
-
 import es.iespuertolacruz.pokemon.api.Provoca;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.ProvocaModelo;
 
 public class ProvocaController {
+
     // Variables de clase
 
+    EstadoController estadoController;
+    MovimientoController movimientoController;
     ProvocaModelo provocaModelo;
 
     // Constructores
 
-
-    public ProvocaController(ProvocaModelo provocaModelo) {
-        this.provocaModelo = provocaModelo;
+    public ProvocaController() throws PersistenciaException {
+        estadoController = new EstadoController();
+        movimientoController = new MovimientoController();
+        provocaModelo = new ProvocaModelo();
     }
-    
 
     // Funciones y metodos
 
@@ -40,11 +41,9 @@ public class ProvocaController {
             mensaje = "El identificador del provoca es 0 o menor, ";
         }
 
-         if (provoca.getIdEstado() <= 0) {
+        if (provoca.getIdEstado() <= 0) {
             mensaje = "El identificador del provoca es 0 o menor, ";
         }
-
-        
 
         if (!mensaje.isEmpty()) {
             throw new PokemonException(mensaje);
@@ -88,9 +87,9 @@ public class ProvocaController {
      * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
-    public void eliminar(int IdMovimiento,int   IdEstado) throws PokemonException, PersistenciaException {
+    public void eliminar(int IdMovimiento, int IdEstado) throws PokemonException, PersistenciaException {
         Provoca provoca;
-        provoca = buscar(IdMovimiento,  IdEstado);
+        provoca = buscar(IdMovimiento, IdEstado);
         eliminar(provoca);
     }
 
@@ -103,7 +102,7 @@ public class ProvocaController {
      */
     public Provoca buscar(int IdMovimiento, int IdEstado) throws PersistenciaException {
         Provoca provoca = null;
-        provoca = provocaModelo.buscar(IdMovimiento,  IdEstado);
+        provoca = provocaModelo.buscar(IdMovimiento, IdEstado);
         return provoca;
     }
 
@@ -133,7 +132,7 @@ public class ProvocaController {
         boolean encontrada = false;
         Provoca provocaEncontrada;
 
-        provocaEncontrada = buscar(provoca.getIdMovimiento() ,provoca.getIdEstado());
+        provocaEncontrada = buscar(provoca.getIdMovimiento(), provoca.getIdEstado());
         if (provocaEncontrada != null) {
             encontrada = true;
         }

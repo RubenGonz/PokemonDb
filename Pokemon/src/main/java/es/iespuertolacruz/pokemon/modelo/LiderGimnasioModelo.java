@@ -17,8 +17,8 @@ public class LiderGimnasioModelo {
     private static final String CLAVE = "id_entrenador";
 
     // Constructores
-    public LiderGimnasioModelo(DdBbSqLite persistencia) {
-        this.persistencia = persistencia;
+    public LiderGimnasioModelo() throws PersistenciaException {
+        persistencia = new DdBbSqLite(TABLA, null, null);
     }
 
     // Metodos y funciones

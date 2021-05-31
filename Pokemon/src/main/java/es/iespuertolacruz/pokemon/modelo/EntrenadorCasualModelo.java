@@ -21,8 +21,8 @@ public class EntrenadorCasualModelo {
     private static final String CLAVE = "id_entrenador";
 
     // Constructores
-    public EntrenadorCasualModelo(DdBbSqLite persistencia) {
-        this.persistencia = persistencia;
+    public EntrenadorCasualModelo() throws PersistenciaException {
+        persistencia = new DdBbSqLite(TABLA, null, null);
     }
 
     // Metodos y funciones

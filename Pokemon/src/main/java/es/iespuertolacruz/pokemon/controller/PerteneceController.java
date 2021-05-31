@@ -1,7 +1,5 @@
 package es.iespuertolacruz.pokemon.controller;
 
-
-
 import es.iespuertolacruz.pokemon.api.Pertenece;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
@@ -11,15 +9,17 @@ public class PerteneceController {
 
     // Variables de clase
 
+    TipoController tipoController;
+    PokemonController pokemonController;
     PerteneceModelo perteneceModelo;
 
     // Constructores
 
-
-    public PerteneceController(PerteneceModelo perteneceModelo) {
-        this.perteneceModelo = perteneceModelo;
+    public PerteneceController() throws PersistenciaException {
+        tipoController = new TipoController();
+        pokemonController = new PokemonController();
+        perteneceModelo = new PerteneceModelo();
     }
-    
 
     // Funciones y metodos
 

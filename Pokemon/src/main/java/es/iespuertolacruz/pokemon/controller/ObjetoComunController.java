@@ -1,11 +1,5 @@
 package es.iespuertolacruz.pokemon.controller;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-
 import es.iespuertolacruz.pokemon.api.ObjetoComun;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
@@ -15,15 +9,15 @@ public class ObjetoComunController {
 
     // Variables de clase
 
+    ObjetoController objetoController;
     ObjetoComunModelo objetoComunModelo;
 
     // Constructores
 
-    public ObjetoComunController(ObjetoComunModelo objetoComunModelo) {
-        this.objetoComunModelo = objetoComunModelo;
+    public ObjetoComunController() throws PersistenciaException {
+        objetoController = new ObjetoController();
+        objetoComunModelo = new ObjetoComunModelo();
     }
-
-    
 
     // Funciones y metodos
 

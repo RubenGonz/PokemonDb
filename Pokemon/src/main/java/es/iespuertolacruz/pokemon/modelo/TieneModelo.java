@@ -18,8 +18,8 @@ public class TieneModelo {
     private static final String CLAVE = "id_entrenador";
 
     // Constructores
-    public TieneModelo(DdBbSqLite persistencia) {
-        this.persistencia = persistencia;
+    public TieneModelo() throws PersistenciaException {
+        persistencia = new DdBbSqLite(TABLA, null, null);
     }
 
     // Metodos y funciones

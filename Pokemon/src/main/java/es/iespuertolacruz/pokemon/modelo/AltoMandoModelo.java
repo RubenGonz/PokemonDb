@@ -21,8 +21,8 @@ public class AltoMandoModelo {
     private static final String CLAVE = "id_entrenador";
 
     // Constructores
-    public AltoMandoModelo(DdBbSqLite persistencia) {
-        this.persistencia = persistencia;
+    public AltoMandoModelo() throws PersistenciaException {
+        persistencia = new DdBbSqLite(TABLA, null, null);
     }
 
     // Metodos y funciones

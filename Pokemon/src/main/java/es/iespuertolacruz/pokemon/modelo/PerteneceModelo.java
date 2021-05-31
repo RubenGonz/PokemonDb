@@ -18,8 +18,9 @@ public class PerteneceModelo {
     private static final String CLAVE = "numero_pokedex";
 
     // Constructores
-    public PerteneceModelo(DdBbSqLite persistencia) {
-        this.persistencia = persistencia;
+    
+    public PerteneceModelo() throws PersistenciaException {
+        persistencia = new DdBbSqLite(TABLA, null, null);
     }
 
     // Metodos y funciones

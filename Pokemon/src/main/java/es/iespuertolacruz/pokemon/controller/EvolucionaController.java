@@ -1,7 +1,5 @@
 package es.iespuertolacruz.pokemon.controller;
 
-
-
 import es.iespuertolacruz.pokemon.api.Evoluciona;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
@@ -10,14 +8,14 @@ import es.iespuertolacruz.pokemon.modelo.EvolucionaModelo;
 public class EvolucionaController {
     // Variables de clase
 
+    PokemonController pokemonController;
     EvolucionaModelo evolucionaModelo;
 
     // Constructores
 
-    
-
-    public EvolucionaController(EvolucionaModelo evolucionaModelo) {
-        this.evolucionaModelo = evolucionaModelo;
+    public EvolucionaController() throws PersistenciaException {
+        pokemonController = new PokemonController();
+        evolucionaModelo = new EvolucionaModelo();
     }
 
     // Funciones y metodos
@@ -104,7 +102,7 @@ public class EvolucionaController {
      */
     public Evoluciona buscar(int PokedexOrigen, int PokedexDestino) throws PersistenciaException {
         Evoluciona evoluciona = null;
-        evoluciona = evolucionaModelo.buscar(PokedexOrigen , PokedexDestino);
+        evoluciona = evolucionaModelo.buscar(PokedexOrigen, PokedexDestino);
         return evoluciona;
     }
 
@@ -134,7 +132,7 @@ public class EvolucionaController {
         boolean encontrada = false;
         Evoluciona evolucionaEncontrada;
 
-        evolucionaEncontrada = buscar(evoluciona.getNumeroPokedexOrigen() ,evoluciona.getNumeroPokedexDestino());
+        evolucionaEncontrada = buscar(evoluciona.getNumeroPokedexOrigen(), evoluciona.getNumeroPokedexDestino());
         if (evolucionaEncontrada != null) {
             encontrada = true;
         }

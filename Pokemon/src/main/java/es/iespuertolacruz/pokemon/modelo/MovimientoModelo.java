@@ -17,8 +17,8 @@ public class MovimientoModelo {
     private static final String CLAVE = "id_movimiento";
 
     // Constructores
-    public MovimientoModelo(DdBbSqLite persistencia) {
-        this.persistencia = persistencia;
+    public MovimientoModelo() throws PersistenciaException {
+        persistencia = new DdBbSqLite(TABLA, null, null);
     }
 
     // Metodos y funciones

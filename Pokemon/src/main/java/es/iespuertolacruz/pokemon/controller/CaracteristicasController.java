@@ -6,7 +6,7 @@ import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.CaracteristicasModelo;
 
 public class CaracteristicasController {
-    
+
     // Variables de clase
 
     CaracteristicasModelo caracteristicasModelo;
@@ -66,7 +66,7 @@ public class CaracteristicasController {
      * Metodo encargado de insertar
      * 
      * @param caracteristicas a insertar
-     * @throws PokemonException        con mensaje controlado
+     * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
     public void insertar(Caracteristicas caracteristicas) throws PokemonException, PersistenciaException {
@@ -81,7 +81,7 @@ public class CaracteristicasController {
      * Metodo encargado de eliminar
      * 
      * @param caracteristicas a eliminar
-     * @throws PokemonException        con mensaje controlado
+     * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
     public void eliminar(Caracteristicas caracteristicas) throws PokemonException, PersistenciaException {
@@ -96,7 +96,7 @@ public class CaracteristicasController {
      * Metodo encargado de realizar la eliminacion
      * 
      * @param nombre del caracteristicas a eliminar
-     * @throws PokemonException        con mensaje controlado
+     * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
     public void eliminar(int id) throws PokemonException, PersistenciaException {
@@ -122,7 +122,7 @@ public class CaracteristicasController {
      * Metodo encargado de realizar la modificacion de un caracteristicas
      * 
      * @param caracteristicas a modficar
-     * @throws PokemonException        con mensaje controlado
+     * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
     public void modificar(Caracteristicas caracteristicas) throws PokemonException, PersistenciaException {

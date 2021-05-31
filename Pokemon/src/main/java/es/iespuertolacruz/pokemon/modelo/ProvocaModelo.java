@@ -17,8 +17,8 @@ public class ProvocaModelo {
     private static final String CLAVE = "id_movimiento";
 
     // Constructores
-    public ProvocaModelo(DdBbSqLite persistencia) {
-        this.persistencia = persistencia;
+    public ProvocaModelo() throws PersistenciaException {
+        persistencia = new DdBbSqLite(TABLA, null, null);
     }
 
     // Metodos y funciones

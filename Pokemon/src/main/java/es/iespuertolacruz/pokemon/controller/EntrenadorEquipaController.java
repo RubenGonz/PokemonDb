@@ -1,24 +1,26 @@
 package es.iespuertolacruz.pokemon.controller;
 
-
-
 import es.iespuertolacruz.pokemon.api.EntrenadorEquipa;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.EntrenadorEquipaModelo;
 
 public class EntrenadorEquipaController {
+
     // Variables de clase
 
+    EntrenadorController entrenadorController;
+    ObjetoController objetoController;
     EntrenadorEquipaModelo entrenadorEquipaModelo;
 
     // Constructores
 
-
-    public EntrenadorEquipaController(EntrenadorEquipaModelo entrenadorEquipaModelo) {
-        this.entrenadorEquipaModelo = entrenadorEquipaModelo;
+    public EntrenadorEquipaController() throws PersistenciaException {
+        entrenadorController = new EntrenadorController();
+        objetoController = new ObjetoController();
+        entrenadorEquipaModelo = new EntrenadorEquipaModelo();
     }
-    
+
     // Funciones y metodos
 
     /**
@@ -42,7 +44,7 @@ public class EntrenadorEquipaController {
             mensaje = "El identificador del entrenadorEquipa es 0 o menor, ";
         }
 
-        if (entrenadorEquipa.getCantidad() <= 0 ) {
+        if (entrenadorEquipa.getCantidad() <= 0) {
             mensaje = "La Cantidad del entrenadorEquipa es 0 o menor, ";
         }
 
@@ -88,9 +90,9 @@ public class EntrenadorEquipaController {
      * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
-    public void eliminar(int IdEntrenador , int IdObjeto) throws PokemonException, PersistenciaException {
+    public void eliminar(int IdEntrenador, int IdObjeto) throws PokemonException, PersistenciaException {
         EntrenadorEquipa entrenadorEquipa;
-        entrenadorEquipa = buscar(IdEntrenador , IdObjeto);
+        entrenadorEquipa = buscar(IdEntrenador, IdObjeto);
         eliminar(entrenadorEquipa);
     }
 
@@ -101,9 +103,9 @@ public class EntrenadorEquipaController {
      * @return entrenador a traves del id
      * @throws PersistenciaException con mensaje controlado
      */
-    public EntrenadorEquipa buscar(int IdEntrenador , int IdObjeto) throws PersistenciaException {
+    public EntrenadorEquipa buscar(int IdEntrenador, int IdObjeto) throws PersistenciaException {
         EntrenadorEquipa entrenadorEquipa = null;
-        entrenadorEquipa = entrenadorEquipaModelo.buscar(IdEntrenador ,  IdObjeto);
+        entrenadorEquipa = entrenadorEquipaModelo.buscar(IdEntrenador, IdObjeto);
         return entrenadorEquipa;
     }
 
@@ -133,7 +135,7 @@ public class EntrenadorEquipaController {
         boolean encontrada = false;
         EntrenadorEquipa entrenadorEncontrada;
 
-        entrenadorEncontrada = buscar(entrenadorEquipa.getIdEntrenador() , entrenadorEquipa.getIdObjeto());
+        entrenadorEncontrada = buscar(entrenadorEquipa.getIdEntrenador(), entrenadorEquipa.getIdObjeto());
         if (entrenadorEncontrada != null) {
             encontrada = true;
         }

@@ -1,7 +1,5 @@
 package es.iespuertolacruz.pokemon.controller;
 
-
-
 import es.iespuertolacruz.pokemon.api.Movimiento;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
@@ -10,17 +8,15 @@ import es.iespuertolacruz.pokemon.modelo.MovimientoModelo;
 public class MovimientoController {
     // Variables de clase
 
+    TipoController tipoController;
     MovimientoModelo movimientoModelo;
 
     // Constructores
 
-
-    public MovimientoController(MovimientoModelo movimientoModelo) {
-        this.movimientoModelo = movimientoModelo;
+    public MovimientoController() throws PersistenciaException {
+        tipoController = new TipoController();
+        movimientoModelo = new MovimientoModelo();
     }
-
-    
-    
 
     // Funciones y metodos
 
@@ -62,7 +58,7 @@ public class MovimientoController {
             mensaje = "Potencia es nulo o vacio.";
         }
 
-        if (movimiento.getCerteza() <= 0 ) {
+        if (movimiento.getCerteza() <= 0) {
             mensaje = "Certeza es nulo o vacio.";
         }
 

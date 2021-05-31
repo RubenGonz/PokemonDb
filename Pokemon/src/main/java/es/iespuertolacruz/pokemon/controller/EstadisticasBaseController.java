@@ -6,7 +6,7 @@ import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.EstadisticasBaseModelo;
 
 public class EstadisticasBaseController {
-    
+
     // Variables de clase
 
     EstadisticasBaseModelo estadisticasBaseModelo;
@@ -70,7 +70,7 @@ public class EstadisticasBaseController {
      * Metodo encargado de insertar
      * 
      * @param estadisticasBase a insertar
-     * @throws PokemonException        con mensaje controlado
+     * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
     public void insertar(EstadisticasBase estadisticasBase) throws PokemonException, PersistenciaException {
@@ -85,7 +85,7 @@ public class EstadisticasBaseController {
      * Metodo encargado de eliminar
      * 
      * @param estadisticasBase a eliminar
-     * @throws PokemonException        con mensaje controlado
+     * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
     public void eliminar(EstadisticasBase estadisticasBase) throws PokemonException, PersistenciaException {
@@ -100,7 +100,7 @@ public class EstadisticasBaseController {
      * Metodo encargado de realizar la eliminacion
      * 
      * @param id de la estadisticasBase a eliminar
-     * @throws PokemonException        con mensaje controlado
+     * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
     public void eliminar(int id) throws PokemonException, PersistenciaException {
@@ -126,7 +126,7 @@ public class EstadisticasBaseController {
      * Metodo encargado de realizar la modificacion de una estadisticasBase
      * 
      * @param estadisticasBase a modficar
-     * @throws PokemonException        con mensaje controlado
+     * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
     public void modificar(EstadisticasBase estadisticasBase) throws PokemonException, PersistenciaException {

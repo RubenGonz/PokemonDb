@@ -18,8 +18,8 @@ public class ObjetoComunModelo {
     private static final String CLAVE = "id_objeto";
 
     // Constructores
-    public ObjetoComunModelo(DdBbSqLite persistencia) {
-        this.persistencia = persistencia;
+    public ObjetoComunModelo() throws PersistenciaException {
+        persistencia = new DdBbSqLite(TABLA, null, null);
     }
 
     // Metodos y funciones

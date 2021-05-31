@@ -1,24 +1,23 @@
 package es.iespuertolacruz.pokemon.controller;
 
-
-
 import es.iespuertolacruz.pokemon.api.LiderGimnasio;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.LiderGimnasioModelo;
 
 public class LiderGimnasioController {
+
     // Variables de clase
 
+    EntrenadorController entrenadorController;
     LiderGimnasioModelo liderGimnasioModelo;
 
     // Constructores
 
-
-    public LiderGimnasioController(LiderGimnasioModelo liderGimnasioModelo) {
-        this.liderGimnasioModelo = liderGimnasioModelo;
+    public LiderGimnasioController() throws PersistenciaException {
+        entrenadorController = new EntrenadorController();
+        liderGimnasioModelo = new LiderGimnasioModelo();
     }
-    
 
     // Funciones y metodos
 

@@ -17,8 +17,9 @@ public class PokemonEquipaModelo {
     private static final String CLAVE = "numero_pokedex";
 
     // Constructores
-    public PokemonEquipaModelo(DdBbSqLite persistencia) {
-        this.persistencia = persistencia;
+    
+    public PokemonEquipaModelo() throws PersistenciaException {
+        persistencia = new DdBbSqLite(TABLA, null, null);
     }
 
     // Metodos y funciones

@@ -22,8 +22,8 @@ public class CampeonLigaModelo {
 
 
     // Constructores
-    public CampeonLigaModelo(DdBbSqLite persistencia) {
-        this.persistencia = persistencia;
+    public CampeonLigaModelo() throws PersistenciaException {
+        persistencia = new DdBbSqLite(TABLA, null, null);
     }
 
     // Metodos y funciones

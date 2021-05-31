@@ -17,8 +17,9 @@ public class PokeballModelo {
     private static final String CLAVE = "id_objeto";
 
     // Constructores
-    public PokeballModelo(DdBbSqLite persistencia) {
-        this.persistencia = persistencia;
+    
+    public PokeballModelo() throws PersistenciaException {
+        persistencia = new DdBbSqLite(TABLA, null, null);
     }
 
     // Metodos y funciones

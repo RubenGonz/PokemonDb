@@ -19,9 +19,11 @@ public class ConoceModelo {
     DdBbSqLite persistencia;
     private static final String TABLA = "CONOCE";
     private static final String CLAVE = "IdMovimiento";
+
     // Constructores
-    public ConoceModelo(DdBbSqLite persistencia) {
-        this.persistencia = persistencia;
+    
+    public ConoceModelo() throws PersistenciaException {
+        persistencia = new DdBbSqLite(TABLA, null, null);
     }
 
     // Metodos y funciones

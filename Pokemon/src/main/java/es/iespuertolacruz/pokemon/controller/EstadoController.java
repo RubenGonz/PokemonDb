@@ -6,7 +6,7 @@ import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.EstadoModelo;
 
 public class EstadoController {
-    
+
     // Variables de clase
 
     EstadoModelo estadoModelo;
@@ -58,7 +58,7 @@ public class EstadoController {
      * Metodo encargado de insertar
      * 
      * @param estado a insertar
-     * @throws PokemonException        con mensaje controlado
+     * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
     public void insertar(Estado estado) throws PokemonException, PersistenciaException {
@@ -73,7 +73,7 @@ public class EstadoController {
      * Metodo encargado de eliminar
      * 
      * @param estado a eliminar
-     * @throws PokemonException        con mensaje controlado
+     * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
     public void eliminar(Estado estado) throws PokemonException, PersistenciaException {
@@ -88,7 +88,7 @@ public class EstadoController {
      * Metodo encargado de realizar la eliminacion
      * 
      * @param nombre del estado a eliminar
-     * @throws PokemonException        con mensaje controlado
+     * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
     public void eliminar(int id) throws PokemonException, PersistenciaException {
@@ -114,7 +114,7 @@ public class EstadoController {
      * Metodo encargado de realizar la modificacion de un estado
      * 
      * @param estado a modficar
-     * @throws PokemonException        con mensaje controlado
+     * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
     public void modificar(Estado estado) throws PokemonException, PersistenciaException {

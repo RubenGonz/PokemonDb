@@ -17,8 +17,8 @@ public class MaquinaModelo {
     private static final String CLAVE = "id_objeto";
 
     // Constructores
-    public MaquinaModelo(DdBbSqLite persistencia) {
-        this.persistencia = persistencia;
+    public MaquinaModelo() throws PersistenciaException {
+        persistencia = new DdBbSqLite(TABLA, null, null);
     }
 
     // Metodos y funciones

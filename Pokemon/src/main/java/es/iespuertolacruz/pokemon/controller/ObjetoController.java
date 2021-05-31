@@ -6,7 +6,7 @@ import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.ObjetoModelo;
 
 public class ObjetoController {
-    
+
     // Variables de clase
 
     ObjetoModelo objetoModelo;
@@ -54,7 +54,7 @@ public class ObjetoController {
      * Metodo encargado de insertar
      * 
      * @param objeto a insertar
-     * @throws PokemonException        con mensaje controlado
+     * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
     public void insertar(Objeto objeto) throws PokemonException, PersistenciaException {
@@ -69,7 +69,7 @@ public class ObjetoController {
      * Metodo encargado de eliminar
      * 
      * @param objeto a eliminar
-     * @throws PokemonException        con mensaje controlado
+     * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
     public void eliminar(Objeto objeto) throws PokemonException, PersistenciaException {
@@ -84,7 +84,7 @@ public class ObjetoController {
      * Metodo encargado de realizar la eliminacion
      * 
      * @param nombre del objeto a eliminar
-     * @throws PokemonException        con mensaje controlado
+     * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
     public void eliminar(int id) throws PokemonException, PersistenciaException {
@@ -110,7 +110,7 @@ public class ObjetoController {
      * Metodo encargado de realizar la modificacion de un objeto
      * 
      * @param objeto a modficar
-     * @throws PokemonException        con mensaje controlado
+     * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
     public void modificar(Objeto objeto) throws PokemonException, PersistenciaException {

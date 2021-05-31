@@ -1,7 +1,5 @@
 package es.iespuertolacruz.pokemon.controller;
 
-
-
 import es.iespuertolacruz.pokemon.api.Tiene;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
@@ -11,15 +9,17 @@ public class TieneController {
 
     // Variables de clase
 
+    EntrenadorController entrenadorController;
+    PokemonController pokemonController;
     TieneModelo tieneModelo;
 
     // Constructores
 
-
-    public TieneController(TieneModelo tieneModelo) {
-        this.tieneModelo = tieneModelo;
+    public TieneController() throws PersistenciaException {
+        entrenadorController = new EntrenadorController();
+        pokemonController = new PokemonController();
+        tieneModelo = new TieneModelo();
     }
-    
 
     // Funciones y metodos
 
@@ -37,7 +37,7 @@ public class TieneController {
             throw new PokemonException(mensaje);
         }
 
-        if (tiene.getNumeroPokedex()  <= 0) {
+        if (tiene.getNumeroPokedex() <= 0) {
             mensaje = "El NumeroPokedex del tiene es 0 o menor, ";
         }
 
@@ -100,9 +100,9 @@ public class TieneController {
      * @return tiene a traves del id
      * @throws PersistenciaException con mensaje controlado
      */
-    public Tiene buscar(int NumeroPokedex ,int IdEntrenador) throws PersistenciaException {
+    public Tiene buscar(int NumeroPokedex, int IdEntrenador) throws PersistenciaException {
         Tiene tiene = null;
-        tiene = tieneModelo.buscar(NumeroPokedex , IdEntrenador);
+        tiene = tieneModelo.buscar(NumeroPokedex, IdEntrenador);
         return tiene;
     }
 
@@ -132,7 +132,7 @@ public class TieneController {
         boolean encontrada = false;
         Tiene tieneEncontrada;
 
-        tieneEncontrada = buscar(tiene.getNumeroPokedex() ,tiene.getIdEntrenador());
+        tieneEncontrada = buscar(tiene.getNumeroPokedex(), tiene.getIdEntrenador());
         if (tieneEncontrada != null) {
             encontrada = true;
         }
