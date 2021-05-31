@@ -508,7 +508,7 @@ public class App {
         }
 
     }
-    private static void AdminContasenia() {
+    private static void AdminContasenia() throws PokemonException, PersistenciaException {
         Scanner sn = new Scanner(System.in);
         String password = "SoyMew";
         System.out.println("Ingrese la Contraseña ");
