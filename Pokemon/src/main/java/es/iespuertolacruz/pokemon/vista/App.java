@@ -3,13 +3,58 @@ package es.iespuertolacruz.pokemon.vista;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import es.iespuertolacruz.pokemon.api.AltoMando;
+import es.iespuertolacruz.pokemon.api.CampeonLiga;
+import es.iespuertolacruz.pokemon.api.Caracteristicas;
+import es.iespuertolacruz.pokemon.api.Conoce;
+import es.iespuertolacruz.pokemon.api.Entrenador;
+import es.iespuertolacruz.pokemon.api.EntrenadorCasual;
+import es.iespuertolacruz.pokemon.api.EntrenadorEquipa;
+import es.iespuertolacruz.pokemon.api.EstadisticasBase;
+import es.iespuertolacruz.pokemon.api.Estado;
+import es.iespuertolacruz.pokemon.api.Evoluciona;
+import es.iespuertolacruz.pokemon.api.LiderGimnasio;
+import es.iespuertolacruz.pokemon.api.Movimiento;
+import es.iespuertolacruz.pokemon.api.Objeto;
+import es.iespuertolacruz.pokemon.api.Pokemon;
+import es.iespuertolacruz.pokemon.controller.AltoMandoController;
+import es.iespuertolacruz.pokemon.controller.CampeonLigaController;
+import es.iespuertolacruz.pokemon.controller.CaracteristicasController;
+import es.iespuertolacruz.pokemon.controller.ConoceController;
+import es.iespuertolacruz.pokemon.controller.EntrenadorCasualController;
+import es.iespuertolacruz.pokemon.controller.EntrenadorController;
+import es.iespuertolacruz.pokemon.controller.EntrenadorEquipaController;
+import es.iespuertolacruz.pokemon.controller.EstadisticasBaseController;
+import es.iespuertolacruz.pokemon.controller.EstadoController;
+import es.iespuertolacruz.pokemon.controller.EvolucionaController;
+import es.iespuertolacruz.pokemon.controller.LiderGimnasioController;
+import es.iespuertolacruz.pokemon.controller.MovimientoController;
+import es.iespuertolacruz.pokemon.controller.ObjetoController;
+import es.iespuertolacruz.pokemon.controller.PokemonController;
+import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
+import es.iespuertolacruz.pokemon.excepciones.PokemonException;
+
 public class App {
+
+    // variables 
+
+    Caracteristicas caracteristicas;
+    CaracteristicasController caracteristicasController;
+    static Entrenador entrenador;
+    EntrenadorController entrenadorController;
+    static EstadisticasBase estadisticasBase;
+    EstadisticasBaseController estadisticasBaseController;
+    static Pokemon pokemon;
+    PokemonController pokemonController;
+    static Objeto objeto;
+    ObjetoController objetoController;
+    Movimiento movimiento;
+    MovimientoController movimientoController;
+
     public static void main(String[] args) {
         menuPrincipal();
     }
-    /**
-     * 
-     */
+    
     public static void menuPrincipal() {
         Scanner sn = new Scanner(System.in);
         boolean salir = false;
@@ -93,10 +138,9 @@ public class App {
 
     }
 
-    private static void menuAdmin() {
+    private static void menuAdmin() throws PokemonException, PersistenciaException {
         Scanner sn = new Scanner(System.in);
         boolean salir = false;
-        String contrasenia = "SoyMew";
         int opcion; // Guardaremos la opcion del usuario
 
         while (!salir) {
@@ -138,12 +182,11 @@ public class App {
         }
 
     }
-
-    private static void menuInsertar() {
+    
+    private static void menuInsertar() throws PokemonException, PersistenciaException {
         Scanner sn = new Scanner(System.in);
         boolean salir = false;
         int opcion; // Guardaremos la opcion del usuario
-
         while (!salir) {
 
             System.out.println("Bienvenido al  opcion insertar");
@@ -157,10 +200,14 @@ public class App {
             try {
                 System.out.println("Escribe una de las opciones");
                 opcion = sn.nextInt();
-
+                
+                
                 switch (opcion) {
                     case 1:
                         System.out.println("Has seleccionado la opcion insertar por pokemon");
+                        System.out.println("Di  que pokemon quuieres insertar");
+                        
+                        
                         break;
                     case 2:
                         System.out.println("Has seleccionado la opcion insertar  por entrenador");
@@ -187,7 +234,6 @@ public class App {
     private static void menuEliminar() {
         Scanner sn = new Scanner(System.in);
         boolean salir = false;
-        String contrasenia = "SoyMew";
         int opcion; // Guardaremos la opcion del usuario
 
         while (!salir) {
@@ -232,7 +278,6 @@ public class App {
     private static void menuModificar() {
         Scanner sn = new Scanner(System.in);
         boolean salir = false;
-        String contrasenia = "SoyMew";
         int opcion; // Guardaremos la opcion del usuario
 
         while (!salir) {
