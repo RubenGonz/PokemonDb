@@ -10,51 +10,46 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import es.iespuertolacruz.pokemon.api.AltoMando;
+import es.iespuertolacruz.pokemon.api.Conoce;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
+public class ConoceControllerTest {
 
-public class AltaMandoControllerTest {
-    
     // Variables de clase
+   static ConoceController conoceController;
+    Conoce conoce;
 
-    static AltoMandoController altoMandoController;
-    AltoMando altoMando = null;
-
-
-     @BeforeAll
+    @BeforeAll
     public static void beforeAll() {
-        if (altoMandoController == null) {
+        if (conoceController == null) {
             try {
-                altoMandoController = new AltoMandoController();
+                conoceController = new ConoceController();
             } catch (Exception e) {
-                fail("Se ha producido un error iniciando altoMandoController");
+                fail("Se ha producido un error iniciando conoceController");
             }
         }
     }
-
- /** 
+  /*  
     @BeforeEach
-    public void crearAltoMando() {
-        insertarAltoMandoTest();
+    public void crearConoce() {
+        insertarConoceTest();
     }
 
     @AfterEach
-    public void eliminarAltoMando() {
-        if (altoMando != null) {
-            eliminarAltoMandoTest();
+    public void eliminarConoce() {
+        if (conoce!= null) {
+            eliminarConoceTest();
         }
     }
 
-    // Test
-    **/
-/** 
+// Test
+ 
     @Test
-    public void insertarAltoMandoTest() {
-        altoMando = new AltoMando(1, "");
+    public void insertarConoceTest() {
+        conoce = new Conoce(1, 1);
         try {
-            altoMandoController.insertar(altoMando);
+            conoceController.insertar(conoce);
         } catch (PokemonException | PersistenciaException e) {
             assertTrue(e.getMessage().contains("El pokemon indicado ya existe"), "No se recibio el mensaje esperado");
         }
@@ -62,9 +57,9 @@ public class AltaMandoControllerTest {
 
     @Test
     public void validarTest() {
-        AltoMando altoMandoInvalido = new AltoMando(1, "");
+        Conoce conoceInvalido = new Conoce(1, 1);
         try {
-            altoMandoController.validar(altoMandoInvalido);
+            conoceController.validar(conoceInvalido);
         } catch (PokemonException e) {
             assertTrue(e.getMessage().contains(""));
         }
@@ -72,9 +67,9 @@ public class AltaMandoControllerTest {
 
     @Test
     public void validarNuloTest() {
-        AltoMando altoMandoInvalido = null;
+        Conoce conoceInvalido = null;
         try {
-            altoMandoController.validar(altoMandoInvalido);
+            conoceController.validar(conoceInvalido);
         } catch (PokemonException e) {
             assertTrue(e.getMessage().contains("Se esta validando un objeto nulo"),
                     "No se recibio el mensaje esperado");
@@ -82,51 +77,51 @@ public class AltaMandoControllerTest {
     }
 
     @Test
-    public void eliminarAltoMandoTest() {
+    public void eliminarConoceTest() {
         try {
-            altoMandoController.eliminar(altoMando);
+            conoceController.eliminar(conoce);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El AltoMando indicado no existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El conoce indicado no existe"), "No se recibio el mensaje esperado");
         }
     }
 
     @Test
     public void eliminarPorIdEntrenadorTest() {
         try {
-            altoMandoController.eliminar(1);
+            conoceController.eliminar(1);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El AltoMando indicado no existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El conoce indicado no existe"), "No se recibio el mensaje esperado");
         }
     }
 
     @Test
-    public void buscarAltoMandoTest() {
+    public void buscarconoceTest() {
         try {
-          AltoMando AltoMandoEncontrado = AltoMandoController.buscar(altoMando.getIdEntrenador());
-           assertNotNull(AltoMandoEncontrado, "No se debe de obtener un elemento nulo");
-            assertEquals(altoMando, AltoMandoEncontrado, "No se ha encontrado lo esperado");
+            Conoce conoceEncontrado = conoceController.buscar( conoce.getNumeroPokedex());
+           assertNotNull(conoceEncontrado, "No se debe de obtener un elemento nulo");
+            assertEquals(conoce, conoceEncontrado, "No se ha encontrado lo esperado");
         } catch (PersistenciaException e) {
             fail("Se ha producido un error en la consulta del pokemon ,e:" + e.getMessage());
         }
     }
 
     @Test
-    public void modificarAltoMandoExistenteTest() {
+    public void modificarconoceExistenteTest() {
         try {
-            altoMandoController.modificar(altoMando);
+            conoceController.modificar(conoce);
         } catch (PokemonException | PersistenciaException e) {
             fail("No deberia llgar ningun mensaje de error y llega");
         }
     }
 
     @Test
-    public void modificarAltoMandoInexistenteTest() {
-        AltoMando AltoMandoInexistente = new AltoMando(1, "Fuego");
+    public void modificarconoceInexistenteTest() {
+        Conoce conoceInexistente = new Conoce(1, 1);
         try {
-            altoMandoController.modificar(AltoMandoInexistente);
+            conoceController.modificar(conoceInexistente);
         } catch (PokemonException | PersistenciaException e) {
-            assertEquals("El AltoMando indicado no existe", e.getMessage(), "El mensaje recibido no es el esperado");
+            assertEquals("El conoce indicado no existe", e.getMessage(), "El mensaje recibido no es el esperado");
         }
     }
-**/
+    */
 }

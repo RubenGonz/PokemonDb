@@ -4,11 +4,19 @@ es/iespuertolacruz/pokemon/excepciones/PersistenciaException.class
 es/iespuertolacruz/pokemon/modelo/EntrenadorModelo.class
 es/iespuertolacruz/pokemon/api/Villano.class
 es/iespuertolacruz/pokemon/modelo/MaquinaModelo.class
+<<<<<<< HEAD
 es/iespuertolacruz/pokemon/modelo/PokeballModelo.class
 es/iespuertolacruz/pokemon/api/Pertenece.class
 es/iespuertolacruz/pokemon/modelo/EntrenadorCasualModelo.class
 es/iespuertolacruz/pokemon/api/Conoce.class
 es/iespuertolacruz/pokemon/api/LiderGimnasio.class
+=======
+es/iespuertolacruz/pokemon/api/Pertenece.class
+es/iespuertolacruz/pokemon/modelo/PokeballModelo.class
+es/iespuertolacruz/pokemon/api/LiderGimnasio.class
+es/iespuertolacruz/pokemon/api/Conoce.class
+es/iespuertolacruz/pokemon/modelo/EntrenadorCasualModelo.class
+>>>>>>> 0cdaf80c8964f4710aa150408fe8710815dc6a34
 es/iespuertolacruz/pokemon/modelo/MovimientoModelo.class
 es/iespuertolacruz/pokemon/api/Provoca.class
 es/iespuertolacruz/pokemon/controller/AltoMandoController.class
@@ -22,6 +30,7 @@ es/iespuertolacruz/pokemon/controller/ProvocaController.class
 es/iespuertolacruz/pokemon/api/Tiene.class
 es/iespuertolacruz/pokemon/api/Evoluciona.class
 es/iespuertolacruz/pokemon/api/AltoMando.class
+<<<<<<< HEAD
 es/iespuertolacruz/pokemon/modelo/PerteneceModelo.class
 es/iespuertolacruz/pokemon/api/EstadisticasBase.class
 es/iespuertolacruz/pokemon/modelo/Fichero.class
@@ -36,6 +45,22 @@ es/iespuertolacruz/pokemon/modelo/ProvocaModelo.class
 es/iespuertolacruz/pokemon/modelo/DdBbSqLite.class
 es/iespuertolacruz/pokemon/controller/CampeonLigaController.class
 es/iespuertolacruz/pokemon/controller/TieneController.class
+=======
+es/iespuertolacruz/pokemon/api/EstadisticasBase.class
+es/iespuertolacruz/pokemon/modelo/PerteneceModelo.class
+es/iespuertolacruz/pokemon/modelo/Fichero.class
+es/iespuertolacruz/pokemon/controller/EntrenadorEquipaController.class
+es/iespuertolacruz/pokemon/api/EntrenadorCasual.class
+es/iespuertolacruz/pokemon/api/Caracteristicas.class
+es/iespuertolacruz/pokemon/modelo/EntrenadorEquipaModelo.class
+es/iespuertolacruz/pokemon/controller/ObjetoController.class
+es/iespuertolacruz/pokemon/api/Estado.class
+es/iespuertolacruz/pokemon/modelo/ObjetoModelo.class
+es/iespuertolacruz/pokemon/modelo/ProvocaModelo.class
+es/iespuertolacruz/pokemon/modelo/DdBbSqLite.class
+es/iespuertolacruz/pokemon/controller/TieneController.class
+es/iespuertolacruz/pokemon/controller/CampeonLigaController.class
+>>>>>>> 0cdaf80c8964f4710aa150408fe8710815dc6a34
 es/iespuertolacruz/pokemon/modelo/TieneModelo.class
 es/iespuertolacruz/pokemon/controller/EntrenadorCasualController.class
 es/iespuertolacruz/pokemon/modelo/CampeonLigaModelo.class
@@ -53,19 +78,32 @@ es/iespuertolacruz/pokemon/api/CampeonLiga.class
 es/iespuertolacruz/pokemon/modelo/PokemonModelo.class
 es/iespuertolacruz/pokemon/modelo/PokemonEquipaModelo.class
 es/iespuertolacruz/pokemon/api/Objeto.class
+<<<<<<< HEAD
 es/iespuertolacruz/pokemon/modelo/EstadisticasBaseModelo.class
 es/iespuertolacruz/pokemon/modelo/EvolucionaModelo.class
+=======
+es/iespuertolacruz/pokemon/modelo/EvolucionaModelo.class
+es/iespuertolacruz/pokemon/modelo/EstadisticasBaseModelo.class
+>>>>>>> 0cdaf80c8964f4710aa150408fe8710815dc6a34
 es/iespuertolacruz/pokemon/controller/MaquinaController.class
 es/iespuertolacruz/pokemon/modelo/TipoModelo.class
 es/iespuertolacruz/pokemon/controller/EstadisticasBaseController.class
 es/iespuertolacruz/pokemon/controller/TipoController.class
 es/iespuertolacruz/pokemon/controller/PerteneceController.class
 es/iespuertolacruz/pokemon/api/Maquina.class
+<<<<<<< HEAD
 es/iespuertolacruz/pokemon/excepciones/PokemonException.class
 es/iespuertolacruz/pokemon/api/Tipo.class
 es/iespuertolacruz/pokemon/api/EntrenadorEquipa.class
 es/iespuertolacruz/pokemon/api/Pokeball.class
 es/iespuertolacruz/pokemon/api/Pokemon.class
+=======
+es/iespuertolacruz/pokemon/api/EntrenadorEquipa.class
+es/iespuertolacruz/pokemon/api/Tipo.class
+es/iespuertolacruz/pokemon/excepciones/PokemonException.class
+es/iespuertolacruz/pokemon/api/Pokemon.class
+es/iespuertolacruz/pokemon/api/Pokeball.class
+>>>>>>> 0cdaf80c8964f4710aa150408fe8710815dc6a34
 es/iespuertolacruz/pokemon/excepciones/FicheroException.class
 es/iespuertolacruz/pokemon/controller/MovimientoController.class
 es/iespuertolacruz/pokemon/modelo/LiderGimnasioModelo.class

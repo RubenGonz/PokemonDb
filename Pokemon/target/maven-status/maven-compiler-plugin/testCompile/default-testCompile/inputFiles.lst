@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /home/ruben/Desktop/Repositorios/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/api/ObjetoTest.java
 /home/ruben/Desktop/Repositorios/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/api/MaquinaTest.java
 /home/ruben/Desktop/Repositorios/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/api/PokemonEquipaTest.java
@@ -29,3 +30,38 @@
 /home/ruben/Desktop/Repositorios/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/api/PerteneceTest.java
 /home/ruben/Desktop/Repositorios/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/api/ConoceTest.java
 /home/ruben/Desktop/Repositorios/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/api/VillanoTest.java
+=======
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/api/VillanoTest.java
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/controller/ObjetoControllerTest.java
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/controller/PokemonControllerTest.java
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/api/EstadisticasBaseTest.java
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/api/ProvocaTest.java
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/api/MovimientoTest.java
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/controller/EstadisticasBaseControllerTest.java
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/api/CaracteristicasTest.java
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/api/PokemonTest.java
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/controller/TipoControllerTest.java
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/api/EntrenadorEquipaTest.java
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/api/PerteneceTest.java
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/api/LiderGimnasioTest.java
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/api/AltoMandoTest.java
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/api/MaquinaTest.java
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/api/EntrenadorCasualTest.java
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/api/CampeonLigaTest.java
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/api/ObjetoTest.java
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/api/PokeballTest.java
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/controller/EstadoControllerTest.java
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/api/PokemonEquipaTest.java
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/api/ConoceTest.java
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/controller/CampeonLigaControllerTest.java
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/api/EntrenadorTest.java
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/api/TipoTest.java
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/api/EstadoTest.java
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/controller/CaracteristicasControllerTest.java
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/api/EvolucionaTest.java
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/controller/ConoceControllerTest.java
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/controller/EntrenadorControllerTest.java
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/controller/AltaMandoControllerTest.java
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/api/ObjetoComunTest.java
+/home/jose/Escritorio/Repositorio/PokemonDb/Pokemon/src/test/java/es/iespuertolacruz/pokemon/api/TieneTest.java
+>>>>>>> 0cdaf80c8964f4710aa150408fe8710815dc6a34

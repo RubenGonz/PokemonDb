@@ -65,7 +65,7 @@ public abstract class DdBb {
             }
             if (!listaTablas.contains(nombreTabla)) {
                 String estructuraTabla = new Fichero().leer("resources/sqlite/crear/" + nombreTabla + ".sql");
-                update(estructuraTabla);
+                update(estructuraTabla); 
                 String scriptTabla = new Fichero().leer("resources/sqlite/insertar/" + nombreTabla + ".sql");
                 String[] insercionesSeparadas = scriptTabla.split(";");
                 for (String insercion : insercionesSeparadas) {

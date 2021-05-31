@@ -1,6 +1,11 @@
 es/iespuertolacruz/pokemon/controller/EstadoControllerTest.class
+<<<<<<< HEAD
 es/iespuertolacruz/pokemon/api/MaquinaTest.class
 es/iespuertolacruz/pokemon/api/EvolucionaTest.class
+=======
+es/iespuertolacruz/pokemon/api/EvolucionaTest.class
+es/iespuertolacruz/pokemon/api/MaquinaTest.class
+>>>>>>> 0cdaf80c8964f4710aa150408fe8710815dc6a34
 es/iespuertolacruz/pokemon/api/TipoTest.class
 es/iespuertolacruz/pokemon/api/ConoceTest.class
 es/iespuertolacruz/pokemon/api/EntrenadorTest.class
@@ -10,6 +15,7 @@ es/iespuertolacruz/pokemon/api/ObjetoComunTest.class
 es/iespuertolacruz/pokemon/api/CampeonLigaTest.class
 es/iespuertolacruz/pokemon/api/MovimientoTest.class
 es/iespuertolacruz/pokemon/controller/PokemonControllerTest.class
+<<<<<<< HEAD
 es/iespuertolacruz/pokemon/api/PerteneceTest.class
 es/iespuertolacruz/pokemon/api/CaracteristicasTest.class
 es/iespuertolacruz/pokemon/controller/CaracteristicasControllerTest.class
@@ -23,6 +29,23 @@ es/iespuertolacruz/pokemon/api/EstadisticasBaseTest.class
 es/iespuertolacruz/pokemon/api/PokemonTest.class
 es/iespuertolacruz/pokemon/api/TieneTest.class
 es/iespuertolacruz/pokemon/api/AltoMandoTest.class
+=======
+es/iespuertolacruz/pokemon/api/CaracteristicasTest.class
+es/iespuertolacruz/pokemon/api/PerteneceTest.class
+es/iespuertolacruz/pokemon/controller/CaracteristicasControllerTest.class
+es/iespuertolacruz/pokemon/controller/ObjetoControllerTest.class
+es/iespuertolacruz/pokemon/api/LiderGimnasioTest.class
+es/iespuertolacruz/pokemon/controller/CampeonLigaControllerTest.class
+es/iespuertolacruz/pokemon/api/PokemonEquipaTest.class
+es/iespuertolacruz/pokemon/controller/AltaMandoControllerTest.class
+es/iespuertolacruz/pokemon/api/ProvocaTest.class
+es/iespuertolacruz/pokemon/api/EstadisticasBaseTest.class
+es/iespuertolacruz/pokemon/controller/EntrenadorControllerTest.class
+es/iespuertolacruz/pokemon/api/PokemonTest.class
+es/iespuertolacruz/pokemon/api/TieneTest.class
+es/iespuertolacruz/pokemon/api/AltoMandoTest.class
+es/iespuertolacruz/pokemon/controller/ConoceControllerTest.class
+>>>>>>> 0cdaf80c8964f4710aa150408fe8710815dc6a34
 es/iespuertolacruz/pokemon/api/EntrenadorCasualTest.class
 es/iespuertolacruz/pokemon/api/EntrenadorEquipaTest.class
 es/iespuertolacruz/pokemon/controller/EstadisticasBaseControllerTest.class
