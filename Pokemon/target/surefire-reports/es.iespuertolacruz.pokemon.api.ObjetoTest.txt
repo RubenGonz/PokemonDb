@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: es.iespuertolacruz.pokemon.api.ObjetoTest
 -------------------------------------------------------------------------------
-<<<<<<< HEAD
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 s - in es.iespuertolacruz.pokemon.api.ObjetoTest
-=======
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in es.iespuertolacruz.pokemon.api.ObjetoTest
->>>>>>> 0cdaf80c8964f4710aa150408fe8710815dc6a34
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in es.iespuertolacruz.pokemon.api.ObjetoTest
