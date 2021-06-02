@@ -7,7 +7,7 @@ import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.CampeonLigaModelo;
 
 /**
- * Clase principal del modelo de CampeonLigaModelo
+ * Clase principal del modelo de CampeonLigaController
  */
 public class CampeonLigaController {
 
@@ -85,26 +85,26 @@ public class CampeonLigaController {
     /**
      * Metodo encargado de realizar la eliminacion
      * 
-     * @param nombre del campeonLiga a eliminar
+     * @param idEntrenador del campeonLiga a eliminar
      * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
-    public void eliminar(int id) throws PokemonException, PersistenciaException {
+    public void eliminar(int idEntrenador) throws PokemonException, PersistenciaException {
         CampeonLiga campeonLiga;
-        campeonLiga = buscar(id);
+        campeonLiga = buscar(idEntrenador);
         eliminar(campeonLiga);
     }
 
     /**
-     * Metodo encargado de buscar por el id
+     * Metodo encargado de buscar por el idEntrenador
      * 
-     * @param id para localizar el campeonLiga
-     * @return campeonLiga a traves del id
+     * @param idEntrenador para localizar el campeonLiga
+     * @return campeonLiga a traves del idEntrenador
      * @throws PersistenciaException con mensaje controlado
      */
-    public CampeonLiga buscar(int id) throws PersistenciaException {
+    public CampeonLiga buscar(int idEntrenador) throws PersistenciaException {
         CampeonLiga campeonLiga = null;
-        campeonLiga = campeonLigaModelo.buscar(id);
+        campeonLiga = campeonLigaModelo.buscar(idEntrenador);
         return campeonLiga;
     }
 

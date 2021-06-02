@@ -14,15 +14,21 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
  * Clase principal del modelo de CampeonLigaModelo
  */
 public class CampeonLigaModelo {
-    
+
     // Variables de clase
 
     DdBbSqLite persistencia;
     private static final String TABLA = "CAMPEON_LIGA";
     private static final String CLAVE = "id_entrenador";
 
-
     // Constructores
+
+    /**
+     * Constructor de AltoMandoModelo donde inicializa DdBbSqLite
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException      con error controlado
+     */
     public CampeonLigaModelo() throws PersistenciaException, FicheroException {
         persistencia = new DdBbSqLite(TABLA, null, null);
     }
@@ -32,11 +38,11 @@ public class CampeonLigaModelo {
     /**
      * Metodo que inserta CampeonLiga en la base de datos
      * 
-     * @param campeonLiga
-     * @throws PersistenciaException
+     * @param campeonLiga a insertar
+     * @throws PersistenciaException con error controlado
      */
     public void insertar(CampeonLiga campeonLiga) throws PersistenciaException {
-        String sql = "INSERT INTO " + TABLA + " VALUES (" + campeonLiga.getIdEntrenador() + ","
+        String sql = "INSERT INTO " + TABLA + " VALUES (" + campeonLiga.getIdEntrenador() + ",'"
                 + campeonLiga.getRegion() + "');";
         persistencia.update(sql);
     }
@@ -44,11 +50,11 @@ public class CampeonLigaModelo {
     /***
      * Metodo que elimina campeonLiga de la base de datos
      * 
-     * @param campeonLiga
-     * @throws PersistenciaException
+     * @param campeonLiga a eliminar
+     * @throws PersistenciaException con error controlado
      */
     public void eliminar(CampeonLiga campeonLiga) throws PersistenciaException {
-        String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = " +  campeonLiga.getIdEntrenador() + ";";
+        String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = " + campeonLiga.getIdEntrenador() + ";";
         persistencia.update(sql);
     }
 
@@ -59,21 +65,21 @@ public class CampeonLigaModelo {
      * @throws PersistenciaException error controlado
      */
     public void modificar(CampeonLiga campeonLiga) throws PersistenciaException {
-        String sql = "UPDATE " + TABLA + " SET TipoPrincipal = " + campeonLiga.getRegion() + "WHERE " + CLAVE
-                + " = " + campeonLiga.getIdEntrenador() + ";";
+        String sql = "UPDATE " + TABLA + " SET region = '" + campeonLiga.getRegion() + "' WHERE " + CLAVE + " = "
+                + campeonLiga.getIdEntrenador() + ";";
         persistencia.update(sql);
     }
 
     /**
      * Funcion encargada de obtener campeonLiga
      * 
-     * @param IdEntrenador del altoMando
+     * @param idEntrenador del altoMando
      * @return altoMando buscado
      * @throws PersistenciaException con error controlado
      */
-    public CampeonLiga buscar(int IdEntrenador) throws PersistenciaException {
+    public CampeonLiga buscar(int idEntrenador) throws PersistenciaException {
         CampeonLiga campeonLiga = null;
-        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVE + " = " + IdEntrenador + ";";
+        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVE + " = " + idEntrenador + ";";
         ArrayList<CampeonLiga> lista = transformarACampeonLiga(sql);
         if (!lista.isEmpty()) {
             campeonLiga = lista.get(0);
@@ -101,7 +107,7 @@ public class CampeonLigaModelo {
             while (resultSet.next()) {
                 CampeonLiga campeonLiga = new CampeonLiga();
                 campeonLiga.setIdEntrenador(resultSet.getInt(CLAVE));
-                campeonLiga.setRegion(resultSet.getString("Region"));
+                campeonLiga.setRegion(resultSet.getString("region"));
                 lista.add(campeonLiga);
             }
         } catch (SQLException exception) {

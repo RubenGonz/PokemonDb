@@ -17,7 +17,8 @@ import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 public class ConoceControllerTest {
 
     // Variables de clase
-   static ConoceController conoceController;
+    
+    static ConoceController conoceController;
     Conoce conoce;
 
     @BeforeAll
@@ -30,7 +31,7 @@ public class ConoceControllerTest {
             }
         }
     }
-  /*  
+
     @BeforeEach
     public void crearConoce() {
         insertarConoceTest();
@@ -38,13 +39,13 @@ public class ConoceControllerTest {
 
     @AfterEach
     public void eliminarConoce() {
-        if (conoce!= null) {
+        if (conoce != null) {
             eliminarConoceTest();
         }
     }
 
-// Test
- 
+    // Test
+
     @Test
     public void insertarConoceTest() {
         conoce = new Conoce(1, 1);
@@ -97,8 +98,8 @@ public class ConoceControllerTest {
     @Test
     public void buscarconoceTest() {
         try {
-            Conoce conoceEncontrado = conoceController.buscar( conoce.getNumeroPokedex());
-           assertNotNull(conoceEncontrado, "No se debe de obtener un elemento nulo");
+            Conoce conoceEncontrado = conoceController.buscar(conoce.getNumeroPokedex());
+            assertNotNull(conoceEncontrado, "No se debe de obtener un elemento nulo");
             assertEquals(conoce, conoceEncontrado, "No se ha encontrado lo esperado");
         } catch (PersistenciaException e) {
             fail("Se ha producido un error en la consulta del pokemon ,e:" + e.getMessage());
@@ -123,5 +124,5 @@ public class ConoceControllerTest {
             assertEquals("El conoce indicado no existe", e.getMessage(), "El mensaje recibido no es el esperado");
         }
     }
-    */
+
 }

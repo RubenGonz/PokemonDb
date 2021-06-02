@@ -15,7 +15,7 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
 public class CampeonLigaControllerTest {
-    
+
     // Variables de clase
 
     static CampeonLigaController campeonLigaController;
@@ -31,7 +31,7 @@ public class CampeonLigaControllerTest {
             }
         }
     }
-/** 
+
     @BeforeEach
     public void crearCampeonLiga() {
         insertarCampeonLigaTest();
@@ -44,16 +44,16 @@ public class CampeonLigaControllerTest {
         }
     }
 
-// Test
-
+    // Test
 
     @Test
     public void insertarCampeonLigaTest() {
-        campeonLiga = new CampeonLiga(1, "");
+        campeonLiga = new CampeonLiga(1, "Johto");
         try {
             campeonLigaController.insertar(campeonLiga);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El pokemon indicado ya existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El campeonLiga indicado ya existe"),
+                    "No se recibio el mensaje esperado");
         }
     }
 
@@ -83,7 +83,8 @@ public class CampeonLigaControllerTest {
         try {
             campeonLigaController.eliminar(campeonLiga);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El campeonLiga indicado no existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El campeonLiga indicado no existe"),
+                    "No se recibio el mensaje esperado");
         }
     }
 
@@ -92,15 +93,16 @@ public class CampeonLigaControllerTest {
         try {
             campeonLigaController.eliminar(1);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El campeonLiga indicado no existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El campeonLiga indicado no existe"),
+                    "No se recibio el mensaje esperado");
         }
     }
 
     @Test
     public void buscarcampeonLigaTest() {
         try {
-          CampeonLiga campeonLigaEncontrado = campeonLigaController.buscar(campeonLiga.getIdEntrenador());
-           assertNotNull(campeonLigaEncontrado, "No se debe de obtener un elemento nulo");
+            CampeonLiga campeonLigaEncontrado = campeonLigaController.buscar(campeonLiga.getIdEntrenador());
+            assertNotNull(campeonLigaEncontrado, "No se debe de obtener un elemento nulo");
             assertEquals(campeonLiga, campeonLigaEncontrado, "No se ha encontrado lo esperado");
         } catch (PersistenciaException e) {
             fail("Se ha producido un error en la consulta del pokemon ,e:" + e.getMessage());
@@ -118,7 +120,7 @@ public class CampeonLigaControllerTest {
 
     @Test
     public void modificarcampeonLigaInexistenteTest() {
-        CampeonLiga campeonLigaInexistente = new CampeonLiga(1, "Johto");
+        CampeonLiga campeonLigaInexistente = new CampeonLiga(2, "Sinnoh");
         try {
             campeonLigaController.modificar(campeonLigaInexistente);
         } catch (PokemonException | PersistenciaException e) {
@@ -126,5 +128,4 @@ public class CampeonLigaControllerTest {
         }
     }
 
-*/
 }
