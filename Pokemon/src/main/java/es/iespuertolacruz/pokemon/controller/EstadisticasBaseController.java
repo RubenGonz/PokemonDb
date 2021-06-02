@@ -14,6 +14,12 @@ public class EstadisticasBaseController {
 
     // Constructores
 
+    /**
+     * Constructor de EstadisticasBaseController con estadisticasBaseModelo iniciliazado
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException con error controlado
+     */
     public EstadisticasBaseController() throws PersistenciaException, FicheroException {
         estadisticasBaseModelo = new EstadisticasBaseModelo();
     }

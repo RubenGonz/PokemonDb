@@ -10,14 +10,26 @@ import es.iespuertolacruz.pokemon.api.Evoluciona;
 import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
+/**
+ * Modelo de la clase evoluciona
+ */
 public class EvolucionaModelo {
+
     // Variables de clase
 
     DdBbSqLite persistencia;
     private static final String TABLA = "EVOLUCIONA";
-    private static final String CLAVE = "numero_pokedex_origen";
-    
+    private static final String CLAVEPRI = "numero_pokedex_origen";
+    private static final String CLAVESEC = "numero_pokedex_destino";
+
     // Constructores
+
+    /**
+     * Constructor de EvolucionaModelo donde inicializa DdBbSqLite
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException      con error controlado
+     */
     public EvolucionaModelo() throws PersistenciaException, FicheroException {
         persistencia = new DdBbSqLite(TABLA, null, null);
     }
@@ -27,24 +39,24 @@ public class EvolucionaModelo {
     /**
      * Metodo que inserta evoluciona en la base de datos
      * 
-     * @param evoluciona
-     * @throws PersistenciaException
+     * @param evoluciona a insertar
+     * @throws PersistenciaException error controlado
      */
     public void insertar(Evoluciona evoluciona) throws PersistenciaException {
         String sql = "INSERT INTO " + TABLA + " VALUES (" + evoluciona.getNumeroPokedexOrigen() + ","
-                + evoluciona.getNumeroPokedexDestino() + "," +evoluciona.getModoEvoluciona() + "');";
+                + evoluciona.getNumeroPokedexDestino() + ",'" + evoluciona.getModoEvoluciona() + "');";
         persistencia.update(sql);
     }
 
-    /***
+    /**
      * Metodo que elimina evoluciona de la base de datos
      * 
-     * @param evoluciona
-     * @throws PersistenciaException
+     * @param evoluciona a eliminar
+     * @throws PersistenciaException error controlado
      */
     public void eliminar(Evoluciona evoluciona) throws PersistenciaException {
-        String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = " + evoluciona.getNumeroPokedexOrigen() + evoluciona
-                .getNumeroPokedexDestino() + ";";
+        String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVEPRI + " = " + evoluciona.getNumeroPokedexOrigen()
+                + " AND " + CLAVESEC + " = " + evoluciona.getNumeroPokedexDestino() + ";";
         persistencia.update(sql);
     }
 
@@ -55,21 +67,24 @@ public class EvolucionaModelo {
      * @throws PersistenciaException error controlado
      */
     public void modificar(Evoluciona evoluciona) throws PersistenciaException {
-        String sql = "UPDATE " + TABLA + " SET ModoEvoluciona = " + evoluciona.getModoEvoluciona() + "WHERE " + CLAVE
-                + " = " + evoluciona.getNumeroPokedexOrigen()+ evoluciona.getNumeroPokedexDestino() + ";";
+        String sql = "UPDATE " + TABLA + " SET modo_evoluciona = '" + evoluciona.getModoEvoluciona() + "' WHERE "
+                + CLAVEPRI + " = " + evoluciona.getNumeroPokedexOrigen() + " AND " + CLAVESEC + " = "
+                + evoluciona.getNumeroPokedexDestino() + ";";
         persistencia.update(sql);
     }
 
     /**
      * Funcion encargada de obtener evoluciona
      * 
-     * @param PokedexOrigen y NumeroPokedexDestino del evoluciona
-     * @return evoluciona buscado
-     * @throws PersistenciaException con error controlado
+     * @param numeroPokedexOrigen  numero del pokemon que evoluciona
+     * @param numeroPokedexDestino numero del pokemon al que evoluciona
+     * @return objeto evoluciona
+     * @throws PersistenciaException error controlado
      */
-    public Evoluciona buscar(int PokedexOrigen , int NumeroPokedexDestino) throws PersistenciaException {
+    public Evoluciona buscar(int numeroPokedexOrigen, int numeroPokedexDestino) throws PersistenciaException {
         Evoluciona evoluciona = null;
-        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVE + " = " + PokedexOrigen + NumeroPokedexDestino +  ";";
+        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVEPRI + " = " + numeroPokedexOrigen + " AND " + CLAVESEC
+                + " = " + numeroPokedexDestino + ";";
         ArrayList<Evoluciona> lista = transformarAEvoluciona(sql);
         if (!lista.isEmpty()) {
             evoluciona = lista.get(0);
@@ -96,9 +111,9 @@ public class EvolucionaModelo {
 
             while (resultSet.next()) {
                 Evoluciona evoluciona = new Evoluciona();
-                evoluciona.setNumeroPokedexOrigen(resultSet.getInt(CLAVE));
-                evoluciona.setNumeroPokedexDestino(resultSet.getInt(CLAVE));
-                evoluciona.setModoEvoluciona(resultSet.getString("ModoEvoluciona"));
+                evoluciona.setNumeroPokedexOrigen(resultSet.getInt(CLAVEPRI));
+                evoluciona.setNumeroPokedexDestino(resultSet.getInt(CLAVESEC));
+                evoluciona.setModoEvoluciona(resultSet.getString("modo_evoluciona"));
                 lista.add(evoluciona);
             }
         } catch (SQLException exception) {

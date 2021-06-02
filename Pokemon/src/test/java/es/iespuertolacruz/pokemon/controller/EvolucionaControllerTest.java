@@ -15,6 +15,7 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
 public class EvolucionaControllerTest {
+
     // Variables de clase
 
     static EvolucionaController evolucionaController;
@@ -31,7 +32,7 @@ public class EvolucionaControllerTest {
             }
         }
     }
-/*
+
  
     @BeforeEach
     public void crearEvoluciona() {
@@ -47,20 +48,19 @@ public class EvolucionaControllerTest {
 
     // Test
     
-
     @Test
     public void insertarEvolucionaTest() {
-        evoluciona = new Evoluciona(1, 2, "");
+        evoluciona = new Evoluciona(1,2,"Nivel");
         try {
             evolucionaController.insertar(evoluciona);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("La evoluciona indicado ya existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El evoluciona indicado ya existe"), "No se recibio el mensaje esperado");
         }
     }
 
     @Test
     public void validarTest() {
-        Evoluciona evolucionaInvalido = new Evoluciona(1, 2, "");
+        Evoluciona evolucionaInvalido = new Evoluciona(0, 0, "");
         try {
             evolucionaController.validar(evolucionaInvalido);
         } catch (PokemonException e) {
@@ -119,12 +119,12 @@ public class EvolucionaControllerTest {
 
     @Test
     public void modificarevolucionaInexistenteTest() {
-        Evoluciona evolucionaInexistente = new Evoluciona(1, 1 , "");
+        Evoluciona evolucionaInexistente = new Evoluciona(5000, 5001 , "Alguna manera");
         try {
             evolucionaController.modificar(evolucionaInexistente);
         } catch (PokemonException | PersistenciaException e) {
             assertEquals("El evoluciona indicado no existe", e.getMessage(), "El mensaje recibido no es el esperado");
         }
     }
-*/
+
 }

@@ -14,6 +14,12 @@ public class EntrenadorController {
 
     // Constructores
 
+    /**
+     * Constructor con entrenadorModelo inicializado
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException con error controlado
+     */
     public EntrenadorController() throws PersistenciaException, FicheroException {
         entrenadorModelo = new EntrenadorModelo();
     }

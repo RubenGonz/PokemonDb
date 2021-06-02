@@ -27,7 +27,7 @@ public class EstadisticasBaseModelo {
      * Constructor de EstadisticasBaseModelo donde inicializa DdBbSqLite
      * 
      * @throws PersistenciaException con error controlado
-     * @throws FicheroException
+     * @throws FicheroException error controlado
      */
     public EstadisticasBaseModelo() throws PersistenciaException, FicheroException {
         persistencia = new DdBbSqLite(TABLA, null, null);

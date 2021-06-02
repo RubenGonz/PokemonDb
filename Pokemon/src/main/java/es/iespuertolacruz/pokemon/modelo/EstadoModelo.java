@@ -23,6 +23,12 @@ public class EstadoModelo {
 
     // Constructores
 
+    /**
+     * Constructor de EstadoModelo donde inicializa DdBbSqLite
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException      con error controlado
+     */
     public EstadoModelo() throws PersistenciaException, FicheroException {
         persistencia = new DdBbSqLite(TABLA, null, null);
     }

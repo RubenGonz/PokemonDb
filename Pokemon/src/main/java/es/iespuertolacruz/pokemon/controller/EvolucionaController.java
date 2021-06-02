@@ -7,6 +7,7 @@ import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.EvolucionaModelo;
 
 public class EvolucionaController {
+
     // Variables de clase
 
     PokemonController pokemonController;
@@ -14,6 +15,13 @@ public class EvolucionaController {
 
     // Constructores
 
+    /**
+     * Constructor de EvolucionaController con pokemonController inicializado por la
+     * dependencia y evolucionaModelo iniciliazado
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException      con error controlado
+     */
     public EvolucionaController() throws PersistenciaException, FicheroException {
         pokemonController = new PokemonController();
         evolucionaModelo = new EvolucionaModelo();
@@ -84,26 +92,28 @@ public class EvolucionaController {
     /**
      * Metodo encargado de realizar la eliminacion
      * 
-     * @param nombre del evoluciona a eliminar
-     * @throws PokemonException      con mensaje controlado
-     * @throws PersistenciaException con mensaje controlado
+     * @param numeroPokedexOrigen numero del pokemon que evoluciona
+     * @param numeroPokedexDestino numero del pokemon al que evoluciona
+     * @throws PokemonException error controlado
+     * @throws PersistenciaException error controlado
      */
-    public void eliminar(int PokedexOrigen, int PokedexDestino) throws PokemonException, PersistenciaException {
+    public void eliminar(int numeroPokedexOrigen, int numeroPokedexDestino) throws PokemonException, PersistenciaException {
         Evoluciona evoluciona;
-        evoluciona = buscar(PokedexOrigen, PokedexDestino);
+        evoluciona = buscar(numeroPokedexOrigen, numeroPokedexDestino);
         eliminar(evoluciona);
     }
 
     /**
-     * Metodo encargado de buscar por el id
+     * Metodo encargado de realizar una busqueda por las claves
      * 
-     * @param id para localizar el evoluciona
-     * @return evoluciona a traves del id
-     * @throws PersistenciaException con mensaje controlado
+     * @param numeroPokedexOrigen numero del pokemon que evoluciona
+     * @param numeroPokedexDestino numero del pokemon al que evoluciona
+     * @return objeto evoluciona
+     * @throws PersistenciaException error controlado
      */
-    public Evoluciona buscar(int PokedexOrigen, int PokedexDestino) throws PersistenciaException {
+    public Evoluciona buscar(int numeroPokedexOrigen, int numeroPokedexDestino) throws PersistenciaException {
         Evoluciona evoluciona = null;
-        evoluciona = evolucionaModelo.buscar(PokedexOrigen, PokedexDestino);
+        evoluciona = evolucionaModelo.buscar(numeroPokedexOrigen, numeroPokedexDestino);
         return evoluciona;
     }
 

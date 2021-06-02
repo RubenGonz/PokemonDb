@@ -23,6 +23,12 @@ public class EntrenadorModelo {
 
     // Constructores
 
+    /**
+     * Constructor de EntrenadorModelo donde inicializa DdBbSqLite
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException      con error controlado
+     */
     public EntrenadorModelo() throws PersistenciaException, FicheroException {
         persistencia = new DdBbSqLite(TABLA, null, null);
     }

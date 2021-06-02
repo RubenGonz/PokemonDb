@@ -14,6 +14,12 @@ public class EstadoController {
 
     // Constructores
 
+    /**
+     * Constructor de EstadoController con estadoModelo iniciliazado
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException con error controlado
+     */
     public EstadoController() throws PersistenciaException, FicheroException {
         estadoModelo = new EstadoModelo();
     }
