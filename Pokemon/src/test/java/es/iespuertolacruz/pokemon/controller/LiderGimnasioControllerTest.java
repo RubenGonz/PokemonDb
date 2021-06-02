@@ -15,13 +15,13 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
 public class LiderGimnasioControllerTest {
+
     // Variables de clase
 
     static LiderGimnasioController liderGimnasioController;
     LiderGimnasio liderGimnasio = null;
 
-
-     @BeforeAll
+    @BeforeAll
     public static void beforeAll() {
         if (liderGimnasioController == null) {
             try {
@@ -32,7 +32,6 @@ public class LiderGimnasioControllerTest {
         }
     }
 
- /*
     @BeforeEach
     public void crearliderGimnasio() {
         insertarLiderGimnasioTest();
@@ -46,7 +45,6 @@ public class LiderGimnasioControllerTest {
     }
 
     // Test
-    
 
     @Test
     public void insertarLiderGimnasioTest() {
@@ -54,13 +52,14 @@ public class LiderGimnasioControllerTest {
         try {
             liderGimnasioController.insertar(liderGimnasio);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El LiderGimnasio indicado ya existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El liderGimnasio indicado ya existe"),
+                    "No se recibio el mensaje esperado");
         }
     }
 
     @Test
     public void validarTest() {
-        LiderGimnasio liderGimnasioInvalido = new LiderGimnasio(1, 1);
+        LiderGimnasio liderGimnasioInvalido = new LiderGimnasio(0, 0);
         try {
             liderGimnasioController.validar(liderGimnasioInvalido);
         } catch (PokemonException e) {
@@ -84,7 +83,8 @@ public class LiderGimnasioControllerTest {
         try {
             liderGimnasioController.eliminar(liderGimnasio);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El liderGimnasio indicado no existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El liderGimnasio indicado no existe"),
+                    "No se recibio el mensaje esperado");
         }
     }
 
@@ -93,15 +93,16 @@ public class LiderGimnasioControllerTest {
         try {
             liderGimnasioController.eliminar(1);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El liderGimnasio indicado no existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El liderGimnasio indicado no existe"),
+                    "No se recibio el mensaje esperado");
         }
     }
 
     @Test
     public void buscarliderGimnasioTest() {
         try {
-          LiderGimnasio liderGimnasioEncontrado = liderGimnasioController.buscar(liderGimnasio.getIdEntrenador());
-           assertNotNull(liderGimnasioEncontrado, "No se debe de obtener un elemento nulo");
+            LiderGimnasio liderGimnasioEncontrado = liderGimnasioController.buscar(liderGimnasio.getIdEntrenador());
+            assertNotNull(liderGimnasioEncontrado, "No se debe de obtener un elemento nulo");
             assertEquals(liderGimnasio, liderGimnasioEncontrado, "No se ha encontrado lo esperado");
         } catch (PersistenciaException e) {
             fail("Se ha producido un error en la consulta del pokemon ,e:" + e.getMessage());
@@ -119,12 +120,12 @@ public class LiderGimnasioControllerTest {
 
     @Test
     public void modificarliderGimnasioInexistenteTest() {
-        LiderGimnasio liderGimnasioInexistente = new LiderGimnasio(1, 1);
+        LiderGimnasio liderGimnasioInexistente = new LiderGimnasio(5000, 5000);
         try {
             liderGimnasioController.modificar(liderGimnasioInexistente);
         } catch (PokemonException | PersistenciaException e) {
-            assertEquals("El liderGimnasio indicado no existe", e.getMessage(), "El mensaje recibido no es el esperado");
+            assertEquals("El liderGimnasio indicado no existe", e.getMessage(),
+                    "El mensaje recibido no es el esperado");
         }
     }
-*/
 }

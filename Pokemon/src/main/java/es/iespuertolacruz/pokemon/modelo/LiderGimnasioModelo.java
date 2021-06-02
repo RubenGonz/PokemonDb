@@ -11,13 +11,21 @@ import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
 public class LiderGimnasioModelo {
+
     // Variables de clase
 
     DdBbSqLite persistencia;
-    private static final String TABLA = "ALTO_MANDO";
+    private static final String TABLA = "LIDER_GIMNASIO";
     private static final String CLAVE = "id_entrenador";
 
     // Constructores
+
+    /**
+     * Constructor de LiderGimnasioModelo donde inicializa DdBbSqLite
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException      con error controlado
+     */
     public LiderGimnasioModelo() throws PersistenciaException, FicheroException {
         persistencia = new DdBbSqLite(TABLA, null, null);
     }
@@ -27,20 +35,20 @@ public class LiderGimnasioModelo {
     /**
      * Metodo que inserta liderGimnasio en la base de datos
      * 
-     * @param liderGimnasio
-     * @throws PersistenciaException
+     * @param liderGimnasio a insertar
+     * @throws PersistenciaException error controlado
      */
     public void insertar(LiderGimnasio liderGimnasio) throws PersistenciaException {
         String sql = "INSERT INTO " + TABLA + " VALUES (" + liderGimnasio.getIdEntrenador() + ","
-                + liderGimnasio.getMedalla() + "');";
+                + liderGimnasio.getMedalla() + ");";
         persistencia.update(sql);
     }
 
     /***
      * Metodo que elimina liderGimnasio de la base de datos
      * 
-     * @param liderGimnasio
-     * @throws PersistenciaException
+     * @param liderGimnasio a eliminar
+     * @throws PersistenciaException error controlado
      */
     public void eliminar(LiderGimnasio liderGimnasio) throws PersistenciaException {
         String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = " + liderGimnasio.getIdEntrenador() + ";";
@@ -54,7 +62,7 @@ public class LiderGimnasioModelo {
      * @throws PersistenciaException error controlado
      */
     public void modificar(LiderGimnasio liderGimnasio) throws PersistenciaException {
-        String sql = "UPDATE " + TABLA + " SET Medalla = " + liderGimnasio.getMedalla() + "WHERE " + CLAVE
+        String sql = "UPDATE " + TABLA + " SET medalla = " + liderGimnasio.getMedalla() + " WHERE " + CLAVE
                 + " = " + liderGimnasio.getIdEntrenador() + ";";
         persistencia.update(sql);
     }
@@ -62,13 +70,13 @@ public class LiderGimnasioModelo {
     /**
      * Funcion encargada de obtener liderGimnasio
      * 
-     * @param IdEntrenador del liderGimnasio
+     * @param idEntrenador del liderGimnasio
      * @return liderGimnasio buscado
      * @throws PersistenciaException con error controlado
      */
-    public LiderGimnasio buscar(int IdEntrenador) throws PersistenciaException {
+    public LiderGimnasio buscar(int idEntrenador) throws PersistenciaException {
         LiderGimnasio liderGimnasio = null;
-        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVE + " = " + IdEntrenador + ";";
+        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVE + " = " + idEntrenador + ";";
         ArrayList<LiderGimnasio> lista = transformarALiderGimnasio(sql);
         if (!lista.isEmpty()) {
             liderGimnasio = lista.get(0);
@@ -96,7 +104,7 @@ public class LiderGimnasioModelo {
             while (resultSet.next()) {
                 LiderGimnasio liderGimnasio = new LiderGimnasio();
                 liderGimnasio.setIdEntrenador(resultSet.getInt(CLAVE));
-                liderGimnasio.setMedalla(resultSet.getInt("Medalla"));
+                liderGimnasio.setMedalla(resultSet.getInt("medalla"));
                 lista.add(liderGimnasio);
             }
         } catch (SQLException exception) {

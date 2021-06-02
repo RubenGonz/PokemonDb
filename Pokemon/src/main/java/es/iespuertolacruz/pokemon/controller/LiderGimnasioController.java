@@ -15,6 +15,13 @@ public class LiderGimnasioController {
 
     // Constructores
 
+    /**
+     * Constructor de LiderGimnasioController con entrenadorController inicializado por la
+     * dependencia y liderGimnasioModelo iniciliazado
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException      con error controlado
+     */
     public LiderGimnasioController() throws PersistenciaException, FicheroException {
         entrenadorController = new EntrenadorController();
         liderGimnasioModelo = new LiderGimnasioModelo();
@@ -82,26 +89,26 @@ public class LiderGimnasioController {
     /**
      * Metodo encargado de realizar la eliminacion
      * 
-     * @param nombre del liderGimnasio a eliminar
+     * @param idEntrenador del liderGimnasio a eliminar
      * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
-    public void eliminar(int IdEntrenador) throws PokemonException, PersistenciaException {
+    public void eliminar(int idEntrenador) throws PokemonException, PersistenciaException {
         LiderGimnasio liderGimnasio;
-        liderGimnasio = buscar(IdEntrenador);
+        liderGimnasio = buscar(idEntrenador);
         eliminar(liderGimnasio);
     }
 
     /**
-     * Metodo encargado de buscar por el id
+     * Metodo encargado de buscar por el idEntrenador
      * 
-     * @param id para localizar el liderGimnasio
-     * @return liderGimnasio a traves del id
+     * @param idEntrenador para localizar el liderGimnasio
+     * @return liderGimnasio a traves del idEntrenador
      * @throws PersistenciaException con mensaje controlado
      */
-    public LiderGimnasio buscar(int IdEntrenador) throws PersistenciaException {
+    public LiderGimnasio buscar(int idEntrenador) throws PersistenciaException {
         LiderGimnasio liderGimnasio = null;
-        liderGimnasio = liderGimnasioModelo.buscar(IdEntrenador);
+        liderGimnasio = liderGimnasioModelo.buscar(idEntrenador);
         return liderGimnasio;
     }
 
