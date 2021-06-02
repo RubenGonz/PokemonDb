@@ -15,13 +15,13 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
 public class PokemonEquipaControllerTest {
+
     // Variables de clase
 
     static PokemonEquipaController pokemonEquipaController;
     PokemonEquipa pokemonEquipa = null;
 
-
-     @BeforeAll
+    @BeforeAll
     public static void beforeAll() {
         if (pokemonEquipaController == null) {
             try {
@@ -32,7 +32,6 @@ public class PokemonEquipaControllerTest {
         }
     }
 
- /*
     @BeforeEach
     public void crearPokemonEquipa() {
         insertarPokemonEquipaTest();
@@ -46,7 +45,6 @@ public class PokemonEquipaControllerTest {
     }
 
     // Test
-    
 
     @Test
     public void insertarPokemonEquipaTest() {
@@ -54,13 +52,14 @@ public class PokemonEquipaControllerTest {
         try {
             pokemonEquipaController.insertar(pokemonEquipa);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El pokemonEquipa indicado ya existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El pokemonEquipa indicado ya existe"),
+                    "No se recibio el mensaje esperado");
         }
     }
 
     @Test
     public void validarTest() {
-        PokemonEquipa pokemonEquipaInvalido = new PokemonEquipa(1, 1);
+        PokemonEquipa pokemonEquipaInvalido = new PokemonEquipa(0, 0);
         try {
             pokemonEquipaController.validar(pokemonEquipaInvalido);
         } catch (PokemonException e) {
@@ -84,24 +83,27 @@ public class PokemonEquipaControllerTest {
         try {
             pokemonEquipaController.eliminar(pokemonEquipa);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El pokemonEquipa indicado no existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El pokemonEquipa indicado no existe"),
+                    "No se recibio el mensaje esperado");
         }
     }
 
     @Test
     public void eliminarPorIdEntrenadorTest() {
         try {
-            pokemonEquipaController.eliminar(1,2);
+            pokemonEquipaController.eliminar(1, 1);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El pokemonEquipa indicado no existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El pokemonEquipa indicado no existe"),
+                    "No se recibio el mensaje esperado");
         }
     }
 
     @Test
     public void buscarpokemonEquipaTest() {
         try {
-          PokemonEquipa pokemonEquipaEncontrado = pokemonEquipaController.buscar(pokemonEquipa.getIdObjeto(), pokemonEquipa.getNumeroPokedex());
-           assertNotNull(pokemonEquipaEncontrado, "No se debe de obtener un elemento nulo");
+            PokemonEquipa pokemonEquipaEncontrado = pokemonEquipaController.buscar(pokemonEquipa.getIdObjeto(),
+                    pokemonEquipa.getNumeroPokedex());
+            assertNotNull(pokemonEquipaEncontrado, "No se debe de obtener un elemento nulo");
             assertEquals(pokemonEquipa, pokemonEquipaEncontrado, "No se ha encontrado lo esperado");
         } catch (PersistenciaException e) {
             fail("Se ha producido un error en la consulta del pokemon ,e:" + e.getMessage());
@@ -119,12 +121,13 @@ public class PokemonEquipaControllerTest {
 
     @Test
     public void modificarpokemonEquipaInexistenteTest() {
-        PokemonEquipa pokemonEquipaInexistente = new PokemonEquipa(1, 1);
+        PokemonEquipa pokemonEquipaInexistente = new PokemonEquipa(5000, 5000);
         try {
             pokemonEquipaController.modificar(pokemonEquipaInexistente);
         } catch (PokemonException | PersistenciaException e) {
-            assertEquals("El pokemonEquipa indicado no existe", e.getMessage(), "El mensaje recibido no es el esperado");
+            assertEquals("El pokemonEquipa indicado no existe", e.getMessage(),
+                    "El mensaje recibido no es el esperado");
         }
     }
-*/
+
 }

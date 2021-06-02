@@ -8,12 +8,21 @@ import es.iespuertolacruz.pokemon.modelo.PokemonEquipaModelo;
 
 public class PokemonEquipaController {
 
+    // Variables de clase
+
     PokemonController pokemonController;
     ObjetoController objetoController;
     PokemonEquipaModelo pokemonEquipaModelo;
 
     // Constructores
 
+    /**
+     * Constructor de PokemonEquipaController con pokemonController y
+     * objetoController por las dependencias y pokemonEquipaModelo inicializado
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException      con error controlado
+     */
     public PokemonEquipaController() throws PersistenciaException, FicheroException {
         pokemonController = new PokemonController();
         objetoController = new ObjetoController();
@@ -82,26 +91,28 @@ public class PokemonEquipaController {
     /**
      * Metodo encargado de realizar la eliminacion
      * 
-     * @param nombre del pokemonEquipa a eliminar
+     * @param numeroPokedex del pokemonEquipa a eliminar
+     * @param idObjeto del pokemonEquipa a eliminar
      * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
-    public void eliminar(int NumeroPokedex, int IdObjeto) throws PokemonException, PersistenciaException {
+    public void eliminar(int numeroPokedex, int idObjeto) throws PokemonException, PersistenciaException {
         PokemonEquipa pokemonEquipa;
-        pokemonEquipa = buscar(NumeroPokedex, IdObjeto);
+        pokemonEquipa = buscar(numeroPokedex, idObjeto);
         eliminar(pokemonEquipa);
     }
 
     /**
      * Metodo encargado de buscar por el NumeroPokedex ,IdObjeto
      * 
-     * @param NumeroPokedex ,IdObjeto para localizar el pokemonEquipa
-     * @return pokemonEquipa a traves del NumeroPokedex ,IdObjeto
+     * @param numeroPokedex del pokemonEquipa a eliminar
+     * @param idObjeto del pokemonEquipa a eliminar
+     * @return pokemonEquipa a traves del numeroPokedex e idObjeto
      * @throws PersistenciaException con mensaje controlado
      */
-    public PokemonEquipa buscar(int NumeroPokedex, int IdObjeto) throws PersistenciaException {
+    public PokemonEquipa buscar(int numeroPokedex, int idObjeto) throws PersistenciaException {
         PokemonEquipa pokemonEquipa = null;
-        pokemonEquipa = pokemonEquipaModelo.buscar(NumeroPokedex, IdObjeto);
+        pokemonEquipa = pokemonEquipaModelo.buscar(numeroPokedex, idObjeto);
         return pokemonEquipa;
     }
 
