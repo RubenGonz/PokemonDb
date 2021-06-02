@@ -1,6 +1,7 @@
 package es.iespuertolacruz.pokemon.controller;
 
 import es.iespuertolacruz.pokemon.api.PokemonEquipa;
+import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.PokemonEquipaModelo;
@@ -13,7 +14,7 @@ public class PokemonEquipaController {
 
     // Constructores
 
-    public PokemonEquipaController() throws PersistenciaException {
+    public PokemonEquipaController() throws PersistenciaException, FicheroException {
         pokemonController = new PokemonController();
         objetoController = new ObjetoController();
         pokemonEquipaModelo = new PokemonEquipaModelo();

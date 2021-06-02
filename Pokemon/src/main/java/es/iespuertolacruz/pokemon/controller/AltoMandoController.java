@@ -1,6 +1,7 @@
 package es.iespuertolacruz.pokemon.controller;
 
 import es.iespuertolacruz.pokemon.api.AltoMando;
+import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.AltoMandoModelo;
@@ -14,7 +15,7 @@ public class AltoMandoController {
 
     // Constructores
 
-    public AltoMandoController() throws PersistenciaException {
+    public AltoMandoController() throws PersistenciaException, FicheroException {
         entrenadorController = new EntrenadorController();
         altoMandoModelo = new AltoMandoModelo();
     }

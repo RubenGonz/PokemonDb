@@ -1,6 +1,7 @@
 package es.iespuertolacruz.pokemon.controller;
 
 import es.iespuertolacruz.pokemon.api.Pokeball;
+import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.PokeballModelo;
@@ -13,7 +14,7 @@ public class PokeballController {
 
     // Constructores
 
-    public PokeballController() throws PersistenciaException {
+    public PokeballController() throws PersistenciaException, FicheroException {
         objetoController = new ObjetoController();
         pokeballModelo = new PokeballModelo();
     }

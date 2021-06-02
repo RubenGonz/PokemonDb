@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import es.iespuertolacruz.pokemon.api.Tipo;
+import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
 /**
@@ -26,8 +27,9 @@ public class TipoModelo {
      * Constructor de TipoModelo donde inicializa DdBbSqLite
      * 
      * @throws PersistenciaException con error controlado
+     * @throws FicheroException
      */
-    public TipoModelo() throws PersistenciaException {
+    public TipoModelo() throws PersistenciaException, FicheroException {
         persistencia = new DdBbSqLite(TABLA, null, null);
     }
 

@@ -1,6 +1,7 @@
 package es.iespuertolacruz.pokemon.controller;
 
 import es.iespuertolacruz.pokemon.api.Entrenador;
+import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.EntrenadorModelo;
@@ -13,7 +14,7 @@ public class EntrenadorController {
 
     // Constructores
 
-    public EntrenadorController() throws PersistenciaException {
+    public EntrenadorController() throws PersistenciaException, FicheroException {
         entrenadorModelo = new EntrenadorModelo();
     }
 

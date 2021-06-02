@@ -1,6 +1,7 @@
 package es.iespuertolacruz.pokemon.controller;
 
 import es.iespuertolacruz.pokemon.api.Pokemon;
+import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.PokemonModelo;
@@ -20,8 +21,9 @@ public class PokemonController {
      * caracteristicasController para crear las tablas con si no existiesen antes
      * 
      * @throws PersistenciaException con error controlado
+     * @throws FicheroException
      */
-    public PokemonController() throws PersistenciaException {
+    public PokemonController() throws PersistenciaException, FicheroException {
         estadisticasBaseController = new EstadisticasBaseController();
         caracteristicasController = new CaracteristicasController();
         pokemonModelo = new PokemonModelo();

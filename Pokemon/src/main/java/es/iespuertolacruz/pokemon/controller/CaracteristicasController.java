@@ -1,6 +1,7 @@
 package es.iespuertolacruz.pokemon.controller;
 
 import es.iespuertolacruz.pokemon.api.Caracteristicas;
+import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.CaracteristicasModelo;
@@ -13,7 +14,7 @@ public class CaracteristicasController {
 
     // Constructores
 
-    public CaracteristicasController() throws PersistenciaException {
+    public CaracteristicasController() throws PersistenciaException, FicheroException {
         caracteristicasModelo = new CaracteristicasModelo();
     }
 

@@ -1,6 +1,7 @@
 package es.iespuertolacruz.pokemon.controller;
 
 import es.iespuertolacruz.pokemon.api.Movimiento;
+import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.MovimientoModelo;
@@ -13,7 +14,7 @@ public class MovimientoController {
 
     // Constructores
 
-    public MovimientoController() throws PersistenciaException {
+    public MovimientoController() throws PersistenciaException, FicheroException {
         tipoController = new TipoController();
         movimientoModelo = new MovimientoModelo();
     }

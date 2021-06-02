@@ -1,6 +1,7 @@
 package es.iespuertolacruz.pokemon.controller;
 
 import es.iespuertolacruz.pokemon.api.Tiene;
+import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.TieneModelo;
@@ -15,7 +16,7 @@ public class TieneController {
 
     // Constructores
 
-    public TieneController() throws PersistenciaException {
+    public TieneController() throws PersistenciaException, FicheroException {
         entrenadorController = new EntrenadorController();
         pokemonController = new PokemonController();
         tieneModelo = new TieneModelo();

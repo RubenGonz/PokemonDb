@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import es.iespuertolacruz.pokemon.api.Movimiento;
+import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
 public class MovimientoModelo {
@@ -17,7 +18,7 @@ public class MovimientoModelo {
     private static final String CLAVE = "id_movimiento";
 
     // Constructores
-    public MovimientoModelo() throws PersistenciaException {
+    public MovimientoModelo() throws PersistenciaException, FicheroException {
         persistencia = new DdBbSqLite(TABLA, null, null);
     }
 

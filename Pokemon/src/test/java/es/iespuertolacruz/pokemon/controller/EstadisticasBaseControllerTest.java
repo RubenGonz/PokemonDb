@@ -28,7 +28,7 @@ public class EstadisticasBaseControllerTest {
         if (estadisticasBaseController == null) {
             try {
                 estadisticasBaseController = new EstadisticasBaseController();
-            } catch (PersistenciaException e) {
+            } catch (Exception e) {
                 fail("Se ha producido un error iniciando estadisticasBaseController");
             }
         }

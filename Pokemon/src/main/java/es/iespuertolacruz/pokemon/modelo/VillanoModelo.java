@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import es.iespuertolacruz.pokemon.api.Villano;
+import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
 /**
@@ -21,7 +22,7 @@ public class VillanoModelo {
     private static final String CLAVE = "id_entrenador";
 
     // Constructores
-    public VillanoModelo() throws PersistenciaException {
+    public VillanoModelo() throws PersistenciaException, FicheroException {
         persistencia = new DdBbSqLite(TABLA, null, null);
     }
 

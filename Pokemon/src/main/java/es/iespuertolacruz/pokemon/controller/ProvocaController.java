@@ -1,6 +1,7 @@
 package es.iespuertolacruz.pokemon.controller;
 
 import es.iespuertolacruz.pokemon.api.Provoca;
+import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.ProvocaModelo;
@@ -15,7 +16,7 @@ public class ProvocaController {
 
     // Constructores
 
-    public ProvocaController() throws PersistenciaException {
+    public ProvocaController() throws PersistenciaException, FicheroException {
         estadoController = new EstadoController();
         movimientoController = new MovimientoController();
         provocaModelo = new ProvocaModelo();

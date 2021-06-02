@@ -1,6 +1,7 @@
 package es.iespuertolacruz.pokemon.controller;
 
 import es.iespuertolacruz.pokemon.api.ObjetoComun;
+import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.ObjetoComunModelo;
@@ -14,7 +15,7 @@ public class ObjetoComunController {
 
     // Constructores
 
-    public ObjetoComunController() throws PersistenciaException {
+    public ObjetoComunController() throws PersistenciaException, FicheroException {
         objetoController = new ObjetoController();
         objetoComunModelo = new ObjetoComunModelo();
     }

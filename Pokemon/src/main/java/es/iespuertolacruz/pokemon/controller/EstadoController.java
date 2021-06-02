@@ -1,6 +1,7 @@
 package es.iespuertolacruz.pokemon.controller;
 
 import es.iespuertolacruz.pokemon.api.Estado;
+import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.EstadoModelo;
@@ -13,7 +14,7 @@ public class EstadoController {
 
     // Constructores
 
-    public EstadoController() throws PersistenciaException {
+    public EstadoController() throws PersistenciaException, FicheroException {
         estadoModelo = new EstadoModelo();
     }
 

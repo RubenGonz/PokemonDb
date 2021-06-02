@@ -1,6 +1,7 @@
 package es.iespuertolacruz.pokemon.controller;
 
 import es.iespuertolacruz.pokemon.api.Evoluciona;
+import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.EvolucionaModelo;
@@ -13,7 +14,7 @@ public class EvolucionaController {
 
     // Constructores
 
-    public EvolucionaController() throws PersistenciaException {
+    public EvolucionaController() throws PersistenciaException, FicheroException {
         pokemonController = new PokemonController();
         evolucionaModelo = new EvolucionaModelo();
     }

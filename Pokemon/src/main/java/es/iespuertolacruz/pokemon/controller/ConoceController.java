@@ -1,6 +1,7 @@
 package es.iespuertolacruz.pokemon.controller;
 
 import es.iespuertolacruz.pokemon.api.Conoce;
+import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.ConoceModelo;
@@ -15,7 +16,7 @@ public class ConoceController {
 
     // Constructores
 
-    public ConoceController() throws PersistenciaException {
+    public ConoceController() throws PersistenciaException, FicheroException {
         pokemonController = new PokemonController();
         movimientoController = new MovimientoController();
         conoceModelo = new ConoceModelo();

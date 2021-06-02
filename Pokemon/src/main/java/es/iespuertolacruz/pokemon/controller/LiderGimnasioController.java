@@ -1,6 +1,7 @@
 package es.iespuertolacruz.pokemon.controller;
 
 import es.iespuertolacruz.pokemon.api.LiderGimnasio;
+import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.LiderGimnasioModelo;
@@ -14,7 +15,7 @@ public class LiderGimnasioController {
 
     // Constructores
 
-    public LiderGimnasioController() throws PersistenciaException {
+    public LiderGimnasioController() throws PersistenciaException, FicheroException {
         entrenadorController = new EntrenadorController();
         liderGimnasioModelo = new LiderGimnasioModelo();
     }

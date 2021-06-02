@@ -1,6 +1,7 @@
 package es.iespuertolacruz.pokemon.controller;
 
 import es.iespuertolacruz.pokemon.api.EstadisticasBase;
+import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.EstadisticasBaseModelo;
@@ -13,7 +14,7 @@ public class EstadisticasBaseController {
 
     // Constructores
 
-    public EstadisticasBaseController() throws PersistenciaException {
+    public EstadisticasBaseController() throws PersistenciaException, FicheroException {
         estadisticasBaseModelo = new EstadisticasBaseModelo();
     }
 

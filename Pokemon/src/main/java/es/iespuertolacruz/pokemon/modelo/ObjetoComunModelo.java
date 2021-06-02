@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import es.iespuertolacruz.pokemon.api.ObjetoComun;
+import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
 public class ObjetoComunModelo {
@@ -18,7 +19,7 @@ public class ObjetoComunModelo {
     private static final String CLAVE = "id_objeto";
 
     // Constructores
-    public ObjetoComunModelo() throws PersistenciaException {
+    public ObjetoComunModelo() throws PersistenciaException, FicheroException {
         persistencia = new DdBbSqLite(TABLA, null, null);
     }
 

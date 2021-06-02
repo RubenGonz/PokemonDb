@@ -22,18 +22,6 @@
   </properties>
 
   <dependencies>
-
-    <dependency>
-      <groupId>org.apache.derby</groupId>
-      <artifactId>derby</artifactId>
-      <version>10.15.2.0</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <version>8.0.24</version>
-    </dependency>
     <dependency>
       <groupId>org.apache.maven.plugins</groupId>
       <artifactId>maven-javadoc-plugin</artifactId>
@@ -63,6 +51,14 @@
       <artifactId>sqlite-jdbc</artifactId>
       <version>${sqlite-jdbc-version}</version>
     </dependency>
+
+    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.25</version>
+    </dependency>
+
   </dependencies>
 
   <build>
@@ -121,5 +117,4 @@
       </plugin>
     </plugins>
   </build>
-
 </project>

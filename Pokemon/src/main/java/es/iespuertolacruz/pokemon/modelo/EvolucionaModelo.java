@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import es.iespuertolacruz.pokemon.api.Evoluciona;
+import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
 public class EvolucionaModelo {
@@ -17,7 +18,7 @@ public class EvolucionaModelo {
     private static final String CLAVE = "numero_pokedex_origen";
     
     // Constructores
-    public EvolucionaModelo() throws PersistenciaException {
+    public EvolucionaModelo() throws PersistenciaException, FicheroException {
         persistencia = new DdBbSqLite(TABLA, null, null);
     }
 

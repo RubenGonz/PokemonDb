@@ -28,7 +28,7 @@ public class EntrenadorControllerTest {
         if (entrenadorController == null) {
             try {
                 entrenadorController = new EntrenadorController();
-            } catch (PersistenciaException e) {
+            } catch (Exception e) {
                 fail("Se ha producido un error iniciando entrenadorController");
             }
         }

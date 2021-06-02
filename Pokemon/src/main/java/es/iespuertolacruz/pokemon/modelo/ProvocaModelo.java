@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import es.iespuertolacruz.pokemon.api.Provoca;
+import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
 public class ProvocaModelo {
@@ -17,7 +18,7 @@ public class ProvocaModelo {
     private static final String CLAVE = "id_movimiento";
 
     // Constructores
-    public ProvocaModelo() throws PersistenciaException {
+    public ProvocaModelo() throws PersistenciaException, FicheroException {
         persistencia = new DdBbSqLite(TABLA, null, null);
     }
 

@@ -1,6 +1,7 @@
 package es.iespuertolacruz.pokemon.controller;
 
 import es.iespuertolacruz.pokemon.api.CampeonLiga;
+import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.CampeonLigaModelo;
@@ -17,7 +18,7 @@ public class CampeonLigaController {
 
     // Constructores
 
-    public CampeonLigaController() throws PersistenciaException {
+    public CampeonLigaController() throws PersistenciaException, FicheroException {
         entrenadorController = new EntrenadorController();
         campeonLigaModelo = new CampeonLigaModelo();
     }

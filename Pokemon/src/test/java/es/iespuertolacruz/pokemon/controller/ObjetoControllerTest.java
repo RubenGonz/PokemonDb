@@ -28,7 +28,7 @@ public class ObjetoControllerTest {
         if (objetoController == null) {
             try {
                 objetoController = new ObjetoController();
-            } catch (PersistenciaException e) {
+            } catch (Exception e) {
                 fail("Se ha producido un error iniciando objetoController");
             }
         }

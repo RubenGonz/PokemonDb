@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import es.iespuertolacruz.pokemon.api.PokemonEquipa;
+import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
 public class PokemonEquipaModelo {
@@ -18,7 +19,7 @@ public class PokemonEquipaModelo {
 
     // Constructores
     
-    public PokemonEquipaModelo() throws PersistenciaException {
+    public PokemonEquipaModelo() throws PersistenciaException, FicheroException {
         persistencia = new DdBbSqLite(TABLA, null, null);
     }
 

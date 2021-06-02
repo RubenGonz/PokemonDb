@@ -28,7 +28,7 @@ public class TipoControllerTest {
         if (tipoController == null) {
             try {
                 tipoController = new TipoController();
-            } catch (PersistenciaException e) {
+            } catch (Exception e) {
                 fail("Se ha producido un error iniciando tipoController");
             }
         }

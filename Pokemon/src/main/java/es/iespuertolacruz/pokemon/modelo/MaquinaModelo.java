@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import es.iespuertolacruz.pokemon.api.Maquina;
+import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
 public class MaquinaModelo {
@@ -17,7 +18,7 @@ public class MaquinaModelo {
     private static final String CLAVE = "id_objeto";
 
     // Constructores
-    public MaquinaModelo() throws PersistenciaException {
+    public MaquinaModelo() throws PersistenciaException, FicheroException {
         persistencia = new DdBbSqLite(TABLA, null, null);
     }
 

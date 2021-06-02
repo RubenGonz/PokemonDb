@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import es.iespuertolacruz.pokemon.api.EstadisticasBase;
+import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
 /**
@@ -26,8 +27,9 @@ public class EstadisticasBaseModelo {
      * Constructor de EstadisticasBaseModelo donde inicializa DdBbSqLite
      * 
      * @throws PersistenciaException con error controlado
+     * @throws FicheroException
      */
-    public EstadisticasBaseModelo() throws PersistenciaException {
+    public EstadisticasBaseModelo() throws PersistenciaException, FicheroException {
         persistencia = new DdBbSqLite(TABLA, null, null);
     }
 

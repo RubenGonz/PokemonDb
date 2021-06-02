@@ -28,7 +28,7 @@ public class EstadoControllerTest {
         if (estadoController == null) {
             try {
                 estadoController = new EstadoController();
-            } catch (PersistenciaException e) {
+            } catch (Exception e) {
                 fail("Se ha producido un error iniciando estadoController");
             }
         }

@@ -28,7 +28,7 @@ public class CaracteristicasControllerTest {
         if (caracteristicasController == null) {
             try {
                 caracteristicasController = new CaracteristicasController();
-            } catch (PersistenciaException e) {
+            } catch (Exception e) {
                 fail("Se ha producido un error iniciando caracteristicasController");
             }
         }

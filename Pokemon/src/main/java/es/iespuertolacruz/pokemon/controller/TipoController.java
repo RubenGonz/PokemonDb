@@ -1,6 +1,7 @@
 package es.iespuertolacruz.pokemon.controller;
 
 import es.iespuertolacruz.pokemon.api.Tipo;
+import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.TipoModelo;
@@ -13,7 +14,7 @@ public class TipoController {
 
     // Constructores
 
-    public TipoController() throws PersistenciaException {
+    public TipoController() throws PersistenciaException, FicheroException {
         tipoModelo = new TipoModelo();
     }
 

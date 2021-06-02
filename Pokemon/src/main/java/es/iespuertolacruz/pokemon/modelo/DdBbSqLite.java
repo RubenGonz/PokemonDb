@@ -1,5 +1,6 @@
 package es.iespuertolacruz.pokemon.modelo;
 
+import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
 /**
@@ -10,7 +11,7 @@ public class DdBbSqLite extends DdBb {
    //Declaramos variables
 
    private static final String DRIVER = "org.sqlite.JDBC";
-   private static final String URL = "jdbc:sqlite:test.db";
+   private static final String URL = "jdbc:sqlite:pokemon.db";
 
    //Constructores
 
@@ -23,9 +24,10 @@ public class DdBbSqLite extends DdBb {
     * @param usuario de la conexion
     * @param password contrasenia del usuario
     * @throws PersistenciaException con error controlado
+    * @throws FicheroException
     */
    public DdBbSqLite(String nombreTabla, String driver, String urlConexion, String usuario,
-         String password) throws PersistenciaException {
+         String password) throws PersistenciaException, FicheroException {
       super(nombreTabla, driver, urlConexion, usuario, password);
    }
 
@@ -36,9 +38,10 @@ public class DdBbSqLite extends DdBb {
     * @param usuario de la conexion
     * @param password contrasenia del usuario
     * @throws PersistenciaException con error controlado
+    * @throws FicheroException
     */
    public DdBbSqLite(String nombreTabla, String usuario, String password)
-         throws PersistenciaException {
+         throws PersistenciaException, FicheroException {
       super(nombreTabla, DRIVER, URL, usuario, password);
    }
 

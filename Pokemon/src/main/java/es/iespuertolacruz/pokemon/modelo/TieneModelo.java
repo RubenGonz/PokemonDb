@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import es.iespuertolacruz.pokemon.api.Tiene;
+import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
 public class TieneModelo {
@@ -18,7 +19,7 @@ public class TieneModelo {
     private static final String CLAVE = "id_entrenador";
 
     // Constructores
-    public TieneModelo() throws PersistenciaException {
+    public TieneModelo() throws PersistenciaException, FicheroException {
         persistencia = new DdBbSqLite(TABLA, null, null);
     }
 
