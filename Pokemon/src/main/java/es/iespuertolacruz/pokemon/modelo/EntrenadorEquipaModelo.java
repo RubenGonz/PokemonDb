@@ -11,13 +11,22 @@ import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
 public class EntrenadorEquipaModelo {
+
     // Variables de clase
 
     DdBbSqLite persistencia;
     private static final String TABLA = "ENTRENADOR_EQUIPA";
-    private static final String CLAVE = "id_entrenador";
+    private static final String CLAVEPRI = "id_entrenador";
+    private static final String CLAVESEC = "id_objeto";
 
     // Constructores
+
+    /**
+     * Constructor de EntrenadorEquipaModelo donde inicializa DdBbSqLite
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException      con error controlado
+     */
     public EntrenadorEquipaModelo() throws PersistenciaException, FicheroException {
         persistencia = new DdBbSqLite(TABLA, null, null);
     }
@@ -27,24 +36,24 @@ public class EntrenadorEquipaModelo {
     /**
      * Metodo que inserta entrenadorEquipa en la base de datos
      * 
-     * @param entrenadorEquipa
-     * @throws PersistenciaException
+     * @param entrenadorEquipa a insertar
+     * @throws PersistenciaException error controlado
      */
     public void insertar(EntrenadorEquipa entrenadorEquipa) throws PersistenciaException {
-        String sql = "INSERT INTO " + TABLA + " VALUES (" + entrenadorEquipa.getIdObjeto() + ","
-                + entrenadorEquipa.getIdEntrenador() + ","+ entrenadorEquipa.getCantidad() + "');";
+        String sql = "INSERT INTO " + TABLA + " VALUES (" + entrenadorEquipa.getIdEntrenador() + ","
+                + entrenadorEquipa.getIdEntrenador() + "," + entrenadorEquipa.getCantidad() + ");";
         persistencia.update(sql);
     }
 
-    /***
+    /**
      * Metodo que elimina entrenadorEquipa de la base de datos
      * 
-     * @param entrenadorEquipa
-     * @throws PersistenciaException
+     * @param entrenadorEquipa a eliminar
+     * @throws PersistenciaException error controlado
      */
     public void eliminar(EntrenadorEquipa entrenadorEquipa) throws PersistenciaException {
-        String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = " + entrenadorEquipa.getIdEntrenador()+ entrenadorEquipa
-                .getIdObjeto() + ";";
+        String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVEPRI + " = " + entrenadorEquipa.getIdEntrenador()
+                + " AND " + CLAVESEC + " = " + entrenadorEquipa.getIdObjeto() + ";";
         persistencia.update(sql);
     }
 
@@ -55,21 +64,23 @@ public class EntrenadorEquipaModelo {
      * @throws PersistenciaException error controlado
      */
     public void modificar(EntrenadorEquipa entrenadorEquipa) throws PersistenciaException {
-        String sql = "UPDATE " + TABLA + " SET TipoPrincipal = " + entrenadorEquipa.getCantidad() + "WHERE " + CLAVE
-                + " = " + entrenadorEquipa.getIdEntrenador()+ entrenadorEquipa.getIdObjeto() + ";";
+        String sql = "UPDATE " + TABLA + " SET cantidad = " + entrenadorEquipa.getCantidad() + " WHERE " + CLAVEPRI
+                + " = " + entrenadorEquipa.getIdEntrenador() + " AND " + CLAVESEC + " = "
+                + entrenadorEquipa.getIdObjeto() + ";";
         persistencia.update(sql);
     }
 
     /**
      * Funcion encargada de obtener entrenadorEquipa
      * 
-     * @param IdEntrenador y IdObjeto del entrenadorEquipa
-     * @return entrenadorEquipa buscado
-     * @throws PersistenciaException con error controlado
+     * @param idEntrenador a buscar
+     * @param idObjeto     a buscar
+     * @return objeto entrenadorEquipa
+     * @throws PersistenciaException error controlado
      */
-    public EntrenadorEquipa buscar(int IdEntrenador , int IdObjeto) throws PersistenciaException {
+    public EntrenadorEquipa buscar(int idEntrenador, int idObjeto) throws PersistenciaException {
         EntrenadorEquipa entrenadorEquipa = null;
-        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVE + " = " + IdEntrenador+ IdObjeto + ";";
+        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVEPRI + " = " + idEntrenador + " AND " + CLAVESEC + " = " + idObjeto + ";";
         ArrayList<EntrenadorEquipa> lista = transformarAEntrenadorEquipa(sql);
         if (!lista.isEmpty()) {
             entrenadorEquipa = lista.get(0);
@@ -96,8 +107,8 @@ public class EntrenadorEquipaModelo {
 
             while (resultSet.next()) {
                 EntrenadorEquipa entrenadorEquipa = new EntrenadorEquipa();
-                entrenadorEquipa.setIdEntrenador(resultSet.getInt(CLAVE));
-                entrenadorEquipa.setIdObjeto(resultSet.getInt(CLAVE));
+                entrenadorEquipa.setIdEntrenador(resultSet.getInt(CLAVEPRI));
+                entrenadorEquipa.setIdObjeto(resultSet.getInt(CLAVESEC));
                 entrenadorEquipa.setCantidad(resultSet.getInt("Cantidad"));
                 lista.add(entrenadorEquipa);
             }

@@ -16,6 +16,13 @@ public class EntrenadorEquipaController {
 
     // Constructores
 
+    /**
+     * Constructor de EntrenadorEquipaController con entrenadorController iniciliazado por
+     * la dependencia y entrenadorEquipaModelo iniciliazado
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException con error controlado
+     */
     public EntrenadorEquipaController() throws PersistenciaException, FicheroException {
         entrenadorController = new EntrenadorController();
         objetoController = new ObjetoController();
@@ -46,7 +53,7 @@ public class EntrenadorEquipaController {
         }
 
         if (entrenadorEquipa.getCantidad() <= 0) {
-            mensaje = "La Cantidad del entrenadorEquipa es 0 o menor, ";
+            mensaje = "La cantidad del entrenadorEquipa es 0 o menor, ";
         }
 
         if (!mensaje.isEmpty()) {
@@ -64,7 +71,7 @@ public class EntrenadorEquipaController {
     public void insertar(EntrenadorEquipa entrenadorEquipa) throws PokemonException, PersistenciaException {
         validar(entrenadorEquipa);
         if (existe(entrenadorEquipa)) {
-            throw new PokemonException("El entrenador indicado ya existe");
+            throw new PokemonException("El entrenadorEquipa indicado ya existe");
         }
         entrenadorEquipaModelo.insertar(entrenadorEquipa);
     }
@@ -79,7 +86,7 @@ public class EntrenadorEquipaController {
     public void eliminar(EntrenadorEquipa entrenadorEquipa) throws PokemonException, PersistenciaException {
         validar(entrenadorEquipa);
         if (!existe(entrenadorEquipa)) {
-            throw new PokemonException("El entrenador indicado no existe");
+            throw new PokemonException("El entrenadorEquipa indicado no existe");
         }
         entrenadorEquipaModelo.eliminar(entrenadorEquipa);
     }
@@ -87,26 +94,28 @@ public class EntrenadorEquipaController {
     /**
      * Metodo encargado de realizar la eliminacion
      * 
-     * @param nombre del entrenador a eliminar
-     * @throws PokemonException      con mensaje controlado
-     * @throws PersistenciaException con mensaje controlado
+     * @param idEntrenador identificador del entrenador
+     * @param idObjeto identificador del objeto
+     * @throws PokemonException error controlado
+     * @throws PersistenciaException error controlado
      */
-    public void eliminar(int IdEntrenador, int IdObjeto) throws PokemonException, PersistenciaException {
+    public void eliminar(int idEntrenador, int idObjeto) throws PokemonException, PersistenciaException {
         EntrenadorEquipa entrenadorEquipa;
-        entrenadorEquipa = buscar(IdEntrenador, IdObjeto);
+        entrenadorEquipa = buscar(idEntrenador, idObjeto);
         eliminar(entrenadorEquipa);
     }
 
     /**
-     * Metodo encargado de buscar por el id
+     * Metodo encargado de buscar por las claves
      * 
-     * @param id para localizar el entrenador
-     * @return entrenador a traves del id
-     * @throws PersistenciaException con mensaje controlado
+     * @param idEntrenador identificador del entrenador
+     * @param idObjeto identificador del objeto
+     * @return objeto entrenadorEquipa
+     * @throws PersistenciaException error controlado
      */
-    public EntrenadorEquipa buscar(int IdEntrenador, int IdObjeto) throws PersistenciaException {
+    public EntrenadorEquipa buscar(int idEntrenador, int idObjeto) throws PersistenciaException {
         EntrenadorEquipa entrenadorEquipa = null;
-        entrenadorEquipa = entrenadorEquipaModelo.buscar(IdEntrenador, IdObjeto);
+        entrenadorEquipa = entrenadorEquipaModelo.buscar(idEntrenador, idObjeto);
         return entrenadorEquipa;
     }
 
@@ -120,15 +129,15 @@ public class EntrenadorEquipaController {
     public void modificar(EntrenadorEquipa entrenadorEquipa) throws PokemonException, PersistenciaException {
         validar(entrenadorEquipa);
         if (!existe(entrenadorEquipa)) {
-            throw new PokemonException("El entrenador indicado no existe");
+            throw new PokemonException("El entrenadorEquipa indicado no existe");
         }
         entrenadorEquipaModelo.modificar(entrenadorEquipa);
     }
 
     /**
-     * Funcion encargada de verificar si existe el entrenador
+     * Funcion encargada de verificar si existe el entrenadorEquipa
      * 
-     * @param entrenador a encontrar
+     * @param entrenadorEquipa a encontrar
      * @return true si existe o false si no existe
      * @throws PersistenciaException con mensaje controlado
      */

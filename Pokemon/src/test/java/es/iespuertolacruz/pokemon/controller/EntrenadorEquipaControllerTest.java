@@ -10,19 +10,18 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
 import es.iespuertolacruz.pokemon.api.EntrenadorEquipa;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
 public class EntrenadorEquipaControllerTest {
+
     // Variables de clase
 
     static EntrenadorEquipaController entrenadorEquipaController;
     EntrenadorEquipa entrenadorEquipa = null;
 
-
-     @BeforeAll
+    @BeforeAll
     public static void beforeAll() {
         if (entrenadorEquipaController == null) {
             try {
@@ -33,7 +32,6 @@ public class EntrenadorEquipaControllerTest {
         }
     }
 
- /*
     @BeforeEach
     public void crearEntrenadorEquipa() {
         insertarEntrenadorEquipaTest();
@@ -47,7 +45,6 @@ public class EntrenadorEquipaControllerTest {
     }
 
     // Test
-    
 
     @Test
     public void insertarEntrenadorEquipaTest() {
@@ -55,13 +52,13 @@ public class EntrenadorEquipaControllerTest {
         try {
             entrenadorEquipaController.insertar(entrenadorEquipa);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El pokemon indicado ya existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El entrenadorEquipa indicado ya existe"), "No se recibio el mensaje esperado");
         }
     }
 
     @Test
     public void validarTest() {
-        EntrenadorEquipa entrenadorEquipaInvalido = new EntrenadorEquipa(1, 1, 1);
+        EntrenadorEquipa entrenadorEquipaInvalido = new EntrenadorEquipa(0, 0, 0);
         try {
             entrenadorEquipaController.validar(entrenadorEquipaInvalido);
         } catch (PokemonException e) {
@@ -85,24 +82,27 @@ public class EntrenadorEquipaControllerTest {
         try {
             entrenadorEquipaController.eliminar(entrenadorEquipa);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El entrenadorEquipa indicado no existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El entrenadorEquipa indicado no existe"),
+                    "No se recibio el mensaje esperado");
         }
     }
 
     @Test
     public void eliminarPorIdEntrenadorTest() {
         try {
-            entrenadorEquipaController.eliminar(1 ,2);
+            entrenadorEquipaController.eliminar(1, 1);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El entrenadorEquipa indicado no existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El entrenadorEquipa indicado no existe"),
+                    "No se recibio el mensaje esperado");
         }
     }
 
     @Test
     public void buscarentrenadorEquipaTest() {
         try {
-          EntrenadorEquipa entrenadorEquipaEncontrado = entrenadorEquipaController.buscar(entrenadorEquipa.getIdEntrenador() ,entrenadorEquipa.getIdObjeto());
-           assertNotNull(entrenadorEquipaEncontrado, "No se debe de obtener un elemento nulo");
+            EntrenadorEquipa entrenadorEquipaEncontrado = entrenadorEquipaController
+                    .buscar(entrenadorEquipa.getIdEntrenador(), entrenadorEquipa.getIdObjeto());
+            assertNotNull(entrenadorEquipaEncontrado, "No se debe de obtener un elemento nulo");
             assertEquals(entrenadorEquipa, entrenadorEquipaEncontrado, "No se ha encontrado lo esperado");
         } catch (PersistenciaException e) {
             fail("Se ha producido un error en la consulta del pokemon ,e:" + e.getMessage());
@@ -114,18 +114,19 @@ public class EntrenadorEquipaControllerTest {
         try {
             entrenadorEquipaController.modificar(entrenadorEquipa);
         } catch (PokemonException | PersistenciaException e) {
-            fail("No deberia llgar ningun mensaje de error y llega");
+            fail("No deberia llegar ningun mensaje de error y llega");
         }
     }
 
     @Test
     public void modificarentrenadorEquipaInexistenteTest() {
-        EntrenadorEquipa entrenadorEquipaInexistente = new EntrenadorEquipa(1, 1 ,1);
+        EntrenadorEquipa entrenadorEquipaInexistente = new EntrenadorEquipa(5000, 5000, 5000);
         try {
             entrenadorEquipaController.modificar(entrenadorEquipaInexistente);
         } catch (PokemonException | PersistenciaException e) {
-            assertEquals("El entrenadorEquipa indicado no existe", e.getMessage(), "El mensaje recibido no es el esperado");
+            assertEquals("El entrenadorEquipa indicado no existe", e.getMessage(),
+                    "El mensaje recibido no es el esperado");
         }
     }
-*/
+
 }

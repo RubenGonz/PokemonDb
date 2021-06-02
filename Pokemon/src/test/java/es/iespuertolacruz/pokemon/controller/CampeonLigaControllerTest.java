@@ -59,7 +59,7 @@ public class CampeonLigaControllerTest {
 
     @Test
     public void validarTest() {
-        CampeonLiga campeonLigaInvalido = new CampeonLiga(1, "");
+        CampeonLiga campeonLigaInvalido = new CampeonLiga(0, "");
         try {
             campeonLigaController.validar(campeonLigaInvalido);
         } catch (PokemonException e) {
