@@ -6,6 +6,9 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.EntrenadorModelo;
 
+/**
+ * Clase controller de los entrenadores
+ */
 public class EntrenadorController {
 
     // Variables de clase
@@ -18,7 +21,7 @@ public class EntrenadorController {
      * Constructor con entrenadorModelo inicializado
      * 
      * @throws PersistenciaException con error controlado
-     * @throws FicheroException con error controlado
+     * @throws FicheroException      con error controlado
      */
     public EntrenadorController() throws PersistenciaException, FicheroException {
         entrenadorModelo = new EntrenadorModelo();

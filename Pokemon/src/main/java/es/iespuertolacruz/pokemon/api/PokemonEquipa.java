@@ -7,14 +7,14 @@ import java.util.StringTokenizer;
  * Clase donde se ven lod objetos que equipa un pokemon
  */
 public class PokemonEquipa {
-    
-    //Variables de clase
+
+    // Variables de clase
 
     private static final String DELIMITADOR = "'";
     int numeroPokedex;
     int idObjeto;
 
-    //Constructores
+    // Constructores
 
     /**
      * Constructor por defecto
@@ -26,7 +26,7 @@ public class PokemonEquipa {
      * Constructor con todos los parametros
      * 
      * @param numeroPokedex identificador del pokemon que tiene el objeto
-     * @param idObjeto identificador del pokemon que tiene
+     * @param idObjeto      identificador del pokemon que tiene
      */
     public PokemonEquipa(int numeroPokedex, int idObjeto) {
         this.numeroPokedex = numeroPokedex;
@@ -48,7 +48,7 @@ public class PokemonEquipa {
         this.idObjeto = Integer.parseInt((String) elementos.get(1));
     }
 
-    //Getters and Setters
+    // Getters and Setters
 
     public int getNumeroPokedex() {
         return this.numeroPokedex;
@@ -66,8 +66,7 @@ public class PokemonEquipa {
         this.idObjeto = idObjeto;
     }
 
-    //Funciones y metodos
-
+    // Funciones y metodos
 
     @Override
     public boolean equals(Object o) {
@@ -82,8 +81,7 @@ public class PokemonEquipa {
 
     @Override
     public String toString() {
-        return getNumeroPokedex() + DELIMITADOR +
-            getIdObjeto();
+        return getNumeroPokedex() + DELIMITADOR + getIdObjeto();
     }
 
 }

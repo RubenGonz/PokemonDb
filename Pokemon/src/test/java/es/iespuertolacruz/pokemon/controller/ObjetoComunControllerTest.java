@@ -14,12 +14,17 @@ import es.iespuertolacruz.pokemon.api.ObjetoComun;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
+/**
+ * Clase controller de ObjetoComun
+ */
 public class ObjetoComunControllerTest {
 
     // Variables de clase
 
     static ObjetoComunController objetoComunController;
     ObjetoComun objetoComun = null;
+
+    //BeforeEach y AfterEach
 
     @BeforeAll
     public static void beforeAll() {

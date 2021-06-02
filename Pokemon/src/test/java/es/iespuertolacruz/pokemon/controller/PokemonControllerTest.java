@@ -14,6 +14,9 @@ import es.iespuertolacruz.pokemon.api.Pokemon;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
+/**
+ * Clase controller de Pokemon
+ */
 public class PokemonControllerTest {
 
     // Variables de clase
@@ -21,7 +24,7 @@ public class PokemonControllerTest {
     static PokemonController pokemonController;
     Pokemon pokemon = null;
 
-    // Before y after
+    // BeforeEach y AfterEach
 
     @BeforeAll
     public static void beforeAll() {
@@ -50,7 +53,7 @@ public class PokemonControllerTest {
 
     @Test
     public void insertarPokemonTest() {
-        pokemon = new Pokemon(1,"Bulbasaur",1,1);
+        pokemon = new Pokemon(1, "Bulbasaur", 1, 1);
         try {
             pokemonController.insertar(pokemon);
         } catch (PokemonException | PersistenciaException e) {
@@ -60,7 +63,7 @@ public class PokemonControllerTest {
 
     @Test
     public void validarTest() {
-        Pokemon pokemonInvalido = new Pokemon(0, "",0,0);
+        Pokemon pokemonInvalido = new Pokemon(0, "", 0, 0);
         try {
             pokemonController.validar(pokemonInvalido);
         } catch (PokemonException e) {
@@ -119,11 +122,11 @@ public class PokemonControllerTest {
 
     @Test
     public void modificarPokemonInexistenteTest() {
-        Pokemon pokemonInexistente = new Pokemon(8000,"Pokemon Inexistente",8000,8000);
+        Pokemon pokemonInexistente = new Pokemon(8000, "Pokemon Inexistente", 8000, 8000);
         try {
             pokemonController.modificar(pokemonInexistente);
         } catch (PokemonException | PersistenciaException e) {
-            assertEquals("El pokemon indicado no existe",e.getMessage(), "El mensaje recibido no es el esperado");
+            assertEquals("El pokemon indicado no existe", e.getMessage(), "El mensaje recibido no es el esperado");
         }
     }
 

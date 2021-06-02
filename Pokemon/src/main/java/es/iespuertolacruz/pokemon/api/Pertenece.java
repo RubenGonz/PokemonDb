@@ -8,14 +8,14 @@ import java.util.StringTokenizer;
  * Clase donde se ven los tipos de los pokemon
  */
 public class Pertenece {
-    
-    //Variables de la clase
+
+    // Variables de la clase
 
     private static final String DELIMITADOR = "'";
     int numeroPokedex;
     String tipo;
 
-    //Constructores
+    // Constructores
 
     /**
      * Constructor por defecto
@@ -27,7 +27,7 @@ public class Pertenece {
      * Constructor con todos los parametros
      * 
      * @param numeroPokedex identificador del pokemon
-     * @param tipo tipo del pokemon
+     * @param tipo          tipo del pokemon
      */
     public Pertenece(int numeroPokedex, String tipo) {
         this.numeroPokedex = numeroPokedex;
@@ -49,7 +49,7 @@ public class Pertenece {
         this.tipo = (String) elementos.get(1);
     }
 
-    //Getters and Setters
+    // Getters and Setters
 
     public int getNumeroPokedex() {
         return this.numeroPokedex;
@@ -67,8 +67,7 @@ public class Pertenece {
         this.tipo = tipo;
     }
 
-    //Metodos y funciones
-
+    // Metodos y funciones
 
     @Override
     public boolean equals(Object o) {
@@ -83,8 +82,7 @@ public class Pertenece {
 
     @Override
     public String toString() {
-        return getNumeroPokedex() + DELIMITADOR +
-            getTipo();
+        return getNumeroPokedex() + DELIMITADOR + getTipo();
     }
 
 }

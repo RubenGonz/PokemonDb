@@ -7,14 +7,14 @@ import java.util.StringTokenizer;
  * Clase del objeto pokeball
  */
 public class Pokeball {
-    
-    //Variables de clase
+
+    // Variables de clase
 
     private static final String DELIMITADOR = "'";
     int idObjeto;
     float ratio;
 
-    //Constructores
+    // Constructores
 
     /**
      * Constructor por defecto
@@ -26,7 +26,7 @@ public class Pokeball {
      * Constructor con todos los parametros
      * 
      * @param idObjeto identificador del objeto padre
-     * @param ratio porcentaje de acierto de la pokeball
+     * @param ratio    porcentaje de acierto de la pokeball
      */
     public Pokeball(int idObjeto, float ratio) {
         this.idObjeto = idObjeto;
@@ -45,11 +45,11 @@ public class Pokeball {
             elementos.add(tokenizer.nextToken());
         }
         this.idObjeto = Integer.parseInt((String) elementos.get(0));
-        this.ratio =  Float.parseFloat((String) elementos.get(1));
+        this.ratio = Float.parseFloat((String) elementos.get(1));
     }
 
-    //Getters and Setters
-    
+    // Getters and Setters
+
     public int getIdObjeto() {
         return this.idObjeto;
     }
@@ -66,7 +66,7 @@ public class Pokeball {
         this.ratio = ratio;
     }
 
-    //Metodos y funciones
+    // Metodos y funciones
 
     @Override
     public boolean equals(Object o) {
@@ -81,8 +81,7 @@ public class Pokeball {
 
     @Override
     public String toString() {
-        return getIdObjeto() + DELIMITADOR +
-            getRatio();
+        return getIdObjeto() + DELIMITADOR + getRatio();
     }
 
 }

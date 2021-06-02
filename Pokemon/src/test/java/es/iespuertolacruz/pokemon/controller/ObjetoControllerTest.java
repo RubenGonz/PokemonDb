@@ -14,6 +14,9 @@ import es.iespuertolacruz.pokemon.api.Objeto;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
+/**
+ * Clase controller de Objeto
+ */
 public class ObjetoControllerTest {
 
     // Variables de clase
@@ -21,7 +24,7 @@ public class ObjetoControllerTest {
     static ObjetoController objetoController;
     Objeto objeto = null;
 
-    // Before y after
+    // BeforeEach y AfterEach
 
     @BeforeAll
     public static void beforeAll() {
@@ -50,22 +53,21 @@ public class ObjetoControllerTest {
 
     @Test
     public void insertarObjetoTest() {
-        objeto = new Objeto(1,"Pokedex","Entregado");
+        objeto = new Objeto(1, "Pokedex", "Entregado");
         try {
             objetoController.insertar(objeto);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El objeto indicado ya existe"),
-                    "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El objeto indicado ya existe"), "No se recibio el mensaje esperado");
         }
     }
 
     @Test
     public void validarTest() {
-        Objeto objetoInvalida = new Objeto(0,"","");
+        Objeto objetoInvalida = new Objeto(0, "", "");
         try {
             objetoController.validar(objetoInvalida);
         } catch (PokemonException e) {
-              assertTrue(e.getMessage().contains(""));
+            assertTrue(e.getMessage().contains(""));
         }
     }
 
@@ -85,8 +87,7 @@ public class ObjetoControllerTest {
         try {
             objetoController.eliminar(objeto);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El objeto indicado no existe"),
-                    "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El objeto indicado no existe"), "No se recibio el mensaje esperado");
         }
     }
 
@@ -95,8 +96,7 @@ public class ObjetoControllerTest {
         try {
             objetoController.eliminar(1);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El objeto indicado no existe"),
-                    "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El objeto indicado no existe"), "No se recibio el mensaje esperado");
         }
     }
 
@@ -110,7 +110,7 @@ public class ObjetoControllerTest {
             fail("Se ha producido un error en la consulta del objeto ,e:" + e.getMessage());
         }
     }
-    
+
     @Test
     public void modificarObjetoExistenteTest() {
         try {
@@ -122,12 +122,11 @@ public class ObjetoControllerTest {
 
     @Test
     public void modificarObjetoInexistenteTest() {
-        Objeto objetoInexistente = new Objeto(1000,"Objeto","Nulo");
+        Objeto objetoInexistente = new Objeto(1000, "Objeto", "Nulo");
         try {
             objetoController.modificar(objetoInexistente);
         } catch (PokemonException | PersistenciaException e) {
-            assertEquals("El objeto indicado no existe", e.getMessage(),
-                    "El mensaje recibido no es el esperado");
+            assertEquals("El objeto indicado no existe", e.getMessage(), "El mensaje recibido no es el esperado");
         }
     }
 

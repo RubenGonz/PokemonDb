@@ -10,6 +10,9 @@ import es.iespuertolacruz.pokemon.api.ObjetoComun;
 import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
+/**
+ * Clase modelo de los objetos comunes
+ */
 public class ObjetoComunModelo {
 
     // Variables de clase
@@ -39,8 +42,8 @@ public class ObjetoComunModelo {
      * @throws PersistenciaException error controlado
      */
     public void insertar(ObjetoComun objetoComun) throws PersistenciaException {
-        String sql = "INSERT INTO " + TABLA + " VALUES (" + objetoComun.getIdObjeto() + ",'"
-                + objetoComun.getEfecto() + "');";
+        String sql = "INSERT INTO " + TABLA + " VALUES (" + objetoComun.getIdObjeto() + ",'" + objetoComun.getEfecto()
+                + "');";
         persistencia.update(sql);
     }
 
@@ -62,8 +65,8 @@ public class ObjetoComunModelo {
      * @throws PersistenciaException error controlado
      */
     public void modificar(ObjetoComun objetoComun) throws PersistenciaException {
-        String sql = "UPDATE " + TABLA + " SET efecto = '" + objetoComun.getEfecto() + "' WHERE " + CLAVE
-                + " = " + objetoComun.getIdObjeto() + ";";
+        String sql = "UPDATE " + TABLA + " SET efecto = '" + objetoComun.getEfecto() + "' WHERE " + CLAVE + " = "
+                + objetoComun.getIdObjeto() + ";";
         persistencia.update(sql);
     }
 

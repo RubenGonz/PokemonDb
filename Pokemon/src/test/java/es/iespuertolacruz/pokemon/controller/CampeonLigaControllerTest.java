@@ -14,12 +14,17 @@ import es.iespuertolacruz.pokemon.api.CampeonLiga;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
+/**
+ * Clase controller de CampeonLiga
+ */
 public class CampeonLigaControllerTest {
 
     // Variables de clase
 
     static CampeonLigaController campeonLigaController;
     CampeonLiga campeonLiga;
+
+    // BeforeEach y AfterEach
 
     @BeforeAll
     public static void beforeAll() {

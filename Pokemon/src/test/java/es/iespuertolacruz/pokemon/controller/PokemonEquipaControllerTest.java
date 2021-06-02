@@ -14,12 +14,17 @@ import es.iespuertolacruz.pokemon.api.PokemonEquipa;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
+/**
+ * Clase controller de PokemonEquipa
+ */
 public class PokemonEquipaControllerTest {
 
     // Variables de clase
 
     static PokemonEquipaController pokemonEquipaController;
     PokemonEquipa pokemonEquipa = null;
+
+    // BeforeEach y AfterEach
 
     @BeforeAll
     public static void beforeAll() {

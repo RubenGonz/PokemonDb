@@ -3,16 +3,19 @@ package es.iespuertolacruz.pokemon.api;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
+/**
+ * Clase principal de los pokemon que tiene un entrenador
+ */
 public class Tiene {
-    
-    //Variables de la clase
+
+    // Variables de la clase
 
     private static final String DELIMITADOR = "'";
     int idEntrenador;
     int numeroPokedex;
     int cantidad;
 
-    //Constructores
+    // Constructores
 
     /**
      * Constructor por defecto
@@ -23,9 +26,9 @@ public class Tiene {
     /**
      * Constructor con todos los parametros
      * 
-     * @param idEntrenador identificador del entrenador
+     * @param idEntrenador  identificador del entrenador
      * @param numeroPokedex identificador del pokemon
-     * @param cantidad cantidad de pokemons que tiene repetidos
+     * @param cantidad      cantidad de pokemons que tiene repetidos
      */
     public Tiene(int idEntrenador, int numeroPokedex, int cantidad) {
         this.idEntrenador = idEntrenador;
@@ -49,8 +52,8 @@ public class Tiene {
         this.cantidad = Integer.parseInt((String) elementos.get(2));
     }
 
-    //Getters and Setters
-    
+    // Getters and Setters
+
     public int getIdEntrenador() {
         return this.idEntrenador;
     }
@@ -75,7 +78,7 @@ public class Tiene {
         this.cantidad = cantidad;
     }
 
-    //Funciones y metodos
+    // Funciones y metodos
 
     @Override
     public boolean equals(Object o) {
@@ -90,9 +93,7 @@ public class Tiene {
 
     @Override
     public String toString() {
-        return getIdEntrenador() + DELIMITADOR +
-            getNumeroPokedex() + DELIMITADOR +
-            getCantidad();
+        return getIdEntrenador() + DELIMITADOR + getNumeroPokedex() + DELIMITADOR + getCantidad();
     }
 
 }

@@ -6,6 +6,9 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.ConoceModelo;
 
+/**
+ * Clase controller de Conoce
+ */
 public class ConoceController {
 
     // Variables de clase
@@ -18,7 +21,7 @@ public class ConoceController {
 
     /**
      * Constructor de ConoceController con pokemonController y movimientoController
-     * inicializado por la dependencia y conoceModelo inicializado
+     * inicializado por la dependencia de las tablas y conoceModelo inicializado
      * 
      * @throws PersistenciaException con error controlado
      * @throws FicheroException      con error controlado
@@ -92,8 +95,8 @@ public class ConoceController {
      * Metodo encargado de realizar la eliminación
      * 
      * @param numeroPokedex numero de la pokedex del pokemon
-     * @param idMovimiento identificador del movimiento
-     * @throws PokemonException con error controlado
+     * @param idMovimiento  identificador del movimiento
+     * @throws PokemonException      con error controlado
      * @throws PersistenciaException con error controlado
      */
     public void eliminar(int numeroPokedex, int idMovimiento) throws PokemonException, PersistenciaException {
@@ -106,7 +109,7 @@ public class ConoceController {
      * Metodo encargado de buscar por el numeroPokedex y el idMovimiento
      * 
      * @param numeroPokedex para localizar el conoce
-     * @param idMovimiento para localizar el conoce
+     * @param idMovimiento  para localizar el conoce
      * @return conoce a traves de los atributos
      * @throws PersistenciaException con mensaje controlado
      */

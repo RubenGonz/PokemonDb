@@ -14,6 +14,9 @@ import es.iespuertolacruz.pokemon.api.Caracteristicas;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
+/**
+ * Clase controller de Caracteristicas
+ */
 public class CaracteristicasControllerTest {
 
     // Variables de clase
@@ -21,7 +24,7 @@ public class CaracteristicasControllerTest {
     static CaracteristicasController caracteristicasController;
     Caracteristicas caracteristicas = null;
 
-    // Before y after
+    // BeforeEach y AfterEach
 
     @BeforeAll
     public static void beforeAll() {
@@ -61,11 +64,11 @@ public class CaracteristicasControllerTest {
 
     @Test
     public void validarTest() {
-        Caracteristicas caracteristicasInvalida = new Caracteristicas(0,0.0f,0.0f,"","","");
+        Caracteristicas caracteristicasInvalida = new Caracteristicas(0, 0.0f, 0.0f, "", "", "");
         try {
             caracteristicasController.validar(caracteristicasInvalida);
         } catch (PokemonException e) {
-              assertTrue(e.getMessage().contains(""));
+            assertTrue(e.getMessage().contains(""));
         }
     }
 
@@ -122,7 +125,8 @@ public class CaracteristicasControllerTest {
 
     @Test
     public void modificarCaracteristicasInexistenteTest() {
-        Caracteristicas caracteristicasInexistente = new Caracteristicas(8000,8000f,8000f,"Cractersitica","Inexistente","Aqui");
+        Caracteristicas caracteristicasInexistente = new Caracteristicas(8000, 8000f, 8000f, "Cractersitica",
+                "Inexistente", "Aqui");
         try {
             caracteristicasController.modificar(caracteristicasInexistente);
         } catch (PokemonException | PersistenciaException e) {

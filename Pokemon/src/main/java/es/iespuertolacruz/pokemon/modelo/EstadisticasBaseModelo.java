@@ -27,7 +27,7 @@ public class EstadisticasBaseModelo {
      * Constructor de EstadisticasBaseModelo donde inicializa DdBbSqLite
      * 
      * @throws PersistenciaException con error controlado
-     * @throws FicheroException error controlado
+     * @throws FicheroException      error controlado
      */
     public EstadisticasBaseModelo() throws PersistenciaException, FicheroException {
         persistencia = new DdBbSqLite(TABLA, null, null);
@@ -42,14 +42,10 @@ public class EstadisticasBaseModelo {
      * @throws PersistenciaException error controlado
      */
     public void insertar(EstadisticasBase estadisticasBases) throws PersistenciaException {
-        String sql = "INSERT INTO " + TABLA + " VALUES ( " 
-        + estadisticasBases.getId() + ", "
-        + estadisticasBases.getPsBase() + ", " 
-        + estadisticasBases.getAtaqueBase() + ", "
-        + estadisticasBases.getDefensaBase() + ", " 
-        + estadisticasBases.getAtaqueEspecialBase() + ", "
-        + estadisticasBases.getDefensaEspecialBase() + ", " 
-        + estadisticasBases.getVelocidadBase() + ");";
+        String sql = "INSERT INTO " + TABLA + " VALUES ( " + estadisticasBases.getId() + ", "
+                + estadisticasBases.getPsBase() + ", " + estadisticasBases.getAtaqueBase() + ", "
+                + estadisticasBases.getDefensaBase() + ", " + estadisticasBases.getAtaqueEspecialBase() + ", "
+                + estadisticasBases.getDefensaEspecialBase() + ", " + estadisticasBases.getVelocidadBase() + ");";
         persistencia.update(sql);
     }
 
@@ -73,8 +69,8 @@ public class EstadisticasBaseModelo {
     public void modificar(EstadisticasBase estadisticasBases) throws PersistenciaException {
         String sql = "UPDATE " + TABLA + " SET ps_base = " + estadisticasBases.getPsBase() + "," + "ataque_base = "
                 + estadisticasBases.getAtaqueBase() + "," + "defensa_base = " + estadisticasBases.getDefensaBase() + ","
-                + "ataque_especial_base = " + estadisticasBases.getAtaqueEspecialBase() + "," + "defensa_especial_base = "
-                + estadisticasBases.getDefensaEspecialBase() + "," + "velocidad_base = "
+                + "ataque_especial_base = " + estadisticasBases.getAtaqueEspecialBase() + ","
+                + "defensa_especial_base = " + estadisticasBases.getDefensaEspecialBase() + "," + "velocidad_base = "
                 + estadisticasBases.getVelocidadBase() + " WHERE " + CLAVE + " = " + estadisticasBases.getId() + ";";
         persistencia.update(sql);
     }

@@ -14,6 +14,9 @@ import es.iespuertolacruz.pokemon.api.Estado;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
+/**
+ * Clase controller de Estado
+ */
 public class EstadoControllerTest {
 
     // Variables de clase
@@ -21,7 +24,7 @@ public class EstadoControllerTest {
     static EstadoController estadoController;
     Estado estado = null;
 
-    // Before y after
+    // BeforeEach y AfterEach
 
     @BeforeAll
     public static void beforeAll() {
@@ -50,22 +53,21 @@ public class EstadoControllerTest {
 
     @Test
     public void insertarEstadoTest() {
-        estado = new Estado(1,"Paralizado",1,"Puede evitar que el pokemon ataque");
+        estado = new Estado(1, "Paralizado", 1, "Puede evitar que el pokemon ataque");
         try {
             estadoController.insertar(estado);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El estado indicado ya existe"),
-                    "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El estado indicado ya existe"), "No se recibio el mensaje esperado");
         }
     }
 
     @Test
     public void validarTest() {
-        Estado estadoInvalida = new Estado(0,"",3,"");
+        Estado estadoInvalida = new Estado(0, "", 3, "");
         try {
             estadoController.validar(estadoInvalida);
         } catch (PokemonException e) {
-              assertTrue(e.getMessage().contains(""));
+            assertTrue(e.getMessage().contains(""));
         }
     }
 
@@ -85,8 +87,7 @@ public class EstadoControllerTest {
         try {
             estadoController.eliminar(estado);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El estado indicado no existe"),
-                    "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El estado indicado no existe"), "No se recibio el mensaje esperado");
         }
     }
 
@@ -95,8 +96,7 @@ public class EstadoControllerTest {
         try {
             estadoController.eliminar(1);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El estado indicado no existe"),
-                    "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El estado indicado no existe"), "No se recibio el mensaje esperado");
         }
     }
 
@@ -122,12 +122,11 @@ public class EstadoControllerTest {
 
     @Test
     public void modificarEstadoInexistenteTest() {
-        Estado estadoInexistente = new Estado(5000,"Estado",1,"Nulo");
+        Estado estadoInexistente = new Estado(5000, "Estado", 1, "Nulo");
         try {
             estadoController.modificar(estadoInexistente);
         } catch (PokemonException | PersistenciaException e) {
-            assertEquals("El estado indicado no existe", e.getMessage(),
-                    "El mensaje recibido no es el esperado");
+            assertEquals("El estado indicado no existe", e.getMessage(), "El mensaje recibido no es el esperado");
         }
     }
 

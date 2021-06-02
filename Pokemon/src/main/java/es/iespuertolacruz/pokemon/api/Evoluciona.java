@@ -8,8 +8,8 @@ import java.util.StringTokenizer;
  * Clase donde se ve a que a que pokemon evoluciona otro pokemon
  */
 public class Evoluciona {
-    
-    //variables de clase
+
+    // variables de clase
 
     private static final String DELIMITADOR = "'";
     int numeroPokedexOrigen;
@@ -27,9 +27,9 @@ public class Evoluciona {
     /**
      * Constructor con todos los parametros
      * 
-     * @param numeroPokedexOrigen pokemon que va a evolucionar
+     * @param numeroPokedexOrigen  pokemon que va a evolucionar
      * @param numeroPokedexDestino pokemon al que evoluciona
-     * @param modoEvoluciona manera en la que el pokemon evoluciona
+     * @param modoEvoluciona       manera en la que el pokemon evoluciona
      */
     public Evoluciona(int numeroPokedexOrigen, int numeroPokedexDestino, String modoEvoluciona) {
         this.numeroPokedexOrigen = numeroPokedexOrigen;
@@ -53,7 +53,7 @@ public class Evoluciona {
         this.modoEvoluciona = (String) elementos.get(2);
     }
 
-    //Getters and Setters
+    // Getters and Setters
 
     public int getNumeroPokedexOrigen() {
         return this.numeroPokedexOrigen;
@@ -79,7 +79,7 @@ public class Evoluciona {
         this.modoEvoluciona = modoEvoluciona;
     }
 
-    //Metodos y funciones
+    // Metodos y funciones
 
     @Override
     public boolean equals(Object o) {
@@ -89,14 +89,14 @@ public class Evoluciona {
             return false;
         }
         Evoluciona evoluciona = (Evoluciona) o;
-        return numeroPokedexOrigen == evoluciona.numeroPokedexOrigen && numeroPokedexDestino == evoluciona.numeroPokedexDestino && Objects.equals(modoEvoluciona, evoluciona.modoEvoluciona);
+        return numeroPokedexOrigen == evoluciona.numeroPokedexOrigen
+                && numeroPokedexDestino == evoluciona.numeroPokedexDestino
+                && Objects.equals(modoEvoluciona, evoluciona.modoEvoluciona);
     }
 
     @Override
     public String toString() {
-        return getNumeroPokedexOrigen() + DELIMITADOR +
-            getNumeroPokedexDestino() + DELIMITADOR +
-            getModoEvoluciona();
+        return getNumeroPokedexOrigen() + DELIMITADOR + getNumeroPokedexDestino() + DELIMITADOR + getModoEvoluciona();
     }
 
 }

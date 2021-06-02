@@ -14,6 +14,9 @@ import es.iespuertolacruz.pokemon.api.EstadisticasBase;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
+/**
+ * Clase controller de EstadisticasBase
+ */
 public class EstadisticasBaseControllerTest {
     
     // Variables de clase
@@ -21,7 +24,7 @@ public class EstadisticasBaseControllerTest {
     static EstadisticasBaseController estadisticasBaseController;
     EstadisticasBase estadisticasBase = null;
 
-    // Before y after
+    //BeforeEach y AfterEach
 
     @BeforeAll
     public static void beforeAll() {

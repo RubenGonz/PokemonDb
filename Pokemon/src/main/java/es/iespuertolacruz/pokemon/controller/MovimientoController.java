@@ -6,6 +6,9 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.MovimientoModelo;
 
+/**
+ * Clase controller de los movimientos
+ */
 public class MovimientoController {
 
     // Variables de clase
@@ -16,8 +19,8 @@ public class MovimientoController {
     // Constructores
 
     /**
-     * Constructor de MovimientoController con tipoController por la
-     * dependencia y movimientoModelo iniciliazado
+     * Constructor de MovimientoController con tipoController por la dependencia y
+     * movimientoModelo iniciliazado
      * 
      * @throws PersistenciaException con error controlado
      * @throws FicheroException      con error controlado

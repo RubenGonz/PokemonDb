@@ -14,12 +14,17 @@ import es.iespuertolacruz.pokemon.api.Pertenece;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
+/**
+ * Clase controller de Pertenece
+ */
 public class PerteneceControllerTest {
 
     // Variables de clase
 
     static PerteneceController perteneceController;
     Pertenece pertenece = null;
+
+    // BeforeEach y AfterEach
 
     @BeforeAll
     public static void beforeAll() {
@@ -89,7 +94,7 @@ public class PerteneceControllerTest {
     @Test
     public void eliminarPorIdEntrenadorTest() {
         try {
-            perteneceController.eliminar(1,"Planta");
+            perteneceController.eliminar(1, "Planta");
         } catch (PokemonException | PersistenciaException e) {
             assertTrue(e.getMessage().contains("El pertenece indicado no existe"), "No se recibio el mensaje esperado");
         }
@@ -98,7 +103,8 @@ public class PerteneceControllerTest {
     @Test
     public void buscarperteneceTest() {
         try {
-            Pertenece perteneceEncontrado = perteneceController.buscar(pertenece.getNumeroPokedex(),pertenece.getTipo());
+            Pertenece perteneceEncontrado = perteneceController.buscar(pertenece.getNumeroPokedex(),
+                    pertenece.getTipo());
             assertNotNull(perteneceEncontrado, "No se debe de obtener un elemento nulo");
             assertEquals(pertenece, perteneceEncontrado, "No se ha encontrado lo esperado");
         } catch (PersistenciaException e) {

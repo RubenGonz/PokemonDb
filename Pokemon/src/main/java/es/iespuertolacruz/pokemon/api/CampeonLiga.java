@@ -4,15 +4,18 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.StringTokenizer;
 
+/**
+ * Clase principal de los campeones de liga
+ */
 public class CampeonLiga {
-    
-    //Variable clase
+
+    // Variable clase
 
     private static final String DELIMITADOR = "'";
     int idEntrenador;
     String region;
 
-    //Constructores
+    // Constructores
 
     /**
      * Constructor por defecto
@@ -24,7 +27,7 @@ public class CampeonLiga {
      * Constructor con todos los parametros
      * 
      * @param idEntrenador identificador del entrenador padre
-     * @param region de donde es el campeon
+     * @param region       de donde es el campeon
      */
     public CampeonLiga(int idEntrenador, String region) {
         this.idEntrenador = idEntrenador;
@@ -46,7 +49,7 @@ public class CampeonLiga {
         this.region = (String) elementos.get(1);
     }
 
-    //Getters and Setters
+    // Getters and Setters
 
     public int getIdEntrenador() {
         return this.idEntrenador;
@@ -64,7 +67,7 @@ public class CampeonLiga {
         this.region = region;
     }
 
-    //Funciones y metodos
+    // Funciones y metodos
 
     @Override
     public boolean equals(Object o) {
@@ -79,8 +82,7 @@ public class CampeonLiga {
 
     @Override
     public String toString() {
-        return getIdEntrenador() + DELIMITADOR +
-            getRegion();
+        return getIdEntrenador() + DELIMITADOR + getRegion();
     }
 
 }

@@ -7,7 +7,7 @@ import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.TipoModelo;
 
 /**
- * Controlador de Tipo
+ * Clase controller de los tipos
  */
 public class TipoController {
 

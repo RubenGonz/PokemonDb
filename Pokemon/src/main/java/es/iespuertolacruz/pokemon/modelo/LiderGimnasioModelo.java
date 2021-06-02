@@ -10,6 +10,9 @@ import es.iespuertolacruz.pokemon.api.LiderGimnasio;
 import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
+/**
+ * Clase modelo de los lideres de gimnasio
+ */
 public class LiderGimnasioModelo {
 
     // Variables de clase
@@ -62,8 +65,8 @@ public class LiderGimnasioModelo {
      * @throws PersistenciaException error controlado
      */
     public void modificar(LiderGimnasio liderGimnasio) throws PersistenciaException {
-        String sql = "UPDATE " + TABLA + " SET medalla = " + liderGimnasio.getMedalla() + " WHERE " + CLAVE
-                + " = " + liderGimnasio.getIdEntrenador() + ";";
+        String sql = "UPDATE " + TABLA + " SET medalla = " + liderGimnasio.getMedalla() + " WHERE " + CLAVE + " = "
+                + liderGimnasio.getIdEntrenador() + ";";
         persistencia.update(sql);
     }
 

@@ -14,12 +14,17 @@ import es.iespuertolacruz.pokemon.api.Conoce;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
+/**
+ * Clase controller de Conoce
+ */
 public class ConoceControllerTest {
 
     // Variables de clase
 
     static ConoceController conoceController;
     Conoce conoce;
+
+    // BeforeEach y AfterEach
 
     @BeforeAll
     public static void beforeAll() {
@@ -89,7 +94,7 @@ public class ConoceControllerTest {
     @Test
     public void eliminarPorIdEntrenadorTest() {
         try {
-            conoceController.eliminar(1,1);
+            conoceController.eliminar(1, 1);
         } catch (PokemonException | PersistenciaException e) {
             assertTrue(e.getMessage().contains("El conoce indicado no existe"), "No se recibio el mensaje esperado");
         }
@@ -98,7 +103,7 @@ public class ConoceControllerTest {
     @Test
     public void buscarconoceTest() {
         try {
-            Conoce conoceEncontrado = conoceController.buscar(conoce.getNumeroPokedex(),conoce.getIdMovimiento());
+            Conoce conoceEncontrado = conoceController.buscar(conoce.getNumeroPokedex(), conoce.getIdMovimiento());
             assertNotNull(conoceEncontrado, "No se debe de obtener un elemento nulo");
             assertEquals(conoce, conoceEncontrado, "No se ha encontrado lo esperado");
         } catch (PersistenciaException e) {

@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
  */
 public class EstadisticasBase {
 
-    //Variables de la clase
+    // Variables de la clase
 
     private static final String DELIMITADOR = "'";
     int id;
@@ -18,8 +18,8 @@ public class EstadisticasBase {
     int ataqueEspecialBase;
     int defensaEspecialBase;
     int velocidadBase;
-    
-    //Constructores
+
+    // Constructores
 
     /**
      * Constructor por defecto
@@ -30,15 +30,17 @@ public class EstadisticasBase {
     /**
      * Constructor con todos los parametros
      * 
-     * @param id del pokemon al que se refiere y el identificador del objeto
-     * @param psBase vida del pokemon
-     * @param ataqueBase ataque fisico del pokemon
-     * @param defensaBase defensa fisica del pokemon
-     * @param ataqueEspecialBase ataque especial del pokemon
+     * @param id                  del pokemon al que se refiere y el identificador
+     *                            del objeto
+     * @param psBase              vida del pokemon
+     * @param ataqueBase          ataque fisico del pokemon
+     * @param defensaBase         defensa fisica del pokemon
+     * @param ataqueEspecialBase  ataque especial del pokemon
      * @param defensaEspecialBase defensa especial del pokemon
-     * @param velocidadBase velocidad del pokemomn
+     * @param velocidadBase       velocidad del pokemomn
      */
-    public EstadisticasBase(int id, int psBase, int ataqueBase, int defensaBase, int ataqueEspecialBase, int defensaEspecialBase, int velocidadBase) {
+    public EstadisticasBase(int id, int psBase, int ataqueBase, int defensaBase, int ataqueEspecialBase,
+            int defensaEspecialBase, int velocidadBase) {
         this.id = id;
         this.psBase = psBase;
         this.ataqueBase = ataqueBase;
@@ -68,7 +70,7 @@ public class EstadisticasBase {
         this.velocidadBase = Integer.parseInt((String) elementos.get(6));
     }
 
-    //Getters and Setters
+    // Getters and Setters
 
     public int getId() {
         return this.id;
@@ -128,7 +130,6 @@ public class EstadisticasBase {
 
     // Metodos y funciones
 
-
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -137,19 +138,18 @@ public class EstadisticasBase {
             return false;
         }
         EstadisticasBase estadisticasBase = (EstadisticasBase) o;
-        return id == estadisticasBase.id && psBase == estadisticasBase.psBase && ataqueBase == estadisticasBase.ataqueBase && defensaBase == estadisticasBase.defensaBase && ataqueEspecialBase == estadisticasBase.ataqueEspecialBase && defensaEspecialBase == estadisticasBase.defensaEspecialBase && velocidadBase == estadisticasBase.velocidadBase;
+        return id == estadisticasBase.id && psBase == estadisticasBase.psBase
+                && ataqueBase == estadisticasBase.ataqueBase && defensaBase == estadisticasBase.defensaBase
+                && ataqueEspecialBase == estadisticasBase.ataqueEspecialBase
+                && defensaEspecialBase == estadisticasBase.defensaEspecialBase
+                && velocidadBase == estadisticasBase.velocidadBase;
     }
 
     @Override
     public String toString() {
-        return getId() + DELIMITADOR +
-            getPsBase() + DELIMITADOR +
-            getAtaqueBase() + DELIMITADOR +
-            getDefensaBase() + DELIMITADOR +
-            getAtaqueEspecialBase() + DELIMITADOR +
-            getDefensaEspecialBase() + DELIMITADOR +
-            getVelocidadBase();
+        return getId() + DELIMITADOR + getPsBase() + DELIMITADOR + getAtaqueBase() + DELIMITADOR + getDefensaBase()
+                + DELIMITADOR + getAtaqueEspecialBase() + DELIMITADOR + getDefensaEspecialBase() + DELIMITADOR
+                + getVelocidadBase();
     }
-
 
 }

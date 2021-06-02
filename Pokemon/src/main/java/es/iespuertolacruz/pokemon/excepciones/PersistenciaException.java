@@ -1,5 +1,8 @@
 package es.iespuertolacruz.pokemon.excepciones;
 
+/**
+ * Clase de las excepciones provocadas por la base de datos
+ */
 public class PersistenciaException extends Exception {
 
     /**

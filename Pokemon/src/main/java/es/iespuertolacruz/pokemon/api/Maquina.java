@@ -7,14 +7,14 @@ import java.util.StringTokenizer;
  * Clase del objeto maquina
  */
 public class Maquina {
-    
-    //Variables de clase
+
+    // Variables de clase
 
     private static final String DELIMITADOR = "'";
     int idObjeto;
     int idMovimiento;
 
-    //Constructores
+    // Constructores
 
     /**
      * Constructor por defecto
@@ -25,7 +25,7 @@ public class Maquina {
     /**
      * Constructor con todos los parametros
      * 
-     * @param idObjeto identificador del objeto padre
+     * @param idObjeto     identificador del objeto padre
      * @param idMovimiento identificador del movimiento que contiene
      */
     public Maquina(int idObjeto, int idMovimiento) {
@@ -48,7 +48,7 @@ public class Maquina {
         this.idMovimiento = Integer.parseInt((String) elementos.get(1));
     }
 
-    //Getters ans Setters
+    // Getters ans Setters
 
     public int getIdObjeto() {
         return this.idObjeto;
@@ -66,7 +66,7 @@ public class Maquina {
         this.idMovimiento = idMovimiento;
     }
 
-    //Funciones y metodos
+    // Funciones y metodos
 
     @Override
     public boolean equals(Object o) {
@@ -81,8 +81,7 @@ public class Maquina {
 
     @Override
     public String toString() {
-        return getIdObjeto() + DELIMITADOR +
-            getIdMovimiento();
+        return getIdObjeto() + DELIMITADOR + getIdMovimiento();
     }
 
 }

@@ -7,14 +7,14 @@ import java.util.StringTokenizer;
  * Clase donde se ven los estados que provoca un movimiento
  */
 public class Provoca {
-    
-    //Variables de clase
+
+    // Variables de clase
 
     private static final String DELIMITADOR = "'";
     int idMovimiento;
     int idEstado;
 
-    //Constructores
+    // Constructores
 
     /**
      * Constructores por defecto
@@ -26,7 +26,7 @@ public class Provoca {
      * Constructores con todos los parametros
      * 
      * @param idMovimiento identificador del movimiento
-     * @param idEstado identificador del estado
+     * @param idEstado     identificador del estado
      */
     public Provoca(int idMovimiento, int idEstado) {
         this.idMovimiento = idMovimiento;
@@ -48,7 +48,7 @@ public class Provoca {
         this.idEstado = Integer.parseInt((String) elementos.get(1));
     }
 
-    //Getters and Setters
+    // Getters and Setters
 
     public int getIdMovimiento() {
         return this.idMovimiento;
@@ -66,7 +66,7 @@ public class Provoca {
         this.idEstado = idEstado;
     }
 
-    //Metodos y funciones
+    // Metodos y funciones
 
     @Override
     public boolean equals(Object o) {
@@ -81,8 +81,7 @@ public class Provoca {
 
     @Override
     public String toString() {
-        return getIdMovimiento() + DELIMITADOR +
-            getIdEstado();
+        return getIdMovimiento() + DELIMITADOR + getIdEstado();
     }
 
 }

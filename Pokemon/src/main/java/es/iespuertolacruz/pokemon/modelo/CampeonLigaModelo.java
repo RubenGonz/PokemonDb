@@ -11,7 +11,7 @@ import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
 /**
- * Clase principal del modelo de CampeonLigaModelo
+ * Clase modelo de CampeonLigaModelo
  */
 public class CampeonLigaModelo {
 

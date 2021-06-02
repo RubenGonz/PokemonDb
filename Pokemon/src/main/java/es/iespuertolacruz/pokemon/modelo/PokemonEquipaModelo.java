@@ -10,6 +10,9 @@ import es.iespuertolacruz.pokemon.api.PokemonEquipa;
 import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
+/**
+ * Clase modelo de los objetos de los pokemon
+ */
 public class PokemonEquipaModelo {
 
     // Variables de clase
@@ -74,13 +77,14 @@ public class PokemonEquipaModelo {
      * Funcion encargada de obtener pokemonEquipa
      * 
      * @param numeroPokedex del pokemonEquipa
-     * @param idObjeto del pokemonEquipa
+     * @param idObjeto      del pokemonEquipa
      * @return pokemonEquipa buscado
      * @throws PersistenciaException con error controlado
      */
     public PokemonEquipa buscar(int numeroPokedex, int idObjeto) throws PersistenciaException {
         PokemonEquipa pokemonEquipa = null;
-        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVEPRI + " = " + numeroPokedex + " AND " + CLAVESEC + " = " + idObjeto + ";";
+        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVEPRI + " = " + numeroPokedex + " AND " + CLAVESEC
+                + " = " + idObjeto + ";";
         ArrayList<PokemonEquipa> lista = transformarAPokemonEquipa(sql);
         if (!lista.isEmpty()) {
             pokemonEquipa = lista.get(0);

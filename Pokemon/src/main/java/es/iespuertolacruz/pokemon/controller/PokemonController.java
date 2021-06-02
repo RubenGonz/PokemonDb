@@ -6,6 +6,9 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.PokemonModelo;
 
+/**
+ * Clase controller de los pokemon
+ */
 public class PokemonController {
 
     // Variables de clase

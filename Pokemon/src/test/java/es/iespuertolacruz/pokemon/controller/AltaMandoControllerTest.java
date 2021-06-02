@@ -14,6 +14,9 @@ import es.iespuertolacruz.pokemon.api.AltoMando;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
+/**
+ * Clase controller de AltoMando
+ */
 public class AltaMandoControllerTest {
 
     // Variables de clase
@@ -21,7 +24,7 @@ public class AltaMandoControllerTest {
     static AltoMandoController altoMandoController;
     AltoMando altoMando = null;
 
-    // Before y after
+    // BeforeEach y AfterEach
 
     @BeforeAll
     public static void beforeAll() {

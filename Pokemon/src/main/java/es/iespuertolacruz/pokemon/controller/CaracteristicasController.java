@@ -6,6 +6,9 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.CaracteristicasModelo;
 
+/**
+ * Clase Controller de las características de un pokemon
+ */
 public class CaracteristicasController {
 
     // Variables de clase
@@ -15,10 +18,11 @@ public class CaracteristicasController {
     // Constructores
 
     /**
-     * Contructor de CaracteristicasController con caracteristicasModelo inicializado
+     * Contructor de CaracteristicasController con caracteristicasModelo
+     * inicializado
      * 
      * @throws PersistenciaException con error controlado
-     * @throws FicheroException con error controlado
+     * @throws FicheroException      con error controlado
      */
     public CaracteristicasController() throws PersistenciaException, FicheroException {
         caracteristicasModelo = new CaracteristicasModelo();

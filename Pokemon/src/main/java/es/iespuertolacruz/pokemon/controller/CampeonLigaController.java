@@ -19,11 +19,11 @@ public class CampeonLigaController {
     // Constructores
 
     /**
-     * Constructor de CampeonLigaController con entrenadorController iniciliazado por
-     * la dependencia y campeonLigaModelo iniciliazado
+     * Constructor de CampeonLigaController con entrenadorController iniciliazado
+     * por la dependencia de las tablas y campeonLigaModelo iniciliazado
      * 
      * @throws PersistenciaException con error controlado
-     * @throws FicheroException con error controlado
+     * @throws FicheroException      con error controlado
      */
     public CampeonLigaController() throws PersistenciaException, FicheroException {
         entrenadorController = new EntrenadorController();

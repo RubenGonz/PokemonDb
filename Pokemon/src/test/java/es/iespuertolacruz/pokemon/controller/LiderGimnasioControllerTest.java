@@ -14,12 +14,17 @@ import es.iespuertolacruz.pokemon.api.LiderGimnasio;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
+/**
+ * Clase controller de LiderGimnasio
+ */
 public class LiderGimnasioControllerTest {
 
     // Variables de clase
 
     static LiderGimnasioController liderGimnasioController;
     LiderGimnasio liderGimnasio = null;
+
+    //BeforeEach y AfterEach
 
     @BeforeAll
     public static void beforeAll() {

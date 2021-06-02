@@ -6,6 +6,9 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.LiderGimnasioModelo;
 
+/**
+ * Clase controller de los lideres de gimnasio
+ */
 public class LiderGimnasioController {
 
     // Variables de clase
@@ -16,8 +19,8 @@ public class LiderGimnasioController {
     // Constructores
 
     /**
-     * Constructor de LiderGimnasioController con entrenadorController inicializado por la
-     * dependencia y liderGimnasioModelo iniciliazado
+     * Constructor de LiderGimnasioController con entrenadorController inicializado
+     * por la dependencia y liderGimnasioModelo iniciliazado
      * 
      * @throws PersistenciaException con error controlado
      * @throws FicheroException      con error controlado

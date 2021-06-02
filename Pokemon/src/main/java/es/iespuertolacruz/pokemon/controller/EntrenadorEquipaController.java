@@ -6,6 +6,9 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.EntrenadorEquipaModelo;
 
+/**
+ * Clase controller de entrenador
+ */
 public class EntrenadorEquipaController {
 
     // Variables de clase
@@ -17,11 +20,12 @@ public class EntrenadorEquipaController {
     // Constructores
 
     /**
-     * Constructor de EntrenadorEquipaController con entrenadorController iniciliazado por
-     * la dependencia y entrenadorEquipaModelo iniciliazado
+     * Constructor de EntrenadorEquipaController con entrenadorController
+     * iniciliazado por la dependencia de las tablas y entrenadorEquipaModelo
+     * iniciliazado
      * 
      * @throws PersistenciaException con error controlado
-     * @throws FicheroException con error controlado
+     * @throws FicheroException      con error controlado
      */
     public EntrenadorEquipaController() throws PersistenciaException, FicheroException {
         entrenadorController = new EntrenadorController();
@@ -95,8 +99,8 @@ public class EntrenadorEquipaController {
      * Metodo encargado de realizar la eliminacion
      * 
      * @param idEntrenador identificador del entrenador
-     * @param idObjeto identificador del objeto
-     * @throws PokemonException error controlado
+     * @param idObjeto     identificador del objeto
+     * @throws PokemonException      error controlado
      * @throws PersistenciaException error controlado
      */
     public void eliminar(int idEntrenador, int idObjeto) throws PokemonException, PersistenciaException {
@@ -109,7 +113,7 @@ public class EntrenadorEquipaController {
      * Metodo encargado de buscar por las claves
      * 
      * @param idEntrenador identificador del entrenador
-     * @param idObjeto identificador del objeto
+     * @param idObjeto     identificador del objeto
      * @return objeto entrenadorEquipa
      * @throws PersistenciaException error controlado
      */

@@ -14,12 +14,17 @@ import es.iespuertolacruz.pokemon.api.Pokeball;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
+/**
+ * Clase controller de Pokeball
+ */
 public class PokeballControllerTest {
 
     // Variables de clase
 
     static PokeballController pokeballController;
     Pokeball pokeball = null;
+
+    //BeforeEach y AfterEach
 
     @BeforeAll
     public static void beforeAll() {

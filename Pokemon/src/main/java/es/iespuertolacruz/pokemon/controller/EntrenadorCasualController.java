@@ -23,7 +23,7 @@ public class EntrenadorCasualController {
      * entrenadorCasualModelo inicializado
      * 
      * @throws PersistenciaException con error controlado
-     * @throws FicheroException con error controlado
+     * @throws FicheroException      con error controlado
      */
     public EntrenadorCasualController() throws PersistenciaException, FicheroException {
         entrenadorController = new EntrenadorController();

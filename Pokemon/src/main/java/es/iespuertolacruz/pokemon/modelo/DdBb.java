@@ -15,7 +15,7 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
  */
 public abstract class DdBb {
 
-    //Variables de clase
+    // Variables de clase
 
     protected String nombreTabla;
     protected String clave;
@@ -24,17 +24,18 @@ public abstract class DdBb {
     protected String usuario;
     protected String password;
 
-    //Constructores
+    // Constructores
 
     /**
      * Constructor de DdBb con todos los parametros
+     * 
      * @param nombreTabla nombre de la tabla a contruir
-     * @param driver de la conxion
-     * @param url de la conxion
-     * @param usuario de la conxion
-     * @param password del usuario
+     * @param driver      de la conxion
+     * @param url         de la conxion
+     * @param usuario     de la conxion
+     * @param password    del usuario
      * @throws PersistenciaException error controlado
-     * @throws FicheroException error controlado
+     * @throws FicheroException      error controlado
      */
     protected DdBb(String nombreTabla, String driver, String url, String usuario, String password)
             throws PersistenciaException, FicheroException {
@@ -46,11 +47,14 @@ public abstract class DdBb {
         inicializarTabla(nombreTabla);
     }
 
+    // Metodos y funciones
+
     /**
      * Metodo que inicializa una tabla
+     * 
      * @param nombreTabla nombre de la tabla a inicializar
      * @throws PersistenciaException error controlado
-     * @throws FicheroException error controlado
+     * @throws FicheroException      error controlado
      */
     private void inicializarTabla(String nombreTabla) throws PersistenciaException, FicheroException {
         DatabaseMetaData databaseMetaData;
@@ -60,7 +64,7 @@ public abstract class DdBb {
         try {
             connection = getConnection();
             databaseMetaData = connection.getMetaData();
-            resultSet = databaseMetaData.getTables(null, null, null, new String[] {"TABLE"});
+            resultSet = databaseMetaData.getTables(null, null, null, new String[] { "TABLE" });
             while (resultSet.next()) {
                 listaTablas.add(resultSet.getString("TABLE_NAME"));
             }

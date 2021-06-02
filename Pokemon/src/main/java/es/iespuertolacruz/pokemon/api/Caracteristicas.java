@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
  */
 public class Caracteristicas {
 
-    //Variables de clase
+    // Variables de clase
 
     private static final String DELIMITADOR = "'";
     int id;
@@ -19,7 +19,7 @@ public class Caracteristicas {
     String habilidad;
     String categoria;
 
-    //Constructores
+    // Constructores
 
     /**
      * Constructor por defecto
@@ -30,10 +30,10 @@ public class Caracteristicas {
     /**
      * Constructor con todos los parametros
      * 
-     * @param id del pokemon al que se refiere y el identificador del objeto
-     * @param peso del pokemon
-     * @param altura del pokemon
-     * @param especie del pokemon
+     * @param id        del pokemon al que se refiere y el identificador del objeto
+     * @param peso      del pokemon
+     * @param altura    del pokemon
+     * @param especie   del pokemon
      * @param habilidad del pokemon
      * @param categoria del pokemon
      */
@@ -115,7 +115,7 @@ public class Caracteristicas {
         this.categoria = categoria;
     }
 
-    //Metodos y funciones
+    // Metodos y funciones
 
     @Override
     public boolean equals(Object o) {
@@ -125,18 +125,16 @@ public class Caracteristicas {
             return false;
         }
         Caracteristicas caracteristicas = (Caracteristicas) o;
-        return id == caracteristicas.id && peso == caracteristicas.peso && altura == caracteristicas.altura && Objects.equals(especie, caracteristicas.especie) && Objects.equals(habilidad, caracteristicas.habilidad) && Objects.equals(categoria, caracteristicas.categoria);
+        return id == caracteristicas.id && peso == caracteristicas.peso && altura == caracteristicas.altura
+                && Objects.equals(especie, caracteristicas.especie)
+                && Objects.equals(habilidad, caracteristicas.habilidad)
+                && Objects.equals(categoria, caracteristicas.categoria);
     }
 
     @Override
     public String toString() {
-        return getId() + DELIMITADOR +
-            getPeso() + DELIMITADOR +
-            getAltura() + DELIMITADOR +
-            getEspecie() + DELIMITADOR +
-            getHabilidad() + DELIMITADOR +
-            getCategoria();
+        return getId() + DELIMITADOR + getPeso() + DELIMITADOR + getAltura() + DELIMITADOR + getEspecie() + DELIMITADOR
+                + getHabilidad() + DELIMITADOR + getCategoria();
     }
 
 }
-   

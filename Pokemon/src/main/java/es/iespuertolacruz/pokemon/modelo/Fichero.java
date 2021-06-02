@@ -5,6 +5,9 @@ import java.util.Scanner;
 
 import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 
+/**
+ * Clase que trabaja con los ficheros
+ */
 public class Fichero {
 
     /**

@@ -14,12 +14,17 @@ import es.iespuertolacruz.pokemon.api.Villano;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
+/**
+ * Clase controller de Villano
+ */
 public class VillanoControllerTest {
 
     // Variables de clase
 
     static VillanoController villanoController;
     Villano villano = null;
+
+    // BeforeEach y AfterEach
 
     @BeforeAll
     public static void beforeAll() {

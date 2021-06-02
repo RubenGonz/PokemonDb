@@ -6,6 +6,9 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.TieneModelo;
 
+/**
+ * Clas de los pokemon que tienen los entrenadores
+ */
 public class TieneController {
 
     // Variables de clase
@@ -91,7 +94,7 @@ public class TieneController {
     /**
      * Metodo encargado de realizar la eliminacion
      * 
-     * @param idEntrenador del tiene a eliminar
+     * @param idEntrenador  del tiene a eliminar
      * @param numeroPokedex del tiene a eliminar
      * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
@@ -105,7 +108,7 @@ public class TieneController {
     /**
      * Metodo encargado de buscar por las claves
      * 
-     * @param idEntrenador del tiene a eliminar
+     * @param idEntrenador  del tiene a eliminar
      * @param numeroPokedex del tiene a eliminar
      * @return tiene a traves de las claves
      * @throws PersistenciaException con mensaje controlado

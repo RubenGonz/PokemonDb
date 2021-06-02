@@ -73,18 +73,18 @@ public class ConoceModelo {
         persistencia.update(sql);
     }
 
-    
     /**
      * Funcion encargada de obtener Conoce
      * 
      * @param numeroPokedex del objeto conoce
-     * @param idMovimiento del objeto conoce
+     * @param idMovimiento  del objeto conoce
      * @return objeto conoce
      * @throws PersistenciaException con error controlado
      */
-    public Conoce buscar(int numeroPokedex,int idMovimiento ) throws PersistenciaException {
+    public Conoce buscar(int numeroPokedex, int idMovimiento) throws PersistenciaException {
         Conoce conoce = null;
-        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVEPRI + " = " + numeroPokedex + " AND " + CLAVESEC + " = " + idMovimiento + ";";
+        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVEPRI + " = " + numeroPokedex + " AND " + CLAVESEC
+                + " = " + idMovimiento + ";";
         ArrayList<Conoce> lista = transformarAConoce(sql);
         if (!lista.isEmpty()) {
             conoce = lista.get(0);

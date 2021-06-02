@@ -5,36 +5,39 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Clase que testea la api de Entrenador
+ */
 public class EntrenadorTest {
-    
+
     // Variables de la clase
 
     Entrenador entrenador1;
     Entrenador entrenador2;
     Entrenador entrenador3;
 
-    //BeforeEach y AfterEach
+    // BeforeEach y AfterEach
 
     @BeforeEach
     public void SetUp() {
         entrenador1 = crearEntrenador();
-        entrenador2 = new Entrenador(1,"Azul");
+        entrenador2 = new Entrenador(1, "Azul");
         entrenador3 = new Entrenador("1'Azul");
     }
 
-    //Test
+    // Test
 
     @Test
     public void toStringTest() {
-        assertEquals("1'Azul",entrenador1.toString(), "El texto recibido no era el esperado");
+        assertEquals("1'Azul", entrenador1.toString(), "El texto recibido no era el esperado");
     }
 
     @Test
     public void EqualsTest() {
-        assertEquals(entrenador2,entrenador3,"Los objetos son iguales y equals no lo reconoce");
+        assertEquals(entrenador2, entrenador3, "Los objetos son iguales y equals no lo reconoce");
     }
 
-    //Funciones y metodos
+    // Funciones y metodos
 
     private Entrenador crearEntrenador() {
         Entrenador entrenador;

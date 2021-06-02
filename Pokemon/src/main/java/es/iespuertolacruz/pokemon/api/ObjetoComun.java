@@ -8,14 +8,14 @@ import java.util.StringTokenizer;
  * Clase del objeto objetoComun
  */
 public class ObjetoComun {
-    
-    //Variables de clase
-    
+
+    // Variables de clase
+
     private static final String DELIMITADOR = "'";
     int idObjeto;
     String efecto;
 
-    //Constructores
+    // Constructores
 
     /**
      * Constructor por defecto
@@ -27,7 +27,7 @@ public class ObjetoComun {
      * Constructor con todos los parametros
      * 
      * @param idObjeto identificador del objeto padre
-     * @param efecto que provoca el objeto
+     * @param efecto   que provoca el objeto
      */
     public ObjetoComun(int idObjeto, String efecto) {
         this.idObjeto = idObjeto;
@@ -67,7 +67,7 @@ public class ObjetoComun {
         this.efecto = efecto;
     }
 
-    //Funciones y metodos
+    // Funciones y metodos
 
     @Override
     public boolean equals(Object o) {
@@ -82,8 +82,7 @@ public class ObjetoComun {
 
     @Override
     public String toString() {
-        return getIdObjeto() + DELIMITADOR +
-            getEfecto();
+        return getIdObjeto() + DELIMITADOR + getEfecto();
     }
 
 }

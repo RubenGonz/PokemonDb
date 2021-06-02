@@ -14,12 +14,17 @@ import es.iespuertolacruz.pokemon.api.EntrenadorCasual;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
+/**
+ * Clase controller de EntrenadorCasual
+ */
 public class EntrenadorCasualControllerTest {
 
     // Variables de clase
 
     static EntrenadorCasualController entrenadorCasualController;
     EntrenadorCasual entrenadorCasual = null;
+
+    //BeforeEach y AfterEach
 
     @BeforeAll
     public static void beforeAll() {

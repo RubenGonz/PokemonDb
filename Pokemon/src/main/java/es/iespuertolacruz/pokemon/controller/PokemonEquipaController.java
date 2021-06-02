@@ -6,6 +6,9 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.PokemonEquipaModelo;
 
+/**
+ * Clase de los objetos que equipan los pokemon
+ */
 public class PokemonEquipaController {
 
     // Variables de clase
@@ -92,7 +95,7 @@ public class PokemonEquipaController {
      * Metodo encargado de realizar la eliminacion
      * 
      * @param numeroPokedex del pokemonEquipa a eliminar
-     * @param idObjeto del pokemonEquipa a eliminar
+     * @param idObjeto      del pokemonEquipa a eliminar
      * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
@@ -106,7 +109,7 @@ public class PokemonEquipaController {
      * Metodo encargado de buscar por el NumeroPokedex ,IdObjeto
      * 
      * @param numeroPokedex del pokemonEquipa a eliminar
-     * @param idObjeto del pokemonEquipa a eliminar
+     * @param idObjeto      del pokemonEquipa a eliminar
      * @return pokemonEquipa a traves del numeroPokedex e idObjeto
      * @throws PersistenciaException con mensaje controlado
      */

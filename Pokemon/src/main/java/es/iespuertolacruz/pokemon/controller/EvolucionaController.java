@@ -6,6 +6,9 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.EvolucionaModelo;
 
+/**
+ * Clase controller de las evoluciones
+ */
 public class EvolucionaController {
 
     // Variables de clase
@@ -92,12 +95,13 @@ public class EvolucionaController {
     /**
      * Metodo encargado de realizar la eliminacion
      * 
-     * @param numeroPokedexOrigen numero del pokemon que evoluciona
+     * @param numeroPokedexOrigen  numero del pokemon que evoluciona
      * @param numeroPokedexDestino numero del pokemon al que evoluciona
-     * @throws PokemonException error controlado
+     * @throws PokemonException      error controlado
      * @throws PersistenciaException error controlado
      */
-    public void eliminar(int numeroPokedexOrigen, int numeroPokedexDestino) throws PokemonException, PersistenciaException {
+    public void eliminar(int numeroPokedexOrigen, int numeroPokedexDestino)
+            throws PokemonException, PersistenciaException {
         Evoluciona evoluciona;
         evoluciona = buscar(numeroPokedexOrigen, numeroPokedexDestino);
         eliminar(evoluciona);
@@ -106,7 +110,7 @@ public class EvolucionaController {
     /**
      * Metodo encargado de realizar una busqueda por las claves
      * 
-     * @param numeroPokedexOrigen numero del pokemon que evoluciona
+     * @param numeroPokedexOrigen  numero del pokemon que evoluciona
      * @param numeroPokedexDestino numero del pokemon al que evoluciona
      * @return objeto evoluciona
      * @throws PersistenciaException error controlado

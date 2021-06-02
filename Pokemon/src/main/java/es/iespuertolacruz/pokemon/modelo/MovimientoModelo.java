@@ -10,6 +10,9 @@ import es.iespuertolacruz.pokemon.api.Movimiento;
 import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
+/**
+ * Clase modelo de los movimientos
+ */
 public class MovimientoModelo {
 
     // Variables de clase

@@ -10,6 +10,9 @@ import es.iespuertolacruz.pokemon.api.Provoca;
 import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
+/**
+ * Clase modelo de los estados que provocan los movimientos
+ */
 public class ProvocaModelo {
 
     // Variables de clase
@@ -79,7 +82,8 @@ public class ProvocaModelo {
      */
     public Provoca buscar(int idMovimiento, int idEstado) throws PersistenciaException {
         Provoca provoca = null;
-        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVEPRI + " = " + idMovimiento + " AND " + CLAVESEC + " = " + idEstado + ";";
+        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVEPRI + " = " + idMovimiento + " AND " + CLAVESEC + " = "
+                + idEstado + ";";
         ArrayList<Provoca> lista = transformarAProvoca(sql);
         if (!lista.isEmpty()) {
             provoca = lista.get(0);

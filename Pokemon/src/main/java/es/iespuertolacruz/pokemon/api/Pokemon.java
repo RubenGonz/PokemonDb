@@ -102,7 +102,8 @@ public class Pokemon {
             return false;
         }
         Pokemon pokemon = (Pokemon) o;
-        return numeroPokedex == pokemon.numeroPokedex && Objects.equals(nombre, pokemon.nombre) && caracteristicas == pokemon.caracteristicas && estadisticasBase == pokemon.estadisticasBase;
+        return numeroPokedex == pokemon.numeroPokedex && Objects.equals(nombre, pokemon.nombre)
+                && caracteristicas == pokemon.caracteristicas && estadisticasBase == pokemon.estadisticasBase;
     }
 
     @Override

@@ -42,9 +42,7 @@ public class EntrenadorModelo {
      * @throws PersistenciaException error controlado
      */
     public void insertar(Entrenador entrenador) throws PersistenciaException {
-        String sql = "INSERT INTO " + TABLA + " VALUES (" 
-        + entrenador.getId() + ",'" 
-        + entrenador.getNombre() + "');";
+        String sql = "INSERT INTO " + TABLA + " VALUES (" + entrenador.getId() + ",'" + entrenador.getNombre() + "');";
         persistencia.update(sql);
     }
 
@@ -66,8 +64,8 @@ public class EntrenadorModelo {
      * @throws PersistenciaException error controlado
      */
     public void modificar(Entrenador entrenador) throws PersistenciaException {
-        String sql = "UPDATE " + TABLA + " SET nombre = '" + entrenador.getNombre() + "'" 
-        + "WHERE " + CLAVE + " = " + entrenador.getId() + ";";
+        String sql = "UPDATE " + TABLA + " SET nombre = '" + entrenador.getNombre() + "'" + "WHERE " + CLAVE + " = "
+                + entrenador.getId() + ";";
         persistencia.update(sql);
     }
 

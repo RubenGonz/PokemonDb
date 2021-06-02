@@ -3,9 +3,12 @@ package es.iespuertolacruz.pokemon.api;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
+/**
+ * Clase principal de los objetos que equipa un entrenador
+ */
 public class EntrenadorEquipa {
-    
-    //Variables de clase
+
+    // Variables de clase
 
     private static final String DELIMITADOR = "'";
     int idEntrenador;
@@ -24,8 +27,8 @@ public class EntrenadorEquipa {
      * Constructor con todos los parametros
      * 
      * @param idEntrenador identificador del entrenador
-     * @param idObjeto identificador del objeto
-     * @param cantidad cantidad de objetos que tiene repetidos
+     * @param idObjeto     identificador del objeto
+     * @param cantidad     cantidad de objetos que tiene repetidos
      */
     public EntrenadorEquipa(int idEntrenador, int idObjeto, int cantidad) {
         this.idEntrenador = idEntrenador;
@@ -49,8 +52,8 @@ public class EntrenadorEquipa {
         this.cantidad = Integer.parseInt((String) elementos.get(2));
     }
 
-    //Getters and Setters
-    
+    // Getters and Setters
+
     public int getIdEntrenador() {
         return this.idEntrenador;
     }
@@ -75,7 +78,7 @@ public class EntrenadorEquipa {
         this.cantidad = cantidad;
     }
 
-    //Funciones y Metodos
+    // Funciones y Metodos
 
     @Override
     public boolean equals(Object o) {
@@ -85,14 +88,13 @@ public class EntrenadorEquipa {
             return false;
         }
         EntrenadorEquipa entrenadorEquipa = (EntrenadorEquipa) o;
-        return idEntrenador == entrenadorEquipa.idEntrenador && idObjeto == entrenadorEquipa.idObjeto && cantidad == entrenadorEquipa.cantidad;
+        return idEntrenador == entrenadorEquipa.idEntrenador && idObjeto == entrenadorEquipa.idObjeto
+                && cantidad == entrenadorEquipa.cantidad;
     }
 
     @Override
     public String toString() {
-        return getIdEntrenador() + DELIMITADOR +
-            getIdObjeto() + DELIMITADOR +
-            getCantidad();
+        return getIdEntrenador() + DELIMITADOR + getIdObjeto() + DELIMITADOR + getCantidad();
     }
 
 }

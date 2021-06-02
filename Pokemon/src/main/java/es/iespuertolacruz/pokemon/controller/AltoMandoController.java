@@ -20,10 +20,10 @@ public class AltoMandoController {
 
     /**
      * Constructor de AltoMandoController con entrenadorController iniciliazado por
-     * la dependencia y altoMandoModelo iniciliazado
+     * la dependencia de las tablas y altoMandoModelo iniciliazado
      * 
      * @throws PersistenciaException con error controlado
-     * @throws FicheroException con error controlado
+     * @throws FicheroException      con error controlado
      */
     public AltoMandoController() throws PersistenciaException, FicheroException {
         entrenadorController = new EntrenadorController();

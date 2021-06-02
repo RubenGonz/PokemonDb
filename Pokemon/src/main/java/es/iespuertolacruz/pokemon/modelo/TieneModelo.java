@@ -10,6 +10,9 @@ import es.iespuertolacruz.pokemon.api.Tiene;
 import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
+/**
+ * Clase modelo de los pokemon de los entrenadores
+ */
 public class TieneModelo {
 
     // Variables de clase
@@ -52,8 +55,8 @@ public class TieneModelo {
      * @throws PersistenciaException error controlado
      */
     public void eliminar(Tiene tiene) throws PersistenciaException {
-        String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVEPRI + " = " + tiene.getIdEntrenador() + " AND " + CLAVESEC + " = "
-                + tiene.getNumeroPokedex() + ";";
+        String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVEPRI + " = " + tiene.getIdEntrenador() + " AND "
+                + CLAVESEC + " = " + tiene.getNumeroPokedex() + ";";
         persistencia.update(sql);
     }
 
@@ -72,14 +75,15 @@ public class TieneModelo {
     /**
      * Funcion encargada de obtener tiene
      * 
-     * @param idEntrenador del tiene
+     * @param idEntrenador  del tiene
      * @param numeroPokedex del tiene
      * @return tiene buscado
      * @throws PersistenciaException con error controlado
      */
-    public Tiene buscar(int idEntrenador , int numeroPokedex) throws PersistenciaException {
+    public Tiene buscar(int idEntrenador, int numeroPokedex) throws PersistenciaException {
         Tiene tiene = null;
-        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVEPRI + " = " + idEntrenador + " AND " + CLAVESEC + " = " + numeroPokedex + ";";
+        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVEPRI + " = " + idEntrenador + " AND " + CLAVESEC + " = "
+                + numeroPokedex + ";";
         ArrayList<Tiene> lista = transformarATiene(sql);
         if (!lista.isEmpty()) {
             tiene = lista.get(0);

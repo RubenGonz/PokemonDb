@@ -14,12 +14,17 @@ import es.iespuertolacruz.pokemon.api.Maquina;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
+/**
+ * Clase controller de Maquina
+ */
 public class MaquinaControllerTest {
 
     // Variables de clase
 
     static MaquinaController maquinaController;
     Maquina maquina = null;
+
+    // BeforeEach y AfterEach
 
     @BeforeAll
     public static void beforeAll() {

@@ -8,15 +8,15 @@ import java.util.StringTokenizer;
  * Clase principal de los objetos del juego
  */
 public class Objeto {
-    
-    //Variables de clase
+
+    // Variables de clase
 
     private static final String DELIMITADOR = "'";
     int id;
     String nombre;
     String modoObtencion;
 
-    //Constructores
+    // Constructores
 
     /**
      * Constructor por defecto
@@ -27,8 +27,8 @@ public class Objeto {
     /**
      * Constructor con todos los parametros
      * 
-     * @param id del obbjeto
-     * @param nombre del objeto
+     * @param id            del obbjeto
+     * @param nombre        del objeto
      * @param modoObtencion modo en el que se puede obtener un objeto
      */
     public Objeto(int id, String nombre, String modoObtencion) {
@@ -53,8 +53,8 @@ public class Objeto {
         this.modoObtencion = (String) elementos.get(2);
     }
 
-    //Getters and Setters
-    
+    // Getters and Setters
+
     public int getId() {
         return this.id;
     }
@@ -79,7 +79,7 @@ public class Objeto {
         this.modoObtencion = modoObtencion;
     }
 
-    //Metodos y funciones
+    // Metodos y funciones
 
     @Override
     public boolean equals(Object o) {
@@ -89,14 +89,13 @@ public class Objeto {
             return false;
         }
         Objeto objeto = (Objeto) o;
-        return id == objeto.id && Objects.equals(nombre, objeto.nombre) && Objects.equals(modoObtencion, objeto.modoObtencion);
+        return id == objeto.id && Objects.equals(nombre, objeto.nombre)
+                && Objects.equals(modoObtencion, objeto.modoObtencion);
     }
 
     @Override
     public String toString() {
-        return getId() + DELIMITADOR +
-            getNombre() + DELIMITADOR +
-            getModoObtencion();
+        return getId() + DELIMITADOR + getNombre() + DELIMITADOR + getModoObtencion();
     }
 
 }

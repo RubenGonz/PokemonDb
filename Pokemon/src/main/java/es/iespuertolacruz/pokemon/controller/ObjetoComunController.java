@@ -6,6 +6,9 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.ObjetoComunModelo;
 
+/**
+ * Clase controller de los objetos comunes
+ */
 public class ObjetoComunController {
 
     // Variables de clase
@@ -16,8 +19,8 @@ public class ObjetoComunController {
     // Constructores
 
     /**
-     * Constructor de ObjetoComunController con objetoController por la
-     * dependencia y objetoComunModelo iniciliazado
+     * Constructor de ObjetoComunController con objetoController por la dependencia
+     * y objetoComunModelo iniciliazado
      * 
      * @throws PersistenciaException con error controlado
      * @throws FicheroException      con error controlado

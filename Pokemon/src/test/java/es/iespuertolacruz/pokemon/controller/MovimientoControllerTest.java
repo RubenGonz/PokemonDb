@@ -14,12 +14,17 @@ import es.iespuertolacruz.pokemon.api.Movimiento;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
+/**
+ * Clase controller de Movimiento
+ */
 public class MovimientoControllerTest {
 
     // Variables de clase
 
     static MovimientoController movimientoController;
     Movimiento movimiento = null;
+
+    // BeforeEach y AfterEach
 
     @BeforeAll
     public static void beforeAll() {
@@ -48,7 +53,7 @@ public class MovimientoControllerTest {
 
     @Test
     public void insertarMovimientoTest() {
-        movimiento = new Movimiento(1,"Burbuja","Agua","Especial",30,40,100);
+        movimiento = new Movimiento(1, "Burbuja", "Agua", "Especial", 30, 40, 100);
         try {
             movimientoController.insertar(movimiento);
         } catch (PokemonException | PersistenciaException e) {

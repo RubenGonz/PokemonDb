@@ -14,12 +14,17 @@ import es.iespuertolacruz.pokemon.api.Provoca;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
+/**
+ * Clase controller de Provoca
+ */
 public class ProvocaControllerTest {
 
     // Variables de clase
 
     static ProvocaController provocaController;
     Provoca provoca = null;
+
+    //BeforeEach y AfterEach
 
     @BeforeAll
     public static void beforeAll() {

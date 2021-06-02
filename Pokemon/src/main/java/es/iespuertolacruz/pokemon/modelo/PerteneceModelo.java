@@ -10,6 +10,9 @@ import es.iespuertolacruz.pokemon.api.Pertenece;
 import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
+/**
+ * Clase modelo de pertenece
+ */
 public class PerteneceModelo {
 
     // Variables de clase
@@ -65,7 +68,8 @@ public class PerteneceModelo {
      */
     public void modificar(Pertenece pertenece) throws PersistenciaException {
         String sql = "UPDATE " + TABLA + " SET " + CLAVEPRI + " = " + pertenece.getNumeroPokedex() + ", " + CLAVESEC
-                + " = '" + pertenece.getTipo() + "' WHERE " + CLAVEPRI + " = " + pertenece.getNumeroPokedex() + " AND " + CLAVESEC + " = '" + pertenece.getTipo() + "';";
+                + " = '" + pertenece.getTipo() + "' WHERE " + CLAVEPRI + " = " + pertenece.getNumeroPokedex() + " AND "
+                + CLAVESEC + " = '" + pertenece.getTipo() + "';";
         persistencia.update(sql);
     }
 
@@ -73,13 +77,14 @@ public class PerteneceModelo {
      * Funcion encargada de obtener pertenece
      * 
      * @param numeroPokedex del pertenece
-     * @param tipo del pertenece
+     * @param tipo          del pertenece
      * @return pertenece buscado
      * @throws PersistenciaException con error controlado
      */
     public Pertenece buscar(int numeroPokedex, String tipo) throws PersistenciaException {
         Pertenece pertenece = null;
-        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVEPRI + " = " + numeroPokedex + " AND " + CLAVESEC + " = '" + tipo + "';";
+        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVEPRI + " = " + numeroPokedex + " AND " + CLAVESEC
+                + " = '" + tipo + "';";
         ArrayList<Pertenece> lista = transformarpertenece(sql);
         if (!lista.isEmpty()) {
             pertenece = lista.get(0);

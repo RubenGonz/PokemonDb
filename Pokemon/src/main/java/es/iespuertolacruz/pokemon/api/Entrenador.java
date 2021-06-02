@@ -8,14 +8,14 @@ import java.util.StringTokenizer;
  * Clase principal de entrenador
  */
 public class Entrenador {
-    
-    //Variables de clase
+
+    // Variables de clase
 
     private static final String DELIMITADOR = "'";
     int id;
     String nombre;
 
-    //Constructores
+    // Constructores
 
     /**
      * Constructor por defecto
@@ -26,7 +26,7 @@ public class Entrenador {
     /**
      * Constructor con todos los parametros
      * 
-     * @param id identificador del entrenador
+     * @param id     identificador del entrenador
      * @param nombre del entrenador
      */
     public Entrenador(int id, String nombre) {
@@ -48,8 +48,8 @@ public class Entrenador {
         this.id = Integer.parseInt((String) elementos.get(0));
         this.nombre = (String) elementos.get(1);
     }
-    
-    //Getters and Setters
+
+    // Getters and Setters
 
     public int getId() {
         return this.id;
@@ -67,7 +67,7 @@ public class Entrenador {
         this.nombre = nombre;
     }
 
-    //Funciones y metodos
+    // Funciones y metodos
 
     @Override
     public boolean equals(Object o) {
@@ -82,8 +82,7 @@ public class Entrenador {
 
     @Override
     public String toString() {
-        return getId() + DELIMITADOR +
-            getNombre();
+        return getId() + DELIMITADOR + getNombre();
     }
 
 }

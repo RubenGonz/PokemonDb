@@ -14,6 +14,9 @@ import es.iespuertolacruz.pokemon.api.Entrenador;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
+/**
+ * Clase controller de EntrenadorController
+ */
 public class EntrenadorControllerTest {
 
     // Variables de clase
@@ -21,7 +24,7 @@ public class EntrenadorControllerTest {
     static EntrenadorController entrenadorController;
     Entrenador entrenador = null;
 
-    // Before y after
+    // BeforeEach y AfterEach
 
     @BeforeAll
     public static void beforeAll() {
@@ -50,7 +53,7 @@ public class EntrenadorControllerTest {
 
     @Test
     public void insertarEntrenadorTest() {
-        entrenador = new Entrenador(1,"Azul");
+        entrenador = new Entrenador(1, "Azul");
         try {
             entrenadorController.insertar(entrenador);
         } catch (PokemonException | PersistenciaException e) {
@@ -61,11 +64,11 @@ public class EntrenadorControllerTest {
 
     @Test
     public void validarTest() {
-        Entrenador entrenadorInvalida = new Entrenador(0,"");
+        Entrenador entrenadorInvalida = new Entrenador(0, "");
         try {
             entrenadorController.validar(entrenadorInvalida);
         } catch (PokemonException e) {
-              assertTrue(e.getMessage().contains(""));
+            assertTrue(e.getMessage().contains(""));
         }
     }
 
@@ -122,12 +125,11 @@ public class EntrenadorControllerTest {
 
     @Test
     public void modificarEntrenadorInexistenteTest() {
-        Entrenador entrenadorInexistente = new Entrenador(5000,"Entrenador nulo");
+        Entrenador entrenadorInexistente = new Entrenador(5000, "Entrenador nulo");
         try {
             entrenadorController.modificar(entrenadorInexistente);
         } catch (PokemonException | PersistenciaException e) {
-            assertEquals("El entrenador indicado no existe", e.getMessage(),
-                    "El mensaje recibido no es el esperado");
+            assertEquals("El entrenador indicado no existe", e.getMessage(), "El mensaje recibido no es el esperado");
         }
     }
 

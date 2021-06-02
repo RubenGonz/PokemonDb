@@ -14,7 +14,7 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
  * Clase principal del modelo de EntrenadorCasual
  */
 public class EntrenadorCasualModelo {
-    
+
     // Variables de clase
 
     DdBbSqLite persistencia;
@@ -65,8 +65,8 @@ public class EntrenadorCasualModelo {
      * @throws PersistenciaException error controlado
      */
     public void modificar(EntrenadorCasual entrenadorCasual) throws PersistenciaException {
-        String sql = "UPDATE " + TABLA + " SET cantidad_medalla = " + entrenadorCasual.getCantidadMedallas() + " WHERE " + CLAVE
-                + " = " + entrenadorCasual.getIdEntrenador() + ";";
+        String sql = "UPDATE " + TABLA + " SET cantidad_medalla = " + entrenadorCasual.getCantidadMedallas() + " WHERE "
+                + CLAVE + " = " + entrenadorCasual.getIdEntrenador() + ";";
         persistencia.update(sql);
     }
 

@@ -23,6 +23,12 @@ public class ObjetoModelo {
 
     // Constructores
 
+    /**
+     * Constructor de ObjetoModelo donde inicializa DdBbSqLite
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException      con error controlado
+     */
     public ObjetoModelo() throws PersistenciaException, FicheroException {
         persistencia = new DdBbSqLite(TABLA, null, null);
     }
@@ -36,10 +42,8 @@ public class ObjetoModelo {
      * @throws PersistenciaException error controlado
      */
     public void insertar(Objeto objeto) throws PersistenciaException {
-        String sql = "INSERT INTO " + TABLA + " VALUES (" 
-        + objeto.getId() + ",'" 
-        + objeto.getNombre() + "','" 
-        + objeto.getModoObtencion() + "');";
+        String sql = "INSERT INTO " + TABLA + " VALUES (" + objeto.getId() + ",'" + objeto.getNombre() + "','"
+                + objeto.getModoObtencion() + "');";
         persistencia.update(sql);
     }
 
@@ -61,9 +65,8 @@ public class ObjetoModelo {
      * @throws PersistenciaException error controlado
      */
     public void modificar(Objeto objeto) throws PersistenciaException {
-        String sql = "UPDATE " + TABLA + " SET nombre = '" + objeto.getNombre() + "'," 
-        + "modo_obtencion = '" + objeto.getModoObtencion() + "'" 
-        + "WHERE " + CLAVE + " = " + objeto.getId() + ";";
+        String sql = "UPDATE " + TABLA + " SET nombre = '" + objeto.getNombre() + "'," + "modo_obtencion = '"
+                + objeto.getModoObtencion() + "'" + "WHERE " + CLAVE + " = " + objeto.getId() + ";";
         persistencia.update(sql);
     }
 

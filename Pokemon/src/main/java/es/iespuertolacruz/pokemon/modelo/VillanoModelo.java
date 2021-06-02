@@ -41,10 +41,9 @@ public class VillanoModelo {
      * @param villano a insertar
      * @throws PersistenciaException error controlado
      */
-    public void insertar(Villano villano)throws PersistenciaException  {
-        String sql = "INSERT INTO " + TABLA + " VALUES (" 
-        + villano.getIdEntrenador() + ",'"
-        + villano.getProposito() + "');";
+    public void insertar(Villano villano) throws PersistenciaException {
+        String sql = "INSERT INTO " + TABLA + " VALUES (" + villano.getIdEntrenador() + ",'" + villano.getProposito()
+                + "');";
         persistencia.update(sql);
     }
 

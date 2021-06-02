@@ -10,6 +10,9 @@ import es.iespuertolacruz.pokemon.api.Pokeball;
 import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
+/**
+ * Clase modelo de los pokeball
+ */
 public class PokeballModelo {
 
     // Variables de clase
@@ -19,7 +22,7 @@ public class PokeballModelo {
     private static final String CLAVE = "id_objeto";
 
     // Constructores
-    
+
     /**
      * Constructor de PokeballModelo donde inicializa DdBbSqLite
      * 
@@ -39,8 +42,7 @@ public class PokeballModelo {
      * @throws PersistenciaException error controlado
      */
     public void insertar(Pokeball pokeball) throws PersistenciaException {
-        String sql = "INSERT INTO " + TABLA + " VALUES (" + pokeball.getIdObjeto() + ","
-                + pokeball.getRatio() + ");";
+        String sql = "INSERT INTO " + TABLA + " VALUES (" + pokeball.getIdObjeto() + "," + pokeball.getRatio() + ");";
         persistencia.update(sql);
     }
 
@@ -62,8 +64,8 @@ public class PokeballModelo {
      * @throws PersistenciaException error controlado
      */
     public void modificar(Pokeball pokeball) throws PersistenciaException {
-        String sql = "UPDATE " + TABLA + " SET ratio = " + pokeball.getRatio() + " WHERE " + CLAVE
-                + " = " + pokeball.getIdObjeto() + ";";
+        String sql = "UPDATE " + TABLA + " SET ratio = " + pokeball.getRatio() + " WHERE " + CLAVE + " = "
+                + pokeball.getIdObjeto() + ";";
         persistencia.update(sql);
     }
 

@@ -8,8 +8,8 @@ import java.util.StringTokenizer;
  * Clase donde se ven los posibles estados que puede provocar un movimiento
  */
 public class Estado {
-    
-    //Variables de clase
+
+    // Variables de clase
 
     private static final String DELIMITADOR = "'";
     int id;
@@ -17,7 +17,7 @@ public class Estado {
     int persistencia;
     String efecto;
 
-    //Constructores
+    // Constructores
 
     /**
      * Constructor por defecto
@@ -28,10 +28,10 @@ public class Estado {
     /**
      * Constructor con todos los parametros
      * 
-     * @param id identificador del estado
-     * @param nombre del estado
+     * @param id           identificador del estado
+     * @param nombre       del estado
      * @param persistencia 1 si el estado es duradero o 2 si no lo es
-     * @param efecto descripcion del estado
+     * @param efecto       descripcion del estado
      */
     public Estado(int id, String nombre, int persistencia, String efecto) {
         this.id = id;
@@ -91,7 +91,7 @@ public class Estado {
         this.efecto = efecto;
     }
 
-    //Metodos y funciones
+    // Metodos y funciones
 
     @Override
     public boolean equals(Object o) {
@@ -101,15 +101,13 @@ public class Estado {
             return false;
         }
         Estado estado = (Estado) o;
-        return id == estado.id && Objects.equals(nombre, estado.nombre) && persistencia == estado.persistencia && Objects.equals(efecto, estado.efecto);
+        return id == estado.id && Objects.equals(nombre, estado.nombre) && persistencia == estado.persistencia
+                && Objects.equals(efecto, estado.efecto);
     }
-    
+
     @Override
     public String toString() {
-        return getId() + DELIMITADOR +
-            getNombre() + DELIMITADOR +
-            getPersistencia() + DELIMITADOR +
-            getEfecto();
+        return getId() + DELIMITADOR + getNombre() + DELIMITADOR + getPersistencia() + DELIMITADOR + getEfecto();
     }
 
 }

@@ -10,6 +10,9 @@ import es.iespuertolacruz.pokemon.api.EntrenadorEquipa;
 import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
+/**
+ * Clase modelo de los objetos de los entrenadores
+ */
 public class EntrenadorEquipaModelo {
 
     // Variables de clase
@@ -80,7 +83,8 @@ public class EntrenadorEquipaModelo {
      */
     public EntrenadorEquipa buscar(int idEntrenador, int idObjeto) throws PersistenciaException {
         EntrenadorEquipa entrenadorEquipa = null;
-        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVEPRI + " = " + idEntrenador + " AND " + CLAVESEC + " = " + idObjeto + ";";
+        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVEPRI + " = " + idEntrenador + " AND " + CLAVESEC + " = "
+                + idObjeto + ";";
         ArrayList<EntrenadorEquipa> lista = transformarAEntrenadorEquipa(sql);
         if (!lista.isEmpty()) {
             entrenadorEquipa = lista.get(0);

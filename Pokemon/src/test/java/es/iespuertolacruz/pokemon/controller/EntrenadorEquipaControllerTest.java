@@ -14,12 +14,17 @@ import es.iespuertolacruz.pokemon.api.EntrenadorEquipa;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
+/**
+ * Clase controller de EntrenadorEquipa
+ */
 public class EntrenadorEquipaControllerTest {
 
     // Variables de clase
 
     static EntrenadorEquipaController entrenadorEquipaController;
     EntrenadorEquipa entrenadorEquipa = null;
+
+    // BeforeEach y AfterEach
 
     @BeforeAll
     public static void beforeAll() {
@@ -52,7 +57,8 @@ public class EntrenadorEquipaControllerTest {
         try {
             entrenadorEquipaController.insertar(entrenadorEquipa);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El entrenadorEquipa indicado ya existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El entrenadorEquipa indicado ya existe"),
+                    "No se recibio el mensaje esperado");
         }
     }
 

@@ -8,14 +8,14 @@ import java.util.StringTokenizer;
  * Clase donde se ven los tipos que puede tener un pokemon/movimiento/entrenador
  */
 public class Tipo {
-    
-    //Variables de clase
+
+    // Variables de clase
 
     private static final String DELIMITADOR = "'";
     String nombre;
     String color;
 
-    //Constructores
+    // Constructores
 
     /**
      * Constructor por defecto
@@ -27,7 +27,7 @@ public class Tipo {
      * Constructor con todos los parametros
      * 
      * @param nombre del tipo
-     * @param color representativo del tipo
+     * @param color  representativo del tipo
      */
     public Tipo(String nombre, String color) {
         this.nombre = nombre;
@@ -49,7 +49,7 @@ public class Tipo {
         this.color = (String) elementos.get(1);
     }
 
-    //Getters and Setters
+    // Getters and Setters
 
     public String getNombre() {
         return this.nombre;
@@ -67,7 +67,7 @@ public class Tipo {
         this.color = color;
     }
 
-    //Metodos y funciones
+    // Metodos y funciones
 
     @Override
     public boolean equals(Object o) {
@@ -79,11 +79,10 @@ public class Tipo {
         Tipo tipo = (Tipo) o;
         return Objects.equals(nombre, tipo.nombre) && Objects.equals(color, tipo.color);
     }
-    
+
     @Override
     public String toString() {
-        return getNombre() + DELIMITADOR +
-            getColor();
+        return getNombre() + DELIMITADOR + getColor();
     }
 
 }

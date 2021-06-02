@@ -6,6 +6,9 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.VillanoModelo;
 
+/**
+ * Clase controller de los villanos
+ */
 public class VillanoController {
 
     // Variables de clase
@@ -16,8 +19,8 @@ public class VillanoController {
     // Constructores
 
     /**
-     * Constructor de VillanoController con entrenadorController
-     * por la dependencia y villanoModelo iniciliazado
+     * Constructor de VillanoController con entrenadorController por la dependencia
+     * y villanoModelo iniciliazado
      * 
      * @throws PersistenciaException con error controlado
      * @throws FicheroException      con error controlado

@@ -7,14 +7,14 @@ import java.util.StringTokenizer;
  * Clase del entrenador entrenado casual
  */
 public class EntrenadorCasual {
-    
-    //Variables de la clase
+
+    // Variables de la clase
 
     private static final String DELIMITADOR = "'";
     int idEntrenador;
     int cantidadMedallas;
 
-    //Constructores
+    // Constructores
 
     /**
      * Constructor por defecto
@@ -25,7 +25,7 @@ public class EntrenadorCasual {
     /**
      * Constructor con todos los parametros
      * 
-     * @param idEntrenador identificador del entrenador padre
+     * @param idEntrenador     identificador del entrenador padre
      * @param cantidadMedallas cantidad de medallas que ha conseguido el entrenador
      */
     public EntrenadorCasual(int idEntrenador, int cantidadMedallas) {
@@ -48,7 +48,7 @@ public class EntrenadorCasual {
         this.cantidadMedallas = Integer.parseInt((String) elementos.get(1));
     }
 
-    //Getters and Setters
+    // Getters and Setters
 
     public int getIdEntrenador() {
         return this.idEntrenador;
@@ -66,7 +66,7 @@ public class EntrenadorCasual {
         this.cantidadMedallas = cantidadMedallas;
     }
 
-    //Funciones y metodos
+    // Funciones y metodos
 
     @Override
     public boolean equals(Object o) {
@@ -81,8 +81,7 @@ public class EntrenadorCasual {
 
     @Override
     public String toString() {
-        return getIdEntrenador() + DELIMITADOR +
-            getCantidadMedallas();
+        return getIdEntrenador() + DELIMITADOR + getCantidadMedallas();
     }
 
 }

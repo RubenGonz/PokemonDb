@@ -14,14 +14,17 @@ import es.iespuertolacruz.pokemon.api.Tipo;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
+/**
+ * Clase controller de Tipo
+ */
 public class TipoControllerTest {
-    
+
     // Variables de clase
 
     static TipoController tipoController;
     Tipo tipo = null;
 
-    // Before y after
+    // BeforeEach y AfterEach
 
     @BeforeAll
     public static void beforeAll() {
@@ -64,8 +67,8 @@ public class TipoControllerTest {
         try {
             tipoController.validar(tipoInvalido);
         } catch (PokemonException e) {
-            assertTrue(e.getMessage().contains(
-                    "El nombre del tipo es nulo o vacio, el color del tipo es nulo o vacio."),
+            assertTrue(
+                    e.getMessage().contains("El nombre del tipo es nulo o vacio, el color del tipo es nulo o vacio."),
                     "No se recibio el mensaje esperado");
         }
     }
@@ -121,11 +124,11 @@ public class TipoControllerTest {
 
     @Test
     public void modificarTipoInexistenteTest() {
-        Tipo tipoInexistente = new Tipo("Tipo","Inexistente");
+        Tipo tipoInexistente = new Tipo("Tipo", "Inexistente");
         try {
             tipoController.modificar(tipoInexistente);
         } catch (PokemonException | PersistenciaException e) {
-            assertEquals("El tipo indicado no existe",e.getMessage(), "El mensaje recibido no es el esperado");
+            assertEquals("El tipo indicado no existe", e.getMessage(), "El mensaje recibido no es el esperado");
         }
     }
 

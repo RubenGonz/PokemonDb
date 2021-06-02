@@ -6,6 +6,9 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.PerteneceModelo;
 
+/**
+ * Clase controller de Pertenece
+ */
 public class PerteneceController {
 
     // Variables de clase
@@ -17,8 +20,8 @@ public class PerteneceController {
     // Constructores
 
     /**
-     * Constructor de PerteneceController con tipoController y pokemonController por la
-     * dependencia y perteneceModelo iniciliazado
+     * Constructor de PerteneceController con tipoController y pokemonController por
+     * la dependencia y perteneceModelo iniciliazado
      * 
      * @throws PersistenciaException con error controlado
      * @throws FicheroException      con error controlado
@@ -92,13 +95,13 @@ public class PerteneceController {
      * Metodo encargado de realizar la eliminacion
      * 
      * @param numeroPokedex del pertenece a eliminar
-     * @param tipo del pertenece a eliminar
+     * @param tipo          del pertenece a eliminar
      * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
     public void eliminar(int numeroPokedex, String tipo) throws PokemonException, PersistenciaException {
         Pertenece pertenece;
-        pertenece = buscar(numeroPokedex,tipo);
+        pertenece = buscar(numeroPokedex, tipo);
         eliminar(pertenece);
     }
 
@@ -106,13 +109,13 @@ public class PerteneceController {
      * Metodo encargado de buscar por las claves
      * 
      * @param numeroPokedex para localizar el pertenece
-     * @param tipo para localizar el pertenece
+     * @param tipo          para localizar el pertenece
      * @return pertenece a traves del NumeroPokedex
      * @throws PersistenciaException con mensaje controlado
      */
     public Pertenece buscar(int numeroPokedex, String tipo) throws PersistenciaException {
         Pertenece pertenece = null;
-        pertenece = perteneceModelo.buscar(numeroPokedex,tipo);
+        pertenece = perteneceModelo.buscar(numeroPokedex, tipo);
         return pertenece;
     }
 
@@ -142,7 +145,7 @@ public class PerteneceController {
         boolean encontrada = false;
         Pertenece perteneceEncontrada;
 
-        perteneceEncontrada = buscar(pertenece.getNumeroPokedex(),pertenece.getTipo());
+        perteneceEncontrada = buscar(pertenece.getNumeroPokedex(), pertenece.getTipo());
         if (perteneceEncontrada != null) {
             encontrada = true;
         }

@@ -4,15 +4,18 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.StringTokenizer;
 
+/**
+ * Clase principal de los altos mando
+ */
 public class AltoMando {
-    
-    //Variables de clase
+
+    // Variables de clase
 
     private static final String DELIMITADOR = "'";
     int idEntrenador;
     String tipoPrincipal;
 
-    //Constructores
+    // Constructores
 
     /**
      * Constructor por defecto
@@ -23,7 +26,7 @@ public class AltoMando {
     /**
      * Constructor con todos los parametros
      * 
-     * @param idEntrenador identificador del entrenador padre
+     * @param idEntrenador  identificador del entrenador padre
      * @param tipoPrincipal tipo principal de los pokemon que usa el entrenador
      */
     public AltoMando(int idEntrenador, String tipoPrincipal) {
@@ -46,7 +49,7 @@ public class AltoMando {
         this.tipoPrincipal = (String) elementos.get(1);
     }
 
-    //Getters and Setters
+    // Getters and Setters
 
     public int getIdEntrenador() {
         return this.idEntrenador;
@@ -64,8 +67,7 @@ public class AltoMando {
         this.tipoPrincipal = tipoPrincipal;
     }
 
-    //Metodos y funciones
-
+    // Metodos y funciones
 
     @Override
     public boolean equals(Object o) {
@@ -77,11 +79,10 @@ public class AltoMando {
         AltoMando altoMando = (AltoMando) o;
         return idEntrenador == altoMando.idEntrenador && Objects.equals(tipoPrincipal, altoMando.tipoPrincipal);
     }
-    
+
     @Override
     public String toString() {
-        return getIdEntrenador() + DELIMITADOR +
-            getTipoPrincipal();
+        return getIdEntrenador() + DELIMITADOR + getTipoPrincipal();
     }
 
 }

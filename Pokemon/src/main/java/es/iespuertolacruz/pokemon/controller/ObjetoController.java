@@ -6,6 +6,9 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.ObjetoModelo;
 
+/**
+ * Clase controller de los objetos
+ */
 public class ObjetoController {
 
     // Variables de clase
@@ -14,6 +17,12 @@ public class ObjetoController {
 
     // Constructores
 
+    /**
+     * Constructor de ObjetoController con objetoModelo iniciliazado
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException      con error controlado
+     */
     public ObjetoController() throws PersistenciaException, FicheroException {
         objetoModelo = new ObjetoModelo();
     }

@@ -6,7 +6,11 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.MaquinaModelo;
 
+/**
+ * Clase controller de las maquinas
+ */
 public class MaquinaController {
+
     // Variables de clase
 
     ObjetoController objetoController;
@@ -16,8 +20,8 @@ public class MaquinaController {
     // Constructores
 
     /**
-     * Constructor de MaquinaController con objetoController y movimientoController inicializado por la
-     * dependencia y maquinaModelo iniciliazado
+     * Constructor de MaquinaController con objetoController y movimientoController
+     * inicializado por la dependencia y maquinaModelo iniciliazado
      * 
      * @throws PersistenciaException con error controlado
      * @throws FicheroException      con error controlado

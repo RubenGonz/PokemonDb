@@ -6,6 +6,9 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.EstadisticasBaseModelo;
 
+/**
+ * Clase controller de las esadísticas base
+ */
 public class EstadisticasBaseController {
 
     // Variables de clase
@@ -15,10 +18,11 @@ public class EstadisticasBaseController {
     // Constructores
 
     /**
-     * Constructor de EstadisticasBaseController con estadisticasBaseModelo iniciliazado
+     * Constructor de EstadisticasBaseController con estadisticasBaseModelo
+     * iniciliazado
      * 
      * @throws PersistenciaException con error controlado
-     * @throws FicheroException con error controlado
+     * @throws FicheroException      con error controlado
      */
     public EstadisticasBaseController() throws PersistenciaException, FicheroException {
         estadisticasBaseModelo = new EstadisticasBaseModelo();

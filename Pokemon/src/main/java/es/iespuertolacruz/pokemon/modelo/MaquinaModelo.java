@@ -10,6 +10,9 @@ import es.iespuertolacruz.pokemon.api.Maquina;
 import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
+/**
+ * Clase modelo de las maquinas
+ */
 public class MaquinaModelo {
 
     // Variables de clase

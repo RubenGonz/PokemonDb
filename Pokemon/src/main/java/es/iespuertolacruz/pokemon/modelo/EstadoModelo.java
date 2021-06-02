@@ -42,11 +42,8 @@ public class EstadoModelo {
      * @throws PersistenciaException error controlado
      */
     public void insertar(Estado estado) throws PersistenciaException {
-        String sql = "INSERT INTO " + TABLA + " VALUES (" 
-        + estado.getId() + ",'" 
-        + estado.getNombre() + "'," 
-        + estado.getPersistencia() + ",'" 
-        + estado.getEfecto() + "');";
+        String sql = "INSERT INTO " + TABLA + " VALUES (" + estado.getId() + ",'" + estado.getNombre() + "',"
+                + estado.getPersistencia() + ",'" + estado.getEfecto() + "');";
         persistencia.update(sql);
     }
 
@@ -68,10 +65,9 @@ public class EstadoModelo {
      * @throws PersistenciaException error controlado
      */
     public void modificar(Estado estado) throws PersistenciaException {
-        String sql = "UPDATE " + TABLA + " SET nombre = '" + estado.getNombre() + "'," 
-        + "persistencia = " + estado.getPersistencia() + "," 
-        + "efecto = '" + estado.getEfecto() + "'"
-        + "WHERE " + CLAVE + " = " + estado.getId() + ";";
+        String sql = "UPDATE " + TABLA + " SET nombre = '" + estado.getNombre() + "'," + "persistencia = "
+                + estado.getPersistencia() + "," + "efecto = '" + estado.getEfecto() + "'" + "WHERE " + CLAVE + " = "
+                + estado.getId() + ";";
         persistencia.update(sql);
     }
 

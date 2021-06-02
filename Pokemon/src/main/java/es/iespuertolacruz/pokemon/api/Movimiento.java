@@ -8,8 +8,8 @@ import java.util.StringTokenizer;
  * Clase donde estan los atributos de movimiento
  */
 public class Movimiento {
-    
-    //Variables de clase
+
+    // Variables de clase
 
     private static final String DELIMITADOR = "'";
     int id;
@@ -30,13 +30,14 @@ public class Movimiento {
 
     /**
      * Constructor con todos los parametros
-     * @param id identificador del movimiento
-     * @param nombre del movimiento
-     * @param tipo del movimiento
+     * 
+     * @param id        identificador del movimiento
+     * @param nombre    del movimiento
+     * @param tipo      del movimiento
      * @param categoria del movimiento
-     * @param pp cantida de veces que lo puede ejecutar hasta recuperarse
-     * @param potencia fuerza del movimiento
-     * @param certeza porcentaje de acierto sobre 100
+     * @param pp        cantida de veces que lo puede ejecutar hasta recuperarse
+     * @param potencia  fuerza del movimiento
+     * @param certeza   porcentaje de acierto sobre 100
      */
     public Movimiento(int id, String nombre, String tipo, String categoria, int pp, int potencia, int certeza) {
         this.id = id;
@@ -68,7 +69,7 @@ public class Movimiento {
         this.certeza = Integer.parseInt((String) elementos.get(6));
     }
 
-    //Getters and Setters
+    // Getters and Setters
 
     public int getId() {
         return this.id;
@@ -126,7 +127,7 @@ public class Movimiento {
         this.certeza = certeza;
     }
 
-    //Funciones y metodos
+    // Funciones y metodos
 
     @Override
     public boolean equals(Object o) {
@@ -136,18 +137,15 @@ public class Movimiento {
             return false;
         }
         Movimiento movimiento = (Movimiento) o;
-        return id == movimiento.id && Objects.equals(nombre, movimiento.nombre) && Objects.equals(tipo, movimiento.tipo) && Objects.equals(categoria, movimiento.categoria) && pp == movimiento.pp && potencia == movimiento.potencia && certeza == movimiento.certeza;
-    }    
+        return id == movimiento.id && Objects.equals(nombre, movimiento.nombre) && Objects.equals(tipo, movimiento.tipo)
+                && Objects.equals(categoria, movimiento.categoria) && pp == movimiento.pp
+                && potencia == movimiento.potencia && certeza == movimiento.certeza;
+    }
 
     @Override
     public String toString() {
-        return getId() + DELIMITADOR +
-            getNombre() + DELIMITADOR +
-            getTipo() + DELIMITADOR +
-            getCategoria() + DELIMITADOR +
-            getPp() + DELIMITADOR +
-            getPotencia() + DELIMITADOR +
-            getCerteza();
+        return getId() + DELIMITADOR + getNombre() + DELIMITADOR + getTipo() + DELIMITADOR + getCategoria()
+                + DELIMITADOR + getPp() + DELIMITADOR + getPotencia() + DELIMITADOR + getCerteza();
     }
 
 }

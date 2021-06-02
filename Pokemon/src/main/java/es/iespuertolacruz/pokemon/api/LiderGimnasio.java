@@ -7,14 +7,14 @@ import java.util.StringTokenizer;
  * Clase del entrenador lider de gimnasio
  */
 public class LiderGimnasio {
-    
-    //Variables de clase
+
+    // Variables de clase
 
     private static final String DELIMITADOR = "'";
     int idEntrenador;
     int medalla;
 
-    //Constructores
+    // Constructores
 
     /**
      * Constructor por defecto
@@ -26,7 +26,7 @@ public class LiderGimnasio {
      * Constructor con todos los parametros
      * 
      * @param idEntrenador identificador del entrenador padre
-     * @param medalla medalla identificatoria del lider de gimnasio
+     * @param medalla      medalla identificatoria del lider de gimnasio
      */
     public LiderGimnasio(int idEntrenador, int medalla) {
         this.idEntrenador = idEntrenador;
@@ -48,7 +48,7 @@ public class LiderGimnasio {
         this.medalla = Integer.parseInt((String) elementos.get(1));
     }
 
-    //Getters and Setters
+    // Getters and Setters
 
     public int getIdEntrenador() {
         return this.idEntrenador;
@@ -66,7 +66,7 @@ public class LiderGimnasio {
         this.medalla = medalla;
     }
 
-    //Funciones y metodos
+    // Funciones y metodos
 
     @Override
     public boolean equals(Object o) {
@@ -81,8 +81,7 @@ public class LiderGimnasio {
 
     @Override
     public String toString() {
-        return getIdEntrenador() + DELIMITADOR +
-            getMedalla();
+        return getIdEntrenador() + DELIMITADOR + getMedalla();
     }
 
 }

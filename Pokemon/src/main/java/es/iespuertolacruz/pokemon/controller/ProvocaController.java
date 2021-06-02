@@ -6,6 +6,9 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.ProvocaModelo;
 
+/**
+ * Clase de los estados que provocan los movimientos
+ */
 public class ProvocaController {
 
     // Variables de clase
@@ -92,7 +95,7 @@ public class ProvocaController {
      * Metodo encargado de realizar la eliminacion
      * 
      * @param idMovimiento del provoca a eliminar
-     * @param idEstado del provoca a eliminar
+     * @param idEstado     del provoca a eliminar
      * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
@@ -106,7 +109,7 @@ public class ProvocaController {
      * Metodo encargado de buscar por las claves
      * 
      * @param idMovimiento del provoca a eliminar
-     * @param idEstado del provoca a eliminar
+     * @param idEstado     del provoca a eliminar
      * @return provoca a traves del id
      * @throws PersistenciaException con mensaje controlado
      */

@@ -6,6 +6,9 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.EstadoModelo;
 
+/**
+ * Controlador de los estados
+ */
 public class EstadoController {
 
     // Variables de clase
@@ -18,7 +21,7 @@ public class EstadoController {
      * Constructor de EstadoController con estadoModelo iniciliazado
      * 
      * @throws PersistenciaException con error controlado
-     * @throws FicheroException con error controlado
+     * @throws FicheroException      con error controlado
      */
     public EstadoController() throws PersistenciaException, FicheroException {
         estadoModelo = new EstadoModelo();

@@ -14,12 +14,17 @@ import es.iespuertolacruz.pokemon.api.Tiene;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
+/**
+ * Clase controller de Tiene
+ */
 public class TieneControllerTest {
 
     // Variables de clase
 
     static TieneController tieneController;
     Tiene tiene = null;
+
+    // BeforeEach y AfterEach
 
     @BeforeAll
     public static void beforeAll() {
@@ -48,7 +53,7 @@ public class TieneControllerTest {
 
     @Test
     public void insertarTieneTest() {
-        tiene = new Tiene(1,18,1); 
+        tiene = new Tiene(1, 18, 1);
         try {
             tieneController.insertar(tiene);
         } catch (PokemonException | PersistenciaException e) {
@@ -89,7 +94,7 @@ public class TieneControllerTest {
     @Test
     public void eliminarPorIdEntrenadorTest() {
         try {
-            tieneController.eliminar(1,18); 
+            tieneController.eliminar(1, 18);
         } catch (PokemonException | PersistenciaException e) {
             assertTrue(e.getMessage().contains("El tiene indicado no existe"), "No se recibio el mensaje esperado");
         }

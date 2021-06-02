@@ -34,9 +34,12 @@ import es.iespuertolacruz.pokemon.controller.PokemonController;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
+/**
+ * Clase principal de la vista de la aplicacion de pokemon
+ */
 public class App {
 
-    // variables 
+    // Variables de clase
 
     Caracteristicas caracteristicas;
     CaracteristicasController caracteristicasController;
@@ -54,7 +57,7 @@ public class App {
     public static void main(String[] args) throws PokemonException, PersistenciaException {
         menuPrincipal();
     }
-    
+
     public static void menuPrincipal() throws PokemonException, PersistenciaException {
         Scanner sn = new Scanner(System.in);
         boolean salir = false;
@@ -182,7 +185,7 @@ public class App {
         }
 
     }
-    
+
     private static void menuInsertar() throws PokemonException, PersistenciaException {
         Scanner sn = new Scanner(System.in);
         boolean salir = false;
@@ -200,14 +203,12 @@ public class App {
             try {
                 System.out.println("Escribe una de las opciones");
                 opcion = sn.nextInt();
-                
-                
+
                 switch (opcion) {
                     case 1:
                         System.out.println("Has seleccionado la opcion insertar por pokemon");
                         System.out.println("Di  que pokemon quuieres insertar");
-                        
-                        
+
                         break;
                     case 2:
                         System.out.println("Has seleccionado la opcion insertar  por entrenador");
@@ -372,7 +373,7 @@ public class App {
         }
 
     }
-    
+
     public static void menuBuscarEntrenador() {
         Scanner sn = new Scanner(System.in);
         boolean salir = false;
@@ -399,7 +400,8 @@ public class App {
                         System.out.println("Has seleccionado la opcion Buscar Un entrenador por sus pokemons");
                         break;
                     case 3:
-                        System.out.println("Has seleccionado la opcion Buscar Un entrenador por la cantidad de medallas que tiene");
+                        System.out.println(
+                                "Has seleccionado la opcion Buscar Un entrenador por la cantidad de medallas que tiene");
                         break;
                     case 4:
                         System.out.println("Has seleccionado la opcion Buscar Los objectos que tiene un entrenador");
@@ -417,7 +419,7 @@ public class App {
         }
 
     }
-    
+
     public static void menuBuscarMovivientos() {
         Scanner sn = new Scanner(System.in);
         boolean salir = false;
@@ -444,8 +446,8 @@ public class App {
                         System.out.println("Has seleccionado la opcion BuscarLos movimientos que tiene un pokemon");
                         break;
                     case 3:
-                        System.out.println(
-                                "Has seleccionado la opcion Buscar Los movimientos por el estado que procova");
+                        System.out
+                                .println("Has seleccionado la opcion Buscar Los movimientos por el estado que procova");
                         break;
                     case 4:
                         System.out.println("Has seleccionado la opcion Buscar Los moviminetos por su categoria");
@@ -508,6 +510,7 @@ public class App {
         }
 
     }
+
     private static void AdminContasenia() throws PokemonException, PersistenciaException {
         Scanner sn = new Scanner(System.in);
         String password = "SoyMew";
