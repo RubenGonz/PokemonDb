@@ -64,8 +64,8 @@ public class PokemonModelo {
     public void modificar(Pokemon pokemon) throws PersistenciaException {
         String sql = "UPDATE " + TABLA + " SET nombre = '" + pokemon.getNombre() + "'," 
          + "id_caracteristica = " + pokemon.getCaracteristicas() + ","
-         + "id_estadisticas_base = " + pokemon.getEstadisticasBase() + ","
-         + "WHERE " + CLAVE + " = " + pokemon.getNumeroPokedex() + ";";
+         + "id_estadisticas_base = " + pokemon.getEstadisticasBase()
+         + " WHERE " + CLAVE + " = " + pokemon.getNumeroPokedex() + ";";
         persistencia.update(sql);
     }
 

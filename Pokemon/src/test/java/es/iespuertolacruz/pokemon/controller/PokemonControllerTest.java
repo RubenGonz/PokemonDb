@@ -22,13 +22,13 @@ public class PokemonControllerTest {
     Pokemon pokemon = null;
 
     // Before y after
-/**
+
     @BeforeAll
     public static void beforeAll() {
         if (pokemonController == null) {
             try {
                 pokemonController = new PokemonController();
-            } catch (PersistenciaException e) {
+            } catch (Exception e) {
                 fail("Se ha producido un error iniciando pokemonController");
             }
         }
@@ -50,7 +50,7 @@ public class PokemonControllerTest {
 
     @Test
     public void insertarPokemonTest() {
-        pokemon = new Pokemon(1, "Bulbasaur",1,1);
+        pokemon = new Pokemon(1,"Bulbasaur",1,1);
         try {
             pokemonController.insertar(pokemon);
         } catch (PokemonException | PersistenciaException e) {
@@ -126,5 +126,5 @@ public class PokemonControllerTest {
             assertEquals("El pokemon indicado no existe",e.getMessage(), "El mensaje recibido no es el esperado");
         }
     }
-*/
+
 }
