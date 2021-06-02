@@ -15,13 +15,13 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
 public class ProvocaControllerTest {
+
     // Variables de clase
 
     static ProvocaController provocaController;
     Provoca provoca = null;
 
-
-     @BeforeAll
+    @BeforeAll
     public static void beforeAll() {
         if (provocaController == null) {
             try {
@@ -32,7 +32,6 @@ public class ProvocaControllerTest {
         }
     }
 
- /**
     @BeforeEach
     public void crearProvoca() {
         insertarProvocaTest();
@@ -46,7 +45,6 @@ public class ProvocaControllerTest {
     }
 
     // Test
-    
 
     @Test
     public void insertarProvocaTest() {
@@ -60,7 +58,7 @@ public class ProvocaControllerTest {
 
     @Test
     public void validarTest() {
-        Provoca provocaInvalido = new Provoca(1, 1);
+        Provoca provocaInvalido = new Provoca(0, 0);
         try {
             provocaController.validar(provocaInvalido);
         } catch (PokemonException e) {
@@ -91,7 +89,7 @@ public class ProvocaControllerTest {
     @Test
     public void eliminarPorIdEntrenadorTest() {
         try {
-            provocaController.eliminar(1 ,2);
+            provocaController.eliminar(1, 1);
         } catch (PokemonException | PersistenciaException e) {
             assertTrue(e.getMessage().contains("El provoca indicado no existe"), "No se recibio el mensaje esperado");
         }
@@ -100,8 +98,8 @@ public class ProvocaControllerTest {
     @Test
     public void buscarprovocaTest() {
         try {
-          Provoca provocaEncontrado = provocaController.buscar(provoca.getIdEstado() , provoca.getIdMovimiento());
-           assertNotNull(provocaEncontrado, "No se debe de obtener un elemento nulo");
+            Provoca provocaEncontrado = provocaController.buscar(provoca.getIdEstado(), provoca.getIdMovimiento());
+            assertNotNull(provocaEncontrado, "No se debe de obtener un elemento nulo");
             assertEquals(provoca, provocaEncontrado, "No se ha encontrado lo esperado");
         } catch (PersistenciaException e) {
             fail("Se ha producido un error en la consulta del pokemon ,e:" + e.getMessage());
@@ -119,12 +117,12 @@ public class ProvocaControllerTest {
 
     @Test
     public void modificarprovocaInexistenteTest() {
-        Provoca provocaInexistente = new Provoca(1, 1);
+        Provoca provocaInexistente = new Provoca(5000, 5000);
         try {
             provocaController.modificar(provocaInexistente);
         } catch (PokemonException | PersistenciaException e) {
             assertEquals("El provoca indicado no existe", e.getMessage(), "El mensaje recibido no es el esperado");
         }
     }
-*/
+
 }

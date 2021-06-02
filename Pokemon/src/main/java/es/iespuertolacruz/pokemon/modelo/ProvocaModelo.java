@@ -11,13 +11,22 @@ import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
 public class ProvocaModelo {
+
     // Variables de clase
 
     DdBbSqLite persistencia;
     private static final String TABLA = "PROVOCA";
-    private static final String CLAVE = "id_movimiento";
+    private static final String CLAVEPRI = "id_movimiento";
+    private static final String CLAVESEC = "id_estado";
 
     // Constructores
+
+    /**
+     * Constructor de ProvocaModelo donde inicializa DdBbSqLite
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException      con error controlado
+     */
     public ProvocaModelo() throws PersistenciaException, FicheroException {
         persistencia = new DdBbSqLite(TABLA, null, null);
     }
@@ -27,24 +36,24 @@ public class ProvocaModelo {
     /**
      * Metodo que inserta provoca en la base de datos
      * 
-     * @param provoca
-     * @throws PersistenciaException
+     * @param provoca a insertar
+     * @throws PersistenciaException error controlado
      */
     public void insertar(Provoca provoca) throws PersistenciaException {
         String sql = "INSERT INTO " + TABLA + " VALUES (" + provoca.getIdMovimiento() + "," + provoca.getIdEstado()
-                + "');";
+                + ");";
         persistencia.update(sql);
     }
 
-    /***
+    /**
      * Metodo que elimina provoca de la base de datos
      * 
-     * @param provoca
-     * @throws PersistenciaException
+     * @param provoca a eliminar
+     * @throws PersistenciaException error controlado
      */
     public void eliminar(Provoca provoca) throws PersistenciaException {
-        String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = " + provoca.getIdMovimiento()
-                + provoca.getIdEstado() + ";";
+        String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVEPRI + " = " + provoca.getIdMovimiento() + " AND "
+                + CLAVESEC + " = " + provoca.getIdEstado() + ";";
         persistencia.update(sql);
     }
 
@@ -55,8 +64,9 @@ public class ProvocaModelo {
      * @throws PersistenciaException error controlado
      */
     public void modificar(Provoca provoca) throws PersistenciaException {
-        String sql = "UPDATE " + TABLA + " SET IdMovimiento = " + provoca.getIdMovimiento() + "WHERE " + CLAVE + " = "
-                + provoca.getIdMovimiento() + provoca.getIdEstado() + ";";
+        String sql = "UPDATE " + TABLA + " SET " + CLAVEPRI + " = " + provoca.getIdMovimiento() + "," + CLAVESEC + " = "
+                + provoca.getIdEstado() + " WHERE " + CLAVEPRI + " = " + provoca.getIdMovimiento() + " AND " + CLAVESEC
+                + " = " + provoca.getIdEstado() + ";";
         persistencia.update(sql);
     }
 
@@ -67,9 +77,9 @@ public class ProvocaModelo {
      * @return provoca buscado
      * @throws PersistenciaException con error controlado
      */
-    public Provoca buscar(int IdMovimiento, int IdEstado) throws PersistenciaException {
+    public Provoca buscar(int idMovimiento, int idEstado) throws PersistenciaException {
         Provoca provoca = null;
-        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVE + " = " + IdMovimiento + IdEstado + ";";
+        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVEPRI + " = " + idMovimiento + " AND " + CLAVESEC + " = " + idEstado + ";";
         ArrayList<Provoca> lista = transformarAProvoca(sql);
         if (!lista.isEmpty()) {
             provoca = lista.get(0);
@@ -96,8 +106,8 @@ public class ProvocaModelo {
 
             while (resultSet.next()) {
                 Provoca provoca = new Provoca();
-                provoca.setIdEstado(resultSet.getInt(CLAVE));
-                provoca.setIdMovimiento(resultSet.getInt(CLAVE));
+                provoca.setIdEstado(resultSet.getInt(CLAVEPRI));
+                provoca.setIdMovimiento(resultSet.getInt(CLAVESEC));
                 lista.add(provoca);
             }
         } catch (SQLException exception) {

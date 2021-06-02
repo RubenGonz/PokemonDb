@@ -16,6 +16,13 @@ public class ProvocaController {
 
     // Constructores
 
+    /**
+     * Constructor de ProvocaController con estadoController y movimientoController
+     * por la dependencia y provocaModelo iniciliazado
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException      con error controlado
+     */
     public ProvocaController() throws PersistenciaException, FicheroException {
         estadoController = new EstadoController();
         movimientoController = new MovimientoController();
@@ -84,26 +91,28 @@ public class ProvocaController {
     /**
      * Metodo encargado de realizar la eliminacion
      * 
-     * @param nombre del provoca a eliminar
+     * @param idMovimiento del provoca a eliminar
+     * @param idEstado del provoca a eliminar
      * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
-    public void eliminar(int IdMovimiento, int IdEstado) throws PokemonException, PersistenciaException {
+    public void eliminar(int idMovimiento, int idEstado) throws PokemonException, PersistenciaException {
         Provoca provoca;
-        provoca = buscar(IdMovimiento, IdEstado);
+        provoca = buscar(idMovimiento, idEstado);
         eliminar(provoca);
     }
 
     /**
-     * Metodo encargado de buscar por el id
+     * Metodo encargado de buscar por las claves
      * 
-     * @param id para localizar el provoca
+     * @param idMovimiento del provoca a eliminar
+     * @param idEstado del provoca a eliminar
      * @return provoca a traves del id
      * @throws PersistenciaException con mensaje controlado
      */
-    public Provoca buscar(int IdMovimiento, int IdEstado) throws PersistenciaException {
+    public Provoca buscar(int idMovimiento, int idEstado) throws PersistenciaException {
         Provoca provoca = null;
-        provoca = provocaModelo.buscar(IdMovimiento, IdEstado);
+        provoca = provocaModelo.buscar(idMovimiento, idEstado);
         return provoca;
     }
 

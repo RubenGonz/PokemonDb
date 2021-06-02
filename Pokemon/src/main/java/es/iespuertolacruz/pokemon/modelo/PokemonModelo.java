@@ -23,6 +23,12 @@ public class PokemonModelo {
 
     // Constructores
 
+    /**
+     * Constructor de PokemonModelo donde inicializa DdBbSqLite
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException      con error controlado
+     */
     public PokemonModelo() throws PersistenciaException, FicheroException {
         persistencia = new DdBbSqLite(TABLA, null, null);
     }
