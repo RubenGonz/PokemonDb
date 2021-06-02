@@ -22,6 +22,13 @@ public class VillanoModelo {
     private static final String CLAVE = "id_entrenador";
 
     // Constructores
+
+    /**
+     * Constructor de VillanoModelo donde inicializa DdBbSqLite
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException      con error controlado
+     */
     public VillanoModelo() throws PersistenciaException, FicheroException {
         persistencia = new DdBbSqLite(TABLA, null, null);
     }
@@ -31,12 +38,12 @@ public class VillanoModelo {
     /**
      * Metodo que inserta villano en la base de datos
      * 
-     * @param villano
-     * @throws PersistenciaException
+     * @param villano a insertar
+     * @throws PersistenciaException error controlado
      */
     public void insertar(Villano villano)throws PersistenciaException  {
         String sql = "INSERT INTO " + TABLA + " VALUES (" 
-        + villano.getIdEntrenador() + ","
+        + villano.getIdEntrenador() + ",'"
         + villano.getProposito() + "');";
         persistencia.update(sql);
     }
@@ -44,8 +51,8 @@ public class VillanoModelo {
     /***
      * Metodo que elimina villano de la base de datos
      * 
-     * @param villano
-     * @throws PersistenciaException
+     * @param villano a eliminar
+     * @throws PersistenciaException error controlado
      */
     public void eliminar(Villano villano) throws PersistenciaException {
         String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = " + villano.getIdEntrenador() + ";";
@@ -59,7 +66,7 @@ public class VillanoModelo {
      * @throws PersistenciaException error controlado
      */
     public void modificar(Villano villano) throws PersistenciaException {
-        String sql = "UPDATE " + TABLA + " SET Proposito = " + villano.getProposito() + "WHERE " + CLAVE + " = "
+        String sql = "UPDATE " + TABLA + " SET proposito = '" + villano.getProposito() + "' WHERE " + CLAVE + " = "
                 + villano.getIdEntrenador() + ";";
         persistencia.update(sql);
     }
@@ -67,13 +74,13 @@ public class VillanoModelo {
     /**
      * Funcion encargada de obtener villano
      * 
-     * @param IdEntrenador del villano
+     * @param idEntrenador del villano
      * @return villano buscado
      * @throws PersistenciaException con error controlado
      */
-    public Villano buscar(int IdEntrenador) throws PersistenciaException {
+    public Villano buscar(int idEntrenador) throws PersistenciaException {
         Villano villano = null;
-        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVE + " = " + IdEntrenador + ";";
+        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVE + " = " + idEntrenador + ";";
         ArrayList<Villano> lista = transformarAVillano(sql);
         if (!lista.isEmpty()) {
             villano = lista.get(0);
@@ -101,7 +108,7 @@ public class VillanoModelo {
             while (resultSet.next()) {
                 Villano villano = new Villano();
                 villano.setIdEntrenador(resultSet.getInt(CLAVE));
-                villano.setProposito(resultSet.getString("Proposito"));
+                villano.setProposito(resultSet.getString("proposito"));
                 lista.add(villano);
             }
         } catch (SQLException exception) {

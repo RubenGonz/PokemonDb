@@ -15,13 +15,13 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
 public class VillanoControllerTest {
+
     // Variables de clase
 
     static VillanoController villanoController;
     Villano villano = null;
 
-
-     @BeforeAll
+    @BeforeAll
     public static void beforeAll() {
         if (villanoController == null) {
             try {
@@ -32,7 +32,6 @@ public class VillanoControllerTest {
         }
     }
 
- /*
     @BeforeEach
     public void crearVillano() {
         insertarVillanoTest();
@@ -46,21 +45,20 @@ public class VillanoControllerTest {
     }
 
     // Test
-    
 
     @Test
     public void insertarVillanoTest() {
-        villano = new Villano(1, "");
+        villano = new Villano(1, "Giovanni");
         try {
             villanoController.insertar(villano);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El Villano indicado ya existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El villano indicado ya existe"), "No se recibio el mensaje esperado");
         }
     }
 
     @Test
     public void validarTest() {
-        Villano villanoInvalido = new Villano(1, "");
+        Villano villanoInvalido = new Villano(0, "");
         try {
             villanoController.validar(villanoInvalido);
         } catch (PokemonException e) {
@@ -100,8 +98,8 @@ public class VillanoControllerTest {
     @Test
     public void buscarvillanoTest() {
         try {
-          Villano villanoEncontrado = villanoController.buscar(villano.getIdEntrenador());
-           assertNotNull(villanoEncontrado, "No se debe de obtener un elemento nulo");
+            Villano villanoEncontrado = villanoController.buscar(villano.getIdEntrenador());
+            assertNotNull(villanoEncontrado, "No se debe de obtener un elemento nulo");
             assertEquals(villano, villanoEncontrado, "No se ha encontrado lo esperado");
         } catch (PersistenciaException e) {
             fail("Se ha producido un error en la consulta del pokemon ,e:" + e.getMessage());
@@ -119,12 +117,12 @@ public class VillanoControllerTest {
 
     @Test
     public void modificarvillanoInexistenteTest() {
-        Villano villanoInexistente = new Villano(1, "");
+        Villano villanoInexistente = new Villano(5000, "Villano Inexistente");
         try {
             villanoController.modificar(villanoInexistente);
         } catch (PokemonException | PersistenciaException e) {
             assertEquals("El villano indicado no existe", e.getMessage(), "El mensaje recibido no es el esperado");
         }
     }
-*/
+
 }

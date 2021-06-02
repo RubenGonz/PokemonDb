@@ -17,6 +17,12 @@ public class TipoController {
 
     // Constructores
 
+    /**
+     * Constructor de TipoController con tipoModelo iniciliazado
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException      con error controlado
+     */
     public TipoController() throws PersistenciaException, FicheroException {
         tipoModelo = new TipoModelo();
     }

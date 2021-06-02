@@ -15,6 +15,13 @@ public class VillanoController {
 
     // Constructores
 
+    /**
+     * Constructor de VillanoController con entrenadorController
+     * por la dependencia y villanoModelo iniciliazado
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException      con error controlado
+     */
     public VillanoController() throws PersistenciaException, FicheroException {
         entrenadorController = new EntrenadorController();
         villanoModelo = new VillanoModelo();
@@ -82,26 +89,26 @@ public class VillanoController {
     /**
      * Metodo encargado de realizar la eliminacion
      * 
-     * @param nombre del villano a eliminar
+     * @param idEntrenador del villano a eliminar
      * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
-    public void eliminar(int IdEntrenador) throws PokemonException, PersistenciaException {
+    public void eliminar(int idEntrenador) throws PokemonException, PersistenciaException {
         Villano villano;
-        villano = buscar(IdEntrenador);
+        villano = buscar(idEntrenador);
         eliminar(villano);
     }
 
     /**
-     * Metodo encargado de buscar por el id
+     * Metodo encargado de buscar por el idEntrenador
      * 
-     * @param id para localizar el villano
+     * @param idEntrenador para localizar el villano
      * @return villano a traves del id
      * @throws PersistenciaException con mensaje controlado
      */
-    public Villano buscar(int IdEntrenador) throws PersistenciaException {
+    public Villano buscar(int idEntrenador) throws PersistenciaException {
         Villano villano = null;
-        villano = villanoModelo.buscar(IdEntrenador);
+        villano = villanoModelo.buscar(idEntrenador);
         return villano;
     }
 
@@ -137,5 +144,4 @@ public class VillanoController {
         }
         return encontrada;
     }
-
 }
