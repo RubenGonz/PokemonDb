@@ -3,18 +3,19 @@ package es.iespuertolacruz.pokemon.modelo;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
 import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
+/**
+ * Clase que trabaja con la base de datos
+ */
 public abstract class DdBb {
 
-    private static final String SE_HA_PRODUCIDO_UN_ERROR_REALIZANDO_LA_CONSULTA = "Se ha producido un error realizando la consulta";
+    //Variables de clase
 
     protected String nombreTabla;
     protected String clave;
@@ -23,19 +24,19 @@ public abstract class DdBb {
     protected String usuario;
     protected String password;
 
+    //Constructores
+
     /**
-     * Constructor de la clase
-     * 
-     * @param nombreTabla a generar
-     * @param clave       de la tabla
-     * @param driver      de la bbdd
-     * @param url         de la bbdd
-     * @param usuario     de la bbdd
-     * @param password    de la bbd
-     * @throws BbddException    controlado
-     * @throws FicheroException controlado
+     * Constructor de DdBb con todos los parametros
+     * @param nombreTabla nombre de la tabla a contruir
+     * @param driver de la conxion
+     * @param url de la conxion
+     * @param usuario de la conxion
+     * @param password del usuario
+     * @throws PersistenciaException error controlado
+     * @throws FicheroException error controlado
      */
-    public DdBb(String nombreTabla, String driver, String url, String usuario, String password)
+    protected DdBb(String nombreTabla, String driver, String url, String usuario, String password)
             throws PersistenciaException, FicheroException {
         this.nombreTabla = nombreTabla;
         this.driver = driver;
@@ -46,11 +47,10 @@ public abstract class DdBb {
     }
 
     /**
-     * Metodo que carga las tablas e inserciones en la base de datos
-     * 
-     * @param driver de la base de datos
-     * @throws BbddException    controlado
-     * @throws FicheroException controlado
+     * Metodo que inicializa una tabla
+     * @param nombreTabla nombre de la tabla a inicializar
+     * @throws PersistenciaException error controlado
+     * @throws FicheroException error controlado
      */
     private void inicializarTabla(String nombreTabla) throws PersistenciaException, FicheroException {
         DatabaseMetaData databaseMetaData;
@@ -67,10 +67,9 @@ public abstract class DdBb {
             if (!listaTablas.contains(nombreTabla)) {
                 String crearTabla = new Fichero().leer("resources/sqlite/crear/" + nombreTabla + ".sql");
                 update(crearTabla);
-                String insertElemento = new Fichero().leer("resources/sqlite/insertar/" + nombreTabla + ".sql");
-                insertarElementos(insertElemento);
+                String scriptInserciones = new Fichero().leer("resources/sqlite/insertar/" + nombreTabla + ".sql");
+                hacerInserciones(scriptInserciones);
             }
-
         } catch (Exception e) {
             throw new PersistenciaException("Se ha producido un error en la inicializacion de la BBDD", e);
         } finally {
@@ -81,13 +80,13 @@ public abstract class DdBb {
     /**
      * Metodo que realiza las inserciones en las tablas
      * 
-     * @param cadena de texto que contiene las inserciones
-     * @throws BbddException controlado
+     * @param scriptInserciones script con todas las inserciones
+     * @throws PersistenciaException error controlado
      */
-    protected void insertarElementos(String cadena) throws PersistenciaException {
-        String[] cadenaSeparada = cadena.split(";");
-        for (String sentencia : cadenaSeparada) {
-            update(sentencia);
+    protected void hacerInserciones(String scriptInserciones) throws PersistenciaException {
+        String[] insercionesSeparadas = scriptInserciones.split(";");
+        for (String insercion : insercionesSeparadas) {
+            update(insercion);
         }
     }
 
@@ -114,7 +113,27 @@ public abstract class DdBb {
     }
 
     /**
-     * Metodo que cierra las conexiciones con la base de datos
+     * Metodo encargado de realizar la actualizacion de la BBDD
+     * 
+     * @param sql a ejecutar
+     * @throws PersistenciaException error controlado
+     */
+    protected void update(String sql) throws PersistenciaException {
+        Statement statement = null;
+        Connection connection = null;
+        try {
+            connection = getConnection();
+            statement = connection.createStatement();
+            statement.executeUpdate(sql);
+        } catch (Exception e) {
+            throw new PersistenciaException("Se ha producido un error realizando la consulta", e);
+        } finally {
+            closeConecction(connection, statement, null);
+        }
+    }
+
+    /**
+     * Metodo que cierra la conexcion con la base de datos
      * 
      * @param connection
      * @param statement
@@ -135,47 +154,5 @@ public abstract class DdBb {
         } catch (Exception exception) {
             throw new PersistenciaException("Se ha producido un error cerrando la conexion", exception);
         }
-    }
-
-    /**
-     * Metodo encargado de realizar la actualizacion de la BBDD
-     * 
-     * @param sql a ejecutar
-     * @throws BbddException error controlado
-     */
-    protected void update(String sql) throws PersistenciaException {
-        Statement statement = null;
-        Connection connection = null;
-        try {
-            connection = getConnection();
-            statement = connection.createStatement();
-            statement.executeUpdate(sql);
-        } catch (Exception exception) {
-            throw new PersistenciaException(SE_HA_PRODUCIDO_UN_ERROR_REALIZANDO_LA_CONSULTA, exception);
-        } finally {
-            closeConecction(connection, statement, null);
-        }
-
-    }
-
-    /**
-     * Funcion que realiza una consulta sobre una sentencia sql dada
-     * 
-     * @param sql de la consulta
-     * @return lista resultados (0..n) Usuasios
-     * @throws PersistenciaException error controlado
-     */
-    protected ResultSet buscarElementos(String sql) throws PersistenciaException {
-        PreparedStatement statement = null;
-        ResultSet resultSet = null;
-        Connection connection = null;
-        try {
-            connection = getConnection();
-            statement = connection.prepareStatement(sql);
-            resultSet = statement.executeQuery();
-        } catch (SQLException exception) {
-            throw new PersistenciaException("Se ha producido un error en la busqueda", exception);
-        }
-        return resultSet;
     }
 }
