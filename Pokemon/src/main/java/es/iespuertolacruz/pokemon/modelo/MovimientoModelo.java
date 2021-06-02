@@ -11,6 +11,7 @@ import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
 public class MovimientoModelo {
+
     // Variables de clase
 
     DdBbSqLite persistencia;
@@ -18,6 +19,13 @@ public class MovimientoModelo {
     private static final String CLAVE = "id_movimiento";
 
     // Constructores
+
+    /**
+     * Constructor de MovimientoModelo donde inicializa DdBbSqLite
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException      con error controlado
+     */
     public MovimientoModelo() throws PersistenciaException, FicheroException {
         persistencia = new DdBbSqLite(TABLA, null, null);
     }
@@ -27,21 +35,21 @@ public class MovimientoModelo {
     /**
      * Metodo que inserta movimiento en la base de datos
      * 
-     * @param movimiento
-     * @throws PersistenciaException
+     * @param movimiento a insertar
+     * @throws PersistenciaException error controlado
      */
     public void insertar(Movimiento movimiento) throws PersistenciaException {
-        String sql = "INSERT INTO " + TABLA + " VALUES (" + movimiento.getId() + "," + movimiento.getNombre() + ","
-                + movimiento.getTipo() + "," + movimiento.getCategoria() + "," + movimiento.getPp() + ","
-                + movimiento.getPotencia() + "," + movimiento.getCerteza() + "');";
+        String sql = "INSERT INTO " + TABLA + " VALUES (" + movimiento.getId() + ",'" + movimiento.getNombre() + "','"
+                + movimiento.getTipo() + "','" + movimiento.getCategoria() + "'," + movimiento.getPp() + ","
+                + movimiento.getPotencia() + "," + movimiento.getCerteza() + ");";
         persistencia.update(sql);
     }
 
-    /***
+    /**
      * Metodo que elimina movimiento de la base de datos
      * 
-     * @param movimiento
-     * @throws PersistenciaException
+     * @param movimiento a eliminar
+     * @throws PersistenciaException error controlado
      */
     public void eliminar(Movimiento movimiento) throws PersistenciaException {
         String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = " + movimiento.getId() + ";";
@@ -55,22 +63,23 @@ public class MovimientoModelo {
      * @throws PersistenciaException error controlado
      */
     public void modificar(Movimiento movimiento) throws PersistenciaException {
-        String sql = "UPDATE " + TABLA + " SET nombre = " + movimiento.getNombre() + movimiento.getTipo()
-                + movimiento.getCategoria() + movimiento.getPp() + movimiento.getPotencia() + movimiento.getCerteza()
-                + "WHERE " + CLAVE + " = " + movimiento.getId() + ";";
+        String sql = "UPDATE " + TABLA + " SET nombre = '" + movimiento.getNombre() + "', tipo = '"
+                + movimiento.getTipo() + "', categoria = '" + movimiento.getCategoria() + "', pp = "
+                + movimiento.getPp() + ", potencia = " + movimiento.getPotencia() + ", certeza = "
+                + movimiento.getCerteza() + " WHERE " + CLAVE + " = " + movimiento.getId() + ";";
         persistencia.update(sql);
     }
 
     /**
      * Funcion encargada de obtener movimiento
      * 
-     * @param Id del movimiento
+     * @param idMovimiento del movimiento
      * @return movimiento buscado
      * @throws PersistenciaException con error controlado
      */
-    public Movimiento buscar(int Id) throws PersistenciaException {
+    public Movimiento buscar(int idMovimiento) throws PersistenciaException {
         Movimiento movimiento = null;
-        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVE + " = " + Id + ";";
+        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVE + " = " + idMovimiento + ";";
         ArrayList<Movimiento> lista = transformarAMovimiento(sql);
         if (!lista.isEmpty()) {
             movimiento = lista.get(0);
@@ -98,12 +107,12 @@ public class MovimientoModelo {
             while (resultSet.next()) {
                 Movimiento movimiento = new Movimiento();
                 movimiento.setId(resultSet.getInt(CLAVE));
-                movimiento.setNombre(resultSet.getString("Nombre"));
-                movimiento.setTipo(resultSet.getString("Tipo"));
-                movimiento.setCategoria(resultSet.getString("Categoria"));
-                movimiento.setPp(resultSet.getInt("Pp"));
-                movimiento.setPotencia(resultSet.getInt("Potencia"));
-                movimiento.setCerteza(resultSet.getInt("Certeza"));
+                movimiento.setNombre(resultSet.getString("nombre"));
+                movimiento.setTipo(resultSet.getString("tipo"));
+                movimiento.setCategoria(resultSet.getString("categoria"));
+                movimiento.setPp(resultSet.getInt("pp"));
+                movimiento.setPotencia(resultSet.getInt("potencia"));
+                movimiento.setCerteza(resultSet.getInt("certeza"));
                 lista.add(movimiento);
             }
         } catch (SQLException exception) {

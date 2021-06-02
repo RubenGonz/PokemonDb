@@ -15,13 +15,13 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
 public class MovimientoControllerTest {
-        // Variables de clase
+
+    // Variables de clase
 
     static MovimientoController movimientoController;
     Movimiento movimiento = null;
 
-
-     @BeforeAll
+    @BeforeAll
     public static void beforeAll() {
         if (movimientoController == null) {
             try {
@@ -31,8 +31,7 @@ public class MovimientoControllerTest {
             }
         }
     }
-/*
- 
+
     @BeforeEach
     public void crearMovimiento() {
         insertarMovimientoTest();
@@ -46,21 +45,21 @@ public class MovimientoControllerTest {
     }
 
     // Test
-    
 
     @Test
     public void insertarMovimientoTest() {
-        movimiento = new Movimiento(1, "", "", "", 1,1 ,1 );
+        movimiento = new Movimiento(1,"Burbuja","Agua","Especial",30,40,100);
         try {
             movimientoController.insertar(movimiento);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El movimiento indicado ya existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El movimiento indicado ya existe"),
+                    "No se recibio el mensaje esperado");
         }
     }
 
     @Test
     public void validarTest() {
-        Movimiento movimientoInvalido = new Movimiento(1, "", "", "", 1, 1, 1);
+        Movimiento movimientoInvalido = new Movimiento(0, "", "", "", 0, 0, 0);
         try {
             movimientoController.validar(movimientoInvalido);
         } catch (PokemonException e) {
@@ -84,7 +83,8 @@ public class MovimientoControllerTest {
         try {
             movimientoController.eliminar(movimiento);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El movimiento indicado no existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El movimiento indicado no existe"),
+                    "No se recibio el mensaje esperado");
         }
     }
 
@@ -93,15 +93,16 @@ public class MovimientoControllerTest {
         try {
             movimientoController.eliminar(1);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El movimiento indicado no existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El movimiento indicado no existe"),
+                    "No se recibio el mensaje esperado");
         }
     }
 
     @Test
     public void buscarmovimientoTest() {
         try {
-          Movimiento movimientoEncontrado = movimientoController.buscar(movimiento.getId());
-           assertNotNull(movimientoEncontrado, "No se debe de obtener un elemento nulo");
+            Movimiento movimientoEncontrado = movimientoController.buscar(movimiento.getId());
+            assertNotNull(movimientoEncontrado, "No se debe de obtener un elemento nulo");
             assertEquals(movimiento, movimientoEncontrado, "No se ha encontrado lo esperado");
         } catch (PersistenciaException e) {
             fail("Se ha producido un error en la consulta del pokemon ,e:" + e.getMessage());
@@ -119,12 +120,12 @@ public class MovimientoControllerTest {
 
     @Test
     public void modificarmovimientoInexistenteTest() {
-        Movimiento movimientoInexistente = new Movimiento(1, "", "", "", 1, 1, 1);
+        Movimiento movimientoInexistente = new Movimiento(5000, "Movimiento", "Inexistente", "Aqui", 5000, 5000, 5000);
         try {
             movimientoController.modificar(movimientoInexistente);
         } catch (PokemonException | PersistenciaException e) {
             assertEquals("El movimiento indicado no existe", e.getMessage(), "El mensaje recibido no es el esperado");
         }
     }
-*/
+
 }
