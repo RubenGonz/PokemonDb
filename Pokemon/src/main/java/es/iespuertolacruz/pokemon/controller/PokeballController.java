@@ -7,6 +7,7 @@ import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.PokeballModelo;
 
 public class PokeballController {
+
     // Variables de clase
 
     ObjetoController objetoController;
@@ -14,6 +15,13 @@ public class PokeballController {
 
     // Constructores
 
+    /**
+     * Constructor de PokeballController con objetoController por la dependencia y
+     * pokeballModelo iniciliazado
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException      con error controlado
+     */
     public PokeballController() throws PersistenciaException, FicheroException {
         objetoController = new ObjetoController();
         pokeballModelo = new PokeballModelo();
@@ -81,26 +89,26 @@ public class PokeballController {
     /**
      * Metodo encargado de realizar la eliminacion
      * 
-     * @param nombre del pokeball a eliminar
+     * @param idObjeto del pokeball a eliminar
      * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
-    public void eliminar(int IdObjeto) throws PokemonException, PersistenciaException {
+    public void eliminar(int idObjeto) throws PokemonException, PersistenciaException {
         Pokeball pokeball;
-        pokeball = buscar(IdObjeto);
+        pokeball = buscar(idObjeto);
         eliminar(pokeball);
     }
 
     /**
-     * Metodo encargado de buscar por el id
+     * Metodo encargado de buscar por el idObjeto
      * 
-     * @param id para localizar el pokeball
-     * @return pokeball a traves del id
+     * @param idObjeto para localizar el pokeball
+     * @return pokeball a traves del idObjeto
      * @throws PersistenciaException con mensaje controlado
      */
-    public Pokeball buscar(int IdObjeto) throws PersistenciaException {
+    public Pokeball buscar(int idObjeto) throws PersistenciaException {
         Pokeball pokeball = null;
-        pokeball = pokeballModelo.buscar(IdObjeto);
+        pokeball = pokeballModelo.buscar(idObjeto);
         return pokeball;
     }
 

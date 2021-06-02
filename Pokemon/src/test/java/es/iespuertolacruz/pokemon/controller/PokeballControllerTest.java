@@ -15,13 +15,13 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
 public class PokeballControllerTest {
+
     // Variables de clase
 
     static PokeballController pokeballController;
     Pokeball pokeball = null;
 
-
-     @BeforeAll
+    @BeforeAll
     public static void beforeAll() {
         if (pokeballController == null) {
             try {
@@ -32,7 +32,6 @@ public class PokeballControllerTest {
         }
     }
 
- /** 
     @BeforeEach
     public void crearPokeball() {
         insertarPokeballTest();
@@ -46,7 +45,6 @@ public class PokeballControllerTest {
     }
 
     // Test
-    
 
     @Test
     public void insertarPokeballTest() {
@@ -60,7 +58,7 @@ public class PokeballControllerTest {
 
     @Test
     public void validarTest() {
-        Pokeball pokeballInvalido = new Pokeball(1, 1);
+        Pokeball pokeballInvalido = new Pokeball(0, 0);
         try {
             pokeballController.validar(pokeballInvalido);
         } catch (PokemonException e) {
@@ -70,7 +68,7 @@ public class PokeballControllerTest {
 
     @Test
     public void validarNuloTest() {
-        pokeball pokeballInvalido = null;
+        Pokeball pokeballInvalido = null;
         try {
             pokeballController.validar(pokeballInvalido);
         } catch (PokemonException e) {
@@ -100,8 +98,8 @@ public class PokeballControllerTest {
     @Test
     public void buscarpokeballTest() {
         try {
-          Pokeball pokeballEncontrado = pokeballController.buscar(pokeball.getIdObjeto());
-           assertNotNull(pokeballEncontrado, "No se debe de obtener un elemento nulo");
+            Pokeball pokeballEncontrado = pokeballController.buscar(pokeball.getIdObjeto());
+            assertNotNull(pokeballEncontrado, "No se debe de obtener un elemento nulo");
             assertEquals(pokeball, pokeballEncontrado, "No se ha encontrado lo esperado");
         } catch (PersistenciaException e) {
             fail("Se ha producido un error en la consulta del pokemon ,e:" + e.getMessage());
@@ -119,12 +117,12 @@ public class PokeballControllerTest {
 
     @Test
     public void modificarpokeballInexistenteTest() {
-        Pokeball pokeballInexistente = new Pokeball(1, 1);
+        Pokeball pokeballInexistente = new Pokeball(5000, 5000);
         try {
             pokeballController.modificar(pokeballInexistente);
         } catch (PokemonException | PersistenciaException e) {
             assertEquals("El pokeball indicado no existe", e.getMessage(), "El mensaje recibido no es el esperado");
         }
     }
-*/
+
 }

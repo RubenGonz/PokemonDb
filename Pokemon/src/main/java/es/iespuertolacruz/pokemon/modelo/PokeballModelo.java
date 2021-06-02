@@ -11,6 +11,7 @@ import es.iespuertolacruz.pokemon.excepciones.FicheroException;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 
 public class PokeballModelo {
+
     // Variables de clase
 
     DdBbSqLite persistencia;
@@ -19,6 +20,12 @@ public class PokeballModelo {
 
     // Constructores
     
+    /**
+     * Constructor de PokeballModelo donde inicializa DdBbSqLite
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException      con error controlado
+     */
     public PokeballModelo() throws PersistenciaException, FicheroException {
         persistencia = new DdBbSqLite(TABLA, null, null);
     }
@@ -28,20 +35,20 @@ public class PokeballModelo {
     /**
      * Metodo que inserta pokeball en la base de datos
      * 
-     * @param pokeball
-     * @throws PersistenciaException
+     * @param pokeball a insertar
+     * @throws PersistenciaException error controlado
      */
     public void insertar(Pokeball pokeball) throws PersistenciaException {
         String sql = "INSERT INTO " + TABLA + " VALUES (" + pokeball.getIdObjeto() + ","
-                + pokeball.getRatio() + "');";
+                + pokeball.getRatio() + ");";
         persistencia.update(sql);
     }
 
     /***
      * Metodo que elimina pokeball de la base de datos
      * 
-     * @param pokeball
-     * @throws PersistenciaException
+     * @param pokeball a eliminar
+     * @throws PersistenciaException error controlado
      */
     public void eliminar(Pokeball pokeball) throws PersistenciaException {
         String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = " + pokeball.getIdObjeto() + ";";
@@ -55,7 +62,7 @@ public class PokeballModelo {
      * @throws PersistenciaException error controlado
      */
     public void modificar(Pokeball pokeball) throws PersistenciaException {
-        String sql = "UPDATE " + TABLA + " SET TipoPrincipal = " + pokeball.getRatio() + "WHERE " + CLAVE
+        String sql = "UPDATE " + TABLA + " SET ratio = " + pokeball.getRatio() + " WHERE " + CLAVE
                 + " = " + pokeball.getIdObjeto() + ";";
         persistencia.update(sql);
     }
@@ -63,13 +70,13 @@ public class PokeballModelo {
     /**
      * Funcion encargada de obtener pokeball
      * 
-     * @param IdObjetos del pokeball
+     * @param idObjeto del pokeball
      * @return pokeball buscado
      * @throws PersistenciaException con error controlado
      */
-    public Pokeball buscar(int IdObjeto) throws PersistenciaException {
+    public Pokeball buscar(int idObjeto) throws PersistenciaException {
         Pokeball pokeball = null;
-        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVE + " = " + IdObjeto + ";";
+        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVE + " = " + idObjeto + ";";
         ArrayList<Pokeball> lista = transformarAPokeball(sql);
         if (!lista.isEmpty()) {
             pokeball = lista.get(0);
@@ -97,7 +104,7 @@ public class PokeballModelo {
             while (resultSet.next()) {
                 Pokeball pokeball = new Pokeball();
                 pokeball.setIdObjeto(resultSet.getInt(CLAVE));
-                pokeball.setRatio(resultSet.getFloat("Ratio"));
+                pokeball.setRatio(resultSet.getFloat("ratio"));
                 lista.add(pokeball);
             }
         } catch (SQLException exception) {
