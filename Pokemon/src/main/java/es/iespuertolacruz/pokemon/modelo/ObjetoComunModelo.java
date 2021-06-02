@@ -19,6 +19,13 @@ public class ObjetoComunModelo {
     private static final String CLAVE = "id_objeto";
 
     // Constructores
+
+    /**
+     * Constructor de ObjetoComunModelo donde inicializa DdBbSqLite
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException      con error controlado
+     */
     public ObjetoComunModelo() throws PersistenciaException, FicheroException {
         persistencia = new DdBbSqLite(TABLA, null, null);
     }
@@ -28,11 +35,11 @@ public class ObjetoComunModelo {
     /**
      * Metodo que inserta objetoComun en la base de datos
      * 
-     * @param objetoComun
-     * @throws PersistenciaException
+     * @param objetoComun a insertar
+     * @throws PersistenciaException error controlado
      */
     public void insertar(ObjetoComun objetoComun) throws PersistenciaException {
-        String sql = "INSERT INTO " + TABLA + " VALUES (" + objetoComun.getIdObjeto() + ","
+        String sql = "INSERT INTO " + TABLA + " VALUES (" + objetoComun.getIdObjeto() + ",'"
                 + objetoComun.getEfecto() + "');";
         persistencia.update(sql);
     }
@@ -40,8 +47,8 @@ public class ObjetoComunModelo {
     /***
      * Metodo que elimina objetoComun de la base de datos
      * 
-     * @param objetoComun
-     * @throws PersistenciaException
+     * @param objetoComun a eliminar
+     * @throws PersistenciaException error controlado
      */
     public void eliminar(ObjetoComun objetoComun) throws PersistenciaException {
         String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = " + objetoComun.getIdObjeto() + ";";
@@ -55,7 +62,7 @@ public class ObjetoComunModelo {
      * @throws PersistenciaException error controlado
      */
     public void modificar(ObjetoComun objetoComun) throws PersistenciaException {
-        String sql = "UPDATE " + TABLA + " SET TipoPrincipal = " + objetoComun.getEfecto() + "WHERE " + CLAVE
+        String sql = "UPDATE " + TABLA + " SET efecto = '" + objetoComun.getEfecto() + "' WHERE " + CLAVE
                 + " = " + objetoComun.getIdObjeto() + ";";
         persistencia.update(sql);
     }
@@ -63,13 +70,13 @@ public class ObjetoComunModelo {
     /**
      * Funcion encargada de obtener objetoComun
      * 
-     * @param IdObjeto del objetoComun
+     * @param idObjeto del objetoComun
      * @return objetoComun buscado
      * @throws PersistenciaException con error controlado
      */
-    public ObjetoComun buscar(int IdObjeto) throws PersistenciaException {
+    public ObjetoComun buscar(int idObjeto) throws PersistenciaException {
         ObjetoComun objetoComun = null;
-        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVE + " = " + IdObjeto + ";";
+        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVE + " = " + idObjeto + ";";
         ArrayList<ObjetoComun> lista = transformarAObjetoComun(sql);
         if (!lista.isEmpty()) {
             objetoComun = lista.get(0);
@@ -97,7 +104,7 @@ public class ObjetoComunModelo {
             while (resultSet.next()) {
                 ObjetoComun objetoComun = new ObjetoComun();
                 objetoComun.setIdObjeto(resultSet.getInt(CLAVE));
-                objetoComun.setEfecto(resultSet.getString("Efecto"));
+                objetoComun.setEfecto(resultSet.getString("efecto"));
                 lista.add(objetoComun);
             }
         } catch (SQLException exception) {

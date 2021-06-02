@@ -15,6 +15,13 @@ public class MaquinaController {
 
     // Constructores
 
+    /**
+     * Constructor de MaquinaController con objetoController y movimientoController inicializado por la
+     * dependencia y maquinaModelo iniciliazado
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException      con error controlado
+     */
     public MaquinaController() throws PersistenciaException, FicheroException {
         objetoController = new ObjetoController();
         movimientoController = new MovimientoController();

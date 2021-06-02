@@ -59,7 +59,7 @@ public class MovimientoControllerTest {
 
     @Test
     public void validarTest() {
-        Movimiento movimientoInvalido = new Movimiento(0, "", "", "", 0, 0, 0);
+        Movimiento movimientoInvalido = new Movimiento(0, "", "", "", -1, -1, -1);
         try {
             movimientoController.validar(movimientoInvalido);
         } catch (PokemonException e) {

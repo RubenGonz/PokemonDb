@@ -15,13 +15,13 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
 public class ObjetoComunControllerTest {
+
     // Variables de clase
 
     static ObjetoComunController objetoComunController;
     ObjetoComun objetoComun = null;
 
-
-     @BeforeAll
+    @BeforeAll
     public static void beforeAll() {
         if (objetoComunController == null) {
             try {
@@ -32,7 +32,6 @@ public class ObjetoComunControllerTest {
         }
     }
 
- /*
     @BeforeEach
     public void crearobjetoComun() {
         insertarObjetoComunTest();
@@ -46,21 +45,21 @@ public class ObjetoComunControllerTest {
     }
 
     // Test
-    
 
     @Test
     public void insertarObjetoComunTest() {
-        objetoComun = new ObjetoComun(1, "");
+        objetoComun = new ObjetoComun(1, "Pokedex");
         try {
             objetoComunController.insertar(objetoComun);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El objetoComun indicado ya existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El objetoComun indicado ya existe"),
+                    "No se recibio el mensaje esperado");
         }
     }
 
     @Test
     public void validarTest() {
-        ObjetoComun objetoComunInvalido = new ObjetoComun(1, "");
+        ObjetoComun objetoComunInvalido = new ObjetoComun(0, "");
         try {
             objetoComunController.validar(objetoComunInvalido);
         } catch (PokemonException e) {
@@ -84,7 +83,8 @@ public class ObjetoComunControllerTest {
         try {
             objetoComunController.eliminar(objetoComun);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El objetoComun indicado no existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El objetoComun indicado no existe"),
+                    "No se recibio el mensaje esperado");
         }
     }
 
@@ -93,15 +93,16 @@ public class ObjetoComunControllerTest {
         try {
             objetoComunController.eliminar(1);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El objetoComun indicado no existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El objetoComun indicado no existe"),
+                    "No se recibio el mensaje esperado");
         }
     }
 
     @Test
     public void buscarobjetoComunTest() {
         try {
-          ObjetoComun objetoComunEncontrado = objetoComunController.buscar(objetoComun.getIdObjeto());
-           assertNotNull(objetoComunEncontrado, "No se debe de obtener un elemento nulo");
+            ObjetoComun objetoComunEncontrado = objetoComunController.buscar(objetoComun.getIdObjeto());
+            assertNotNull(objetoComunEncontrado, "No se debe de obtener un elemento nulo");
             assertEquals(objetoComun, objetoComunEncontrado, "No se ha encontrado lo esperado");
         } catch (PersistenciaException e) {
             fail("Se ha producido un error en la consulta del pokemon ,e:" + e.getMessage());
@@ -119,12 +120,12 @@ public class ObjetoComunControllerTest {
 
     @Test
     public void modificarobjetoComunInexistenteTest() {
-        ObjetoComun objetoComunInexistente = new ObjetoComun(1, "");
+        ObjetoComun objetoComunInexistente = new ObjetoComun(5000, "Inexistente");
         try {
             objetoComunController.modificar(objetoComunInexistente);
         } catch (PokemonException | PersistenciaException e) {
             assertEquals("El objetoComun indicado no existe", e.getMessage(), "El mensaje recibido no es el esperado");
         }
     }
-*/
+
 }

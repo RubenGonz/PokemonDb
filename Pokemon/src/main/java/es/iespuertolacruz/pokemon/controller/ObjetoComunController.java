@@ -15,6 +15,13 @@ public class ObjetoComunController {
 
     // Constructores
 
+    /**
+     * Constructor de ObjetoComunController con objetoController por la
+     * dependencia y objetoComunModelo iniciliazado
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException      con error controlado
+     */
     public ObjetoComunController() throws PersistenciaException, FicheroException {
         objetoController = new ObjetoController();
         objetoComunModelo = new ObjetoComunModelo();
@@ -82,26 +89,26 @@ public class ObjetoComunController {
     /**
      * Metodo encargado de realizar la eliminacion
      * 
-     * @param nombre del objetoComun a eliminar
+     * @param idObjeto del objetoComun a eliminar
      * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
-    public void eliminar(int id) throws PokemonException, PersistenciaException {
+    public void eliminar(int idObjeto) throws PokemonException, PersistenciaException {
         ObjetoComun objetoComun;
-        objetoComun = buscar(id);
+        objetoComun = buscar(idObjeto);
         eliminar(objetoComun);
     }
 
     /**
-     * Metodo encargado de buscar por el id
+     * Metodo encargado de buscar por el idObjeto
      * 
-     * @param id para localizar el objetoComun
+     * @param idObjeto para localizar el objetoComun
      * @return objetoComun a traves del id
      * @throws PersistenciaException con mensaje controlado
      */
-    public ObjetoComun buscar(int IdObjeto) throws PersistenciaException {
+    public ObjetoComun buscar(int idObjeto) throws PersistenciaException {
         ObjetoComun objetoComun = null;
-        objetoComun = objetoComunModelo.buscar(IdObjeto);
+        objetoComun = objetoComunModelo.buscar(idObjeto);
         return objetoComun;
     }
 

@@ -7,6 +7,7 @@ import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.MovimientoModelo;
 
 public class MovimientoController {
+
     // Variables de clase
 
     TipoController tipoController;
@@ -14,6 +15,13 @@ public class MovimientoController {
 
     // Constructores
 
+    /**
+     * Constructor de MovimientoController con tipoController por la
+     * dependencia y movimientoModelo iniciliazado
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException      con error controlado
+     */
     public MovimientoController() throws PersistenciaException, FicheroException {
         tipoController = new TipoController();
         movimientoModelo = new MovimientoModelo();
@@ -55,7 +63,7 @@ public class MovimientoController {
             mensaje = "Pp es nulo o vacio.";
         }
 
-        if (movimiento.getPotencia() <= 0) {
+        if (movimiento.getPotencia() < 0) {
             mensaje = "Potencia es nulo o vacio.";
         }
 
