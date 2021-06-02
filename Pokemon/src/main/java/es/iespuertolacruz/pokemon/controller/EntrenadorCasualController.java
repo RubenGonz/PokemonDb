@@ -18,6 +18,13 @@ public class EntrenadorCasualController {
 
     // Constructores
 
+    /**
+     * Constructor con entrenadorController inicializado por la dependencia y
+     * entrenadorCasualModelo inicializado
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException con error controlado
+     */
     public EntrenadorCasualController() throws PersistenciaException, FicheroException {
         entrenadorController = new EntrenadorController();
         entrenadorCasualModelo = new EntrenadorCasualModelo();
@@ -85,26 +92,26 @@ public class EntrenadorCasualController {
     /**
      * Metodo encargado de realizar la eliminacion
      * 
-     * @param nombre del entrenadorCasual a eliminar
+     * @param idEntrenador del entrenadorCasual a eliminar
      * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
-    public void eliminar(int IdEntrenador) throws PokemonException, PersistenciaException {
+    public void eliminar(int idEntrenador) throws PokemonException, PersistenciaException {
         EntrenadorCasual entrenadorCasual;
-        entrenadorCasual = buscar(IdEntrenador);
+        entrenadorCasual = buscar(idEntrenador);
         eliminar(entrenadorCasual);
     }
 
     /**
      * Metodo encargado de buscar por el id
      * 
-     * @param id para localizar el entrenadorCasual
-     * @return entrenadorCasual a traves del id
+     * @param idEntrenador para localizar el entrenadorCasual
+     * @return entrenadorCasual a traves del idEntrenador
      * @throws PersistenciaException con mensaje controlado
      */
-    public EntrenadorCasual buscar(int IdEntrenador) throws PersistenciaException {
+    public EntrenadorCasual buscar(int idEntrenador) throws PersistenciaException {
         EntrenadorCasual entrenadorCasual = null;
-        entrenadorCasual = entrenadorCasualModelo.buscar(IdEntrenador);
+        entrenadorCasual = entrenadorCasualModelo.buscar(idEntrenador);
         return entrenadorCasual;
     }
 

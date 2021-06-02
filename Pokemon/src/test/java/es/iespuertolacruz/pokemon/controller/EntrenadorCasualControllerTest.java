@@ -15,13 +15,13 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
 public class EntrenadorCasualControllerTest {
+
     // Variables de clase
 
     static EntrenadorCasualController entrenadorCasualController;
     EntrenadorCasual entrenadorCasual = null;
 
-
-     @BeforeAll
+    @BeforeAll
     public static void beforeAll() {
         if (entrenadorCasualController == null) {
             try {
@@ -32,7 +32,6 @@ public class EntrenadorCasualControllerTest {
         }
     }
 
- /** 
     @BeforeEach
     public void crearEntrenadorCasual() {
         insertarEntrenadorCasualTest();
@@ -46,7 +45,6 @@ public class EntrenadorCasualControllerTest {
     }
 
     // Test
-    
 
     @Test
     public void insertarEntrenadorCasualTest() {
@@ -54,13 +52,13 @@ public class EntrenadorCasualControllerTest {
         try {
             entrenadorCasualController.insertar(entrenadorCasual);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El pokemon indicado ya existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El entrenadorCasual indicado ya existe"), "No se recibio el mensaje esperado");
         }
     }
 
     @Test
     public void validarTest() {
-        EntrenadorCasual entrenadorCasualInvalido = new EntrenadorCasual(1, 1);
+        EntrenadorCasual entrenadorCasualInvalido = new EntrenadorCasual(0, 0);
         try {
             entrenadorCasualController.validar(entrenadorCasualInvalido);
         } catch (PokemonException e) {
@@ -84,7 +82,8 @@ public class EntrenadorCasualControllerTest {
         try {
             entrenadorCasualController.eliminar(entrenadorCasual);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El entrenadorCasual indicado no existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El entrenadorCasual indicado no existe"),
+                    "No se recibio el mensaje esperado");
         }
     }
 
@@ -93,15 +92,17 @@ public class EntrenadorCasualControllerTest {
         try {
             entrenadorCasualController.eliminar(1);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El entrenadorCasual indicado no existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El entrenadorCasual indicado no existe"),
+                    "No se recibio el mensaje esperado");
         }
     }
 
     @Test
     public void buscarentrenadorCasualTest() {
         try {
-          EntrenadorCasual entrenadorCasualEncontrado = entrenadorCasualController.buscar(entrenadorCasual.getIdEntrenador());
-           assertNotNull(entrenadorCasualEncontrado, "No se debe de obtener un elemento nulo");
+            EntrenadorCasual entrenadorCasualEncontrado = entrenadorCasualController
+                    .buscar(entrenadorCasual.getIdEntrenador());
+            assertNotNull(entrenadorCasualEncontrado, "No se debe de obtener un elemento nulo");
             assertEquals(entrenadorCasual, entrenadorCasualEncontrado, "No se ha encontrado lo esperado");
         } catch (PersistenciaException e) {
             fail("Se ha producido un error en la consulta del pokemon ,e:" + e.getMessage());
@@ -119,12 +120,13 @@ public class EntrenadorCasualControllerTest {
 
     @Test
     public void modificarentrenadorCasualInexistenteTest() {
-        EntrenadorCasual entrenadorCasualInexistente = new EntrenadorCasual(1, 1);
+        EntrenadorCasual entrenadorCasualInexistente = new EntrenadorCasual(5000, 5000);
         try {
             entrenadorCasualController.modificar(entrenadorCasualInexistente);
         } catch (PokemonException | PersistenciaException e) {
-            assertEquals("El entrenadorCasual indicado no existe", e.getMessage(), "El mensaje recibido no es el esperado");
+            assertEquals("El entrenador indicado no existe", e.getMessage(),
+                    "El mensaje recibido no es el esperado");
         }
     }
-*/
+
 }

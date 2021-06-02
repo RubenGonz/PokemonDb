@@ -22,6 +22,13 @@ public class EntrenadorCasualModelo {
     private static final String CLAVE = "id_entrenador";
 
     // Constructores
+
+    /**
+     * Constructor de EntrenadorCasualModelo donde inicializa DdBbSqLite
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException      con error controlado
+     */
     public EntrenadorCasualModelo() throws PersistenciaException, FicheroException {
         persistencia = new DdBbSqLite(TABLA, null, null);
     }
@@ -31,20 +38,20 @@ public class EntrenadorCasualModelo {
     /**
      * Metodo que inserta entrenadorCasual en la base de datos
      * 
-     * @param entrenadorCasual
-     * @throws PersistenciaException
+     * @param entrenadorCasual a insertar
+     * @throws PersistenciaException con error controlado
      */
     public void insertar(EntrenadorCasual entrenadorCasual) throws PersistenciaException {
         String sql = "INSERT INTO " + TABLA + " VALUES (" + entrenadorCasual.getIdEntrenador() + ","
-                + entrenadorCasual.getCantidadMedallas() + "');";
+                + entrenadorCasual.getCantidadMedallas() + ");";
         persistencia.update(sql);
     }
 
     /***
      * Metodo que elimina entrenadorCasual de la base de datos
      * 
-     * @param entrenadorCasual
-     * @throws PersistenciaException
+     * @param entrenadorCasual a eliminar
+     * @throws PersistenciaException con error controlado
      */
     public void eliminar(EntrenadorCasual entrenadorCasual) throws PersistenciaException {
         String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = " + entrenadorCasual.getIdEntrenador() + ";";
@@ -58,7 +65,7 @@ public class EntrenadorCasualModelo {
      * @throws PersistenciaException error controlado
      */
     public void modificar(EntrenadorCasual entrenadorCasual) throws PersistenciaException {
-        String sql = "UPDATE " + TABLA + " SET TipoPrincipal = " + entrenadorCasual.getCantidadMedallas() + "WHERE " + CLAVE
+        String sql = "UPDATE " + TABLA + " SET cantidad_medalla = " + entrenadorCasual.getCantidadMedallas() + " WHERE " + CLAVE
                 + " = " + entrenadorCasual.getIdEntrenador() + ";";
         persistencia.update(sql);
     }
@@ -66,13 +73,13 @@ public class EntrenadorCasualModelo {
     /**
      * Funcion encargada de obtener entrenadorCasual
      * 
-     * @param IdEntrenador del entrenadorCasual
+     * @param idEntrenador del entrenadorCasual
      * @return entrenadorCasual buscado
      * @throws PersistenciaException con error controlado
      */
-    public EntrenadorCasual buscar(int IdEntrenador) throws PersistenciaException {
+    public EntrenadorCasual buscar(int idEntrenador) throws PersistenciaException {
         EntrenadorCasual entrenadorCasual = null;
-        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVE + " = " + IdEntrenador + ";";
+        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVE + " = " + idEntrenador + ";";
         ArrayList<EntrenadorCasual> lista = transformarAEntrenadorCasual(sql);
         if (!lista.isEmpty()) {
             entrenadorCasual = lista.get(0);
@@ -100,7 +107,7 @@ public class EntrenadorCasualModelo {
             while (resultSet.next()) {
                 EntrenadorCasual entrenadorCasual = new EntrenadorCasual();
                 entrenadorCasual.setIdEntrenador(resultSet.getInt(CLAVE));
-                entrenadorCasual.setCantidadMedallas(resultSet.getInt("CantidadMedallas"));
+                entrenadorCasual.setCantidadMedallas(resultSet.getInt("cantidad_medalla"));
                 lista.add(entrenadorCasual);
             }
         } catch (SQLException exception) {
