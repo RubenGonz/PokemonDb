@@ -6,6 +6,9 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.AltoMandoModelo;
 
+/**
+ * Constrolador de AltoMando
+ */
 public class AltoMandoController {
 
     // Variables de clase
@@ -86,22 +89,22 @@ public class AltoMandoController {
      * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
-    public void eliminar(int IdEntrenador) throws PokemonException, PersistenciaException {
+    public void eliminar(int idEntrenador) throws PokemonException, PersistenciaException {
         AltoMando altoMando;
-        altoMando = buscar(IdEntrenador);
+        altoMando = buscar(idEntrenador);
         eliminar(altoMando);
     }
 
     /**
-     * Metodo encargado de buscar por el IdEntrenador
+     * Metodo encargado de buscar por el idEntrenador
      * 
-     * @param IdEntrenador para localizar el altoMando
-     * @return altoMando a traves del IdEntrenador
+     * @param idEntrenador para localizar el altoMando
+     * @return altoMando a traves del idEntrenador
      * @throws PersistenciaException con mensaje controlado
      */
-    public AltoMando buscar(int IdEntrenador) throws PersistenciaException {
+    public AltoMando buscar(int idEntrenador) throws PersistenciaException {
         AltoMando altoMando = null;
-        altoMando = altoMandoModelo.buscar(IdEntrenador);
+        altoMando = altoMandoModelo.buscar(idEntrenador);
         return altoMando;
     }
 
@@ -128,13 +131,13 @@ public class AltoMandoController {
      * @throws PersistenciaException con mensaje controlado
      */
     private boolean existe(AltoMando altoMando) throws PersistenciaException {
-        boolean encontrada = false;
-        AltoMando altoMandoEncontrada;
+        boolean encontrado = false;
+        AltoMando altoMandoEncontrado;
 
-        altoMandoEncontrada = buscar(altoMando.getIdEntrenador());
-        if (altoMandoEncontrada != null) {
-            encontrada = true;
+        altoMandoEncontrado = buscar(altoMando.getIdEntrenador());
+        if (altoMandoEncontrado != null) {
+            encontrado = true;
         }
-        return encontrada;
+        return encontrado;
     }
 }

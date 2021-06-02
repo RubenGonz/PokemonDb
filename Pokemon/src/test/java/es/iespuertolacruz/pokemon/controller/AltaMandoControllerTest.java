@@ -14,16 +14,16 @@ import es.iespuertolacruz.pokemon.api.AltoMando;
 import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
-
 public class AltaMandoControllerTest {
-    
+
     // Variables de clase
 
     static AltoMandoController altoMandoController;
     AltoMando altoMando = null;
 
+    // Before y after
 
-     @BeforeAll
+    @BeforeAll
     public static void beforeAll() {
         if (altoMandoController == null) {
             try {
@@ -34,7 +34,6 @@ public class AltaMandoControllerTest {
         }
     }
 
- /** 
     @BeforeEach
     public void crearAltoMando() {
         insertarAltoMandoTest();
@@ -48,23 +47,22 @@ public class AltaMandoControllerTest {
     }
 
     // Test
-    **/
-/** 
+
     @Test
     public void insertarAltoMandoTest() {
-        altoMando = new AltoMando(1, "");
+        altoMando = new AltoMando(1, "Hielo");
         try {
             altoMandoController.insertar(altoMando);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El pokemon indicado ya existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El altoMando indicado ya existe"), "No se recibio el mensaje esperado");
         }
     }
 
     @Test
     public void validarTest() {
-        AltoMando altoMandoInvalido = new AltoMando(1, "");
+        AltoMando altoMandoInvalida = new AltoMando(0, "");
         try {
-            altoMandoController.validar(altoMandoInvalido);
+            altoMandoController.validar(altoMandoInvalida);
         } catch (PokemonException e) {
             assertTrue(e.getMessage().contains(""));
         }
@@ -86,27 +84,27 @@ public class AltaMandoControllerTest {
         try {
             altoMandoController.eliminar(altoMando);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El AltoMando indicado no existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El altoMando indicado no existe"), "No se recibio el mensaje esperado");
         }
     }
 
     @Test
-    public void eliminarPorIdEntrenadorTest() {
+    public void eliminarPorNombreTest() {
         try {
             altoMandoController.eliminar(1);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El AltoMando indicado no existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El altoMando indicado no existe"), "No se recibio el mensaje esperado");
         }
     }
 
     @Test
     public void buscarAltoMandoTest() {
         try {
-          AltoMando AltoMandoEncontrado = AltoMandoController.buscar(altoMando.getIdEntrenador());
-           assertNotNull(AltoMandoEncontrado, "No se debe de obtener un elemento nulo");
-            assertEquals(altoMando, AltoMandoEncontrado, "No se ha encontrado lo esperado");
+            AltoMando altoMandoEncontradas = altoMandoController.buscar(altoMando.getIdEntrenador());
+            assertNotNull(altoMandoEncontradas, "No se debe de obtener un elemento nulo");
+            assertEquals(altoMando, altoMandoEncontradas, "No se ha encontrado lo esperado");
         } catch (PersistenciaException e) {
-            fail("Se ha producido un error en la consulta del pokemon ,e:" + e.getMessage());
+            fail("Se ha producido un error en la consulta del altoMando ,e:" + e.getMessage());
         }
     }
 
@@ -121,12 +119,12 @@ public class AltaMandoControllerTest {
 
     @Test
     public void modificarAltoMandoInexistenteTest() {
-        AltoMando AltoMandoInexistente = new AltoMando(1, "Fuego");
+        AltoMando altoMandoInexistente = new AltoMando(5000, "AltoMando nulo");
         try {
-            altoMandoController.modificar(AltoMandoInexistente);
+            altoMandoController.modificar(altoMandoInexistente);
         } catch (PokemonException | PersistenciaException e) {
-            assertEquals("El AltoMando indicado no existe", e.getMessage(), "El mensaje recibido no es el esperado");
+            assertEquals("El altoMando indicado no existe", e.getMessage(), "El mensaje recibido no es el esperado");
         }
     }
-**/
+
 }

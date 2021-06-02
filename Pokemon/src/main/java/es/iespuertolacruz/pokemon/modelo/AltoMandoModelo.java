@@ -22,6 +22,13 @@ public class AltoMandoModelo {
     private static final String CLAVE = "id_entrenador";
 
     // Constructores
+
+    /**
+     * Constructor de AltoMandoModelo donde inicializa DdBbSqLite
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException      con error controlado
+     */
     public AltoMandoModelo() throws PersistenciaException, FicheroException {
         persistencia = new DdBbSqLite(TABLA, null, null);
     }
@@ -31,21 +38,20 @@ public class AltoMandoModelo {
     /**
      * Metodo que inserta altoMando en la base de datos
      * 
-     * @param altoMando
+     * @param altoMando a insertar
      * @throws PersistenciaException
      */
-    public void insertar(AltoMando altoMando)throws PersistenciaException  {
-        String sql = "INSERT INTO " + TABLA + " VALUES (" 
-        + altoMando.getIdEntrenador() + ","
-        + altoMando.getTipoPrincipal() + "');";
+    public void insertar(AltoMando altoMando) throws PersistenciaException {
+        String sql = "INSERT INTO " + TABLA + " VALUES (" + altoMando.getIdEntrenador() + ",'"
+                + altoMando.getTipoPrincipal() + "');";
         persistencia.update(sql);
     }
-    
-    /***
+
+    /**
      * Metodo que elimina altoMando de la base de datos
      * 
-     * @param altoMando
-     * @throws PersistenciaException
+     * @param altoMando a eliminar
+     * @throws PersistenciaException con error controlado
      */
     public void eliminar(AltoMando altoMando) throws PersistenciaException {
         String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = " + altoMando.getIdEntrenador() + ";";
@@ -59,22 +65,22 @@ public class AltoMandoModelo {
      * @throws PersistenciaException error controlado
      */
     public void modificar(AltoMando altoMando) throws PersistenciaException {
-        String sql = "UPDATE " + TABLA + " SET TipoPrincipal = " + altoMando.getTipoPrincipal() +
-         "WHERE " + CLAVE + " = " + altoMando.getIdEntrenador() + ";";
+        String sql = "UPDATE " + TABLA + " SET tipo_principal = '" + altoMando.getTipoPrincipal() + "' WHERE " + CLAVE
+                + " = " + altoMando.getIdEntrenador() + ";";
         persistencia.update(sql);
     }
 
     /**
      * Funcion encargada de obtener altoMando
      * 
-     * @param IdEntrenador del altoMando
+     * @param idEntrenador del altoMando
      * @return altoMando buscado
      * @throws PersistenciaException con error controlado
      */
-    public AltoMando buscar(int IdEntrenador) throws PersistenciaException {
+    public AltoMando buscar(int idEntrenador) throws PersistenciaException {
         AltoMando altoMando = null;
-        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVE + " = " + IdEntrenador+ ";";
-        ArrayList<AltoMando> lista = transformarAltoMando(sql);
+        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVE + " = " + idEntrenador + ";";
+        ArrayList<AltoMando> lista = transformarAAltoMando(sql);
         if (!lista.isEmpty()) {
             altoMando = lista.get(0);
         }
@@ -88,7 +94,7 @@ public class AltoMandoModelo {
      * @return lista resultados (0..n) Usuasios
      * @throws PersistenciaException error controlado
      */
-    private ArrayList<AltoMando> transformarAltoMando(String sql) throws PersistenciaException {
+    private ArrayList<AltoMando> transformarAAltoMando(String sql) throws PersistenciaException {
         ArrayList<AltoMando> lista = new ArrayList<>();
         PreparedStatement statement = null;
         ResultSet resultSet = null;
@@ -99,9 +105,9 @@ public class AltoMandoModelo {
             resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-               AltoMando altoMando = new AltoMando();
-               altoMando.setIdEntrenador(resultSet.getInt(CLAVE));
-               altoMando.setTipoPrincipal(resultSet.getString("TipoPrincipal"));
+                AltoMando altoMando = new AltoMando();
+                altoMando.setIdEntrenador(resultSet.getInt(CLAVE));
+                altoMando.setTipoPrincipal(resultSet.getString("tipo_principal"));
                 lista.add(altoMando);
             }
         } catch (SQLException exception) {

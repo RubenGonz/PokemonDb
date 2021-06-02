@@ -27,7 +27,7 @@ public class TipoModelo {
      * Constructor de TipoModelo donde inicializa DdBbSqLite
      * 
      * @throws PersistenciaException con error controlado
-     * @throws FicheroException
+     * @throws FicheroException      con error controlado
      */
     public TipoModelo() throws PersistenciaException, FicheroException {
         persistencia = new DdBbSqLite(TABLA, null, null);
@@ -78,7 +78,7 @@ public class TipoModelo {
      */
     public Tipo buscar(String nombre) throws PersistenciaException {
         Tipo tipo = null;
-        String sql = "SELECT * FROM TIPO WHERE nombre = '" + nombre + "';";
+        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVE + " = '" + nombre + "';";
         ArrayList<Tipo> lista = transformarATipo(sql);
         if (!lista.isEmpty()) {
             tipo = lista.get(0);

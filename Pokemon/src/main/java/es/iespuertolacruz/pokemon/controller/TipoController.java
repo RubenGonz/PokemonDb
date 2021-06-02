@@ -6,6 +6,9 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 import es.iespuertolacruz.pokemon.modelo.TipoModelo;
 
+/**
+ * Controlador de Tipo
+ */
 public class TipoController {
 
     // Variables de clase
