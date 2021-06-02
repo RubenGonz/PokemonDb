@@ -14,15 +14,22 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
  * Clase principal del modelo de conoce
  */
 public class ConoceModelo {
-    
+
     // Variables de clase
 
     DdBbSqLite persistencia;
     private static final String TABLA = "CONOCE";
-    private static final String CLAVE = "IdMovimiento";
+    private static final String CLAVEPRI = "numero_pokedex";
+    private static final String CLAVESEC = "id_movimiento";
 
     // Constructores
-    
+
+    /**
+     * Constructor de ConoceModelo donde inicializa DdBbSqLite
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException      con error controlado
+     */
     public ConoceModelo() throws PersistenciaException, FicheroException {
         persistencia = new DdBbSqLite(TABLA, null, null);
     }
@@ -32,24 +39,24 @@ public class ConoceModelo {
     /**
      * Metodo que inserta conoce en la base de datos
      * 
-     * @param conoce
-     * @throws PersistenciaException
+     * @param conoce a insertar
+     * @throws PersistenciaException con error controlado
      */
     public void insertar(Conoce conoce) throws PersistenciaException {
-        String sql = "INSERT INTO " + TABLA + " VALUES (" + conoce.getIdMovimiento() + ","
-                + conoce.getNumeroPokedex() + "');";
+        String sql = "INSERT INTO " + TABLA + " VALUES (" + conoce.getNumeroPokedex() + "," + conoce.getIdMovimiento()
+                + ");";
         persistencia.update(sql);
     }
 
-    /***
+    /**
      * Metodo que elimina conoce de la base de datos
      * 
-     * @param conoce
-     * @throws PersistenciaException
+     * @param conoce a eliminar
+     * @throws PersistenciaExceptionm con error controlado
      */
     public void eliminar(Conoce conoce) throws PersistenciaException {
-        String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = " + conoce.getIdMovimiento()+ conoce
-                .getNumeroPokedex() + ";";
+        String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVEPRI + " = " + conoce.getNumeroPokedex() + " AND "
+                + CLAVESEC + " = " + conoce.getIdMovimiento() + ";";
         persistencia.update(sql);
     }
 
@@ -60,28 +67,31 @@ public class ConoceModelo {
      * @throws PersistenciaException error controlado
      */
     public void modificar(Conoce conoce) throws PersistenciaException {
-        String sql = "UPDATE " + TABLA + " SET numero_pokedex = " + conoce.getNumeroPokedex() + "WHERE " + CLAVE
-                + " = " + conoce.getIdMovimiento() + conoce.getNumeroPokedex() + ";";
+        String sql = "UPDATE " + TABLA + " SET " + CLAVEPRI + " = " + conoce.getNumeroPokedex() + "," + CLAVESEC + " = "
+                + conoce.getIdMovimiento() + " WHERE " + CLAVEPRI + " = " + conoce.getNumeroPokedex() + " AND "
+                + CLAVESEC + " = " + conoce.getIdMovimiento() + ";";
         persistencia.update(sql);
     }
 
+    
     /**
-     * Funcion encargada de obtener conoce
+     * Funcion encargada de obtener Conoce
      * 
-     * @param IdMovimiento del conoce
-     * @return conoce buscado
+     * @param numeroPokedex del objeto conoce
+     * @param idMovimiento del objeto conoce
+     * @return objeto conoce
      * @throws PersistenciaException con error controlado
      */
-    public Conoce buscar(int IdMovimiento) throws PersistenciaException {
+    public Conoce buscar(int numeroPokedex,int idMovimiento ) throws PersistenciaException {
         Conoce conoce = null;
-        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVE + " = " + IdMovimiento + ";";
+        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVEPRI + " = " + numeroPokedex + " AND " + CLAVESEC + " = " + idMovimiento + ";";
         ArrayList<Conoce> lista = transformarAConoce(sql);
         if (!lista.isEmpty()) {
             conoce = lista.get(0);
         }
         return conoce;
     }
-    
+
     /**
      * Funcion que realiza una consulta sobre una sentencia sql dada
      * 
@@ -100,9 +110,9 @@ public class ConoceModelo {
             resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                Conoce conoce= new Conoce();
-                conoce.setIdMovimiento(resultSet.getInt(CLAVE));
-                conoce.setIdMovimiento(resultSet.getInt(CLAVE));
+                Conoce conoce = new Conoce();
+                conoce.setNumeroPokedex(resultSet.getInt(CLAVEPRI));
+                conoce.setIdMovimiento(resultSet.getInt(CLAVESEC));
                 lista.add(conoce);
             }
         } catch (SQLException exception) {

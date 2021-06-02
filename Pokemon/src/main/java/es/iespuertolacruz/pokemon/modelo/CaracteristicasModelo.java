@@ -23,6 +23,12 @@ public class CaracteristicasModelo {
 
     // Constructores
 
+    /**
+     * Constructor de CaracteristicasModelo donde inicializa DdBbSqLite
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException      con error controlado
+     */
     public CaracteristicasModelo() throws PersistenciaException, FicheroException {
         persistencia = new DdBbSqLite(TABLA, null, null);
     }

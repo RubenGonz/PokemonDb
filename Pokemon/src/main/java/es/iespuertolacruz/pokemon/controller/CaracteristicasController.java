@@ -14,6 +14,12 @@ public class CaracteristicasController {
 
     // Constructores
 
+    /**
+     * Contructor de CaracteristicasController con caracteristicasModelo inicializado
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException con error controlado
+     */
     public CaracteristicasController() throws PersistenciaException, FicheroException {
         caracteristicasModelo = new CaracteristicasModelo();
     }

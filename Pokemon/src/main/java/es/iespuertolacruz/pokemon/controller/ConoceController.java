@@ -16,11 +16,17 @@ public class ConoceController {
 
     // Constructores
 
+    /**
+     * Constructor de ConoceController con pokemonController y movimientoController
+     * inicializado por la dependencia y conoceModelo inicializado
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException      con error controlado
+     */
     public ConoceController() throws PersistenciaException, FicheroException {
         pokemonController = new PokemonController();
         movimientoController = new MovimientoController();
         conoceModelo = new ConoceModelo();
-
     }
 
     // Funciones y metodos
@@ -83,28 +89,30 @@ public class ConoceController {
     }
 
     /**
-     * Metodo encargado de realizar la eliminacion
+     * Metodo encargado de realizar la eliminación
      * 
-     * @param nombre del conoce a eliminar
-     * @throws PokemonException      con mensaje controlado
-     * @throws PersistenciaException con mensaje controlado
+     * @param numeroPokedex numero de la pokedex del pokemon
+     * @param idMovimiento identificador del movimiento
+     * @throws PokemonException con error controlado
+     * @throws PersistenciaException con error controlado
      */
-    public void eliminar(int id) throws PokemonException, PersistenciaException {
+    public void eliminar(int numeroPokedex, int idMovimiento) throws PokemonException, PersistenciaException {
         Conoce conoce;
-        conoce = buscar(id);
+        conoce = buscar(numeroPokedex, idMovimiento);
         eliminar(conoce);
     }
 
     /**
-     * Metodo encargado de buscar por el id
+     * Metodo encargado de buscar por el numeroPokedex y el idMovimiento
      * 
-     * @param id para localizar el conoce
-     * @return conoce a traves del id
+     * @param numeroPokedex para localizar el conoce
+     * @param idMovimiento para localizar el conoce
+     * @return conoce a traves de los atributos
      * @throws PersistenciaException con mensaje controlado
      */
-    public Conoce buscar(int NumeroPokedex) throws PersistenciaException {
+    public Conoce buscar(int numeroPokedex, int idMovimiento) throws PersistenciaException {
         Conoce conoce = null;
-        conoce = conoceModelo.buscar(NumeroPokedex);
+        conoce = conoceModelo.buscar(numeroPokedex, idMovimiento);
         return conoce;
     }
 
@@ -134,7 +142,7 @@ public class ConoceController {
         boolean encontrada = false;
         Conoce conoceEncontrada;
 
-        conoceEncontrada = buscar(conoce.getNumeroPokedex());
+        conoceEncontrada = buscar(conoce.getNumeroPokedex(), conoce.getIdMovimiento());
         if (conoceEncontrada != null) {
             encontrada = true;
         }

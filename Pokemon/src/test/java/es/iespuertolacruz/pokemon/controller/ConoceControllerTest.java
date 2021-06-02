@@ -17,7 +17,7 @@ import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 public class ConoceControllerTest {
 
     // Variables de clase
-    
+
     static ConoceController conoceController;
     Conoce conoce;
 
@@ -52,13 +52,13 @@ public class ConoceControllerTest {
         try {
             conoceController.insertar(conoce);
         } catch (PokemonException | PersistenciaException e) {
-            assertTrue(e.getMessage().contains("El pokemon indicado ya existe"), "No se recibio el mensaje esperado");
+            assertTrue(e.getMessage().contains("El conoce indicado ya existe"), "No se recibio el mensaje esperado");
         }
     }
 
     @Test
     public void validarTest() {
-        Conoce conoceInvalido = new Conoce(1, 1);
+        Conoce conoceInvalido = new Conoce(0, 0);
         try {
             conoceController.validar(conoceInvalido);
         } catch (PokemonException e) {
@@ -89,7 +89,7 @@ public class ConoceControllerTest {
     @Test
     public void eliminarPorIdEntrenadorTest() {
         try {
-            conoceController.eliminar(1);
+            conoceController.eliminar(1,1);
         } catch (PokemonException | PersistenciaException e) {
             assertTrue(e.getMessage().contains("El conoce indicado no existe"), "No se recibio el mensaje esperado");
         }
@@ -98,7 +98,7 @@ public class ConoceControllerTest {
     @Test
     public void buscarconoceTest() {
         try {
-            Conoce conoceEncontrado = conoceController.buscar(conoce.getNumeroPokedex());
+            Conoce conoceEncontrado = conoceController.buscar(conoce.getNumeroPokedex(),conoce.getIdMovimiento());
             assertNotNull(conoceEncontrado, "No se debe de obtener un elemento nulo");
             assertEquals(conoce, conoceEncontrado, "No se ha encontrado lo esperado");
         } catch (PersistenciaException e) {
@@ -117,7 +117,7 @@ public class ConoceControllerTest {
 
     @Test
     public void modificarconoceInexistenteTest() {
-        Conoce conoceInexistente = new Conoce(1, 1);
+        Conoce conoceInexistente = new Conoce(5000, 5000);
         try {
             conoceController.modificar(conoceInexistente);
         } catch (PokemonException | PersistenciaException e) {
