@@ -83,26 +83,26 @@ public class MaquinaController {
     /**
      * Metodo encargado de realizar la eliminacion
      * 
-     * @param nombre del maquina a eliminar
+     * @param idObjeto del maquina a eliminar
      * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
-    public void eliminar(int IdObjeto, int IdMovimiento) throws PokemonException, PersistenciaException {
+    public void eliminar(int idObjeto) throws PokemonException, PersistenciaException {
         Maquina maquina;
-        maquina = buscar(IdObjeto, IdMovimiento);
+        maquina = buscar(idObjeto);
         eliminar(maquina);
     }
 
     /**
-     * Metodo encargado de buscar por el id
+     * Metodo encargado de buscar por el idObjeto
      * 
-     * @param id para localizar el maquina
-     * @return maquina a traves del id
+     * @param idObjeto para localizar el maquina
+     * @return maquina a traves del idObjeto
      * @throws PersistenciaException con mensaje controlado
      */
-    public Maquina buscar(int IdObjeto, int IdMovimiento) throws PersistenciaException {
+    public Maquina buscar(int idObjeto) throws PersistenciaException {
         Maquina maquina = null;
-        maquina = maquinaModelo.buscar(IdObjeto, IdMovimiento);
+        maquina = maquinaModelo.buscar(idObjeto);
         return maquina;
     }
 
@@ -132,7 +132,7 @@ public class MaquinaController {
         boolean encontrada = false;
         Maquina maquinaEncontrada;
 
-        maquinaEncontrada = buscar(maquina.getIdObjeto(), maquina.getIdMovimiento());
+        maquinaEncontrada = buscar(maquina.getIdObjeto());
         if (maquinaEncontrada != null) {
             encontrada = true;
         }

@@ -15,13 +15,13 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
 public class MaquinaControllerTest {
+
     // Variables de clase
 
     static MaquinaController maquinaController;
     Maquina maquina = null;
 
-
-     @BeforeAll
+    @BeforeAll
     public static void beforeAll() {
         if (maquinaController == null) {
             try {
@@ -32,7 +32,6 @@ public class MaquinaControllerTest {
         }
     }
 
- /*
     @BeforeEach
     public void crearmaquina() {
         insertarmaquinaTest();
@@ -46,7 +45,6 @@ public class MaquinaControllerTest {
     }
 
     // Test
-    
 
     @Test
     public void insertarmaquinaTest() {
@@ -60,7 +58,7 @@ public class MaquinaControllerTest {
 
     @Test
     public void validarTest() {
-        Maquina maquinaInvalido = new Maquina(1, 1);
+        Maquina maquinaInvalido = new Maquina(0, 0);
         try {
             maquinaController.validar(maquinaInvalido);
         } catch (PokemonException e) {
@@ -91,7 +89,7 @@ public class MaquinaControllerTest {
     @Test
     public void eliminarPorIdEntrenadorTest() {
         try {
-            maquinaController.eliminar(1 ,2);
+            maquinaController.eliminar(1);
         } catch (PokemonException | PersistenciaException e) {
             assertTrue(e.getMessage().contains("El maquina indicado no existe"), "No se recibio el mensaje esperado");
         }
@@ -100,8 +98,8 @@ public class MaquinaControllerTest {
     @Test
     public void buscarmaquinaTest() {
         try {
-          Maquina maquinaEncontrado = maquinaController.buscar(maquina.getIdMovimiento() ,maquina.getIdObjeto());
-           assertNotNull(maquinaEncontrado, "No se debe de obtener un elemento nulo");
+            Maquina maquinaEncontrado = maquinaController.buscar(maquina.getIdObjeto());
+            assertNotNull(maquinaEncontrado, "No se debe de obtener un elemento nulo");
             assertEquals(maquina, maquinaEncontrado, "No se ha encontrado lo esperado");
         } catch (PersistenciaException e) {
             fail("Se ha producido un error en la consulta del pokemon ,e:" + e.getMessage());
@@ -119,12 +117,12 @@ public class MaquinaControllerTest {
 
     @Test
     public void modificarmaquinaInexistenteTest() {
-        Maquina maquinaInexistente = new Maquina(1, 1);
+        Maquina maquinaInexistente = new Maquina(5000, 5000);
         try {
             maquinaController.modificar(maquinaInexistente);
         } catch (PokemonException | PersistenciaException e) {
             assertEquals("El maquina indicado no existe", e.getMessage(), "El mensaje recibido no es el esperado");
         }
     }
-*/
+
 }
