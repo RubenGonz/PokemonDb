@@ -16,10 +16,17 @@ public class PerteneceModelo {
 
     DdBbSqLite persistencia;
     private static final String TABLA = "PERTENECE";
-    private static final String CLAVE = "numero_pokedex";
+    private static final String CLAVEPRI = "numero_pokedex";
+    private static final String CLAVESEC = "tipo";
 
     // Constructores
-    
+
+    /**
+     * Constructor de PerteneceModelo donde inicializa DdBbSqLite
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException      con error controlado
+     */
     public PerteneceModelo() throws PersistenciaException, FicheroException {
         persistencia = new DdBbSqLite(TABLA, null, null);
     }
@@ -29,23 +36,24 @@ public class PerteneceModelo {
     /**
      * Metodo que inserta pertenece en la base de datos
      * 
-     * @param pertenece
-     * @throws PersistenciaException
+     * @param pertenece a insertar
+     * @throws PersistenciaException error controlado
      */
     public void insertar(Pertenece pertenece) throws PersistenciaException {
-        String sql = "INSERT INTO " + TABLA + " VALUES (" + pertenece.getNumeroPokedex() + ","
-                + pertenece.getTipo() + "');";
+        String sql = "INSERT INTO " + TABLA + " VALUES (" + pertenece.getNumeroPokedex() + ",'" + pertenece.getTipo()
+                + "');";
         persistencia.update(sql);
     }
 
     /***
      * Metodo que elimina pertenece de la base de datos
      * 
-     * @param pertenece
-     * @throws PersistenciaException
+     * @param pertenece a eliminar
+     * @throws PersistenciaException error controlado
      */
     public void eliminar(Pertenece pertenece) throws PersistenciaException {
-        String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = " + pertenece.getNumeroPokedex() + ";";
+        String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVEPRI + " = " + pertenece.getNumeroPokedex() + " AND "
+                + CLAVESEC + " = '" + pertenece.getTipo() + "';";
         persistencia.update(sql);
     }
 
@@ -56,21 +64,22 @@ public class PerteneceModelo {
      * @throws PersistenciaException error controlado
      */
     public void modificar(Pertenece pertenece) throws PersistenciaException {
-        String sql = "UPDATE " + TABLA + " SET Tipo = " + pertenece.getTipo() + "WHERE " + CLAVE
-                + " = " + pertenece.getNumeroPokedex() + ";";
+        String sql = "UPDATE " + TABLA + " SET " + CLAVEPRI + " = " + pertenece.getNumeroPokedex() + ", " + CLAVESEC
+                + " = '" + pertenece.getTipo() + "' WHERE " + CLAVEPRI + " = " + pertenece.getNumeroPokedex() + " AND " + CLAVESEC + " = '" + pertenece.getTipo() + "';";
         persistencia.update(sql);
     }
 
     /**
      * Funcion encargada de obtener pertenece
      * 
-     * @param IdEntrenador del pertenece
+     * @param numeroPokedex del pertenece
+     * @param tipo del pertenece
      * @return pertenece buscado
      * @throws PersistenciaException con error controlado
      */
-    public Pertenece buscar(int NumeroPokedex) throws PersistenciaException {
+    public Pertenece buscar(int numeroPokedex, String tipo) throws PersistenciaException {
         Pertenece pertenece = null;
-        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVE + " = " + NumeroPokedex + ";";
+        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVEPRI + " = " + numeroPokedex + " AND " + CLAVESEC + " = '" + tipo + "';";
         ArrayList<Pertenece> lista = transformarpertenece(sql);
         if (!lista.isEmpty()) {
             pertenece = lista.get(0);
@@ -97,8 +106,8 @@ public class PerteneceModelo {
 
             while (resultSet.next()) {
                 Pertenece pertenece = new Pertenece();
-                pertenece.setNumeroPokedex(resultSet.getInt(CLAVE));
-                pertenece.setTipo(resultSet.getString("Tipo"));
+                pertenece.setNumeroPokedex(resultSet.getInt(CLAVEPRI));
+                pertenece.setTipo(resultSet.getString(CLAVESEC));
                 lista.add(pertenece);
             }
         } catch (SQLException exception) {

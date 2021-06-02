@@ -15,13 +15,13 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
 public class PerteneceControllerTest {
+
     // Variables de clase
 
     static PerteneceController perteneceController;
     Pertenece pertenece = null;
 
-
-     @BeforeAll
+    @BeforeAll
     public static void beforeAll() {
         if (perteneceController == null) {
             try {
@@ -32,7 +32,6 @@ public class PerteneceControllerTest {
         }
     }
 
- /** 
     @BeforeEach
     public void crearPertenece() {
         insertarPerteneceTest();
@@ -46,11 +45,10 @@ public class PerteneceControllerTest {
     }
 
     // Test
-    
 
     @Test
     public void insertarPerteneceTest() {
-        pertenece = new Pertenece(1, "");
+        pertenece = new Pertenece(1, "Planta");
         try {
             perteneceController.insertar(pertenece);
         } catch (PokemonException | PersistenciaException e) {
@@ -60,7 +58,7 @@ public class PerteneceControllerTest {
 
     @Test
     public void validarTest() {
-        Pertenece perteneceInvalido = new Pertenece(1, "");
+        Pertenece perteneceInvalido = new Pertenece(0, "");
         try {
             perteneceController.validar(perteneceInvalido);
         } catch (PokemonException e) {
@@ -91,7 +89,7 @@ public class PerteneceControllerTest {
     @Test
     public void eliminarPorIdEntrenadorTest() {
         try {
-            perteneceController.eliminar(1);
+            perteneceController.eliminar(1,"Planta");
         } catch (PokemonException | PersistenciaException e) {
             assertTrue(e.getMessage().contains("El pertenece indicado no existe"), "No se recibio el mensaje esperado");
         }
@@ -100,8 +98,8 @@ public class PerteneceControllerTest {
     @Test
     public void buscarperteneceTest() {
         try {
-          Pertenece perteneceEncontrado = perteneceController.buscar(pertenece.getNumeroPokedex());
-           assertNotNull(perteneceEncontrado, "No se debe de obtener un elemento nulo");
+            Pertenece perteneceEncontrado = perteneceController.buscar(pertenece.getNumeroPokedex(),pertenece.getTipo());
+            assertNotNull(perteneceEncontrado, "No se debe de obtener un elemento nulo");
             assertEquals(pertenece, perteneceEncontrado, "No se ha encontrado lo esperado");
         } catch (PersistenciaException e) {
             fail("Se ha producido un error en la consulta del pokemon ,e:" + e.getMessage());
@@ -119,12 +117,12 @@ public class PerteneceControllerTest {
 
     @Test
     public void modificarperteneceInexistenteTest() {
-        Pertenece perteneceInexistente = new Pertenece(1, "");
+        Pertenece perteneceInexistente = new Pertenece(5000, "Inexistente");
         try {
             perteneceController.modificar(perteneceInexistente);
         } catch (PokemonException | PersistenciaException e) {
             assertEquals("El pertenece indicado no existe", e.getMessage(), "El mensaje recibido no es el esperado");
         }
     }
-*/
+
 }
