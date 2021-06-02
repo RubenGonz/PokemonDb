@@ -16,9 +16,17 @@ public class TieneModelo {
 
     DdBbSqLite persistencia;
     private static final String TABLA = "TIENE";
-    private static final String CLAVE = "id_entrenador";
+    private static final String CLAVEPRI = "id_entrenador";
+    private static final String CLAVESEC = "numero_pokedex";
 
     // Constructores
+
+    /**
+     * Constructor de ProvocaModelo donde inicializa DdBbSqLite
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException      con error controlado
+     */
     public TieneModelo() throws PersistenciaException, FicheroException {
         persistencia = new DdBbSqLite(TABLA, null, null);
     }
@@ -28,23 +36,23 @@ public class TieneModelo {
     /**
      * Metodo que inserta tiene en la base de datos
      * 
-     * @param tiene
-     * @throws PersistenciaException
+     * @param tiene a insertar
+     * @throws PersistenciaException error controlado
      */
     public void insertar(Tiene tiene) throws PersistenciaException {
         String sql = "INSERT INTO " + TABLA + " VALUES (" + tiene.getIdEntrenador() + "," + tiene.getNumeroPokedex()
-                + "," + tiene.getCantidad() + "');";
+                + "," + tiene.getCantidad() + ");";
         persistencia.update(sql);
     }
 
-    /***
+    /**
      * Metodo que elimina tiene de la base de datos
      * 
-     * @param tiene
-     * @throws PersistenciaException
+     * @param tiene a eliminar
+     * @throws PersistenciaException error controlado
      */
     public void eliminar(Tiene tiene) throws PersistenciaException {
-        String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVE + " = " + tiene.getIdEntrenador()
+        String sql = "DELETE FROM " + TABLA + " WHERE " + CLAVEPRI + " = " + tiene.getIdEntrenador() + " AND " + CLAVESEC + " = "
                 + tiene.getNumeroPokedex() + ";";
         persistencia.update(sql);
     }
@@ -56,21 +64,22 @@ public class TieneModelo {
      * @throws PersistenciaException error controlado
      */
     public void modificar(Tiene tiene) throws PersistenciaException {
-        String sql = "UPDATE " + TABLA + " SET Cantidad = " + tiene.getCantidad() + "WHERE " + CLAVE + " = "
-                + tiene.getIdEntrenador()+ tiene.getNumeroPokedex() + ";";
+        String sql = "UPDATE " + TABLA + " SET cantidad = " + tiene.getCantidad() + " WHERE " + CLAVEPRI + " = "
+                + tiene.getIdEntrenador() + " AND " + CLAVESEC + " = " + tiene.getNumeroPokedex() + ";";
         persistencia.update(sql);
     }
 
     /**
      * Funcion encargada de obtener tiene
      * 
-     * @param IdEntrenador del tiene
+     * @param idEntrenador del tiene
+     * @param numeroPokedex del tiene
      * @return tiene buscado
      * @throws PersistenciaException con error controlado
      */
-    public Tiene buscar(int IdEntrenador , int NumeroPokedex) throws PersistenciaException {
+    public Tiene buscar(int idEntrenador , int numeroPokedex) throws PersistenciaException {
         Tiene tiene = null;
-        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVE + " = " + IdEntrenador+ NumeroPokedex + ";";
+        String sql = "SELECT * FROM " + TABLA + " WHERE " + CLAVEPRI + " = " + idEntrenador + " AND " + CLAVESEC + " = " + numeroPokedex + ";";
         ArrayList<Tiene> lista = transformarATiene(sql);
         if (!lista.isEmpty()) {
             tiene = lista.get(0);
@@ -94,12 +103,11 @@ public class TieneModelo {
             connection = persistencia.getConnection();
             statement = connection.prepareStatement(sql);
             resultSet = statement.executeQuery();
-
             while (resultSet.next()) {
                 Tiene tiene = new Tiene();
-                tiene.setIdEntrenador(resultSet.getInt(CLAVE));
-                tiene.setNumeroPokedex(resultSet.getInt(CLAVE));
-                tiene.setCantidad(resultSet.getInt("Cantidad"));
+                tiene.setIdEntrenador(resultSet.getInt(CLAVEPRI));
+                tiene.setNumeroPokedex(resultSet.getInt(CLAVESEC));
+                tiene.setCantidad(resultSet.getInt("cantidad"));
                 lista.add(tiene);
             }
         } catch (SQLException exception) {

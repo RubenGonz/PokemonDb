@@ -15,13 +15,13 @@ import es.iespuertolacruz.pokemon.excepciones.PersistenciaException;
 import es.iespuertolacruz.pokemon.excepciones.PokemonException;
 
 public class TieneControllerTest {
+
     // Variables de clase
 
     static TieneController tieneController;
     Tiene tiene = null;
 
-
-     @BeforeAll
+    @BeforeAll
     public static void beforeAll() {
         if (tieneController == null) {
             try {
@@ -32,7 +32,6 @@ public class TieneControllerTest {
         }
     }
 
- /*
     @BeforeEach
     public void crearTiene() {
         insertarTieneTest();
@@ -46,11 +45,10 @@ public class TieneControllerTest {
     }
 
     // Test
-    
 
     @Test
     public void insertarTieneTest() {
-        tiene = new Tiene(1,2, 3);
+        tiene = new Tiene(1,18,1); 
         try {
             tieneController.insertar(tiene);
         } catch (PokemonException | PersistenciaException e) {
@@ -60,7 +58,7 @@ public class TieneControllerTest {
 
     @Test
     public void validarTest() {
-        Tiene tieneInvalido = new Tiene(1, 2 ,3);
+        Tiene tieneInvalido = new Tiene(0, 0, 0);
         try {
             tieneController.validar(tieneInvalido);
         } catch (PokemonException e) {
@@ -91,7 +89,7 @@ public class TieneControllerTest {
     @Test
     public void eliminarPorIdEntrenadorTest() {
         try {
-            tieneController.eliminar(1 ,2);
+            tieneController.eliminar(1,18); 
         } catch (PokemonException | PersistenciaException e) {
             assertTrue(e.getMessage().contains("El tiene indicado no existe"), "No se recibio el mensaje esperado");
         }
@@ -100,8 +98,8 @@ public class TieneControllerTest {
     @Test
     public void buscartieneTest() {
         try {
-          Tiene tieneEncontrado = tieneController.buscar(tiene.getIdEntrenador() ,tiene.getNumeroPokedex());
-           assertNotNull(tieneEncontrado, "No se debe de obtener un elemento nulo");
+            Tiene tieneEncontrado = tieneController.buscar(tiene.getIdEntrenador(), tiene.getNumeroPokedex());
+            assertNotNull(tieneEncontrado, "No se debe de obtener un elemento nulo");
             assertEquals(tiene, tieneEncontrado, "No se ha encontrado lo esperado");
         } catch (PersistenciaException e) {
             fail("Se ha producido un error en la consulta del pokemon ,e:" + e.getMessage());
@@ -119,12 +117,12 @@ public class TieneControllerTest {
 
     @Test
     public void modificartieneInexistenteTest() {
-        Tiene tieneInexistente = new Tiene(1, 2,3);
+        Tiene tieneInexistente = new Tiene(5000, 5000, 5000);
         try {
             tieneController.modificar(tieneInexistente);
         } catch (PokemonException | PersistenciaException e) {
             assertEquals("El tiene indicado no existe", e.getMessage(), "El mensaje recibido no es el esperado");
         }
     }
-*/
+
 }

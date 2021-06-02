@@ -16,6 +16,13 @@ public class TieneController {
 
     // Constructores
 
+    /**
+     * Constructor de TieneController con entrenadorController y pokemonController
+     * por la dependencia y tieneModelo iniciliazado
+     * 
+     * @throws PersistenciaException con error controlado
+     * @throws FicheroException      con error controlado
+     */
     public TieneController() throws PersistenciaException, FicheroException {
         entrenadorController = new EntrenadorController();
         pokemonController = new PokemonController();
@@ -84,26 +91,28 @@ public class TieneController {
     /**
      * Metodo encargado de realizar la eliminacion
      * 
-     * @param nombre del tiene a eliminar
+     * @param idEntrenador del tiene a eliminar
+     * @param numeroPokedex del tiene a eliminar
      * @throws PokemonException      con mensaje controlado
      * @throws PersistenciaException con mensaje controlado
      */
-    public void eliminar(int NumeroPokedex, int IdEntrenador) throws PokemonException, PersistenciaException {
+    public void eliminar(int idEntrenador, int numeroPokedex) throws PokemonException, PersistenciaException {
         Tiene tiene;
-        tiene = buscar(NumeroPokedex, IdEntrenador);
+        tiene = buscar(idEntrenador, numeroPokedex);
         eliminar(tiene);
     }
 
     /**
-     * Metodo encargado de buscar por el id
+     * Metodo encargado de buscar por las claves
      * 
-     * @param id para localizar el tiene
-     * @return tiene a traves del id
+     * @param idEntrenador del tiene a eliminar
+     * @param numeroPokedex del tiene a eliminar
+     * @return tiene a traves de las claves
      * @throws PersistenciaException con mensaje controlado
      */
-    public Tiene buscar(int NumeroPokedex, int IdEntrenador) throws PersistenciaException {
+    public Tiene buscar(int idEntrenador, int numeroPokedex) throws PersistenciaException {
         Tiene tiene = null;
-        tiene = tieneModelo.buscar(NumeroPokedex, IdEntrenador);
+        tiene = tieneModelo.buscar(idEntrenador, numeroPokedex);
         return tiene;
     }
 
@@ -133,7 +142,7 @@ public class TieneController {
         boolean encontrada = false;
         Tiene tieneEncontrada;
 
-        tieneEncontrada = buscar(tiene.getNumeroPokedex(), tiene.getIdEntrenador());
+        tieneEncontrada = buscar(tiene.getIdEntrenador(), tiene.getNumeroPokedex());
         if (tieneEncontrada != null) {
             encontrada = true;
         }
