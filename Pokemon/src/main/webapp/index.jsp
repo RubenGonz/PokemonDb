@@ -10,8 +10,7 @@
         <title>PobemonDb</title>
 
         <link rel="stylesheet" href="general.css" />
-        <link rel="stylesheet" href="pokeball.css" />
-
+        <link rel="stylesheet" href="principal.css" />
     </head>
 
     <body>
@@ -28,68 +27,63 @@
         </header>
 
         <main>
-            <h1>Bienvenido a</h1>
-            <a href="http://127.0.0.1:5500/Pagina%20Web/PaginaPokemon.html"><img
-                    src="https://fontmeme.com/permalink/210610/42500246a9232da5b50e573f025bfa81.png"
-                    alt="Logo de Pokemon"></a>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit laudantium, nulla accusamus ullam natus
-                eius unde nihil neque obcaecati culpa reiciendis, saepe placeat sapiente ab commodi, architecto sint
-                consequatur cumque!
-                Qui iste tempore reiciendis aperiam veniam totam illo dolorum nulla! Sapiente molestiae officiis rem,
-                asperiores distinctio voluptas facere quibusdam suscipit, iusto error magni consequuntur consequatur
-                incidunt nam voluptate quam commodi.
-                Sit aspernatur voluptas quam porro minima rerum explicabo praesentium illo, cupiditate sunt autem culpa
-                recusandae placeat, omnis illum mollitia minus nihil id ex. Voluptatibus dicta ipsum optio, sit esse
-                consequuntur.
-                Illum provident animi reiciendis! Perspiciatis quam itaque corporis quasi vitae excepturi voluptatibus
-                modi sunt necessitatibus temporibus soluta placeat maxime dolore expedita, commodi explicabo quis velit
-                praesentium ab, repudiandae, ex deleniti.
-                Dolorem numquam ut beatae perferendis repellat hic sequi, veritatis quasi officia debitis qui vero enim
-                odio. Provident quidem esse, commodi cumque aspernatur ab ipsa veniam harum asperiores exercitationem
-                libero soluta?
-                Et cupiditate, dignissimos, modi perferendis laborum perspiciatis recusandae corporis voluptas velit
-                mollitia accusantium iure impedit ab eum nihil, numquam odio expedita iste nam aliquid optio? Autem
-                ipsam ex minus nemo!
-                Nulla aperiam expedita quae dicta commodi est tenetur laborum numquam ad sint atque voluptatibus vel,
-                laudantium modi fugiat ex quibusdam non eius rerum, dolore mollitia corporis doloribus! Explicabo, optio
-                unde!
-                Et placeat natus sunt id magni iure nihil? Id commodi aut voluptate quisquam accusantium, minus
-                reiciendis incidunt beatae magni rem placeat cumque, quod iure soluta unde ut ipsum ipsa adipisci.
-                Magni eligendi, incidunt accusantium, ratione iste nemo sed vel ducimus fugit tempore beatae? Eos hic
-                quia temporibus maxime! Odio doloribus velit deserunt veniam, nesciunt enim magni quas esse modi amet?
-                Vero in culpa voluptas ratione alias sunt. Omnis accusantium architecto inventore impedit! Quod eaque
-                vero voluptas provident perspiciatis architecto ratione aliquid veniam, totam reprehenderit, enim ea
-                aperiam! Iste, dolor nihil?
-                Voluptatum dicta inventore maiores delectus ducimus ratione eligendi, facere beatae eveniet, saepe nam
-                sapiente hic, temporibus aperiam accusamus quibusdam cum earum ut. Odit perferendis nisi quidem ipsa,
-                totam ratione quod!
-                Dolores eos beatae consectetur, eaque deleniti ipsam quidem, incidunt earum placeat accusamus quas iure.
-                Nesciunt amet vel, quo delectus reiciendis et officia molestiae cumque natus at laudantium iusto maiores
-                quaerat?
-                Laborum vitae, odio doloremque ipsa quo, neque eligendi perferendis aliquid suscipit non eum aperiam
-                voluptas atque necessitatibus. Voluptatem inventore suscipit ducimus consequuntur debitis blanditiis
-                reiciendis impedit dolor laudantium, laboriosam mollitia.
-                Illo labore illum vero, placeat minus quisquam nobis ipsa, distinctio dicta rerum, alias aperiam libero
-                atque reprehenderit. Ex quam reprehenderit odit porro praesentium qui fugiat nisi sapiente laboriosam.
-                Eos, molestias?
-                Ab atque provident veritatis nihil quae fuga a architecto ducimus porro. Molestias consectetur vero
-                officia repellat veniam ipsam assumenda perferendis voluptas minus id accusantium, velit voluptates
-                officiis in porro! Repellat?
-                Quasi est dicta ipsa corporis ex similique inventore nam fugit id alias quidem explicabo dignissimos
-                vero impedit soluta expedita, fugiat, autem quos veritatis magni. Aliquid praesentium rem nihil quasi
-                voluptates!
-                Dolore iure accusamus facere consequatur amet. Doloribus fuga enim explicabo eveniet dicta ullam
-                mollitia at sunt illo veniam ipsa aliquid, tenetur ipsam quisquam saepe in commodi minima magni unde
-                quos!
-                Sed sequi suscipit, aperiam fugiat culpa eos delectus consectetur dicta, numquam vel nobis inventore,
-                repellat aliquid! Obcaecati rem nihil numquam, quis est placeat mollitia delectus fugit fugiat nulla
-                quasi. Placeat.
-                Nulla earum dicta nostrum modi sint nisi sequi natus illum saepe enim ipsam laboriosam voluptate
-                quisquam, cum, magni doloribus nobis corrupti consequuntur accusantium unde minima dignissimos deleniti
-                quasi. Necessitatibus, qui.
-                Reiciendis quasi reprehenderit tempora delectus voluptate cupiditate libero facere unde maxime est error
-                voluptatem dignissimos id obcaecati dolorum recusandae dolore, quod natus soluta accusantium? Explicabo
-                porro quae debitis dicta ea.
+            <section class="entradilla">
+                <h1>Bienvenido a</h1>
+                <a href="http://127.0.0.1:5500/Pagina%20Web/PaginaPokemon.html"><img
+                        src="https://fontmeme.com/permalink/210610/42500246a9232da5b50e573f025bfa81.png"
+                        alt="Logo de Pokemon"></a>
+            </section>
+            <div class="separador">
+                <hr>
+                <hr>
+            </div>
+            <section>
+                <p>
+                    PokemonDb es una aplicación dedicada a ayudar a todas las personas que necesitan información sobre
+                    el
+                    amplio mundo de los pokemon. Esta aplicación cuenta con lo necesario para cubrir la primera
+                    generación
+                    de esta saga por completo y pronto
+                    comprenderá las siguientes.
+                </p>
+            </section>
+            <div class="separador">
+                <hr>
+                <hr>
+            </div>
+            <section>
+                <p>
+                    Con esta aplicación podrás hacer consultas como:
+                </p>
+                <ul>
+                    <li>Las caracteríticas de un pokemon</li>
+                    <li>Las estadísticas de un movimiento</li>
+                    <li>La evolucion de un pokemon</li>
+                    <li>Los efectos de los estados</li>
+                    <li>El modo de obtencion de un objeto</li>
+                </ul>
+            </section>
+            <div class="separador">
+                <hr>
+                <hr>
+            </div>
+            <section>
+                <p>
+                    En esta aplicación contamos con dos roles que son los de:
+                </p>
+                <div class="roles">
+                    <div class="rol"><a href="./login.jsp">Administrador</a></div>
+                    <div class="rol"><a href="./login.jsp">Invitado</a></div>
+                </div>
+                <p>
+                    El rol de administrador es capaz de modificar la base de datos. Tiene las opciones de insertar,
+                    eliminar
+                    y modificar informacion de la base de datos.
+                </p>
+                <p>
+                    El rol de invitado cuenta unicamente con la opción de buscar información sobre la base de datos.
+                </p>
+            </section>
         </main>
 
         <footer>
@@ -168,7 +162,6 @@
                 <h1>Ayudanos a mejorar</h1>
                 <textarea name="IdeasMejoras" id="" placeholder="Escribe tus ideas aqui" cols="40" rows="5"></textarea>
             </div>
-
         </footer>
 
     </body>

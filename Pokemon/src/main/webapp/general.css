@@ -116,3 +116,59 @@ footer h1 {
   padding: 5px;
   height: 25px;
 }
+
+@media all and (max-width:1400px) {
+  body {
+    grid-template: 
+    "Header Header  Header" auto
+    ".      Main    ."      auto
+    "Footer Footer  Footer" auto
+    / 20vw   1fr     20vw;
+
+  }
+}
+
+@media all and (max-width:1100px) {
+  body {
+    grid-template: 
+    "Header Header  Header" auto
+    ".      Main    ."      auto
+    "Footer Footer  Footer" auto
+    / 15vw   1fr     15vw;
+
+  }
+}
+
+@media all and (max-width:900px) {
+  body {
+    grid-template: 
+    "Header Header  Header" auto
+    ".      Main    ."      auto
+    "Footer Footer  Footer" auto
+    / 10vw   1fr     10vw;
+
+  }
+}
+
+@media all and (max-width:800px) {
+  body {
+    grid-template: 
+    "Header Header  Header" auto
+    ".      Main    ."      auto
+    "Footer Footer  Footer" auto
+    / 5vw   1fr     5vw;
+
+  }
+}
+
+@media all and (max-width:650px) {
+  body {
+    grid-template: 
+    "Header" auto
+    "Main  " auto
+    "Footer" auto
+    / 1fr;
+
+  }
+}
+
