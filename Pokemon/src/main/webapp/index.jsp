@@ -7,7 +7,7 @@
         <meta charset='UTF-8'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
         <meta name='author' content='Ruben Gonzalez Rodriguez'>
-        <title>PobemonDb</title>
+        <title>PokemonDb</title>
 
         <link rel="stylesheet" href="general.css" />
         <link rel="stylesheet" href="principal.css" />
@@ -114,9 +114,9 @@
                 <div class="contribuidores">
                     <div class="enlacesFooter">
                         <div>
-                            <a href="https://www.google.com/"><img src="./Imagenes/IconoGmail.png"
+                            <a href="mailto:ruben30303030@gmail.com"><img src="./Imagenes/IconoGmail.png"
                                     alt="Icono de Gmail"></a>
-                            <a href="https://www.google.com/">Ruben30303030@gmail.com</a>
+                            <a href="mailto:ruben30303030@gmail.com">Ruben30303030@gmail.com</a>
                         </div>
                         <div>
                             <a href="https://github.com/RubenGonz"><img src="./Imagenes/IconoGitHub.png"
@@ -131,28 +131,28 @@
                         </div>
                         <div>
                             <img src="./Imagenes/IconoTelefono.png" alt="Icono de un telefono"></a>
-                            <span>RubenGonz</span>
+                            <span>650 341 025</span>
                         </div>
                     </div>
                     <div class="enlacesFooter">
                         <div>
                             <a href="https://www.google.com/"><img src="./Imagenes/IconoGmail.png"
                                     alt="Icono de Gmail"></a>
-                            <a href="https://www.google.com/">Jose pon tus cosas</a>
+                            <a href="https://www.google.com/">Jose12linares@gmail.com</a>
                         </div>
                         <div>
                             <a href="https://github.com/RubenGonz"><img src="./Imagenes/IconoGitHub.png"
                                     alt="Icono de github"></a>
-                            <a href="https://github.com/RubenGonz">Jose pon tus cosas</a>
+                            <a href="https://github.com/Joseman2000LR">Joseman2000LR</a>
                         </div>
                         <div>
                             <a href="https://www.facebook.com/profile.php?id=100011142169001"><img
                                     src="./Imagenes/IconoFacebook.png" alt="Icono de facebook"></a>
-                            <a href="https://www.facebook.com/profile.php?id=100011142169001">Jose pon tus cosas</a>
+                            <a href="https://www.facebook.com/profile.php?id=100011142169001">Jose Manuel Linares</a>
                         </div>
                         <div>
                             <img src="./Imagenes/IconoTelefono.png" alt="Icono de un telefono"></a>
-                            <span>Jose pon tus cosas</span>
+                            <span>JoseMLinares</span>
                         </div>
                     </div>
                 </div>
