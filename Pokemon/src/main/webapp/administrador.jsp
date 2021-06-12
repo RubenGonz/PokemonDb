@@ -14,7 +14,7 @@
             <h1>Administrador </h1>
             <br>
             <form method="post">
-                <input type="password" name="p" placeholder="Password" required="required" />
+                <input type="password"  placeholder="Password" required="required" />
                 <br>
                 <a href="administrador.jsp" class="style-5"><input type="button" value="Enter"></a>
             </form>
