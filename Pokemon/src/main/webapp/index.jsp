@@ -10,6 +10,7 @@
         <title>PobemonDb</title>
 
         <link rel="stylesheet" href="general.css" />
+        <link rel="stylesheet" href="pokeball.css" />
 
     </head>
 
@@ -22,8 +23,8 @@
                         alt="Logo de Pokemon"></a>
             </div>
             <div></div>
-            <div class="registro">Register</div>
-            <div class="login"><a href="./login.jsp">Login</a></div>
+            <div class="registro"><a href="./login.jsp">Login</a></div>
+            <div class="login"><a href="./signUp.jsp">Sign Up</a></div>
         </header>
 
         <main>
@@ -31,81 +32,68 @@
             <a href="http://127.0.0.1:5500/Pagina%20Web/PaginaPokemon.html"><img
                     src="https://fontmeme.com/permalink/210610/42500246a9232da5b50e573f025bfa81.png"
                     alt="Logo de Pokemon"></a>
-            <p>Aqui veremos una apliacion capaz de blabla bla bla bla bla bla</p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos aliquam tempore iure eligendi distinctio fuga
-            provident doloremque saepe vel veritatis, numquam laborum nulla cum possimus facere beatae! Eum, magnam
-            illum?
-            Sit cupiditate voluptatem sapiente velit beatae rerum ipsa architecto quasi atque iure recusandae fugit
-            totam,
-            veritatis esse eaque impedit nobis laudantium. At non ipsam magni perspiciatis saepe, doloremque vero illo?
-            Impedit veritatis neque officia ipsam animi. Fuga perspiciatis magni delectus illum, nobis accusamus quasi
-            asperiores error nulla ullam, ad quam excepturi sequi, reiciendis beatae? Placeat earum nam commodi dolores
-            aut!
-            Excepturi ratione et iste. Nobis similique iste ratione magni, animi eaque doloribus exercitationem eveniet
-            nesciunt consectetur porro a distinctio commodi assumenda ipsam voluptatum hic ab quam. Quibusdam dolor eum
-            quo.
-            Voluptatibus unde est temporibus suscipit alias voluptas, minus soluta aperiam ad veniam, in quasi quam
-            autem
-            aspernatur, quaerat sequi laboriosam? Sunt dolor quidem repellendus numquam nobis autem rerum quibusdam
-            neque.
-            Fugiat at temporibus illo error tenetur rerum, velit, cum perspiciatis inventore similique quidem quis saepe
-            modi cumque obcaecati optio? Minima quas placeat facilis soluta reprehenderit voluptate perferendis itaque
-            officia veritatis!
-            Impedit iusto repudiandae nemo, similique, laudantium beatae sint, officia iste suscipit provident iure eius
-            commodi adipisci cupiditate! Voluptas amet modi quae, labore quod odit rem nostrum in praesentium? Officiis,
-            repellat.
-            Debitis, ducimus! In fugiat excepturi doloribus ex ad nisi dolorum, molestiae aliquid nesciunt eius,
-            repellat
-            consequuntur aspernatur laboriosam enim iure minima dicta commodi minus impedit porro nam odio? Cumque,
-            culpa.
-            Perferendis alias odio praesentium exercitationem explicabo molestias, modi iste fuga, temporibus mollitia
-            nobis
-            eligendi! Assumenda perspiciatis aliquam, dolor aliquid soluta consectetur quo similique iste sapiente
-            pariatur
-            libero. Minima, quibusdam id.
-            Deserunt explicabo dolore fugiat minima voluptatibus ipsam culpa vero aliquam beatae perspiciatis doloribus
-            iure
-            quos unde voluptatum expedita consequatur nam id voluptas ipsa, amet, quo corporis numquam. Blanditiis,
-            eveniet
-            adipisci!
-            Ullam minima qui reiciendis provident modi reprehenderit temporibus fugiat quae facilis? Fugit distinctio
-            alias
-            dicta ad eos, laboriosam illum, inventore earum quasi sequi quas doloribus eum consectetur voluptas quo
-            nisi.
-            Dolores, velit alias! Laudantium aspernatur accusamus veniam, non delectus eligendi ullam iusto eveniet iste
-            aliquam consectetur fuga cupiditate odit asperiores pariatur tenetur exercitationem doloribus quaerat
-            excepturi
-            animi ex tempora. Doloremque.
-            Nobis magnam expedita corrupti aperiam placeat ratione inventore sunt illum! Dicta nihil id ipsa distinctio
-            ea
-            quaerat voluptatum adipisci corrupti eveniet quos magni exercitationem et, sapiente, quidem, officia
-            perferendis
-            officiis.
-            Quidem vitae amet, impedit aliquid officiis quae explicabo dignissimos earum placeat quisquam est obcaecati
-            esse
-            expedita, reprehenderit totam accusamus cum iure quas quibusdam, iusto provident cupiditate? Tempora,
-            asperiores
-            aspernatur! Quo.
-            Similique cum facilis in repudiandae accusantium laudantium velit fugiat iste. Odit dicta et veritatis,
-            optio
-            ipsum est, possimus omnis sunt hic reiciendis, reprehenderit id consectetur cupiditate modi rem in
-            dignissimos!
-            Nihil eaque quibusdam fugit eum obcaecati, necessitatibus iusto, similique laudantium dolores nesciunt
-            libero
-            reiciendis ad alias enim, illo sunt atque debitis omnis dolor quia. Corporis, temporibus. Qui omnis amet
-            earum!
-            Praesentium incidunt adipisci saepe alias harum velit asperiores voluptatibus dolor a facere debitis
-            veritatis
-            magni excepturi sint voluptatum blanditiis eaque dolore nobis consequuntur, omnis accusamus. Dolore iste
-            esse ad
-            impedit.
-            Nam doloribus dolorum commodi magni consequatur quae totam saepe consequuntur tenetur. Inventore ad placeat,
-            tempora minima soluta reiciendis perferendis modi tempore totam sapiente laboriosam repellendus qui, impedit
-            tenetur quibusdam at.
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit laudantium, nulla accusamus ullam natus
+                eius unde nihil neque obcaecati culpa reiciendis, saepe placeat sapiente ab commodi, architecto sint
+                consequatur cumque!
+                Qui iste tempore reiciendis aperiam veniam totam illo dolorum nulla! Sapiente molestiae officiis rem,
+                asperiores distinctio voluptas facere quibusdam suscipit, iusto error magni consequuntur consequatur
+                incidunt nam voluptate quam commodi.
+                Sit aspernatur voluptas quam porro minima rerum explicabo praesentium illo, cupiditate sunt autem culpa
+                recusandae placeat, omnis illum mollitia minus nihil id ex. Voluptatibus dicta ipsum optio, sit esse
+                consequuntur.
+                Illum provident animi reiciendis! Perspiciatis quam itaque corporis quasi vitae excepturi voluptatibus
+                modi sunt necessitatibus temporibus soluta placeat maxime dolore expedita, commodi explicabo quis velit
+                praesentium ab, repudiandae, ex deleniti.
+                Dolorem numquam ut beatae perferendis repellat hic sequi, veritatis quasi officia debitis qui vero enim
+                odio. Provident quidem esse, commodi cumque aspernatur ab ipsa veniam harum asperiores exercitationem
+                libero soluta?
+                Et cupiditate, dignissimos, modi perferendis laborum perspiciatis recusandae corporis voluptas velit
+                mollitia accusantium iure impedit ab eum nihil, numquam odio expedita iste nam aliquid optio? Autem
+                ipsam ex minus nemo!
+                Nulla aperiam expedita quae dicta commodi est tenetur laborum numquam ad sint atque voluptatibus vel,
+                laudantium modi fugiat ex quibusdam non eius rerum, dolore mollitia corporis doloribus! Explicabo, optio
+                unde!
+                Et placeat natus sunt id magni iure nihil? Id commodi aut voluptate quisquam accusantium, minus
+                reiciendis incidunt beatae magni rem placeat cumque, quod iure soluta unde ut ipsum ipsa adipisci.
+                Magni eligendi, incidunt accusantium, ratione iste nemo sed vel ducimus fugit tempore beatae? Eos hic
+                quia temporibus maxime! Odio doloribus velit deserunt veniam, nesciunt enim magni quas esse modi amet?
+                Vero in culpa voluptas ratione alias sunt. Omnis accusantium architecto inventore impedit! Quod eaque
+                vero voluptas provident perspiciatis architecto ratione aliquid veniam, totam reprehenderit, enim ea
+                aperiam! Iste, dolor nihil?
+                Voluptatum dicta inventore maiores delectus ducimus ratione eligendi, facere beatae eveniet, saepe nam
+                sapiente hic, temporibus aperiam accusamus quibusdam cum earum ut. Odit perferendis nisi quidem ipsa,
+                totam ratione quod!
+                Dolores eos beatae consectetur, eaque deleniti ipsam quidem, incidunt earum placeat accusamus quas iure.
+                Nesciunt amet vel, quo delectus reiciendis et officia molestiae cumque natus at laudantium iusto maiores
+                quaerat?
+                Laborum vitae, odio doloremque ipsa quo, neque eligendi perferendis aliquid suscipit non eum aperiam
+                voluptas atque necessitatibus. Voluptatem inventore suscipit ducimus consequuntur debitis blanditiis
+                reiciendis impedit dolor laudantium, laboriosam mollitia.
+                Illo labore illum vero, placeat minus quisquam nobis ipsa, distinctio dicta rerum, alias aperiam libero
+                atque reprehenderit. Ex quam reprehenderit odit porro praesentium qui fugiat nisi sapiente laboriosam.
+                Eos, molestias?
+                Ab atque provident veritatis nihil quae fuga a architecto ducimus porro. Molestias consectetur vero
+                officia repellat veniam ipsam assumenda perferendis voluptas minus id accusantium, velit voluptates
+                officiis in porro! Repellat?
+                Quasi est dicta ipsa corporis ex similique inventore nam fugit id alias quidem explicabo dignissimos
+                vero impedit soluta expedita, fugiat, autem quos veritatis magni. Aliquid praesentium rem nihil quasi
+                voluptates!
+                Dolore iure accusamus facere consequatur amet. Doloribus fuga enim explicabo eveniet dicta ullam
+                mollitia at sunt illo veniam ipsa aliquid, tenetur ipsam quisquam saepe in commodi minima magni unde
+                quos!
+                Sed sequi suscipit, aperiam fugiat culpa eos delectus consectetur dicta, numquam vel nobis inventore,
+                repellat aliquid! Obcaecati rem nihil numquam, quis est placeat mollitia delectus fugit fugiat nulla
+                quasi. Placeat.
+                Nulla earum dicta nostrum modi sint nisi sequi natus illum saepe enim ipsam laboriosam voluptate
+                quisquam, cum, magni doloribus nobis corrupti consequuntur accusantium unde minima dignissimos deleniti
+                quasi. Necessitatibus, qui.
+                Reiciendis quasi reprehenderit tempora delectus voluptate cupiditate libero facere unde maxime est error
+                voluptatem dignissimos id obcaecati dolorum recusandae dolore, quod natus soluta accusantium? Explicabo
+                porro quae debitis dicta ea.
         </main>
 
         <footer>
-            <div class="informacionProyecto">
+            <div>
                 <h1>Información del proyecto</h1>
                 <div class="enlacesFooter">
                     <div>
@@ -113,34 +101,74 @@
                                 alt="Icono de github"></a>
                         <a href="https://github.com/RubenGonz/PokemonDb">PokemonDb</a>
                     </div>
-                    <p>Para más infomación de la disponible puede contactar con los contribuidores usando los enlaces
-                        facilitados</p>
+                    <div>
+                        <a href="https://github.com/RubenGonz/PokemonDb/wiki/PokemonDb-base-de-datos"><img
+                                src="./Imagenes/IconoGitHub.png" alt="Icono de github"></a>
+                        <a href="https://github.com/RubenGonz/PokemonDb/wiki/PokemonDb-base-de-datos">Nuestra base de
+                            datos</a>
+                    </div>
+                    <div>
+                        <a href="https://github.com/RubenGonz/PokemonDb/wiki/Manual-del-Usuario"><img
+                                src="./Imagenes/IconoGitHub.png" alt="Icono de github"></a>
+                        <a href="https://github.com/RubenGonz/PokemonDb/wiki/Manual-del-Usuario">Manuales</a>
+                    </div>
                 </div>
             </div>
 
-            <div class="contribuidores">
+            <div>
                 <h1>Contribuidores</h1>
-                <div class="enlacesFooter">
-                    <div>
-                        <a href="https://www.google.com/"><img src="./Imagenes/IconoGmail.png" alt="Icono de Gmail"></a>
-                        <a href="https://www.google.com/">Ruben30303030@gmail.com</a>
+                <div class="contribuidores">
+                    <div class="enlacesFooter">
+                        <div>
+                            <a href="https://www.google.com/"><img src="./Imagenes/IconoGmail.png"
+                                    alt="Icono de Gmail"></a>
+                            <a href="https://www.google.com/">Ruben30303030@gmail.com</a>
+                        </div>
+                        <div>
+                            <a href="https://github.com/RubenGonz"><img src="./Imagenes/IconoGitHub.png"
+                                    alt="Icono de github"></a>
+                            <a href="https://github.com/RubenGonz">RubenGonz</a>
+                        </div>
+                        <div>
+                            <a href="https://www.facebook.com/profile.php?id=100011142169001"><img
+                                    src="./Imagenes/IconoFacebook.png" alt="Icono de facebook"></a>
+                            <a href="https://www.facebook.com/profile.php?id=100011142169001">Rubén González
+                                Rodríguez</a>
+                        </div>
+                        <div>
+                            <img src="./Imagenes/IconoTelefono.png" alt="Icono de un telefono"></a>
+                            <span>RubenGonz</span>
+                        </div>
                     </div>
-                    <div>
-                        <a href="https://github.com/RubenGonz"><img src="./Imagenes/IconoGitHub.png"
-                                alt="Icono de github"></a>
-                        <a href="https://github.com/RubenGonz">RubenGonz</a>
-                    </div>
-                    <div>
-                        <a href="https://www.facebook.com/profile.php?id=100011142169001"><img
-                                src="./Imagenes/IconoFacebook.png" alt="Icono de facebook"></a>
-                        <a href="https://www.facebook.com/profile.php?id=100011142169001">Rubén González Rodríguez</a>
-                    </div>
-                    <div>
-                        <img src="./Imagenes/IconoTelefono.png" alt="Icono de un telefono"></a>
-                        <span>650 341 025</span>
+                    <div class="enlacesFooter">
+                        <div>
+                            <a href="https://www.google.com/"><img src="./Imagenes/IconoGmail.png"
+                                    alt="Icono de Gmail"></a>
+                            <a href="https://www.google.com/">Jose pon tus cosas</a>
+                        </div>
+                        <div>
+                            <a href="https://github.com/RubenGonz"><img src="./Imagenes/IconoGitHub.png"
+                                    alt="Icono de github"></a>
+                            <a href="https://github.com/RubenGonz">Jose pon tus cosas</a>
+                        </div>
+                        <div>
+                            <a href="https://www.facebook.com/profile.php?id=100011142169001"><img
+                                    src="./Imagenes/IconoFacebook.png" alt="Icono de facebook"></a>
+                            <a href="https://www.facebook.com/profile.php?id=100011142169001">Jose pon tus cosas</a>
+                        </div>
+                        <div>
+                            <img src="./Imagenes/IconoTelefono.png" alt="Icono de un telefono"></a>
+                            <span>Jose pon tus cosas</span>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <div>
+                <h1>Ayudanos a mejorar</h1>
+                <textarea name="IdeasMejoras" id="" placeholder="Escribe tus ideas aqui" cols="40" rows="5"></textarea>
+            </div>
+
         </footer>
 
     </body>

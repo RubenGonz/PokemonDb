@@ -25,6 +25,7 @@ header {
 
 .login, .registro {
   margin: 5px;
+  padding: 10px;
 
   display: flex;
   justify-content: center;
@@ -38,10 +39,6 @@ header {
   max-height: 2rem;
 }
 
-.login, .registro {
-  padding: 10px;
-}
-
 .logo {
   padding-top: 7px;
   padding-left: 10px;
@@ -52,27 +49,62 @@ header {
   height: 5rem;
 }
 
+header a:link,header a:hover,header a:visited {
+  color: black;
+  text-decoration: none;
+}
+
 main {
   grid-area: Main;
 
   padding: 10px;
+
+  min-width: 40vw;
   background-color: white;
   box-shadow: 5px 0px 10px black, -5px 0px 10px black;
 }
 
 footer {
   grid-area: Footer;
-  display: flex;
   padding-top: 10px;
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
 
   background: red;
   box-shadow: 0px 20px 5px inset black;
   color: white;  
 }
 
+footer > * {
+  margin: 50px;
+
+  width: 33% -5px;
+}
+
+footer h1 {
+  text-align: center;
+}
+
+.contribuidores {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.contribuidores > div {
+  margin: 5px;
+  margin-top: 20px;
+  padding-left: 40px;
+  width: 300px;
+}
+
 .enlacesFooter div {
   display: flex;
   align-items: center;
+
+  width: 50% -5px;
 }
 
 .enlacesFooter a:link,.enlacesFooter a:hover,.enlacesFooter a:visited {
@@ -83,10 +115,4 @@ footer {
 .enlacesFooter img {
   padding: 5px;
   height: 25px;
-}
-
-.informacionProyecto, .contribuidores {
-  margin: 50px;
-
-  max-width: 33vw;
 }
