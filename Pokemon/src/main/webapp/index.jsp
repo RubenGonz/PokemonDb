@@ -8,6 +8,7 @@
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
         <meta name='author' content='Ruben Gonzalez Rodriguez'>
         <title>PokemonDb</title>
+        <link rel="shortcut icon" href="./Imagenes/Pokeball.png">
 
         <link rel="stylesheet" href="general.css" />
         <link rel="stylesheet" href="principal.css" />
