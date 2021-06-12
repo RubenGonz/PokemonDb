@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: es.iespuertolacruz.pokemon.api.MovimientoTest
 -------------------------------------------------------------------------------
-<<<<<<< HEAD
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in es.iespuertolacruz.pokemon.api.MovimientoTest
-=======
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in es.iespuertolacruz.pokemon.api.MovimientoTest
->>>>>>> f39b4903b0f36bb22ae8848ee3ac4f2c07c515e4
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in es.iespuertolacruz.pokemon.api.MovimientoTest

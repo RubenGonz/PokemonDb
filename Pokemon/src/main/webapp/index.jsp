@@ -72,8 +72,8 @@
                     En esta aplicación contamos con dos roles que son los de:
                 </p>
                 <div class="roles">
-                    <div class="rol"><a href="./login.jsp">Administrador</a></div>
-                    <div class="rol"><a href="./login.jsp">Invitado</a></div>
+                    <div class="rol"><a href="./administrador.jsp">Administrador</a></div>
+                    <div class="rol"><a href="./usuario.jsp">Invitado</a></div>
                 </div>
                 <p>
                     El rol de administrador es capaz de modificar la base de datos. Tiene las opciones de insertar,
