@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+
+  display: grid;
+  grid-template: 
+  "Header Header  Header" auto
+  ".      Main    ."      auto
+  "Footer Footer  Footer" auto
+  / 25vw   1fr     25vw;
+
+  background-image: url(./Imagenes/FondoPokeballs.png); 
+  background-repeat: repeat;
+}
+
+header {
+  margin: 0;
+  grid-area: Header;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+
+  background: red;
+  box-shadow: 0px -20px 5px inset black;  
+}
+
+.login, .registro {
+  margin: 5px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 10px;
+
+  max-height: 2rem;
+}
+
+.login, .registro {
+  padding: 10px;
+}
+
+.logo {
+  padding-top: 7px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.logo img {
+  height: 5rem;
+}
+
+main {
+  grid-area: Main;
+
+  padding: 10px;
+  background-color: white;
+  box-shadow: 5px 0px 10px black, -5px 0px 10px black;
+}
+
+footer {
+  grid-area: Footer;
+  display: flex;
+  padding-top: 10px;
+
+  background: red;
+  box-shadow: 0px 20px 5px inset black;
+  color: white;  
+}
+
+.enlacesFooter div {
+  display: flex;
+  align-items: center;
+}
+
+.enlacesFooter a:link,.enlacesFooter a:hover,.enlacesFooter a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+.enlacesFooter img {
+  padding: 5px;
+  height: 25px;
+}
+
+.informacionProyecto, .contribuidores {
+  margin: 50px;
+
+  max-width: 33vw;
+}
