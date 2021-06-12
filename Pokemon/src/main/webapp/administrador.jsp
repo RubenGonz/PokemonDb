@@ -16,7 +16,6 @@
             <form method="post">
                 <input type="password" name="p" placeholder="Password" required="required" />
                 <br>
-                <br>
                 <a href="administrador.jsp" class="style-5"><input type="button" value="Enter"></a>
             </form>
         </div>
