@@ -10,19 +10,21 @@
     </head>
 
     <body>
-
-        <div class="login">
-            <h1>Login</h1>
+    
+        <div class="login" >
+            <h1 class="name-title">
+            Login </h1>
             <form method="post">
                 <div class="input">
-                    <a href="usuario.jsp"><input type="button" value="Usuario ⚡"></a>
+                    <a href="usuario.jsp"><input type="button" value="Usuario / User ⚡"></a>
                 </div>
                 <div class="input">
-                    <a href="administrador.jsp" class="style-5"><input type="button" value="Administrador ⚡"></a>
+                    <a href="administrador.jsp" class="style-5"><input type="button" value="Administrador / Administrator  ⚡"></a>
                 </div>
 
             </form>
         </div>
+        
     </body>
 
     </html>

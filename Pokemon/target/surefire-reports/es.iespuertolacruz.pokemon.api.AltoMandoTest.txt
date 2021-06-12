@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: es.iespuertolacruz.pokemon.api.AltoMandoTest
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.131 s - in es.iespuertolacruz.pokemon.api.AltoMandoTest
+=======
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s - in es.iespuertolacruz.pokemon.api.AltoMandoTest
+>>>>>>> f39b4903b0f36bb22ae8848ee3ac4f2c07c515e4
