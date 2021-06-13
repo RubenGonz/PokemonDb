@@ -38,12 +38,12 @@
                 </div>
                 <div class="mainFormulario">
           <form method="post">
-            <a href="numeroPokedex.jsp"><input class="boton" type="button" value="Buscar  por su numero en la pokedex"></a>
-            <a href=".jsp"><input class="boton" type="button" value="Buscar un pokemon por su nombre"></a>
-            <a href=".jsp"><input class="boton" type="button" value="Buscar pokemons por su tipo"></a>
-            <a href="o.jsp"><input class="boton" type="button" value="Buscar los pokemon de un entrenador"></a>
-            <a href=".jsp"><input class="boton" type="button" value="Buscar pokemons que tienen un movimiento"></a>
-            <a href=".jsp"><input class="boton" type="button" value="Buscar los pokemon que tiene un entrenador"></a>
+            <a href="buscarnumeroPokedex.jsp"><input class="boton" type="button" value="Buscar  por su numero en la pokedex"></a>
+            <a href="buscarNombrePokemon.jsp"><input class="boton" type="button" value="Buscar un pokemon por su nombre"></a>
+            <a href="buscarTipo.jsp"><input class="boton" type="button" value="Buscar pokemons por su tipo"></a>
+            <a href="buscarpokemonEntrenado.jsp"><input class="boton" type="button" value="Buscar los pokemon de un entrenador"></a>
+            <a href="buscarPokemonMovimiento.jsp"><input class="boton" type="button" value="Buscar pokemons que tienen un movimiento"></a>
+            <a href="buscarPokemonEntrenador.jsp"><input class="boton" type="button" value="Buscar los pokemon que tiene un entrenador"></a>
           </form>
             </section>
 
