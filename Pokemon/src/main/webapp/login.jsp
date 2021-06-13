@@ -10,6 +10,7 @@
         <link rel="shortcut icon" href="./Imagenes/Pokeball.png">
         <link rel="stylesheet" href="general.css" />
         <link rel="stylesheet" href="login.css" />
+        <link rel="stylesheet" href="pokeball.css" />
     </head>
 
     <body>
@@ -41,16 +42,16 @@
                         <h3>Elija su rol</h3>
 
                         <p>Podrá realizar busquedas en la base de datos</p>
-                        <div class="rol">
-                            <a href="usuario.jsp"><input type="button" value="Invitado"></a>
-                        </div>
+                        <a href="usuario.jsp"><input class="boton" type="button" value="Invitado"></a>
                         <br>
                         <p>Podrá modificar la información de la base de datos</p>
-                        <div class="rol">
-                            <a href="administrador.jsp"><input type="button" value="Administrador"></a>
-                        </div>
+                        <a href="administrador.jsp"><input class="boton" type="button" value="Administrador"></a>
                     </form>
                 </div>
+            </section>
+
+            <section class="container">
+                <div class="pokeball"></div>
             </section>
         </main>
 

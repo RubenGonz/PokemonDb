@@ -1,90 +1,90 @@
 .container {
-    margin-top: 60px;
+  margin-top: 60px;
+}
+
+.pokeball {
+  box-sizing: border-box;
+  --pokeball-size: 250px;
+  --pokeball-inner-size: 80px;
+  --pokeball-border-size: 10px;
+
+  --before-diameter: var(--pokeball-inner-size);
+  --after-diameter: calc(var(--before-diameter) - (var(--pokeball-border-size) * 3));
+
+  border: var(--pokeball-border-size) solid black;
+  width: var(--pokeball-size);
+  height: var(--pokeball-size);
+  border-radius: 100%;
+  margin: 0 auto;
+  position: relative;
+
+  background: linear-gradient(
+    180deg,
+    red 0%,
+    red 44%,
+    black 44%,
+    black 56%,
+    white 56%,
+    white 100%
+  );
+}
+
+.pokeball:before,
+.pokeball:after {
+  content: " ";
+  border-radius: 100%;
+  display: block;
+  position: absolute;
+}
+
+.pokeball:before {
+  width: var(--before-diameter);
+  height: var(--before-diameter);
+  top: calc(50% - var(--before-diameter) / 2);
+  left: calc(50% - var(--before-diameter) / 2);
+  background: black;
+}
+
+.pokeball:after {
+  width: var(--after-diameter);
+  height: var(--after-diameter);
+
+  top: calc(50% - (((var(--before-diameter) - (var(--pokeball-border-size) * 3)) / 2) + var(--pokeball-border-size)));
+  left: calc(50% - (((var(--before-diameter) - (var(--pokeball-border-size) * 3)) / 2) + var(--pokeball-border-size)));
+
+  background: white;
+  border: double var(--pokeball-border-size) black;
+}
+
+.pokeball-animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-name: shake;
+}
+
+@keyframes shake {
+  from {
+    transform: none;
   }
-  
-  .pokeball {
-    box-sizing: border-box;
-    --pokeball-size: 250px;
-    --pokeball-inner-size: 80px;
-    --pokeball-border-size: 10px;
-  
-    --before-diameter: var(--pokeball-inner-size);
-    --after-diameter: calc(var(--before-diameter) - (var(--pokeball-border-size) * 3));
-  
-    border: var(--pokeball-border-size) solid #262122;
-    width: var(--pokeball-size);
-    height: var(--pokeball-size);
-    border-radius: 100%;
-    margin: 0 auto;
-    position: relative;
-  
-    background: linear-gradient(
-      150deg,
-      red 0%,
-      red 44%,
-      #262122 44%,
-      #262122 56%,
-      white 56%,
-      white 100%
-    );
+
+  20% {
+    transform: translate3d(-20%, 0, 0) rotate3d(0, 0, 1, -10deg);
   }
-  
-  .pokeball:before,
-  .pokeball:after {
-    content: " ";
-    border-radius: 100%;
-    display: block;
-    position: absolute;
+
+  40% {
+    transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 5deg);
   }
-  
-  .pokeball:before {
-    width: var(--before-diameter);
-    height: var(--before-diameter);
-    top: calc(50% - var(--before-diameter) / 2);
-    left: calc(50% - var(--before-diameter) / 2);
-    background: #262122;
+
+  50% {
+    transform: translate3d(-10%, 0, 0) rotate3d(0, 0, 1, -10deg);
   }
-  
-  .pokeball:after {
-    width: var(--after-diameter);
-    height: var(--after-diameter);
-  
-    top: calc(50% - (((var(--before-diameter) - (var(--pokeball-border-size) * 3)) / 2) + var(--pokeball-border-size)));
-    left: calc(50% - (((var(--before-diameter) - (var(--pokeball-border-size) * 3)) / 2) + var(--pokeball-border-size)));
-  
-    background: #fff;
-    border: double var(--pokeball-border-size) #262122;
+
+  60% {
+    transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 5deg);
   }
-  
-  .pokeball-animated {
-    animation-duration: 1s;
-    animation-fill-mode: both;
-    animation-iteration-count: infinite;
-    animation-name: shake;
+
+  to {
+    transform: none;
   }
-  
-  @keyframes shake {
-    from {
-      transform: none;
-    }
-  
-    20% {
-      transform: translate3d(-20%, 0, 0) rotate3d(0, 0, 1, -10deg);
-    }
-  
-    40% {
-      transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 5deg);
-    }
-  
-    50% {
-      transform: translate3d(-10%, 0, 0) rotate3d(0, 0, 1, -10deg);
-    }
-  
-    60% {
-      transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 5deg);
-    }
-  
-    to {
-      transform: none;
-    }
-  }
+}
