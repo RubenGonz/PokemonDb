@@ -22,7 +22,7 @@
             </div>
             <div></div>
             <div class="enlaceHeader"><a href="./index.jsp">Home</a></div>
-            <div class="enlaceHeader"><a href="./signUp.jsp">Sign Up</a></div>
+            <div class="enlaceHeader"><a href="./login.jsp">Login</a></div>
         </header>
 
         <main>
@@ -34,16 +34,22 @@
 
             <section class="formulario">
                 <div class="cabeceraFormulario">
-                    <h1>Administrador</h1>
+                    <h1>Sign Up</h1>
                 </div>
+
                 <div class="mainFormulario">
                     <form method="post">
                         <br>
-                        <label for="contraseña">Introduca la contraseña del administraddor</label>
+                        <label for="nombre">Introduzca su nombre</label>
+                        <input type="text" id="nombre" placeholder="Intruzca el nombre aquí" required="required" />
                         <br>
-                        <input type="password" id="contraseña" placeholder="Contraseña" required="required" />
+                        <label for="apellidos">Introduzca sus apellidos</label>
+                        <input type="text" id="apellidos" placeholder="Intruzca los apellidos aquí" required="required" />
                         <br>
-                        <a href="administrador.jsp"><input class="boton" type="button" value="Terminar logueo"></a>
+                        <label for="correo">Introduzca su correo</label>
+                        <input type="text" id="correo" placeholder="Intruzca el correo aquí" required="required" />
+                        <br>
+                        <a href="index.jsp"><input class="boton" type="button" value="Terminar registro"></a>
                     </form>
                 </div>
             </section>
@@ -98,7 +104,7 @@
                         </div>
                         <div>
                             <img src="./Imagenes/IconoTelefono.png" alt="Icono de un telefono"></a>
-                            <span>650 341 025</span>
+                            <span>RubenGonz</span>
                         </div>
                     </div>
                     <div class="enlacesFooter">
