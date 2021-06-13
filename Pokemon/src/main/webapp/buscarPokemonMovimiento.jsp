@@ -34,12 +34,12 @@
 
             <section class="formulario">
                 <div class="cabeceraFormulario">
-                    <h1>Buscar numero pokedex</h1>
+                    <h1>Buscar el pokemon que tienen un movimiento </h1>
                 </div>
                 <div class="mainFormulario">
                     <form method="post">
                         <br>
-                        <label for="contraseña">Introduca numero en la pokedex de pokemon a buscar </label>
+                        <label for="contraseña"> Introduca el pokemon que tienen un movimiento a buscar </label>
                         <br>
                         <input type="password" id="contraseña" placeholder="" required="required" />
                         <br>
