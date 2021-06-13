@@ -1,0 +1,79 @@
+body {
+    grid-template: 
+    "Header" auto
+    "Main"   auto
+    "Footer" auto
+    / 1fr;
+}
+
+main {
+
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.entradilla {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.entradilla img{
+    margin-top: 50px;
+}
+
+.formulario {
+    border: 5px solid black;
+    width: 300px;
+}
+
+.mainFormulario {
+    border-top: 5px solid black;
+    border-bottom: 5px solid black;
+    background-color: white;
+}
+
+.mainFormulario form {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.rol {
+    margin: 5px;
+
+    background-color: red;
+    border: 2px solid black;
+    border-radius: 10px;
+
+    font-weight: bold;
+}
+
+input {
+    background-color: red;
+    color: white;
+    margin: 5px;
+    border: none;
+}
+
+form a:link,form a:hover,form a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+.cabeceraFormulario, .pieFormulario{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    background-color: red;
+
+    display: flex;
+}
+
+.formulario h1 {
+    text-align: center;
+    margin: 0;
+    color: white;
+}

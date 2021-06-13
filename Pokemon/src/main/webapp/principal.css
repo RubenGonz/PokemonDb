@@ -29,16 +29,12 @@ hr {
 .rol {
     margin: 5px;
     padding: 10px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 2rem;
 
     background-color: red;
     border: 2px solid black;
     border-radius: 10px;
 
-    max-height: 2rem;
     font-weight: bold;
 }
 
